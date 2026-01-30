@@ -500,7 +500,10 @@ class _SurveysPageState extends State<SurveysPage> {
                 const SizedBox(height: 12),
               ],
               const SizedBox(height: 8),
-              _WizardButtons(pageIndex: state.pageIndex),
+              _WizardButtons(
+                pageIndex: state.pageIndex,
+                answers: state.answers,
+              ),
             ],
           );
         },
@@ -511,18 +514,19 @@ class _SurveysPageState extends State<SurveysPage> {
 
 class _WizardButtons extends StatelessWidget {
   final int pageIndex;
+  final Map<String, dynamic>
+  answers; // Agregado para calcular secciones visibles
 
-  const _WizardButtons({required this.pageIndex});
+  const _WizardButtons({required this.pageIndex, required this.answers});
 
   @override
   Widget build(BuildContext context) {
     final bloc = context.read<SurveyBloc>();
-    final state = context.watch<SurveyState>();
 
     // Calcular secciones visibles para determinar última página
     final visibleSections = SurveySectionFilterHelper.getVisibleSections(
       surveySectionsOrder,
-      state.answers,
+      answers, // Usar parámetro en lugar de state.answers
     );
 
     // Encontrar última sección visible
