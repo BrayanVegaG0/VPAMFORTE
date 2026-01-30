@@ -237,24 +237,8 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
     final survey = state.activeSurvey;
     if (survey == null) return;
 
-    final engine = SurveyRulesEngine();
-    final errors = engine.validate(survey, state.answers);
-
-    if (errors.isNotEmpty) {
-      final ids = errors.map((e) => e.questionId).toList();
-      final targetId = errors.first.questionId; // ✅ SIEMPRE el primero global
-
-      emit(
-        state.copyWith(
-          status: SurveyStatus.ready,
-          showValidationErrors: true,
-          invalidQuestionIds: ids,
-          firstInvalidQuestionId: targetId,
-          message: 'Faltan campos obligatorios por completar.',
-        ),
-      );
-      return;
-    }
+    // ✅ NO VALIDAR - La validación ya se hizo página por página
+    // Solo enviar la encuesta tal como está
 
     emit(state.copyWith(status: SurveyStatus.submitting, message: null));
 

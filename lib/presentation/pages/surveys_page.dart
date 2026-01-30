@@ -232,21 +232,27 @@ class _SurveysPageState extends State<SurveysPage> {
               timeText = 'Guardado hace ${elapsed.inHours}h';
             }
 
-            return Row(
-              children: [
-                const Text('Encuesta'),
-                const SizedBox(width: 8),
-                Icon(Icons.check_circle, color: Colors.green[300], size: 16),
-                const SizedBox(width: 4),
-                Text(
-                  timeText,
-                  style: TextStyle(
-                    fontSize: 11,
-                    color: Colors.green[300],
-                    fontWeight: FontWeight.normal,
+            return Flexible(
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Text('Encuesta'),
+                  const SizedBox(width: 8),
+                  Icon(Icons.check_circle, color: Colors.green[300], size: 16),
+                  const SizedBox(width: 4),
+                  Flexible(
+                    child: Text(
+                      timeText,
+                      style: TextStyle(
+                        fontSize: 11,
+                        color: Colors.green[300],
+                        fontWeight: FontWeight.normal,
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             );
           },
         ),
