@@ -1,0 +1,11425 @@
+[{
+    "id": 1,
+    "name": "SIN PARROQUIA",
+    "idDummy": "00,00,00",
+    "canton": {
+      "id": "0"
+    }
+  },
+  {
+    "id": 2,
+    "name": "BELLAVISTA",
+    "idDummy": "01,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 3,
+    "name": "ÁNGEL POLIBIO CHÁVEZ",
+    "idDummy": "01,01,02",
+    "canton": {
+      "id": "2"
+    }
+  },
+  {
+    "id": 4,
+    "name": "AURELIO BAYAS MARTÍNEZ",
+    "idDummy": "01,01,03",
+    "canton": {
+      "id": "3"
+    }
+  },
+  {
+    "id": 5,
+    "name": "GONZÁLEZ SUÁREZ",
+    "idDummy": "01,01,04",
+    "canton": {
+      "id": "4"
+    }
+  },
+  {
+    "id": 6,
+    "name": "ELOY ALFARO (SAN FELIPE)",
+    "idDummy": "01,01,05",
+    "canton": {
+      "id": "5"
+    }
+  },
+  {
+    "id": 7,
+    "name": "LIZARZABURU",
+    "idDummy": "01,01,06",
+    "canton": {
+      "id": "6"
+    }
+  },
+  {
+    "id": 8,
+    "name": "LA PROVIDENCIA",
+    "idDummy": "01,01,07",
+    "canton": {
+      "id": "7"
+    }
+  },
+  {
+    "id": 9,
+    "name": "BARTOLOMÉ RUIZ (CÉSAR FRANCO CARRIÓN)",
+    "idDummy": "01,01,08",
+    "canton": {
+      "id": "8"
+    }
+  },
+  {
+    "id": 10,
+    "name": "AYACUCHO",
+    "idDummy": "01,01,09",
+    "canton": {
+      "id": "9"
+    }
+  },
+  {
+    "id": 11,
+    "name": "CARANQUÍ",
+    "idDummy": "01,01,10",
+    "canton": {
+      "id": "10"
+    }
+  },
+  {
+    "id": 12,
+    "name": "EL SAGRARIO",
+    "idDummy": "01,01,11",
+    "canton": {
+      "id": "11"
+    }
+  },
+  {
+    "id": 13,
+    "name": "CLEMENTE BAQUERIZO",
+    "idDummy": "01,01,12",
+    "canton": {
+      "id": "12"
+    }
+  },
+  {
+    "id": 14,
+    "name": "PORTOVIEJO",
+    "idDummy": "01,01,13",
+    "canton": {
+      "id": "13"
+    }
+  },
+  {
+    "id": 15,
+    "name": "BELISARIO QUEVEDO",
+    "idDummy": "01,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 16,
+    "name": "ATOCHA - FICOA",
+    "idDummy": "01,01,18",
+    "canton": {
+      "id": "18"
+    }
+  },
+  {
+    "id": 17,
+    "name": "EL LIMÓN",
+    "idDummy": "01,01,19",
+    "canton": {
+      "id": "19"
+    }
+  },
+  {
+    "id": 18,
+    "name": "ABRAHAM CALAZACÓN",
+    "idDummy": "01,01,23",
+    "canton": {
+      "id": "23"
+    }
+  },
+  {
+    "id": 19,
+    "name": "BALLENITA",
+    "idDummy": "01,01,24",
+    "canton": {
+      "id": "24"
+    }
+  },
+  {
+    "id": 20,
+    "name": "EL CARMEN",
+    "idDummy": "01,02,05",
+    "canton": {
+      "id": "30"
+    }
+  },
+  {
+    "id": 21,
+    "name": "ANDRADE MARÍN (LOURDES)",
+    "idDummy": "01,02,10",
+    "canton": {
+      "id": "35"
+    }
+  },
+  {
+    "id": 22,
+    "name": "CARIAMANGA",
+    "idDummy": "01,02,11",
+    "canton": {
+      "id": "36"
+    }
+  },
+  {
+    "id": 23,
+    "name": "GUALAQUIZA",
+    "idDummy": "01,02,14",
+    "canton": {
+      "id": "39"
+    }
+  },
+  {
+    "id": 24,
+    "name": "*AYORA",
+    "idDummy": "01,02,17",
+    "canton": {
+      "id": "41"
+    }
+  },
+  {
+    "id": 25,
+    "name": "EL ÁNGEL",
+    "idDummy": "01,03,04",
+    "canton": {
+      "id": "52"
+    }
+  },
+  {
+    "id": 26,
+    "name": "CAJABAMBA",
+    "idDummy": "01,03,06",
+    "canton": {
+      "id": "54"
+    }
+  },
+  {
+    "id": 27,
+    "name": "SAGRARIO",
+    "idDummy": "01,03,10",
+    "canton": {
+      "id": "58"
+    }
+  },
+  {
+    "id": 28,
+    "name": "CATAMAYO",
+    "idDummy": "01,03,11",
+    "canton": {
+      "id": "59"
+    }
+  },
+  {
+    "id": 29,
+    "name": "CHONE",
+    "idDummy": "01,03,13",
+    "canton": {
+      "id": "61"
+    }
+  },
+  {
+    "id": 30,
+    "name": "CARLOS ESPINOZA LARREA",
+    "idDummy": "01,03,24",
+    "canton": {
+      "id": "71"
+    }
+  },
+  {
+    "id": 31,
+    "name": "JORDÁN",
+    "idDummy": "01,04,10",
+    "canton": {
+      "id": "82"
+    }
+  },
+  {
+    "id": 32,
+    "name": "EL CARMEN",
+    "idDummy": "01,04,13",
+    "canton": {
+      "id": "85"
+    }
+  },
+  {
+    "id": 33,
+    "name": "GONZÁLEZ SUÁREZ",
+    "idDummy": "01,05,04",
+    "canton": {
+      "id": "98"
+    }
+  },
+  {
+    "id": 34,
+    "name": "QUEVEDO",
+    "idDummy": "01,05,12",
+    "canton": {
+      "id": "106"
+    }
+  },
+  {
+    "id": 35,
+    "name": "SANGOLQUÍ",
+    "idDummy": "01,05,17",
+    "canton": {
+      "id": "109"
+    }
+  },
+  {
+    "id": 36,
+    "name": "DAULE",
+    "idDummy": "01,06,09",
+    "canton": {
+      "id": "121"
+    }
+  },
+  {
+    "id": 37,
+    "name": "DR. MIGUEL MORÁN LUCIO",
+    "idDummy": "01,06,13",
+    "canton": {
+      "id": "125"
+    }
+  },
+  {
+    "id": 38,
+    "name": "LAS MERCEDES",
+    "idDummy": "01,07,02",
+    "canton": {
+      "id": "131"
+    }
+  },
+  {
+    "id": 39,
+    "name": "EL ROSARIO",
+    "idDummy": "01,07,06",
+    "canton": {
+      "id": "134"
+    }
+  },
+  {
+    "id": 40,
+    "name": "ECUADOR",
+    "idDummy": "01,07,07",
+    "canton": {
+      "id": "135"
+    }
+  },
+  {
+    "id": 41,
+    "name": "ELOY ALFARO (DURÁN)",
+    "idDummy": "01,07,09",
+    "canton": {
+      "id": "137"
+    }
+  },
+  {
+    "id": 42,
+    "name": "10 DE NOVIEMBRE",
+    "idDummy": "01,07,12",
+    "canton": {
+      "id": "139"
+    }
+  },
+  {
+    "id": 43,
+    "name": "PELILEO",
+    "idDummy": "01,07,18",
+    "canton": {
+      "id": "144"
+    }
+  },
+  {
+    "id": 44,
+    "name": "GENERAL ELOY ALFARO (SAN SEBASTIÁN)",
+    "idDummy": "01,08,11",
+    "canton": {
+      "id": "151"
+    }
+  },
+  {
+    "id": 45,
+    "name": "BALZAR DE VINCES",
+    "idDummy": "01,08,12",
+    "canton": {
+      "id": "152"
+    }
+  },
+  {
+    "id": 46,
+    "name": "LOS ESTEROS",
+    "idDummy": "01,08,13",
+    "canton": {
+      "id": "153"
+    }
+  },
+  {
+    "id": 47,
+    "name": "CIUDAD NUEVA",
+    "idDummy": "01,08,18",
+    "canton": {
+      "id": "156"
+    }
+  },
+  {
+    "id": 48,
+    "name": "BOLÍVAR",
+    "idDummy": "01,09,07",
+    "canton": {
+      "id": "160"
+    }
+  },
+  {
+    "id": 49,
+    "name": "CATACOCHA",
+    "idDummy": "01,09,11",
+    "canton": {
+      "id": "162"
+    }
+  },
+  {
+    "id": 50,
+    "name": "ANIBAL SAN ANDRÉS",
+    "idDummy": "01,09,13",
+    "canton": {
+      "id": "164"
+    }
+  },
+  {
+    "id": 51,
+    "name": "LA MATRIZ",
+    "idDummy": "01,10,07",
+    "canton": {
+      "id": "172"
+    }
+  },
+  {
+    "id": 52,
+    "name": "CAMILO ANDRADE",
+    "idDummy": "01,10,09",
+    "canton": {
+      "id": "173"
+    }
+  },
+  {
+    "id": 53,
+    "name": "SAN JACINTO DE BUENA FÉ",
+    "idDummy": "01,10,12",
+    "canton": {
+      "id": "175"
+    }
+  },
+  {
+    "id": 54,
+    "name": "VALENCIA",
+    "idDummy": "01,11,12",
+    "canton": {
+      "id": "182"
+    }
+  },
+  {
+    "id": 55,
+    "name": "SANTA ROSA",
+    "idDummy": "01,12,07",
+    "canton": {
+      "id": "186"
+    }
+  },
+  {
+    "id": 56,
+    "name": "SANTA ANA",
+    "idDummy": "01,13,13",
+    "canton": {
+      "id": "197"
+    }
+  },
+  {
+    "id": 57,
+    "name": "LA VICTORIA",
+    "idDummy": "01,14,07",
+    "canton": {
+      "id": "199"
+    }
+  },
+  {
+    "id": 58,
+    "name": "BAHÍA DE CARÁQUEZ",
+    "idDummy": "01,14,13",
+    "canton": {
+      "id": "202"
+    }
+  },
+  {
+    "id": 59,
+    "name": "SAMBORONDÓN",
+    "idDummy": "01,16,09",
+    "canton": {
+      "id": "206"
+    }
+  },
+  {
+    "id": 60,
+    "name": "BOCANA",
+    "idDummy": "01,19,09",
+    "canton": {
+      "id": "212"
+    }
+  },
+  {
+    "id": 61,
+    "name": "CAÑARIBAMBA",
+    "idDummy": "02,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 62,
+    "name": "GABRIEL IGNACIO VEINTIMILLA",
+    "idDummy": "02,01,02",
+    "canton": {
+      "id": "2"
+    }
+  },
+  {
+    "id": 63,
+    "name": "AZOGUES",
+    "idDummy": "02,01,03",
+    "canton": {
+      "id": "3"
+    }
+  },
+  {
+    "id": 64,
+    "name": "TULCÁN",
+    "idDummy": "02,01,04",
+    "canton": {
+      "id": "4"
+    }
+  },
+  {
+    "id": 65,
+    "name": "IGNACIO FLORES (PARQUE FLORES)",
+    "idDummy": "02,01,05",
+    "canton": {
+      "id": "5"
+    }
+  },
+  {
+    "id": 66,
+    "name": "MALDONADO",
+    "idDummy": "02,01,06",
+    "canton": {
+      "id": "6"
+    }
+  },
+  {
+    "id": 67,
+    "name": "MACHALA",
+    "idDummy": "02,01,07",
+    "canton": {
+      "id": "7"
+    }
+  },
+  {
+    "id": 68,
+    "name": "5 DE AGOSTO",
+    "idDummy": "02,01,08",
+    "canton": {
+      "id": "8"
+    }
+  },
+  {
+    "id": 69,
+    "name": "BOLÍVAR (SAGRARIO)",
+    "idDummy": "02,01,09",
+    "canton": {
+      "id": "9"
+    }
+  },
+  {
+    "id": 70,
+    "name": "GUAYAQUIL DE ALPACHACA",
+    "idDummy": "02,01,10",
+    "canton": {
+      "id": "10"
+    }
+  },
+  {
+    "id": 71,
+    "name": "SAN SEBASTIÁN",
+    "idDummy": "02,01,11",
+    "canton": {
+      "id": "11"
+    }
+  },
+  {
+    "id": 72,
+    "name": "DR. CAMILO PONCE",
+    "idDummy": "02,01,12",
+    "canton": {
+      "id": "12"
+    }
+  },
+  {
+    "id": 73,
+    "name": "12 DE MARZO",
+    "idDummy": "02,01,13",
+    "canton": {
+      "id": "13"
+    }
+  },
+  {
+    "id": 74,
+    "name": "CARCELÉN",
+    "idDummy": "02,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 75,
+    "name": "CELIANO MONGE",
+    "idDummy": "02,01,18",
+    "canton": {
+      "id": "18"
+    }
+  },
+  {
+    "id": 76,
+    "name": "ZAMORA",
+    "idDummy": "02,01,19",
+    "canton": {
+      "id": "19"
+    }
+  },
+  {
+    "id": 77,
+    "name": "BOMBOLÍ",
+    "idDummy": "02,01,23",
+    "canton": {
+      "id": "23"
+    }
+  },
+  {
+    "id": 78,
+    "name": "SANTA ELENA",
+    "idDummy": "02,01,24",
+    "canton": {
+      "id": "24"
+    }
+  },
+  {
+    "id": 79,
+    "name": "LA MANÁ",
+    "idDummy": "02,02,05",
+    "canton": {
+      "id": "30"
+    }
+  },
+  {
+    "id": 80,
+    "name": "ATUNTAQUI",
+    "idDummy": "02,02,10",
+    "canton": {
+      "id": "35"
+    }
+  },
+  {
+    "id": 81,
+    "name": "CHILE",
+    "idDummy": "02,02,11",
+    "canton": {
+      "id": "36"
+    }
+  },
+  {
+    "id": 82,
+    "name": "MERCEDES MOLINA",
+    "idDummy": "02,02,14",
+    "canton": {
+      "id": "39"
+    }
+  },
+  {
+    "id": 83,
+    "name": "CAYAMBE",
+    "idDummy": "02,02,17",
+    "canton": {
+      "id": "41"
+    }
+  },
+  {
+    "id": 84,
+    "name": "27 DE SEPTIEMBRE",
+    "idDummy": "02,03,04",
+    "canton": {
+      "id": "52"
+    }
+  },
+  {
+    "id": 85,
+    "name": "SICALPA",
+    "idDummy": "02,03,06",
+    "canton": {
+      "id": "54"
+    }
+  },
+  {
+    "id": 86,
+    "name": "SAN FRANCISCO",
+    "idDummy": "02,03,10",
+    "canton": {
+      "id": "58"
+    }
+  },
+  {
+    "id": 87,
+    "name": "SAN JOSÉ",
+    "idDummy": "02,03,11",
+    "canton": {
+      "id": "59"
+    }
+  },
+  {
+    "id": 88,
+    "name": "SANTA RITA",
+    "idDummy": "02,03,13",
+    "canton": {
+      "id": "61"
+    }
+  },
+  {
+    "id": 89,
+    "name": "GRAL. ALBERTO ENRÍQUEZ GALLO",
+    "idDummy": "02,03,24",
+    "canton": {
+      "id": "71"
+    }
+  },
+  {
+    "id": 90,
+    "name": "SAN LUIS",
+    "idDummy": "02,04,10",
+    "canton": {
+      "id": "82"
+    }
+  },
+  {
+    "id": 91,
+    "name": "4 DE DICIEMBE",
+    "idDummy": "02,04,13",
+    "canton": {
+      "id": "85"
+    }
+  },
+  {
+    "id": 92,
+    "name": "SAN JOSÉ",
+    "idDummy": "02,05,04",
+    "canton": {
+      "id": "98"
+    }
+  },
+  {
+    "id": 93,
+    "name": "SAN CAMILO",
+    "idDummy": "02,05,12",
+    "canton": {
+      "id": "106"
+    }
+  },
+  {
+    "id": 94,
+    "name": "SAN PEDRO DE TABOADA",
+    "idDummy": "02,05,17",
+    "canton": {
+      "id": "109"
+    }
+  },
+  {
+    "id": 95,
+    "name": "LA AURORA (SATÉLITE)",
+    "idDummy": "02,06,09",
+    "canton": {
+      "id": "121"
+    }
+  },
+  {
+    "id": 96,
+    "name": "MANUEL INOCENCIO PARRALES Y GUALE",
+    "idDummy": "02,06,13",
+    "canton": {
+      "id": "125"
+    }
+  },
+  {
+    "id": 97,
+    "name": "LAS NAVES",
+    "idDummy": "02,07,02",
+    "canton": {
+      "id": "131"
+    }
+  },
+  {
+    "id": 98,
+    "name": "LA MATRIZ",
+    "idDummy": "02,07,06",
+    "canton": {
+      "id": "134"
+    }
+  },
+  {
+    "id": 99,
+    "name": "EL PARAÍSO",
+    "idDummy": "02,07,07",
+    "canton": {
+      "id": "135"
+    }
+  },
+  {
+    "id": 100,
+    "name": "EL RECREO",
+    "idDummy": "02,07,09",
+    "canton": {
+      "id": "137"
+    }
+  },
+  {
+    "id": 101,
+    "name": "VENTANAS",
+    "idDummy": "02,07,12",
+    "canton": {
+      "id": "139"
+    }
+  },
+  {
+    "id": 102,
+    "name": "PELILEO GRANDE",
+    "idDummy": "02,07,18",
+    "canton": {
+      "id": "144"
+    }
+  },
+  {
+    "id": 103,
+    "name": "MACARÁ (MANUEL ENRIQUE RENGEL SUQUILANDA)",
+    "idDummy": "02,08,11",
+    "canton": {
+      "id": "151"
+    }
+  },
+  {
+    "id": 104,
+    "name": "VINCES CENTRAL",
+    "idDummy": "02,08,12",
+    "canton": {
+      "id": "152"
+    }
+  },
+  {
+    "id": 105,
+    "name": "MANTA",
+    "idDummy": "02,08,13",
+    "canton": {
+      "id": "153"
+    }
+  },
+  {
+    "id": 106,
+    "name": "PÍLLARO",
+    "idDummy": "02,08,18",
+    "canton": {
+      "id": "156"
+    }
+  },
+  {
+    "id": 107,
+    "name": "LOMA DE FRANCO",
+    "idDummy": "02,09,07",
+    "canton": {
+      "id": "160"
+    }
+  },
+  {
+    "id": 108,
+    "name": "LOURDES",
+    "idDummy": "02,09,11",
+    "canton": {
+      "id": "162"
+    }
+  },
+  {
+    "id": 109,
+    "name": "MONTECRISTI",
+    "idDummy": "02,09,13",
+    "canton": {
+      "id": "164"
+    }
+  },
+  {
+    "id": 110,
+    "name": "LA SUSAYA",
+    "idDummy": "02,10,07",
+    "canton": {
+      "id": "172"
+    }
+  },
+  {
+    "id": 111,
+    "name": "ELOY ALFARO",
+    "idDummy": "02,10,09",
+    "canton": {
+      "id": "173"
+    }
+  },
+  {
+    "id": 112,
+    "name": "7 DE AGOSTO",
+    "idDummy": "02,10,12",
+    "canton": {
+      "id": "175"
+    }
+  },
+  {
+    "id": 113,
+    "name": "LA UNION",
+    "idDummy": "02,11,12",
+    "canton": {
+      "id": "182"
+    }
+  },
+  {
+    "id": 114,
+    "name": "PUERTO JELÍ",
+    "idDummy": "02,12,07",
+    "canton": {
+      "id": "186"
+    }
+  },
+  {
+    "id": 115,
+    "name": "LODANA",
+    "idDummy": "02,13,13",
+    "canton": {
+      "id": "197"
+    }
+  },
+  {
+    "id": 116,
+    "name": "PLATANILLOS",
+    "idDummy": "02,14,07",
+    "canton": {
+      "id": "199"
+    }
+  },
+  {
+    "id": 117,
+    "name": "LEONIDAS PLAZA GURIÉRREZ",
+    "idDummy": "02,14,13",
+    "canton": {
+      "id": "202"
+    }
+  },
+  {
+    "id": 118,
+    "name": "LA PUNTILLA (SATÉLITE)",
+    "idDummy": "02,16,09",
+    "canton": {
+      "id": "206"
+    }
+  },
+  {
+    "id": 119,
+    "name": "CANDILEJOS",
+    "idDummy": "02,19,09",
+    "canton": {
+      "id": "212"
+    }
+  },
+  {
+    "id": 120,
+    "name": "EL BATÁN",
+    "idDummy": "03,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 121,
+    "name": "GUANUJO",
+    "idDummy": "03,01,02",
+    "canton": {
+      "id": "2"
+    }
+  },
+  {
+    "id": 122,
+    "name": "BORRERO",
+    "idDummy": "03,01,03",
+    "canton": {
+      "id": "3"
+    }
+  },
+  {
+    "id": 123,
+    "name": "JUAN MONTALVO (SAN SEBASTÍAN)",
+    "idDummy": "03,01,05",
+    "canton": {
+      "id": "5"
+    }
+  },
+  {
+    "id": 124,
+    "name": "VELASCO",
+    "idDummy": "03,01,06",
+    "canton": {
+      "id": "6"
+    }
+  },
+  {
+    "id": 125,
+    "name": "PUERTO BOLÍVAR",
+    "idDummy": "03,01,07",
+    "canton": {
+      "id": "7"
+    }
+  },
+  {
+    "id": 126,
+    "name": "ESMERALDAS",
+    "idDummy": "03,01,08",
+    "canton": {
+      "id": "8"
+    }
+  },
+  {
+    "id": 127,
+    "name": "CARBO (CONCEPCIÓN)",
+    "idDummy": "03,01,09",
+    "canton": {
+      "id": "9"
+    }
+  },
+  {
+    "id": 128,
+    "name": "SAGRARIO",
+    "idDummy": "03,01,10",
+    "canton": {
+      "id": "10"
+    }
+  },
+  {
+    "id": 129,
+    "name": "SUCRE",
+    "idDummy": "03,01,11",
+    "canton": {
+      "id": "11"
+    }
+  },
+  {
+    "id": 130,
+    "name": "BARREIRO",
+    "idDummy": "03,01,12",
+    "canton": {
+      "id": "12"
+    }
+  },
+  {
+    "id": 131,
+    "name": "COLÓN",
+    "idDummy": "03,01,13",
+    "canton": {
+      "id": "13"
+    }
+  },
+  {
+    "id": 132,
+    "name": "CENTRO HISTÓRICO",
+    "idDummy": "03,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 133,
+    "name": "HUCHI CHICO",
+    "idDummy": "03,01,18",
+    "canton": {
+      "id": "18"
+    }
+  },
+  {
+    "id": 134,
+    "name": "CHIGUILPE",
+    "idDummy": "03,01,23",
+    "canton": {
+      "id": "23"
+    }
+  },
+  {
+    "id": 135,
+    "name": "EL TRIUNFO",
+    "idDummy": "03,02,05",
+    "canton": {
+      "id": "30"
+    }
+  },
+  {
+    "id": 136,
+    "name": "SAN VICENTE",
+    "idDummy": "03,02,11",
+    "canton": {
+      "id": "36"
+    }
+  },
+  {
+    "id": 137,
+    "name": "JUAN MONTALVO",
+    "idDummy": "03,02,17",
+    "canton": {
+      "id": "41"
+    }
+  },
+  {
+    "id": 138,
+    "name": "VICENTE ROCAFUERTE",
+    "idDummy": "03,03,24",
+    "canton": {
+      "id": "71"
+    }
+  },
+  {
+    "id": 139,
+    "name": "*SAN JOSÉ",
+    "idDummy": "03,05,12",
+    "canton": {
+      "id": "106"
+    }
+  },
+  {
+    "id": 140,
+    "name": "SAN RAFAEL",
+    "idDummy": "03,05,17",
+    "canton": {
+      "id": "109"
+    }
+  },
+  {
+    "id": 141,
+    "name": "BANIFE",
+    "idDummy": "03,06,09",
+    "canton": {
+      "id": "121"
+    }
+  },
+  {
+    "id": 142,
+    "name": "SAN LORENZO DE JIPIJAPA",
+    "idDummy": "03,06,13",
+    "canton": {
+      "id": "125"
+    }
+  },
+  {
+    "id": 143,
+    "name": "HUALTACO",
+    "idDummy": "03,07,07",
+    "canton": {
+      "id": "135"
+    }
+  },
+  {
+    "id": 144,
+    "name": "DIVINO NIÑO",
+    "idDummy": "03,07,09",
+    "canton": {
+      "id": "137"
+    }
+  },
+  {
+    "id": 145,
+    "name": "SAN LORENZO DE VINCES",
+    "idDummy": "03,08,12",
+    "canton": {
+      "id": "152"
+    }
+  },
+  {
+    "id": 146,
+    "name": "SAN MATEO",
+    "idDummy": "03,08,13",
+    "canton": {
+      "id": "153"
+    }
+  },
+  {
+    "id": 147,
+    "name": "OCHOA LEÓN (MATRIZ)",
+    "idDummy": "03,09,07",
+    "canton": {
+      "id": "160"
+    }
+  },
+  {
+    "id": 148,
+    "name": "EL COLORADO",
+    "idDummy": "03,09,13",
+    "canton": {
+      "id": "164"
+    }
+  },
+  {
+    "id": 149,
+    "name": "PIÑAS GRANDE",
+    "idDummy": "03,10,07",
+    "canton": {
+      "id": "172"
+    }
+  },
+  {
+    "id": 150,
+    "name": "CHIRIJOS",
+    "idDummy": "03,10,09",
+    "canton": {
+      "id": "173"
+    }
+  },
+  {
+    "id": 151,
+    "name": "11 DE OCTUBRE",
+    "idDummy": "03,10,12",
+    "canton": {
+      "id": "175"
+    }
+  },
+  {
+    "id": 152,
+    "name": "LA NUEVA UNION",
+    "idDummy": "03,11,12",
+    "canton": {
+      "id": "182"
+    }
+  },
+  {
+    "id": 153,
+    "name": "BALNEARIO JAMBELÍ (SATÉLITE)",
+    "idDummy": "03,12,07",
+    "canton": {
+      "id": "186"
+    }
+  },
+  {
+    "id": 154,
+    "name": "VALLE HERMOSO",
+    "idDummy": "03,14,07",
+    "canton": {
+      "id": "199"
+    }
+  },
+  {
+    "id": 155,
+    "name": "CENTRAL",
+    "idDummy": "03,19,09",
+    "canton": {
+      "id": "212"
+    }
+  },
+  {
+    "id": 156,
+    "name": "EL SAGRARIO",
+    "idDummy": "04,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 157,
+    "name": "SAN FRANCISCO",
+    "idDummy": "04,01,03",
+    "canton": {
+      "id": "3"
+    }
+  },
+  {
+    "id": 158,
+    "name": "LA MATRIZ",
+    "idDummy": "04,01,05",
+    "canton": {
+      "id": "5"
+    }
+  },
+  {
+    "id": 159,
+    "name": "VELÓZ",
+    "idDummy": "04,01,06",
+    "canton": {
+      "id": "6"
+    }
+  },
+  {
+    "id": 160,
+    "name": "NUEVE DE MAYO",
+    "idDummy": "04,01,07",
+    "canton": {
+      "id": "7"
+    }
+  },
+  {
+    "id": 161,
+    "name": "LUIS TELLO (LAS PALMAS)",
+    "idDummy": "04,01,08",
+    "canton": {
+      "id": "8"
+    }
+  },
+  {
+    "id": 162,
+    "name": "FEBRES CORDERO",
+    "idDummy": "04,01,09",
+    "canton": {
+      "id": "9"
+    }
+  },
+  {
+    "id": 163,
+    "name": "SAN FRANCISCO",
+    "idDummy": "04,01,10",
+    "canton": {
+      "id": "10"
+    }
+  },
+  {
+    "id": 164,
+    "name": "VALLE",
+    "idDummy": "04,01,11",
+    "canton": {
+      "id": "11"
+    }
+  },
+  {
+    "id": 165,
+    "name": "EL SALTO",
+    "idDummy": "04,01,12",
+    "canton": {
+      "id": "12"
+    }
+  },
+  {
+    "id": 166,
+    "name": "PICOAZÁ",
+    "idDummy": "04,01,13",
+    "canton": {
+      "id": "13"
+    }
+  },
+  {
+    "id": 167,
+    "name": "COCHAPAMBA",
+    "idDummy": "04,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 168,
+    "name": "HUACHI LORETO",
+    "idDummy": "04,01,18",
+    "canton": {
+      "id": "18"
+    }
+  },
+  {
+    "id": 169,
+    "name": "RÍO TOACHI",
+    "idDummy": "04,01,23",
+    "canton": {
+      "id": "23"
+    }
+  },
+  {
+    "id": 170,
+    "name": "SANTA ROSA",
+    "idDummy": "04,03,24",
+    "canton": {
+      "id": "71"
+    }
+  },
+  {
+    "id": 171,
+    "name": "GUAYACÁN",
+    "idDummy": "04,05,12",
+    "canton": {
+      "id": "106"
+    }
+  },
+  {
+    "id": 172,
+    "name": "EMILIANO CAICEDO MARCOS",
+    "idDummy": "04,06,09",
+    "canton": {
+      "id": "121"
+    }
+  },
+  {
+    "id": 173,
+    "name": "MILTON REYES",
+    "idDummy": "04,07,07",
+    "canton": {
+      "id": "135"
+    }
+  },
+  {
+    "id": 174,
+    "name": "TARQUI",
+    "idDummy": "04,08,13",
+    "canton": {
+      "id": "153"
+    }
+  },
+  {
+    "id": 175,
+    "name": "TRES CERRITOS",
+    "idDummy": "04,09,07",
+    "canton": {
+      "id": "160"
+    }
+  },
+  {
+    "id": 176,
+    "name": "GENERAL ELOY ALFARO",
+    "idDummy": "04,09,13",
+    "canton": {
+      "id": "164"
+    }
+  },
+  {
+    "id": 177,
+    "name": "CORONEL ENRIQUE VALDEZ",
+    "idDummy": "04,10,09",
+    "canton": {
+      "id": "173"
+    }
+  },
+  {
+    "id": 178,
+    "name": "JUMÓN (SATÉLITE)",
+    "idDummy": "04,12,07",
+    "canton": {
+      "id": "186"
+    }
+  },
+  {
+    "id": 179,
+    "name": "PARAÍSO",
+    "idDummy": "04,19,09",
+    "canton": {
+      "id": "212"
+    }
+  },
+  {
+    "id": 180,
+    "name": "EL VECINO",
+    "idDummy": "05,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 181,
+    "name": "SAN BUENAVENTURA",
+    "idDummy": "05,01,05",
+    "canton": {
+      "id": "5"
+    }
+  },
+  {
+    "id": 182,
+    "name": "YARUQUÍES",
+    "idDummy": "05,01,06",
+    "canton": {
+      "id": "6"
+    }
+  },
+  {
+    "id": 183,
+    "name": "EL CAMBIO",
+    "idDummy": "05,01,07",
+    "canton": {
+      "id": "7"
+    }
+  },
+  {
+    "id": 184,
+    "name": "SIMÓN PLATA TORRES",
+    "idDummy": "05,01,08",
+    "canton": {
+      "id": "8"
+    }
+  },
+  {
+    "id": 185,
+    "name": "GARCÍA MORENO",
+    "idDummy": "05,01,09",
+    "canton": {
+      "id": "9"
+    }
+  },
+  {
+    "id": 186,
+    "name": "LA DOLOROSA DEL PRIONATO",
+    "idDummy": "05,01,10",
+    "canton": {
+      "id": "10"
+    }
+  },
+  {
+    "id": 187,
+    "name": "CARIGÁN",
+    "idDummy": "05,01,11",
+    "canton": {
+      "id": "11"
+    }
+  },
+  {
+    "id": 188,
+    "name": "SAN PABLO",
+    "idDummy": "05,01,13",
+    "canton": {
+      "id": "13"
+    }
+  },
+  {
+    "id": 189,
+    "name": "COMITÉ DEL PUEBLO",
+    "idDummy": "05,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 190,
+    "name": "LA MERCED",
+    "idDummy": "05,01,18",
+    "canton": {
+      "id": "18"
+    }
+  },
+  {
+    "id": 191,
+    "name": "RÍO VERDE",
+    "idDummy": "05,01,23",
+    "canton": {
+      "id": "23"
+    }
+  },
+  {
+    "id": 192,
+    "name": "NICOLÁS INFANTE DÍAZ",
+    "idDummy": "05,05,12",
+    "canton": {
+      "id": "106"
+    }
+  },
+  {
+    "id": 193,
+    "name": "MAGRO",
+    "idDummy": "05,06,09",
+    "canton": {
+      "id": "121"
+    }
+  },
+  {
+    "id": 194,
+    "name": "UNIÓN LOJANA",
+    "idDummy": "05,07,07",
+    "canton": {
+      "id": "135"
+    }
+  },
+  {
+    "id": 195,
+    "name": "ELOY ALFARO",
+    "idDummy": "05,08,13",
+    "canton": {
+      "id": "153"
+    }
+  },
+  {
+    "id": 196,
+    "name": "LEONIDAS PROAÑO",
+    "idDummy": "05,09,13",
+    "canton": {
+      "id": "164"
+    }
+  },
+  {
+    "id": 197,
+    "name": "ROSA MARIA",
+    "idDummy": "05,10,09",
+    "canton": {
+      "id": "173"
+    }
+  },
+  {
+    "id": 198,
+    "name": "NUEVO SANTA ROSA",
+    "idDummy": "05,12,07",
+    "canton": {
+      "id": "186"
+    }
+  },
+  {
+    "id": 199,
+    "name": "SAN MATEO",
+    "idDummy": "05,19,09",
+    "canton": {
+      "id": "212"
+    }
+  },
+  {
+    "id": 200,
+    "name": "GIL RAMÍREZ DÁVALOS",
+    "idDummy": "06,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 202,
+    "name": "LETAMENDI",
+    "idDummy": "06,01,09",
+    "canton": {
+      "id": "9"
+    }
+  },
+  {
+    "id": 203,
+    "name": "PUNZARA",
+    "idDummy": "06,01,11",
+    "canton": {
+      "id": "11"
+    }
+  },
+  {
+    "id": 204,
+    "name": "ANDRÉS DE VERA",
+    "idDummy": "06,01,13",
+    "canton": {
+      "id": "13"
+    }
+  },
+  {
+    "id": 205,
+    "name": "COTOCOLLAO",
+    "idDummy": "06,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 206,
+    "name": "LA PENÍNSULA",
+    "idDummy": "06,01,18",
+    "canton": {
+      "id": "18"
+    }
+  },
+  {
+    "id": 207,
+    "name": "SANTO DOMINGO DE LOS COLORADOS",
+    "idDummy": "06,01,23",
+    "canton": {
+      "id": "23"
+    }
+  },
+  {
+    "id": 208,
+    "name": "SAN CRSTÓBAL",
+    "idDummy": "06,05,12",
+    "canton": {
+      "id": "106"
+    }
+  },
+  {
+    "id": 209,
+    "name": "PADRE JUAN BAUTISTA AGUIRRE",
+    "idDummy": "06,06,09",
+    "canton": {
+      "id": "121"
+    }
+  },
+  {
+    "id": 210,
+    "name": "JOSE MARIA VELASCO IBARRA",
+    "idDummy": "06,10,09",
+    "canton": {
+      "id": "173"
+    }
+  },
+  {
+    "id": 211,
+    "name": "HUAYNACÁPAC",
+    "idDummy": "07,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 213,
+    "name": "NUEVE DE OCTUBRE",
+    "idDummy": "07,01,09",
+    "canton": {
+      "id": "9"
+    }
+  },
+  {
+    "id": 214,
+    "name": "FRANCISCO PACHECO",
+    "idDummy": "07,01,13",
+    "canton": {
+      "id": "13"
+    }
+  },
+  {
+    "id": 215,
+    "name": "CHILIBULO",
+    "idDummy": "07,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 216,
+    "name": "MATRÍZ",
+    "idDummy": "07,01,18",
+    "canton": {
+      "id": "18"
+    }
+  },
+  {
+    "id": 217,
+    "name": "ZARACAY",
+    "idDummy": "07,01,23",
+    "canton": {
+      "id": "23"
+    }
+  },
+  {
+    "id": 218,
+    "name": "SIETE DE OCTUBRE",
+    "idDummy": "07,05,12",
+    "canton": {
+      "id": "106"
+    }
+  },
+  {
+    "id": 219,
+    "name": "SANTA CLARA",
+    "idDummy": "07,06,09",
+    "canton": {
+      "id": "121"
+    }
+  },
+  {
+    "id": 220,
+    "name": "VICENTE ROCAFUERTE",
+    "idDummy": "07,10,09",
+    "canton": {
+      "id": "173"
+    }
+  },
+  {
+    "id": 221,
+    "name": "MACHÁNGARA",
+    "idDummy": "08,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 222,
+    "name": "OLMEDO (SAN ALEJO)",
+    "idDummy": "08,01,09",
+    "canton": {
+      "id": "9"
+    }
+  },
+  {
+    "id": 223,
+    "name": "18 DE OCTUBRE",
+    "idDummy": "08,01,13",
+    "canton": {
+      "id": "13"
+    }
+  },
+  {
+    "id": 224,
+    "name": "CHILLOGALLO",
+    "idDummy": "08,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 225,
+    "name": "PISHILATA",
+    "idDummy": "08,01,18",
+    "canton": {
+      "id": "18"
+    }
+  },
+  {
+    "id": 226,
+    "name": "24 DE MAYO",
+    "idDummy": "08,05,12",
+    "canton": {
+      "id": "106"
+    }
+  },
+  {
+    "id": 227,
+    "name": "VICENTE PIEDRAHITA",
+    "idDummy": "08,06,09",
+    "canton": {
+      "id": "121"
+    }
+  },
+  {
+    "id": 228,
+    "name": "ERNESTO SEMINARIO",
+    "idDummy": "08,10,09",
+    "canton": {
+      "id": "173"
+    }
+  },
+  {
+    "id": 229,
+    "name": "MONAY",
+    "idDummy": "09,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 230,
+    "name": "ROCA",
+    "idDummy": "09,01,09",
+    "canton": {
+      "id": "9"
+    }
+  },
+  {
+    "id": 231,
+    "name": "SIMÓN BOLÍVAR",
+    "idDummy": "09,01,13",
+    "canton": {
+      "id": "13"
+    }
+  },
+  {
+    "id": 232,
+    "name": "CHIMBACALLE",
+    "idDummy": "09,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 233,
+    "name": "SAN FRANCISCO",
+    "idDummy": "09,01,18",
+    "canton": {
+      "id": "18"
+    }
+  },
+  {
+    "id": 234,
+    "name": "VENUS DEL RÍO QUEVEDO",
+    "idDummy": "09,05,12",
+    "canton": {
+      "id": "106"
+    }
+  },
+  {
+    "id": 235,
+    "name": "LAS PIÑAS",
+    "idDummy": "09,10,09",
+    "canton": {
+      "id": "173"
+    }
+  },
+  {
+    "id": 238,
+    "name": "SAN BLAS",
+    "idDummy": "10,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 239,
+    "name": "ROCAFUERTE",
+    "idDummy": "10,01,09",
+    "canton": {
+      "id": "9"
+    }
+  },
+  {
+    "id": 240,
+    "name": "EL CONDADO",
+    "idDummy": "10,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 241,
+    "name": "VIVA ALFARO",
+    "idDummy": "10,05,12",
+    "canton": {
+      "id": "106"
+    }
+  },
+  {
+    "id": 242,
+    "name": "SAN SEBASTIÁN",
+    "idDummy": "11,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 243,
+    "name": "SUCRE",
+    "idDummy": "11,01,09",
+    "canton": {
+      "id": "9"
+    }
+  },
+  {
+    "id": 244,
+    "name": "GUAMANÍ",
+    "idDummy": "11,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 245,
+    "name": "CARIGÁN",
+    "idDummy": "110105,01,11",
+    "canton": {
+      "id": "11"
+    }
+  },
+  {
+    "id": 247,
+    "name": "SUCRE",
+    "idDummy": "12,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 248,
+    "name": "TARQUI",
+    "idDummy": "12,01,09",
+    "canton": {
+      "id": "9"
+    }
+  },
+  {
+    "id": 249,
+    "name": "IÑAQUITO",
+    "idDummy": "12,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 253,
+    "name": "TOTORACOCHA",
+    "idDummy": "13,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 254,
+    "name": "UDANETA",
+    "idDummy": "13,01,09",
+    "canton": {
+      "id": "9"
+    }
+  },
+  {
+    "id": 255,
+    "name": "ITCHIMBIA",
+    "idDummy": "13,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 256,
+    "name": "YANUNCAY",
+    "idDummy": "14,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 257,
+    "name": "XIMENA",
+    "idDummy": "14,01,09",
+    "canton": {
+      "id": "9"
+    }
+  },
+  {
+    "id": 258,
+    "name": "JIPIJAPA",
+    "idDummy": "14,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 259,
+    "name": "HERMANO MIGUEL",
+    "idDummy": "15,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 260,
+    "name": "PASCUALES",
+    "idDummy": "15,01,09",
+    "canton": {
+      "id": "9"
+    }
+  },
+  {
+    "id": 261,
+    "name": "KENNEDY",
+    "idDummy": "15,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 262,
+    "name": "LA ARGELIA",
+    "idDummy": "16,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 263,
+    "name": "LA CONCEPCIÓN",
+    "idDummy": "17,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 264,
+    "name": "LA ECUATORIANA",
+    "idDummy": "18,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 265,
+    "name": "LA FERROVIARIA",
+    "idDummy": "19,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 266,
+    "name": "LA LIBERTAD",
+    "idDummy": "20,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 267,
+    "name": "LA MAGDALENA",
+    "idDummy": "21,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 268,
+    "name": "LA MENA",
+    "idDummy": "22,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 269,
+    "name": "MARISCAL SUCRE",
+    "idDummy": "23,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 270,
+    "name": "PONCEANO",
+    "idDummy": "24,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 271,
+    "name": "PUENGASÍ",
+    "idDummy": "25,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 272,
+    "name": "QUITUMBE",
+    "idDummy": "26,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 273,
+    "name": "RUMIPAMBA",
+    "idDummy": "27,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 274,
+    "name": "SAN BARTOLO",
+    "idDummy": "28,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 275,
+    "name": "SAN ISIDRO DEL INCA",
+    "idDummy": "29,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 276,
+    "name": "SAN JUAN",
+    "idDummy": "30,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 277,
+    "name": "SOLANDA",
+    "idDummy": "31,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 278,
+    "name": "TURUBAMBA",
+    "idDummy": "32,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 279,
+    "name": "CUENCA",
+    "idDummy": "50,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 280,
+    "name": "GUARANDA",
+    "idDummy": "50,01,02",
+    "canton": {
+      "id": "2"
+    }
+  },
+  {
+    "id": 281,
+    "name": "AZOGUES",
+    "idDummy": "50,01,03",
+    "canton": {
+      "id": "3"
+    }
+  },
+  {
+    "id": 282,
+    "name": "TULCÁN",
+    "idDummy": "50,01,04",
+    "canton": {
+      "id": "4"
+    }
+  },
+  {
+    "id": 283,
+    "name": "LATACUNGA",
+    "idDummy": "50,01,05",
+    "canton": {
+      "id": "5"
+    }
+  },
+  {
+    "id": 284,
+    "name": "RIOBAMBA",
+    "idDummy": "50,01,06",
+    "canton": {
+      "id": "6"
+    }
+  },
+  {
+    "id": 285,
+    "name": "MACHALA CABECERA CANTONAL Y CAPITAL PROVINCIAL",
+    "idDummy": "50,01,07",
+    "canton": {
+      "id": "7"
+    }
+  },
+  {
+    "id": 286,
+    "name": "ESMERALDAS",
+    "idDummy": "50,01,08",
+    "canton": {
+      "id": "8"
+    }
+  },
+  {
+    "id": 287,
+    "name": "GUAYAQUIL",
+    "idDummy": "50,01,09",
+    "canton": {
+      "id": "9"
+    }
+  },
+  {
+    "id": 288,
+    "name": "SAN MIGUEL DE IBARRA",
+    "idDummy": "50,01,10",
+    "canton": {
+      "id": "10"
+    }
+  },
+  {
+    "id": 289,
+    "name": "LOJA",
+    "idDummy": "50,01,11",
+    "canton": {
+      "id": "11"
+    }
+  },
+  {
+    "id": 290,
+    "name": "BABAHOYO",
+    "idDummy": "50,01,12",
+    "canton": {
+      "id": "12"
+    }
+  },
+  {
+    "id": 291,
+    "name": "PORTOVIEJO",
+    "idDummy": "50,01,13",
+    "canton": {
+      "id": "13"
+    }
+  },
+  {
+    "id": 292,
+    "name": "MACAS",
+    "idDummy": "50,01,14",
+    "canton": {
+      "id": "14"
+    }
+  },
+  {
+    "id": 293,
+    "name": "TENA",
+    "idDummy": "50,01,15",
+    "canton": {
+      "id": "15"
+    }
+  },
+  {
+    "id": 294,
+    "name": "PUYO",
+    "idDummy": "50,01,16",
+    "canton": {
+      "id": "16"
+    }
+  },
+  {
+    "id": 295,
+    "name": "QUITO",
+    "idDummy": "50,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 296,
+    "name": "AMBATO",
+    "idDummy": "50,01,18",
+    "canton": {
+      "id": "18"
+    }
+  },
+  {
+    "id": 297,
+    "name": "ZAMORA",
+    "idDummy": "50,01,19",
+    "canton": {
+      "id": "19"
+    }
+  },
+  {
+    "id": 298,
+    "name": "PUERTO BAQUERIZO MORENO",
+    "idDummy": "50,01,20",
+    "canton": {
+      "id": "20"
+    }
+  },
+  {
+    "id": 299,
+    "name": "NUEVA LOJA",
+    "idDummy": "50,01,21",
+    "canton": {
+      "id": "21"
+    }
+  },
+  {
+    "id": 300,
+    "name": "PUERTO FRANCISCO DE ORELLANA (EL COCA)",
+    "idDummy": "50,01,22",
+    "canton": {
+      "id": "22"
+    }
+  },
+  {
+    "id": 301,
+    "name": "SANTO DOMINGO DE LOS COLORADOS",
+    "idDummy": "50,01,23",
+    "canton": {
+      "id": "23"
+    }
+  },
+  {
+    "id": 302,
+    "name": "SANTA ELENA",
+    "idDummy": "50,01,24",
+    "canton": {
+      "id": "24"
+    }
+  },
+  {
+    "id": 303,
+    "name": "GIRÓN",
+    "idDummy": "50,02,01",
+    "canton": {
+      "id": "26"
+    }
+  },
+  {
+    "id": 304,
+    "name": "CHILLANES",
+    "idDummy": "50,02,02",
+    "canton": {
+      "id": "27"
+    }
+  },
+  {
+    "id": 305,
+    "name": "BIBLIÁN",
+    "idDummy": "50,02,03",
+    "canton": {
+      "id": "28"
+    }
+  },
+  {
+    "id": 306,
+    "name": "BOLÍVAR",
+    "idDummy": "50,02,04",
+    "canton": {
+      "id": "29"
+    }
+  },
+  {
+    "id": 307,
+    "name": "LA MANÁ",
+    "idDummy": "50,02,05",
+    "canton": {
+      "id": "30"
+    }
+  },
+  {
+    "id": 308,
+    "name": "ALAUSÍ",
+    "idDummy": "50,02,06",
+    "canton": {
+      "id": "31"
+    }
+  },
+  {
+    "id": 309,
+    "name": "ARENILLAS",
+    "idDummy": "50,02,07",
+    "canton": {
+      "id": "32"
+    }
+  },
+  {
+    "id": 310,
+    "name": "VALDEZ (LIMONES)",
+    "idDummy": "50,02,08",
+    "canton": {
+      "id": "33"
+    }
+  },
+  {
+    "id": 311,
+    "name": "ALFREDO BAQUERIZO MORENO (JUJAN)",
+    "idDummy": "50,02,09",
+    "canton": {
+      "id": "34"
+    }
+  },
+  {
+    "id": 312,
+    "name": "ATUNTAQUI",
+    "idDummy": "50,02,10",
+    "canton": {
+      "id": "35"
+    }
+  },
+  {
+    "id": 313,
+    "name": "CARIAMANGA",
+    "idDummy": "50,02,11",
+    "canton": {
+      "id": "36"
+    }
+  },
+  {
+    "id": 314,
+    "name": "BABA",
+    "idDummy": "50,02,12",
+    "canton": {
+      "id": "37"
+    }
+  },
+  {
+    "id": 315,
+    "name": "CALCETA",
+    "idDummy": "50,02,13",
+    "canton": {
+      "id": "38"
+    }
+  },
+  {
+    "id": 316,
+    "name": "GUALAQUIZA",
+    "idDummy": "50,02,14",
+    "canton": {
+      "id": "39"
+    }
+  },
+  {
+    "id": 317,
+    "name": "MERA",
+    "idDummy": "50,02,16",
+    "canton": {
+      "id": "40"
+    }
+  },
+  {
+    "id": 318,
+    "name": "CAYAMBE",
+    "idDummy": "50,02,17",
+    "canton": {
+      "id": "41"
+    }
+  },
+  {
+    "id": 319,
+    "name": "BAÑOS DE AGUA SANTA",
+    "idDummy": "50,02,18",
+    "canton": {
+      "id": "42"
+    }
+  },
+  {
+    "id": 320,
+    "name": "ZUMBA",
+    "idDummy": "50,02,19",
+    "canton": {
+      "id": "43"
+    }
+  },
+  {
+    "id": 321,
+    "name": "PUERTO VILLAMIL",
+    "idDummy": "50,02,20",
+    "canton": {
+      "id": "44"
+    }
+  },
+  {
+    "id": 322,
+    "name": "LUMBAQUÍ",
+    "idDummy": "50,02,21",
+    "canton": {
+      "id": "45"
+    }
+  },
+  {
+    "id": 323,
+    "name": "NUEVO ROCAFUERTE",
+    "idDummy": "50,02,22",
+    "canton": {
+      "id": "46"
+    }
+  },
+  {
+    "id": 324,
+    "name": "LA CONCORDIA",
+    "idDummy": "50,02,23",
+    "canton": {
+      "id": "47"
+    }
+  },
+  {
+    "id": 325,
+    "name": "LA LIBERTAD",
+    "idDummy": "50,02,24",
+    "canton": {
+      "id": "48"
+    }
+  },
+  {
+    "id": 326,
+    "name": "GUALACEO",
+    "idDummy": "50,03,01",
+    "canton": {
+      "id": "49"
+    }
+  },
+  {
+    "id": 327,
+    "name": "SAN JOSÉ DE CHIMBO",
+    "idDummy": "50,03,02",
+    "canton": {
+      "id": "50"
+    }
+  },
+  {
+    "id": 328,
+    "name": "CAÑAR",
+    "idDummy": "50,03,03",
+    "canton": {
+      "id": "51"
+    }
+  },
+  {
+    "id": 329,
+    "name": "EL ÁNGEL",
+    "idDummy": "50,03,04",
+    "canton": {
+      "id": "52"
+    }
+  },
+  {
+    "id": 330,
+    "name": "EL CORAZÓN",
+    "idDummy": "50,03,05",
+    "canton": {
+      "id": "53"
+    }
+  },
+  {
+    "id": 331,
+    "name": "VILLA LA UNIÓN (CAJABAMBA)",
+    "idDummy": "50,03,06",
+    "canton": {
+      "id": "54"
+    }
+  },
+  {
+    "id": 332,
+    "name": "PACCHA",
+    "idDummy": "50,03,07",
+    "canton": {
+      "id": "55"
+    }
+  },
+  {
+    "id": 333,
+    "name": "MUISNE",
+    "idDummy": "50,03,08",
+    "canton": {
+      "id": "56"
+    }
+  },
+  {
+    "id": 334,
+    "name": "BALAO",
+    "idDummy": "50,03,09",
+    "canton": {
+      "id": "57"
+    }
+  },
+  {
+    "id": 335,
+    "name": "COTACACHI",
+    "idDummy": "50,03,10",
+    "canton": {
+      "id": "58"
+    }
+  },
+  {
+    "id": 336,
+    "name": "CATAMAYO (LA TOMA)",
+    "idDummy": "50,03,11",
+    "canton": {
+      "id": "59"
+    }
+  },
+  {
+    "id": 337,
+    "name": "MONTALVO",
+    "idDummy": "50,03,12",
+    "canton": {
+      "id": "60"
+    }
+  },
+  {
+    "id": 338,
+    "name": "CHONE",
+    "idDummy": "50,03,13",
+    "canton": {
+      "id": "61"
+    }
+  },
+  {
+    "id": 339,
+    "name": "GRAL. LEONIDAS PLAZA GUTIERREZ",
+    "idDummy": "50,03,14",
+    "canton": {
+      "id": "62"
+    }
+  },
+  {
+    "id": 340,
+    "name": "ARCHIDONA",
+    "idDummy": "50,03,15",
+    "canton": {
+      "id": "63"
+    }
+  },
+  {
+    "id": 341,
+    "name": "SANTA CLARA",
+    "idDummy": "50,03,16",
+    "canton": {
+      "id": "64"
+    }
+  },
+  {
+    "id": 342,
+    "name": "MACHACHI",
+    "idDummy": "50,03,17",
+    "canton": {
+      "id": "65"
+    }
+  },
+  {
+    "id": 343,
+    "name": "CEVALLOS",
+    "idDummy": "50,03,18",
+    "canton": {
+      "id": "66"
+    }
+  },
+  {
+    "id": 344,
+    "name": "GUAYZIMI",
+    "idDummy": "50,03,19",
+    "canton": {
+      "id": "67"
+    }
+  },
+  {
+    "id": 345,
+    "name": "PUERTO AYORA",
+    "idDummy": "50,03,20",
+    "canton": {
+      "id": "68"
+    }
+  },
+  {
+    "id": 346,
+    "name": "PUERTO EL CARMEN DEL PUTUMAYO",
+    "idDummy": "50,03,21",
+    "canton": {
+      "id": "69"
+    }
+  },
+  {
+    "id": 347,
+    "name": "LA JOYA DE LOS SACHAS",
+    "idDummy": "50,03,22",
+    "canton": {
+      "id": "70"
+    }
+  },
+  {
+    "id": 348,
+    "name": "SALINAS",
+    "idDummy": "50,03,24",
+    "canton": {
+      "id": "71"
+    }
+  },
+  {
+    "id": 349,
+    "name": "NABÓN",
+    "idDummy": "50,04,01",
+    "canton": {
+      "id": "73"
+    }
+  },
+  {
+    "id": 350,
+    "name": "ECHEANDÍA",
+    "idDummy": "50,04,02",
+    "canton": {
+      "id": "74"
+    }
+  },
+  {
+    "id": 351,
+    "name": "LA TRONCAL",
+    "idDummy": "50,04,03",
+    "canton": {
+      "id": "75"
+    }
+  },
+  {
+    "id": 352,
+    "name": "MIRA (CHONTAHUASI)",
+    "idDummy": "50,04,04",
+    "canton": {
+      "id": "76"
+    }
+  },
+  {
+    "id": 353,
+    "name": "PUJILÍ",
+    "idDummy": "50,04,05",
+    "canton": {
+      "id": "77"
+    }
+  },
+  {
+    "id": 354,
+    "name": "CHAMBO",
+    "idDummy": "50,04,06",
+    "canton": {
+      "id": "78"
+    }
+  },
+  {
+    "id": 355,
+    "name": "BALSAS",
+    "idDummy": "50,04,07",
+    "canton": {
+      "id": "79"
+    }
+  },
+  {
+    "id": 356,
+    "name": "ROSA ZÁRATE (QUININDÉ)",
+    "idDummy": "50,04,08",
+    "canton": {
+      "id": "80"
+    }
+  },
+  {
+    "id": 357,
+    "name": "BALZAR",
+    "idDummy": "50,04,09",
+    "canton": {
+      "id": "81"
+    }
+  },
+  {
+    "id": 358,
+    "name": "OTAVALO",
+    "idDummy": "50,04,10",
+    "canton": {
+      "id": "82"
+    }
+  },
+  {
+    "id": 359,
+    "name": "CELICA",
+    "idDummy": "50,04,11",
+    "canton": {
+      "id": "83"
+    }
+  },
+  {
+    "id": 360,
+    "name": "PUEBLOVIEJO",
+    "idDummy": "50,04,12",
+    "canton": {
+      "id": "84"
+    }
+  },
+  {
+    "id": 361,
+    "name": "EL CARMEN",
+    "idDummy": "50,04,13",
+    "canton": {
+      "id": "85"
+    }
+  },
+  {
+    "id": 362,
+    "name": "PALORA (METZERA)",
+    "idDummy": "50,04,14",
+    "canton": {
+      "id": "86"
+    }
+  },
+  {
+    "id": 363,
+    "name": "EL CHACO",
+    "idDummy": "50,04,15",
+    "canton": {
+      "id": "87"
+    }
+  },
+  {
+    "id": 364,
+    "name": "ARAJUNO",
+    "idDummy": "50,04,16",
+    "canton": {
+      "id": "88"
+    }
+  },
+  {
+    "id": 365,
+    "name": "TABACUNDO",
+    "idDummy": "50,04,17",
+    "canton": {
+      "id": "89"
+    }
+  },
+  {
+    "id": 366,
+    "name": "MOCHA",
+    "idDummy": "50,04,18",
+    "canton": {
+      "id": "90"
+    }
+  },
+  {
+    "id": 367,
+    "name": "28 DE MAYO (SAN JOSÉ DE YACUAMBI)",
+    "idDummy": "50,04,19",
+    "canton": {
+      "id": "91"
+    }
+  },
+  {
+    "id": 368,
+    "name": "SHUSHUFINDI",
+    "idDummy": "50,04,21",
+    "canton": {
+      "id": "92"
+    }
+  },
+  {
+    "id": 369,
+    "name": "LORETO",
+    "idDummy": "50,04,22",
+    "canton": {
+      "id": "93"
+    }
+  },
+  {
+    "id": 370,
+    "name": "PAUTE",
+    "idDummy": "50,05,01",
+    "canton": {
+      "id": "95"
+    }
+  },
+  {
+    "id": 371,
+    "name": "SAN MIGUEL",
+    "idDummy": "50,05,02",
+    "canton": {
+      "id": "96"
+    }
+  },
+  {
+    "id": 372,
+    "name": "EL TAMBO",
+    "idDummy": "50,05,03",
+    "canton": {
+      "id": "97"
+    }
+  },
+  {
+    "id": 373,
+    "name": "SAN GABRIEL",
+    "idDummy": "50,05,04",
+    "canton": {
+      "id": "98"
+    }
+  },
+  {
+    "id": 374,
+    "name": "SAN MIGUEL",
+    "idDummy": "50,05,05",
+    "canton": {
+      "id": "99"
+    }
+  },
+  {
+    "id": 375,
+    "name": "CHUNCHI",
+    "idDummy": "50,05,06",
+    "canton": {
+      "id": "100"
+    }
+  },
+  {
+    "id": 376,
+    "name": "CHILLA",
+    "idDummy": "50,05,07",
+    "canton": {
+      "id": "101"
+    }
+  },
+  {
+    "id": 377,
+    "name": "SAN LORENZO",
+    "idDummy": "50,05,08",
+    "canton": {
+      "id": "102"
+    }
+  },
+  {
+    "id": 378,
+    "name": "COLIMES",
+    "idDummy": "50,05,09",
+    "canton": {
+      "id": "103"
+    }
+  },
+  {
+    "id": 379,
+    "name": "PIMAMPIRO",
+    "idDummy": "50,05,10",
+    "canton": {
+      "id": "104"
+    }
+  },
+  {
+    "id": 380,
+    "name": "CHAGUARPAMBA",
+    "idDummy": "50,05,11",
+    "canton": {
+      "id": "105"
+    }
+  },
+  {
+    "id": 381,
+    "name": "QUEVEDO",
+    "idDummy": "50,05,12",
+    "canton": {
+      "id": "106"
+    }
+  },
+  {
+    "id": 382,
+    "name": "FLAVIO ALFARO",
+    "idDummy": "50,05,13",
+    "canton": {
+      "id": "107"
+    }
+  },
+  {
+    "id": 383,
+    "name": "SANTIAGO DE MÉNDEZ",
+    "idDummy": "50,05,14",
+    "canton": {
+      "id": "108"
+    }
+  },
+  {
+    "id": 384,
+    "name": "SANGOLQUÍ",
+    "idDummy": "50,05,17",
+    "canton": {
+      "id": "109"
+    }
+  },
+  {
+    "id": 385,
+    "name": "PATATE",
+    "idDummy": "50,05,18",
+    "canton": {
+      "id": "110"
+    }
+  },
+  {
+    "id": 386,
+    "name": "YANTZAZA (YANZATZA)",
+    "idDummy": "50,05,19",
+    "canton": {
+      "id": "111"
+    }
+  },
+  {
+    "id": 387,
+    "name": "LA BONITA",
+    "idDummy": "50,05,21",
+    "canton": {
+      "id": "112"
+    }
+  },
+  {
+    "id": 388,
+    "name": "PUCARÁ",
+    "idDummy": "50,06,01",
+    "canton": {
+      "id": "113"
+    }
+  },
+  {
+    "id": 389,
+    "name": "CALUMA",
+    "idDummy": "50,06,02",
+    "canton": {
+      "id": "114"
+    }
+  },
+  {
+    "id": 390,
+    "name": "DELÉG",
+    "idDummy": "50,06,03",
+    "canton": {
+      "id": "115"
+    }
+  },
+  {
+    "id": 391,
+    "name": "HUACA",
+    "idDummy": "50,06,04",
+    "canton": {
+      "id": "116"
+    }
+  },
+  {
+    "id": 392,
+    "name": "SAQUISILÍ",
+    "idDummy": "50,06,05",
+    "canton": {
+      "id": "117"
+    }
+  },
+  {
+    "id": 393,
+    "name": "GUAMOTE",
+    "idDummy": "50,06,06",
+    "canton": {
+      "id": "118"
+    }
+  },
+  {
+    "id": 394,
+    "name": "EL GUABO",
+    "idDummy": "50,06,07",
+    "canton": {
+      "id": "119"
+    }
+  },
+  {
+    "id": 395,
+    "name": "ATACAMES",
+    "idDummy": "50,06,08",
+    "canton": {
+      "id": "120"
+    }
+  },
+  {
+    "id": 396,
+    "name": "DAULE",
+    "idDummy": "50,06,09",
+    "canton": {
+      "id": "121"
+    }
+  },
+  {
+    "id": 397,
+    "name": "URCUQUÍ",
+    "idDummy": "50,06,10",
+    "canton": {
+      "id": "122"
+    }
+  },
+  {
+    "id": 398,
+    "name": "AMALUZA",
+    "idDummy": "50,06,11",
+    "canton": {
+      "id": "123"
+    }
+  },
+  {
+    "id": 399,
+    "name": "CATARAMA",
+    "idDummy": "50,06,12",
+    "canton": {
+      "id": "124"
+    }
+  },
+  {
+    "id": 400,
+    "name": "JIPIJAPA",
+    "idDummy": "50,06,13",
+    "canton": {
+      "id": "125"
+    }
+  },
+  {
+    "id": 401,
+    "name": "SUCÚA",
+    "idDummy": "50,06,14",
+    "canton": {
+      "id": "126"
+    }
+  },
+  {
+    "id": 402,
+    "name": "QUERO",
+    "idDummy": "50,06,18",
+    "canton": {
+      "id": "127"
+    }
+  },
+  {
+    "id": 403,
+    "name": "EL PANGUI",
+    "idDummy": "50,06,19",
+    "canton": {
+      "id": "128"
+    }
+  },
+  {
+    "id": 404,
+    "name": "EL DORADO DE CASCALES",
+    "idDummy": "50,06,21",
+    "canton": {
+      "id": "129"
+    }
+  },
+  {
+    "id": 405,
+    "name": "SAN FERNANDO",
+    "idDummy": "50,07,01",
+    "canton": {
+      "id": "130"
+    }
+  },
+  {
+    "id": 406,
+    "name": "LAS NAVES",
+    "idDummy": "50,07,02",
+    "canton": {
+      "id": "131"
+    }
+  },
+  {
+    "id": 407,
+    "name": "SUSCAL",
+    "idDummy": "50,07,03",
+    "canton": {
+      "id": "132"
+    }
+  },
+  {
+    "id": 408,
+    "name": "SIGCHOS",
+    "idDummy": "50,07,05",
+    "canton": {
+      "id": "133"
+    }
+  },
+  {
+    "id": 409,
+    "name": "GUANO",
+    "idDummy": "50,07,06",
+    "canton": {
+      "id": "134"
+    }
+  },
+  {
+    "id": 410,
+    "name": "HUAQUILLAS",
+    "idDummy": "50,07,07",
+    "canton": {
+      "id": "135"
+    }
+  },
+  {
+    "id": 411,
+    "name": "RIOVERDE",
+    "idDummy": "50,07,08",
+    "canton": {
+      "id": "136"
+    }
+  },
+  {
+    "id": 412,
+    "name": "ELOY ALFARO (DURAN)",
+    "idDummy": "50,07,09",
+    "canton": {
+      "id": "137"
+    }
+  },
+  {
+    "id": 413,
+    "name": "GONZANAMÁ",
+    "idDummy": "50,07,11",
+    "canton": {
+      "id": "138"
+    }
+  },
+  {
+    "id": 414,
+    "name": "VENTANAS",
+    "idDummy": "50,07,12",
+    "canton": {
+      "id": "139"
+    }
+  },
+  {
+    "id": 415,
+    "name": "JUNÍN",
+    "idDummy": "50,07,13",
+    "canton": {
+      "id": "140"
+    }
+  },
+  {
+    "id": 416,
+    "name": "HUAMBOYA",
+    "idDummy": "50,07,14",
+    "canton": {
+      "id": "141"
+    }
+  },
+  {
+    "id": 417,
+    "name": "BAEZA",
+    "idDummy": "50,07,15",
+    "canton": {
+      "id": "142"
+    }
+  },
+  {
+    "id": 418,
+    "name": "SAN MIGUEL DE LOS BANCOS",
+    "idDummy": "50,07,17",
+    "canton": {
+      "id": "143"
+    }
+  },
+  {
+    "id": 419,
+    "name": "PELILEO",
+    "idDummy": "50,07,18",
+    "canton": {
+      "id": "144"
+    }
+  },
+  {
+    "id": 420,
+    "name": "ZUMBI",
+    "idDummy": "50,07,19",
+    "canton": {
+      "id": "145"
+    }
+  },
+  {
+    "id": 421,
+    "name": "TARAPOA",
+    "idDummy": "50,07,21",
+    "canton": {
+      "id": "146"
+    }
+  },
+  {
+    "id": 422,
+    "name": "SANTA ISABEL (CHAGUARURCO)",
+    "idDummy": "50,08,01",
+    "canton": {
+      "id": "147"
+    }
+  },
+  {
+    "id": 423,
+    "name": "PALLATANGA",
+    "idDummy": "50,08,06",
+    "canton": {
+      "id": "148"
+    }
+  },
+  {
+    "id": 424,
+    "name": "MARCABELÍ",
+    "idDummy": "50,08,07",
+    "canton": {
+      "id": "149"
+    }
+  },
+  {
+    "id": 425,
+    "name": "VELASCO IBARRA (CAB. EL EMPALME)",
+    "idDummy": "50,08,09",
+    "canton": {
+      "id": "150"
+    }
+  },
+  {
+    "id": 426,
+    "name": "MACARÁ",
+    "idDummy": "50,08,11",
+    "canton": {
+      "id": "151"
+    }
+  },
+  {
+    "id": 427,
+    "name": "VINCES",
+    "idDummy": "50,08,12",
+    "canton": {
+      "id": "152"
+    }
+  },
+  {
+    "id": 428,
+    "name": "MANTA",
+    "idDummy": "50,08,13",
+    "canton": {
+      "id": "153"
+    }
+  },
+  {
+    "id": 429,
+    "name": "SAN JUAN BOSCO",
+    "idDummy": "50,08,14",
+    "canton": {
+      "id": "154"
+    }
+  },
+  {
+    "id": 430,
+    "name": "PEDRO VICENTE MALDONADO",
+    "idDummy": "50,08,17",
+    "canton": {
+      "id": "155"
+    }
+  },
+  {
+    "id": 431,
+    "name": "PÍLLARO",
+    "idDummy": "50,08,18",
+    "canton": {
+      "id": "156"
+    }
+  },
+  {
+    "id": 432,
+    "name": "PALANDA",
+    "idDummy": "50,08,19",
+    "canton": {
+      "id": "157"
+    }
+  },
+  {
+    "id": 433,
+    "name": "SIGSIG",
+    "idDummy": "50,09,01",
+    "canton": {
+      "id": "158"
+    }
+  },
+  {
+    "id": 434,
+    "name": "PENIPE",
+    "idDummy": "50,09,06",
+    "canton": {
+      "id": "159"
+    }
+  },
+  {
+    "id": 435,
+    "name": "PASAJE",
+    "idDummy": "50,09,07",
+    "canton": {
+      "id": "160"
+    }
+  },
+  {
+    "id": 436,
+    "name": "EL TRIUNFO",
+    "idDummy": "50,09,09",
+    "canton": {
+      "id": "161"
+    }
+  },
+  {
+    "id": 437,
+    "name": "CATACOCHA",
+    "idDummy": "50,09,11",
+    "canton": {
+      "id": "162"
+    }
+  },
+  {
+    "id": 438,
+    "name": "PALENQUE",
+    "idDummy": "50,09,12",
+    "canton": {
+      "id": "163"
+    }
+  },
+  {
+    "id": 439,
+    "name": "MONTECRISTI",
+    "idDummy": "50,09,13",
+    "canton": {
+      "id": "164"
+    }
+  },
+  {
+    "id": 440,
+    "name": "TAISHA",
+    "idDummy": "50,09,14",
+    "canton": {
+      "id": "165"
+    }
+  },
+  {
+    "id": 441,
+    "name": "CARLOS JULIO AROSEMENA TOLA",
+    "idDummy": "50,09,15",
+    "canton": {
+      "id": "166"
+    }
+  },
+  {
+    "id": 442,
+    "name": "PUERTO QUITO",
+    "idDummy": "50,09,17",
+    "canton": {
+      "id": "167"
+    }
+  },
+  {
+    "id": 443,
+    "name": "TISALEO",
+    "idDummy": "50,09,18",
+    "canton": {
+      "id": "168"
+    }
+  },
+  {
+    "id": 444,
+    "name": "PAQUISHA",
+    "idDummy": "50,09,19",
+    "canton": {
+      "id": "169"
+    }
+  },
+  {
+    "id": 445,
+    "name": "SAN FELIPE DE OÑA",
+    "idDummy": "50,10,01",
+    "canton": {
+      "id": "170"
+    }
+  },
+  {
+    "id": 446,
+    "name": "CUMANDÁ",
+    "idDummy": "50,10,06",
+    "canton": {
+      "id": "171"
+    }
+  },
+  {
+    "id": 447,
+    "name": "PIÑAS",
+    "idDummy": "50,10,07",
+    "canton": {
+      "id": "172"
+    }
+  },
+  {
+    "id": 448,
+    "name": "MILAGRO",
+    "idDummy": "50,10,09",
+    "canton": {
+      "id": "173"
+    }
+  },
+  {
+    "id": 449,
+    "name": "ALAMOR",
+    "idDummy": "50,10,11",
+    "canton": {
+      "id": "174"
+    }
+  },
+  {
+    "id": 450,
+    "name": "SAN JACINTO DE BUENA FÉ",
+    "idDummy": "50,10,12",
+    "canton": {
+      "id": "175"
+    }
+  },
+  {
+    "id": 451,
+    "name": "PAJÁN",
+    "idDummy": "50,10,13",
+    "canton": {
+      "id": "176"
+    }
+  },
+  {
+    "id": 452,
+    "name": "LOGROÑO",
+    "idDummy": "50,10,14",
+    "canton": {
+      "id": "177"
+    }
+  },
+  {
+    "id": 453,
+    "name": "CHORDELEG",
+    "idDummy": "50,11,01",
+    "canton": {
+      "id": "178"
+    }
+  },
+  {
+    "id": 454,
+    "name": "PORTOVELO",
+    "idDummy": "50,11,07",
+    "canton": {
+      "id": "179"
+    }
+  },
+  {
+    "id": 455,
+    "name": "NARANJAL",
+    "idDummy": "50,11,09",
+    "canton": {
+      "id": "180"
+    }
+  },
+  {
+    "id": 456,
+    "name": "SARAGURO",
+    "idDummy": "50,11,11",
+    "canton": {
+      "id": "181"
+    }
+  },
+  {
+    "id": 457,
+    "name": "VALENCIA",
+    "idDummy": "50,11,12",
+    "canton": {
+      "id": "182"
+    }
+  },
+  {
+    "id": 458,
+    "name": "PICHINCHA",
+    "idDummy": "50,11,13",
+    "canton": {
+      "id": "183"
+    }
+  },
+  {
+    "id": 459,
+    "name": "PABLO SEXTO",
+    "idDummy": "50,11,14",
+    "canton": {
+      "id": "184"
+    }
+  },
+  {
+    "id": 460,
+    "name": "EL PAN",
+    "idDummy": "50,12,01",
+    "canton": {
+      "id": "185"
+    }
+  },
+  {
+    "id": 461,
+    "name": "SANTA ROSA",
+    "idDummy": "50,12,07",
+    "canton": {
+      "id": "186"
+    }
+  },
+  {
+    "id": 462,
+    "name": "NARANJITO",
+    "idDummy": "50,12,09",
+    "canton": {
+      "id": "187"
+    }
+  },
+  {
+    "id": 463,
+    "name": "SOZORANGA",
+    "idDummy": "50,12,11",
+    "canton": {
+      "id": "188"
+    }
+  },
+  {
+    "id": 464,
+    "name": "MOCACHE",
+    "idDummy": "50,12,12",
+    "canton": {
+      "id": "189"
+    }
+  },
+  {
+    "id": 465,
+    "name": "ROCAFUERTE",
+    "idDummy": "50,12,13",
+    "canton": {
+      "id": "190"
+    }
+  },
+  {
+    "id": 466,
+    "name": "SANTIAGO",
+    "idDummy": "50,12,14",
+    "canton": {
+      "id": "191"
+    }
+  },
+  {
+    "id": 467,
+    "name": "SEVILLA DE ORO",
+    "idDummy": "50,13,01",
+    "canton": {
+      "id": "192"
+    }
+  },
+  {
+    "id": 468,
+    "name": "ZARUMA",
+    "idDummy": "50,13,07",
+    "canton": {
+      "id": "193"
+    }
+  },
+  {
+    "id": 469,
+    "name": "PALESTINA",
+    "idDummy": "50,13,09",
+    "canton": {
+      "id": "194"
+    }
+  },
+  {
+    "id": 470,
+    "name": "ZAPOTILLO",
+    "idDummy": "50,13,11",
+    "canton": {
+      "id": "195"
+    }
+  },
+  {
+    "id": 471,
+    "name": "QUINSALOMA",
+    "idDummy": "50,13,12",
+    "canton": {
+      "id": "196"
+    }
+  },
+  {
+    "id": 472,
+    "name": "SANTA ANA DE VUELTA LARGA",
+    "idDummy": "50,13,13",
+    "canton": {
+      "id": "197"
+    }
+  },
+  {
+    "id": 473,
+    "name": "GUACHAPALA",
+    "idDummy": "50,14,01",
+    "canton": {
+      "id": "198"
+    }
+  },
+  {
+    "id": 474,
+    "name": "LA VICTORIA",
+    "idDummy": "50,14,07",
+    "canton": {
+      "id": "199"
+    }
+  },
+  {
+    "id": 475,
+    "name": "PEDRO CARBO",
+    "idDummy": "50,14,09",
+    "canton": {
+      "id": "200"
+    }
+  },
+  {
+    "id": 476,
+    "name": "PINDAL",
+    "idDummy": "50,14,11",
+    "canton": {
+      "id": "201"
+    }
+  },
+  {
+    "id": 477,
+    "name": "BAHÍA DE CARÁQUEZ",
+    "idDummy": "50,14,13",
+    "canton": {
+      "id": "202"
+    }
+  },
+  {
+    "id": 478,
+    "name": "CAMILO PONCE ENRÍQUEZ",
+    "idDummy": "50,15,01",
+    "canton": {
+      "id": "203"
+    }
+  },
+  {
+    "id": 479,
+    "name": "QUILANGA",
+    "idDummy": "50,15,11",
+    "canton": {
+      "id": "204"
+    }
+  },
+  {
+    "id": 480,
+    "name": "TOSAGUA",
+    "idDummy": "50,15,13",
+    "canton": {
+      "id": "205"
+    }
+  },
+  {
+    "id": 481,
+    "name": "SAMBORONDÓN",
+    "idDummy": "50,16,09",
+    "canton": {
+      "id": "206"
+    }
+  },
+  {
+    "id": 482,
+    "name": "OLMEDO",
+    "idDummy": "50,16,11",
+    "canton": {
+      "id": "207"
+    }
+  },
+  {
+    "id": 483,
+    "name": "SUCRE",
+    "idDummy": "50,16,13",
+    "canton": {
+      "id": "208"
+    }
+  },
+  {
+    "id": 484,
+    "name": "PEDERNALES",
+    "idDummy": "50,17,13",
+    "canton": {
+      "id": "209"
+    }
+  },
+  {
+    "id": 485,
+    "name": "SANTA LUCÍA",
+    "idDummy": "50,18,09",
+    "canton": {
+      "id": "210"
+    }
+  },
+  {
+    "id": 486,
+    "name": "OLMEDO",
+    "idDummy": "50,18,13",
+    "canton": {
+      "id": "211"
+    }
+  },
+  {
+    "id": 487,
+    "name": "EL SALITRE (LAS RAMAS)",
+    "idDummy": "50,19,09",
+    "canton": {
+      "id": "212"
+    }
+  },
+  {
+    "id": 488,
+    "name": "PUERTO LÓPEZ",
+    "idDummy": "50,19,13",
+    "canton": {
+      "id": "213"
+    }
+  },
+  {
+    "id": 489,
+    "name": "SAN JACINTO DE YAGUACHI",
+    "idDummy": "50,20,09",
+    "canton": {
+      "id": "214"
+    }
+  },
+  {
+    "id": 490,
+    "name": "JAMA",
+    "idDummy": "50,20,13",
+    "canton": {
+      "id": "215"
+    }
+  },
+  {
+    "id": 491,
+    "name": "GENERAL VILLAMIL (PLAYAS)",
+    "idDummy": "50,21,09",
+    "canton": {
+      "id": "216"
+    }
+  },
+  {
+    "id": 492,
+    "name": "JARAMIJÓ",
+    "idDummy": "50,21,13",
+    "canton": {
+      "id": "217"
+    }
+  },
+  {
+    "id": 493,
+    "name": "SIMÓN BOLÍVAR",
+    "idDummy": "50,22,09",
+    "canton": {
+      "id": "218"
+    }
+  },
+  {
+    "id": 494,
+    "name": "SAN VICENTE",
+    "idDummy": "50,22,13",
+    "canton": {
+      "id": "219"
+    }
+  },
+  {
+    "id": 495,
+    "name": "CRNEL. MARCELINO MARIDUE_A (SAN CARLOS)",
+    "idDummy": "50,23,09",
+    "canton": {
+      "id": "220"
+    }
+  },
+  {
+    "id": 496,
+    "name": "LOMAS DE SARGENTILLO",
+    "idDummy": "50,24,09",
+    "canton": {
+      "id": "221"
+    }
+  },
+  {
+    "id": 497,
+    "name": "NARCISA DE JESÚS",
+    "idDummy": "50,25,09",
+    "canton": {
+      "id": "222"
+    }
+  },
+  {
+    "id": 498,
+    "name": "GRAL. ANTONIO ELIZALDE (BUCAY)",
+    "idDummy": "50,27,09",
+    "canton": {
+      "id": "223"
+    }
+  },
+  {
+    "id": 499,
+    "name": "ISIDRO AYORA",
+    "idDummy": "50,28,09",
+    "canton": {
+      "id": "224"
+    }
+  },
+  {
+    "id": 500,
+    "name": "BAÑOS",
+    "idDummy": "51,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 501,
+    "name": "FACUNDO VELA",
+    "idDummy": "51,01,02",
+    "canton": {
+      "id": "2"
+    }
+  },
+  {
+    "id": 502,
+    "name": "COJITAMBO",
+    "idDummy": "51,01,03",
+    "canton": {
+      "id": "3"
+    }
+  },
+  {
+    "id": 503,
+    "name": "EL CARMELO (EL PUN)",
+    "idDummy": "51,01,04",
+    "canton": {
+      "id": "4"
+    }
+  },
+  {
+    "id": 504,
+    "name": "ALAQUES (ALAQUEZ)",
+    "idDummy": "51,01,05",
+    "canton": {
+      "id": "5"
+    }
+  },
+  {
+    "id": 505,
+    "name": "CACHA (CAB. EN MACHANGARA)",
+    "idDummy": "51,01,06",
+    "canton": {
+      "id": "6"
+    }
+  },
+  {
+    "id": 506,
+    "name": "*EL CAMBIO",
+    "idDummy": "51,01,07",
+    "canton": {
+      "id": "7"
+    }
+  },
+  {
+    "id": 507,
+    "name": "*ATACAMES",
+    "idDummy": "51,01,08",
+    "canton": {
+      "id": "8"
+    }
+  },
+  {
+    "id": 508,
+    "name": "*CHONGÓN",
+    "idDummy": "51,01,09",
+    "canton": {
+      "id": "9"
+    }
+  },
+  {
+    "id": 509,
+    "name": "AMBUQUÍ",
+    "idDummy": "51,01,10",
+    "canton": {
+      "id": "10"
+    }
+  },
+  {
+    "id": 510,
+    "name": "CHANTACO",
+    "idDummy": "51,01,11",
+    "canton": {
+      "id": "11"
+    }
+  },
+  {
+    "id": 511,
+    "name": "*BARREIRO (SANTA RITA)",
+    "idDummy": "51,01,12",
+    "canton": {
+      "id": "12"
+    }
+  },
+  {
+    "id": 512,
+    "name": "ABDÓN CALDERON (SAN FRANCISCO)",
+    "idDummy": "51,01,13",
+    "canton": {
+      "id": "13"
+    }
+  },
+  {
+    "id": 513,
+    "name": "ALSHI (CAB EN 9 DE OCTUBRE)",
+    "idDummy": "51,01,14",
+    "canton": {
+      "id": "14"
+    }
+  },
+  {
+    "id": 514,
+    "name": "AHUANO",
+    "idDummy": "51,01,15",
+    "canton": {
+      "id": "15"
+    }
+  },
+  {
+    "id": 515,
+    "name": "*ARAJUNO",
+    "idDummy": "51,01,16",
+    "canton": {
+      "id": "16"
+    }
+  },
+  {
+    "id": 516,
+    "name": "ALANGASÍ",
+    "idDummy": "51,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 517,
+    "name": "AMBATILLO",
+    "idDummy": "51,01,18",
+    "canton": {
+      "id": "18"
+    }
+  },
+  {
+    "id": 518,
+    "name": "CUMBARATZA",
+    "idDummy": "51,01,19",
+    "canton": {
+      "id": "19"
+    }
+  },
+  {
+    "id": 519,
+    "name": "EL PROGRESO",
+    "idDummy": "51,01,20",
+    "canton": {
+      "id": "20"
+    }
+  },
+  {
+    "id": 520,
+    "name": "*CUYABENO",
+    "idDummy": "51,01,21",
+    "canton": {
+      "id": "21"
+    }
+  },
+  {
+    "id": 521,
+    "name": "DAYUMA",
+    "idDummy": "51,01,22",
+    "canton": {
+      "id": "22"
+    }
+  },
+  {
+    "id": 522,
+    "name": "ALLURIQUIN",
+    "idDummy": "51,01,23",
+    "canton": {
+      "id": "23"
+    }
+  },
+  {
+    "id": 523,
+    "name": "ATAHUALPA",
+    "idDummy": "51,01,24",
+    "canton": {
+      "id": "24"
+    }
+  },
+  {
+    "id": 524,
+    "name": "LAS GOLONDRINAS",
+    "idDummy": "51,01,90",
+    "canton": {
+      "id": "25"
+    }
+  },
+  {
+    "id": 525,
+    "name": "ASUNCIÓN",
+    "idDummy": "51,02,01",
+    "canton": {
+      "id": "26"
+    }
+  },
+  {
+    "id": 526,
+    "name": "SAN JOSÉ DEL TAMBO (TAMBOPAMBA)",
+    "idDummy": "51,02,02",
+    "canton": {
+      "id": "27"
+    }
+  },
+  {
+    "id": 527,
+    "name": "NAZÓN (CAB. EN PAMPA DE DOMÍNGUEZ)",
+    "idDummy": "51,02,03",
+    "canton": {
+      "id": "28"
+    }
+  },
+  {
+    "id": 528,
+    "name": "GARCÍA MORENO",
+    "idDummy": "51,02,04",
+    "canton": {
+      "id": "29"
+    }
+  },
+  {
+    "id": 529,
+    "name": "GUASAGANDA (CAB. EN GUASAGANDA CENTRO)",
+    "idDummy": "51,02,05",
+    "canton": {
+      "id": "30"
+    }
+  },
+  {
+    "id": 530,
+    "name": "ACHUPALLAS",
+    "idDummy": "51,02,06",
+    "canton": {
+      "id": "31"
+    }
+  },
+  {
+    "id": 531,
+    "name": "CHACRAS",
+    "idDummy": "51,02,07",
+    "canton": {
+      "id": "32"
+    }
+  },
+  {
+    "id": 532,
+    "name": "ANCHAYACU",
+    "idDummy": "51,02,08",
+    "canton": {
+      "id": "33"
+    }
+  },
+  {
+    "id": 533,
+    "name": "IMBAYA (SAN LUIS DE COBUENDO)",
+    "idDummy": "51,02,10",
+    "canton": {
+      "id": "35"
+    }
+  },
+  {
+    "id": 534,
+    "name": "COLAISACA",
+    "idDummy": "51,02,11",
+    "canton": {
+      "id": "36"
+    }
+  },
+  {
+    "id": 535,
+    "name": "GUARE",
+    "idDummy": "51,02,12",
+    "canton": {
+      "id": "37"
+    }
+  },
+  {
+    "id": 536,
+    "name": "MEMBRILLO",
+    "idDummy": "51,02,13",
+    "canton": {
+      "id": "38"
+    }
+  },
+  {
+    "id": 537,
+    "name": "AMAZONAS (ROSARIO DE CUYES)",
+    "idDummy": "51,02,14",
+    "canton": {
+      "id": "39"
+    }
+  },
+  {
+    "id": 538,
+    "name": "MADRE TIERRA",
+    "idDummy": "51,02,16",
+    "canton": {
+      "id": "40"
+    }
+  },
+  {
+    "id": 539,
+    "name": "AZCÁZUBI",
+    "idDummy": "51,02,17",
+    "canton": {
+      "id": "41"
+    }
+  },
+  {
+    "id": 540,
+    "name": "LLIGUA",
+    "idDummy": "51,02,18",
+    "canton": {
+      "id": "42"
+    }
+  },
+  {
+    "id": 541,
+    "name": "CHITO",
+    "idDummy": "51,02,19",
+    "canton": {
+      "id": "43"
+    }
+  },
+  {
+    "id": 542,
+    "name": "TOMÁS DE BERLANGA (SANTO TOMÁS) (CAB. EN LA ESPERANZA)",
+    "idDummy": "51,02,20",
+    "canton": {
+      "id": "44"
+    }
+  },
+  {
+    "id": 543,
+    "name": "EL REVENTADOR",
+    "idDummy": "51,02,21",
+    "canton": {
+      "id": "45"
+    }
+  },
+  {
+    "id": 544,
+    "name": "CAPITÁN AUGUSTO RIVADENEYRA",
+    "idDummy": "51,02,22",
+    "canton": {
+      "id": "46"
+    }
+  },
+  {
+    "id": 545,
+    "name": "MONTERREY",
+    "idDummy": "51,02,23",
+    "canton": {
+      "id": "47"
+    }
+  },
+  {
+    "id": 546,
+    "name": "*CHORDELEG",
+    "idDummy": "51,03,01",
+    "canton": {
+      "id": "49"
+    }
+  },
+  {
+    "id": 547,
+    "name": "ASUNCIÓN (ASANCOTO)",
+    "idDummy": "51,03,02",
+    "canton": {
+      "id": "50"
+    }
+  },
+  {
+    "id": 548,
+    "name": "CHONTAMARCA",
+    "idDummy": "51,03,03",
+    "canton": {
+      "id": "51"
+    }
+  },
+  {
+    "id": 549,
+    "name": "EL GOALTAL",
+    "idDummy": "51,03,04",
+    "canton": {
+      "id": "52"
+    }
+  },
+  {
+    "id": 550,
+    "name": "MORASPUNGO",
+    "idDummy": "51,03,05",
+    "canton": {
+      "id": "53"
+    }
+  },
+  {
+    "id": 551,
+    "name": "CAÑI",
+    "idDummy": "51,03,06",
+    "canton": {
+      "id": "54"
+    }
+  },
+  {
+    "id": 552,
+    "name": "AYAPAMBA",
+    "idDummy": "51,03,07",
+    "canton": {
+      "id": "55"
+    }
+  },
+  {
+    "id": 553,
+    "name": "BOLÍVAR",
+    "idDummy": "51,03,08",
+    "canton": {
+      "id": "56"
+    }
+  },
+  {
+    "id": 554,
+    "name": "APUELA",
+    "idDummy": "51,03,10",
+    "canton": {
+      "id": "58"
+    }
+  },
+  {
+    "id": 555,
+    "name": "EL TAMBO",
+    "idDummy": "51,03,11",
+    "canton": {
+      "id": "59"
+    }
+  },
+  {
+    "id": 556,
+    "name": "LA ESMERALDA",
+    "idDummy": "51,03,12",
+    "canton": {
+      "id": "60"
+    }
+  },
+  {
+    "id": 557,
+    "name": "BOYACÁ",
+    "idDummy": "51,03,13",
+    "canton": {
+      "id": "61"
+    }
+  },
+  {
+    "id": 558,
+    "name": "INDANZA",
+    "idDummy": "51,03,14",
+    "canton": {
+      "id": "62"
+    }
+  },
+  {
+    "id": 559,
+    "name": "*AVILA",
+    "idDummy": "51,03,15",
+    "canton": {
+      "id": "63"
+    }
+  },
+  {
+    "id": 560,
+    "name": "SAN JOSÉ",
+    "idDummy": "51,03,16",
+    "canton": {
+      "id": "64"
+    }
+  },
+  {
+    "id": 561,
+    "name": "ALOAG",
+    "idDummy": "51,03,17",
+    "canton": {
+      "id": "65"
+    }
+  },
+  {
+    "id": 562,
+    "name": "ZURMI",
+    "idDummy": "51,03,19",
+    "canton": {
+      "id": "67"
+    }
+  },
+  {
+    "id": 563,
+    "name": "BELLAVISTA",
+    "idDummy": "51,03,20",
+    "canton": {
+      "id": "68"
+    }
+  },
+  {
+    "id": 564,
+    "name": "PALMA ROJA",
+    "idDummy": "51,03,21",
+    "canton": {
+      "id": "69"
+    }
+  },
+  {
+    "id": 565,
+    "name": "ENOKANQUI",
+    "idDummy": "51,03,22",
+    "canton": {
+      "id": "70"
+    }
+  },
+  {
+    "id": 566,
+    "name": "ANCONCITO",
+    "idDummy": "51,03,24",
+    "canton": {
+      "id": "71"
+    }
+  },
+  {
+    "id": 567,
+    "name": "MANGA DEL CURA",
+    "idDummy": "51,03,90",
+    "canton": {
+      "id": "72"
+    }
+  },
+  {
+    "id": 568,
+    "name": "COCHAPATA",
+    "idDummy": "51,04,01",
+    "canton": {
+      "id": "73"
+    }
+  },
+  {
+    "id": 569,
+    "name": "MANUEL J. CALLE",
+    "idDummy": "51,04,03",
+    "canton": {
+      "id": "75"
+    }
+  },
+  {
+    "id": 570,
+    "name": "CONCEPCIÓN",
+    "idDummy": "51,04,04",
+    "canton": {
+      "id": "76"
+    }
+  },
+  {
+    "id": 571,
+    "name": "ANGAMARCA",
+    "idDummy": "51,04,05",
+    "canton": {
+      "id": "77"
+    }
+  },
+  {
+    "id": 572,
+    "name": "BELLAMARÍA",
+    "idDummy": "51,04,07",
+    "canton": {
+      "id": "79"
+    }
+  },
+  {
+    "id": 573,
+    "name": "CUBE",
+    "idDummy": "51,04,08",
+    "canton": {
+      "id": "80"
+    }
+  },
+  {
+    "id": 574,
+    "name": "DOCTOR MIGUEL EGAS CABEZAS (PEGUCHE)",
+    "idDummy": "51,04,10",
+    "canton": {
+      "id": "82"
+    }
+  },
+  {
+    "id": 575,
+    "name": "CRUZPAMBA (CAB EN CARLOS BUSTAMANTE)",
+    "idDummy": "51,04,11",
+    "canton": {
+      "id": "83"
+    }
+  },
+  {
+    "id": 576,
+    "name": "PUERTO PECHICHE",
+    "idDummy": "51,04,12",
+    "canton": {
+      "id": "84"
+    }
+  },
+  {
+    "id": 577,
+    "name": "WILFRIDO LOOR MOREIRA (MAICITO)",
+    "idDummy": "51,04,13",
+    "canton": {
+      "id": "85"
+    }
+  },
+  {
+    "id": 578,
+    "name": "ARAPICOS",
+    "idDummy": "51,04,14",
+    "canton": {
+      "id": "86"
+    }
+  },
+  {
+    "id": 579,
+    "name": "GONZALO DÍAZ DE PINEDA(EL BOMBÓN)",
+    "idDummy": "51,04,15",
+    "canton": {
+      "id": "87"
+    }
+  },
+  {
+    "id": 580,
+    "name": "CURARAY",
+    "idDummy": "51,04,16",
+    "canton": {
+      "id": "88"
+    }
+  },
+  {
+    "id": 581,
+    "name": "LA ESPERANZA",
+    "idDummy": "51,04,17",
+    "canton": {
+      "id": "89"
+    }
+  },
+  {
+    "id": 582,
+    "name": "PINGUILÍ",
+    "idDummy": "51,04,18",
+    "canton": {
+      "id": "90"
+    }
+  },
+  {
+    "id": 583,
+    "name": "LA PAZ",
+    "idDummy": "51,04,19",
+    "canton": {
+      "id": "91"
+    }
+  },
+  {
+    "id": 584,
+    "name": "LIMONCOCHA",
+    "idDummy": "51,04,21",
+    "canton": {
+      "id": "92"
+    }
+  },
+  {
+    "id": 585,
+    "name": "AVILA (CAB EN HUIRUNO)",
+    "idDummy": "51,04,22",
+    "canton": {
+      "id": "93"
+    }
+  },
+  {
+    "id": 586,
+    "name": "EL PIEDRERO",
+    "idDummy": "51,04,90",
+    "canton": {
+      "id": "94"
+    }
+  },
+  {
+    "id": 587,
+    "name": "*AMALUZA",
+    "idDummy": "51,05,01",
+    "canton": {
+      "id": "95"
+    }
+  },
+  {
+    "id": 588,
+    "name": "BALSAPAMBA",
+    "idDummy": "51,05,02",
+    "canton": {
+      "id": "96"
+    }
+  },
+  {
+    "id": 589,
+    "name": "CRISTÓBAL COLÓN",
+    "idDummy": "51,05,04",
+    "canton": {
+      "id": "98"
+    }
+  },
+  {
+    "id": 590,
+    "name": "ANTONIO JOSÉ HOLGUÍN (SANTA LUCIA)",
+    "idDummy": "51,05,05",
+    "canton": {
+      "id": "99"
+    }
+  },
+  {
+    "id": 591,
+    "name": "CAPZOL",
+    "idDummy": "51,05,06",
+    "canton": {
+      "id": "100"
+    }
+  },
+  {
+    "id": 592,
+    "name": "ALTO TAMBO (CAB EN GUADUAL)",
+    "idDummy": "51,05,08",
+    "canton": {
+      "id": "102"
+    }
+  },
+  {
+    "id": 593,
+    "name": "SAN JACINTO",
+    "idDummy": "51,05,09",
+    "canton": {
+      "id": "103"
+    }
+  },
+  {
+    "id": 594,
+    "name": "CHUGÁ",
+    "idDummy": "51,05,10",
+    "canton": {
+      "id": "104"
+    }
+  },
+  {
+    "id": 595,
+    "name": "BUENAVISTA",
+    "idDummy": "51,05,11",
+    "canton": {
+      "id": "105"
+    }
+  },
+  {
+    "id": 596,
+    "name": "*BUENA FÉ",
+    "idDummy": "51,05,12",
+    "canton": {
+      "id": "106"
+    }
+  },
+  {
+    "id": 597,
+    "name": "SAN FCO. DE NOVILLO (CAB EN NOVILLO)",
+    "idDummy": "51,05,13",
+    "canton": {
+      "id": "107"
+    }
+  },
+  {
+    "id": 598,
+    "name": "COPAL",
+    "idDummy": "51,05,14",
+    "canton": {
+      "id": "108"
+    }
+  },
+  {
+    "id": 599,
+    "name": "COTOGCHOA",
+    "idDummy": "51,05,17",
+    "canton": {
+      "id": "109"
+    }
+  },
+  {
+    "id": 600,
+    "name": "EL TRIUNFO",
+    "idDummy": "51,05,18",
+    "canton": {
+      "id": "110"
+    }
+  },
+  {
+    "id": 601,
+    "name": "CHICAÑA",
+    "idDummy": "51,05,19",
+    "canton": {
+      "id": "111"
+    }
+  },
+  {
+    "id": 602,
+    "name": "EL PLAYÓN DE SAN FRANCISCO",
+    "idDummy": "51,05,21",
+    "canton": {
+      "id": "112"
+    }
+  },
+  {
+    "id": 603,
+    "name": "*CAMILO PONCE ENRÍQUEZ (CAB. EN RÍO 7 DE MOLLEPONGO)",
+    "idDummy": "51,06,01",
+    "canton": {
+      "id": "113"
+    }
+  },
+  {
+    "id": 604,
+    "name": "SOLANO",
+    "idDummy": "51,06,03",
+    "canton": {
+      "id": "115"
+    }
+  },
+  {
+    "id": 605,
+    "name": "MARISCAL SUCRE",
+    "idDummy": "51,06,04",
+    "canton": {
+      "id": "116"
+    }
+  },
+  {
+    "id": 606,
+    "name": "CANCHAGUA",
+    "idDummy": "51,06,05",
+    "canton": {
+      "id": "117"
+    }
+  },
+  {
+    "id": 607,
+    "name": "CEBADAS",
+    "idDummy": "51,06,06",
+    "canton": {
+      "id": "118"
+    }
+  },
+  {
+    "id": 608,
+    "name": "BARBONES (SUCRE)",
+    "idDummy": "51,06,07",
+    "canton": {
+      "id": "119"
+    }
+  },
+  {
+    "id": 609,
+    "name": "LA UNIÓN",
+    "idDummy": "51,06,08",
+    "canton": {
+      "id": "120"
+    }
+  },
+  {
+    "id": 610,
+    "name": "*ISIDRO AYORA (SOLEDAD)",
+    "idDummy": "51,06,09",
+    "canton": {
+      "id": "121"
+    }
+  },
+  {
+    "id": 611,
+    "name": "CAHUASQUÍ",
+    "idDummy": "51,06,10",
+    "canton": {
+      "id": "122"
+    }
+  },
+  {
+    "id": 612,
+    "name": "BELLAVISTA",
+    "idDummy": "51,06,11",
+    "canton": {
+      "id": "123"
+    }
+  },
+  {
+    "id": 613,
+    "name": "RICAURTE",
+    "idDummy": "51,06,12",
+    "canton": {
+      "id": "124"
+    }
+  },
+  {
+    "id": 614,
+    "name": "AMÉRICA",
+    "idDummy": "51,06,13",
+    "canton": {
+      "id": "125"
+    }
+  },
+  {
+    "id": 615,
+    "name": "ASUNCIÓN",
+    "idDummy": "51,06,14",
+    "canton": {
+      "id": "126"
+    }
+  },
+  {
+    "id": 616,
+    "name": "RUMIPAMBA",
+    "idDummy": "51,06,18",
+    "canton": {
+      "id": "127"
+    }
+  },
+  {
+    "id": 617,
+    "name": "EL GUISMI",
+    "idDummy": "51,06,19",
+    "canton": {
+      "id": "128"
+    }
+  },
+  {
+    "id": 618,
+    "name": "SANTA ROSA DE SUCUMBIOS",
+    "idDummy": "51,06,21",
+    "canton": {
+      "id": "129"
+    }
+  },
+  {
+    "id": 619,
+    "name": "CHUMBLÍN",
+    "idDummy": "51,07,01",
+    "canton": {
+      "id": "130"
+    }
+  },
+  {
+    "id": 620,
+    "name": "CHUNCHILÁN (CHUGCHILÁN)",
+    "idDummy": "51,07,05",
+    "canton": {
+      "id": "133"
+    }
+  },
+  {
+    "id": 621,
+    "name": "GUANANDO",
+    "idDummy": "51,07,06",
+    "canton": {
+      "id": "134"
+    }
+  },
+  {
+    "id": 622,
+    "name": "CHONTADURO",
+    "idDummy": "51,07,08",
+    "canton": {
+      "id": "136"
+    }
+  },
+  {
+    "id": 623,
+    "name": "CHANGAIMINA (LA LIBERTAD)",
+    "idDummy": "51,07,11",
+    "canton": {
+      "id": "138"
+    }
+  },
+  {
+    "id": 624,
+    "name": "*QUINSALOMA",
+    "idDummy": "51,07,12",
+    "canton": {
+      "id": "139"
+    }
+  },
+  {
+    "id": 625,
+    "name": "CHIGUAZA",
+    "idDummy": "51,07,14",
+    "canton": {
+      "id": "141"
+    }
+  },
+  {
+    "id": 626,
+    "name": "COSANGA",
+    "idDummy": "51,07,15",
+    "canton": {
+      "id": "142"
+    }
+  },
+  {
+    "id": 627,
+    "name": "MINDO",
+    "idDummy": "51,07,17",
+    "canton": {
+      "id": "143"
+    }
+  },
+  {
+    "id": 628,
+    "name": "BENÍTEZ (PACHANLICA)",
+    "idDummy": "51,07,18",
+    "canton": {
+      "id": "144"
+    }
+  },
+  {
+    "id": 629,
+    "name": "*PAQUISHA",
+    "idDummy": "51,07,19",
+    "canton": {
+      "id": "145"
+    }
+  },
+  {
+    "id": 630,
+    "name": "CUYABENO",
+    "idDummy": "51,07,21",
+    "canton": {
+      "id": "146"
+    }
+  },
+  {
+    "id": 631,
+    "name": "ABDÓN CALDERÓN (LA UNÓN)",
+    "idDummy": "51,08,01",
+    "canton": {
+      "id": "147"
+    }
+  },
+  {
+    "id": 632,
+    "name": "EL INGENIO",
+    "idDummy": "51,08,07",
+    "canton": {
+      "id": "149"
+    }
+  },
+  {
+    "id": 633,
+    "name": "GUAYAS (PUEBLO NUEVO)",
+    "idDummy": "51,08,09",
+    "canton": {
+      "id": "150"
+    }
+  },
+  {
+    "id": 634,
+    "name": "LARAMA",
+    "idDummy": "51,08,11",
+    "canton": {
+      "id": "151"
+    }
+  },
+  {
+    "id": 635,
+    "name": "ANTONIO SOTOMAYOR (CAB. PLAYAS DE VINCE",
+    "idDummy": "51,08,12",
+    "canton": {
+      "id": "152"
+    }
+  },
+  {
+    "id": 636,
+    "name": "SAN LORENZO",
+    "idDummy": "51,08,13",
+    "canton": {
+      "id": "153"
+    }
+  },
+  {
+    "id": 637,
+    "name": "PAN DE AZÚCAR",
+    "idDummy": "51,08,14",
+    "canton": {
+      "id": "154"
+    }
+  },
+  {
+    "id": 638,
+    "name": "BAQUERIZO MORENO",
+    "idDummy": "51,08,18",
+    "canton": {
+      "id": "156"
+    }
+  },
+  {
+    "id": 639,
+    "name": "EL PORVENIR DEL CARMEN",
+    "idDummy": "51,08,19",
+    "canton": {
+      "id": "157"
+    }
+  },
+  {
+    "id": 640,
+    "name": "CCUCHIL (CUTCHIL)",
+    "idDummy": "51,09,01",
+    "canton": {
+      "id": "158"
+    }
+  },
+  {
+    "id": 641,
+    "name": "EL ALTAR",
+    "idDummy": "51,09,06",
+    "canton": {
+      "id": "159"
+    }
+  },
+  {
+    "id": 642,
+    "name": "BUENAVISTA",
+    "idDummy": "51,09,07",
+    "canton": {
+      "id": "160"
+    }
+  },
+  {
+    "id": 643,
+    "name": "CANGONAMÁ",
+    "idDummy": "51,09,11",
+    "canton": {
+      "id": "162"
+    }
+  },
+  {
+    "id": 644,
+    "name": "*JARAMIJÓ",
+    "idDummy": "51,09,13",
+    "canton": {
+      "id": "164"
+    }
+  },
+  {
+    "id": 645,
+    "name": "HUASAGA (CAB EN WAMPUIK)",
+    "idDummy": "51,09,14",
+    "canton": {
+      "id": "165"
+    }
+  },
+  {
+    "id": 646,
+    "name": "QUINCHICOTO",
+    "idDummy": "51,09,18",
+    "canton": {
+      "id": "168"
+    }
+  },
+  {
+    "id": 647,
+    "name": "BELLAVISTA",
+    "idDummy": "51,09,19",
+    "canton": {
+      "id": "169"
+    }
+  },
+  {
+    "id": 648,
+    "name": "SUSUDEL",
+    "idDummy": "51,10,01",
+    "canton": {
+      "id": "170"
+    }
+  },
+  {
+    "id": 649,
+    "name": "CAPIRO (CAB. EN LA CAPILLA DE CAPIRO)",
+    "idDummy": "51,10,07",
+    "canton": {
+      "id": "172"
+    }
+  },
+  {
+    "id": 650,
+    "name": "CHOBO",
+    "idDummy": "51,10,09",
+    "canton": {
+      "id": "173"
+    }
+  },
+  {
+    "id": 651,
+    "name": "CIANO",
+    "idDummy": "51,10,11",
+    "canton": {
+      "id": "174"
+    }
+  },
+  {
+    "id": 652,
+    "name": "PATRICIA PILAR",
+    "idDummy": "51,10,12",
+    "canton": {
+      "id": "175"
+    }
+  },
+  {
+    "id": 653,
+    "name": "CAMPOZANO (LA PALMA DE PAJÁN)",
+    "idDummy": "51,10,13",
+    "canton": {
+      "id": "176"
+    }
+  },
+  {
+    "id": 654,
+    "name": "YAUPI",
+    "idDummy": "51,10,14",
+    "canton": {
+      "id": "177"
+    }
+  },
+  {
+    "id": 655,
+    "name": "PRINCIPAL",
+    "idDummy": "51,11,01",
+    "canton": {
+      "id": "178"
+    }
+  },
+  {
+    "id": 656,
+    "name": "CURTINCAPA",
+    "idDummy": "51,11,07",
+    "canton": {
+      "id": "179"
+    }
+  },
+  {
+    "id": 657,
+    "name": "JESÚS MARÍA",
+    "idDummy": "51,11,09",
+    "canton": {
+      "id": "180"
+    }
+  },
+  {
+    "id": 658,
+    "name": "EL PARAISO DE CELÉN",
+    "idDummy": "51,11,11",
+    "canton": {
+      "id": "181"
+    }
+  },
+  {
+    "id": 659,
+    "name": "BARRAGANETE",
+    "idDummy": "51,11,13",
+    "canton": {
+      "id": "183"
+    }
+  },
+  {
+    "id": 660,
+    "name": "*AMALUZA",
+    "idDummy": "51,12,01",
+    "canton": {
+      "id": "185"
+    }
+  },
+  {
+    "id": 661,
+    "name": "BELLAVISTA",
+    "idDummy": "51,12,07",
+    "canton": {
+      "id": "186"
+    }
+  },
+  {
+    "id": 662,
+    "name": "NUEVA FATIMA",
+    "idDummy": "51,12,11",
+    "canton": {
+      "id": "188"
+    }
+  },
+  {
+    "id": 663,
+    "name": "SAN JOSÉ DE MORONA",
+    "idDummy": "51,12,14",
+    "canton": {
+      "id": "191"
+    }
+  },
+  {
+    "id": 664,
+    "name": "AMALUZA",
+    "idDummy": "51,13,01",
+    "canton": {
+      "id": "192"
+    }
+  },
+  {
+    "id": 665,
+    "name": "ABAÑÍN",
+    "idDummy": "51,13,07",
+    "canton": {
+      "id": "193"
+    }
+  },
+  {
+    "id": 666,
+    "name": "MANGAHURCO",
+    "idDummy": "51,13,11",
+    "canton": {
+      "id": "195"
+    }
+  },
+  {
+    "id": 667,
+    "name": "AYACUCHO",
+    "idDummy": "51,13,13",
+    "canton": {
+      "id": "197"
+    }
+  },
+  {
+    "id": 668,
+    "name": "LA LIBERTAD",
+    "idDummy": "51,14,07",
+    "canton": {
+      "id": "199"
+    }
+  },
+  {
+    "id": 669,
+    "name": "VALLE DE LA VIRGEN",
+    "idDummy": "51,14,09",
+    "canton": {
+      "id": "200"
+    }
+  },
+  {
+    "id": 670,
+    "name": "CHAQUINAL",
+    "idDummy": "51,14,11",
+    "canton": {
+      "id": "201"
+    }
+  },
+  {
+    "id": 671,
+    "name": "* CANOA",
+    "idDummy": "51,14,13",
+    "canton": {
+      "id": "202"
+    }
+  },
+  {
+    "id": 672,
+    "name": "EL CARMEN DE PIJILÍ",
+    "idDummy": "51,15,01",
+    "canton": {
+      "id": "203"
+    }
+  },
+  {
+    "id": 673,
+    "name": "FUNDOCHAMBA",
+    "idDummy": "51,15,11",
+    "canton": {
+      "id": "204"
+    }
+  },
+  {
+    "id": 674,
+    "name": "BACHILLERO",
+    "idDummy": "51,15,13",
+    "canton": {
+      "id": "205"
+    }
+  },
+  {
+    "id": 675,
+    "name": "TARIFA",
+    "idDummy": "51,16,09",
+    "canton": {
+      "id": "206"
+    }
+  },
+  {
+    "id": 676,
+    "name": "LA TINGUE",
+    "idDummy": "51,16,11",
+    "canton": {
+      "id": "207"
+    }
+  },
+  {
+    "id": 677,
+    "name": "BELLAVISTA",
+    "idDummy": "51,16,13",
+    "canton": {
+      "id": "208"
+    }
+  },
+  {
+    "id": 678,
+    "name": "COJIMÍES",
+    "idDummy": "51,17,13",
+    "canton": {
+      "id": "209"
+    }
+  },
+  {
+    "id": 679,
+    "name": "GRAL. VERNAZA (DOS ESTEROS)",
+    "idDummy": "51,19,09",
+    "canton": {
+      "id": "212"
+    }
+  },
+  {
+    "id": 680,
+    "name": "MACHALILLA",
+    "idDummy": "51,19,13",
+    "canton": {
+      "id": "213"
+    }
+  },
+  {
+    "id": 681,
+    "name": "*CRNEL. LORENZO DE GARAICOA (PEDREGAL)",
+    "idDummy": "51,20,09",
+    "canton": {
+      "id": "214"
+    }
+  },
+  {
+    "id": 682,
+    "name": "CRNEL. LORENZO DE GARAICOA (PEDREGAL)",
+    "idDummy": "51,22,09",
+    "canton": {
+      "id": "218"
+    }
+  },
+  {
+    "id": 683,
+    "name": "CANOA",
+    "idDummy": "51,22,13",
+    "canton": {
+      "id": "219"
+    }
+  },
+  {
+    "id": 684,
+    "name": "*ISIDRO AYORA (SOLEDAD)",
+    "idDummy": "51,24,09",
+    "canton": {
+      "id": "221"
+    }
+  },
+  {
+    "id": 685,
+    "name": "CUMBE",
+    "idDummy": "52,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 686,
+    "name": "* GUANUJO",
+    "idDummy": "52,01,02",
+    "canton": {
+      "id": "2"
+    }
+  },
+  {
+    "id": 687,
+    "name": "*DÉLEG",
+    "idDummy": "52,01,03",
+    "canton": {
+      "id": "3"
+    }
+  },
+  {
+    "id": 688,
+    "name": "*HUACA",
+    "idDummy": "52,01,04",
+    "canton": {
+      "id": "4"
+    }
+  },
+  {
+    "id": 689,
+    "name": "BELISARIO QUEVEDO (GUANAILÍN)",
+    "idDummy": "52,01,05",
+    "canton": {
+      "id": "5"
+    }
+  },
+  {
+    "id": 690,
+    "name": "CALPI",
+    "idDummy": "52,01,06",
+    "canton": {
+      "id": "6"
+    }
+  },
+  {
+    "id": 691,
+    "name": "EL RETIRO",
+    "idDummy": "52,01,07",
+    "canton": {
+      "id": "7"
+    }
+  },
+  {
+    "id": 692,
+    "name": "CAMARONES (CAB. EN SAN VICENTE)",
+    "idDummy": "52,01,08",
+    "canton": {
+      "id": "8"
+    }
+  },
+  {
+    "id": 693,
+    "name": "JUAN GÓMEZ RENDÓN (PROGRESO)",
+    "idDummy": "52,01,09",
+    "canton": {
+      "id": "9"
+    }
+  },
+  {
+    "id": 694,
+    "name": "ANGOCHAGUA",
+    "idDummy": "52,01,10",
+    "canton": {
+      "id": "10"
+    }
+  },
+  {
+    "id": 695,
+    "name": "CHUQUIRIBAMBA",
+    "idDummy": "52,01,11",
+    "canton": {
+      "id": "11"
+    }
+  },
+  {
+    "id": 696,
+    "name": "CARACOL",
+    "idDummy": "52,01,12",
+    "canton": {
+      "id": "12"
+    }
+  },
+  {
+    "id": 697,
+    "name": "ALHAJUELA (BAJO GRANDE)",
+    "idDummy": "52,01,13",
+    "canton": {
+      "id": "13"
+    }
+  },
+  {
+    "id": 698,
+    "name": "*CHIGUAZA",
+    "idDummy": "52,01,14",
+    "canton": {
+      "id": "14"
+    }
+  },
+  {
+    "id": 699,
+    "name": "*CARLOS JULIO AROSEMENA TOLA (ZATZA-YACU)",
+    "idDummy": "52,01,15",
+    "canton": {
+      "id": "15"
+    }
+  },
+  {
+    "id": 700,
+    "name": "CANELOS",
+    "idDummy": "52,01,16",
+    "canton": {
+      "id": "16"
+    }
+  },
+  {
+    "id": 701,
+    "name": "AMAGUAÑA",
+    "idDummy": "52,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 702,
+    "name": "ATAHUALPA (CHISALATA)",
+    "idDummy": "52,01,18",
+    "canton": {
+      "id": "18"
+    }
+  },
+  {
+    "id": 703,
+    "name": "GUADALUPE",
+    "idDummy": "52,01,19",
+    "canton": {
+      "id": "19"
+    }
+  },
+  {
+    "id": 704,
+    "name": "ISLA SANTA MARÍA (FLOREANA)(CAB. EN PTO VELASCO IBARRA)",
+    "idDummy": "52,01,20",
+    "canton": {
+      "id": "20"
+    }
+  },
+  {
+    "id": 705,
+    "name": "DURENO",
+    "idDummy": "52,01,21",
+    "canton": {
+      "id": "21"
+    }
+  },
+  {
+    "id": 706,
+    "name": "TARACOA (NUEVA ESPERANZA ó YUCA)",
+    "idDummy": "52,01,22",
+    "canton": {
+      "id": "22"
+    }
+  },
+  {
+    "id": 707,
+    "name": "PUERTO LIMÓN",
+    "idDummy": "52,01,23",
+    "canton": {
+      "id": "23"
+    }
+  },
+  {
+    "id": 708,
+    "name": "COLONCHE",
+    "idDummy": "52,01,24",
+    "canton": {
+      "id": "24"
+    }
+  },
+  {
+    "id": 709,
+    "name": "SAN GERARDO",
+    "idDummy": "52,02,01",
+    "canton": {
+      "id": "26"
+    }
+  },
+  {
+    "id": 710,
+    "name": "SAN FRANCISCO DE SAGEO",
+    "idDummy": "52,02,03",
+    "canton": {
+      "id": "28"
+    }
+  },
+  {
+    "id": 711,
+    "name": "LOS ANDES",
+    "idDummy": "52,02,04",
+    "canton": {
+      "id": "29"
+    }
+  },
+  {
+    "id": 712,
+    "name": "PUCAYACU",
+    "idDummy": "52,02,05",
+    "canton": {
+      "id": "30"
+    }
+  },
+  {
+    "id": 713,
+    "name": "*CUMANDÁ",
+    "idDummy": "52,02,06",
+    "canton": {
+      "id": "31"
+    }
+  },
+  {
+    "id": 714,
+    "name": "* LA LIBERTAD",
+    "idDummy": "52,02,07",
+    "canton": {
+      "id": "32"
+    }
+  },
+  {
+    "id": 715,
+    "name": "ATAHUALPA (CAB. EN CAMARONES)",
+    "idDummy": "52,02,08",
+    "canton": {
+      "id": "33"
+    }
+  },
+  {
+    "id": 716,
+    "name": "SAN FCO. DE NATABUELA",
+    "idDummy": "52,02,10",
+    "canton": {
+      "id": "35"
+    }
+  },
+  {
+    "id": 717,
+    "name": "EL LUCERO",
+    "idDummy": "52,02,11",
+    "canton": {
+      "id": "36"
+    }
+  },
+  {
+    "id": 718,
+    "name": "ISLA DE BEJUCAL",
+    "idDummy": "52,02,12",
+    "canton": {
+      "id": "37"
+    }
+  },
+  {
+    "id": 719,
+    "name": "QUIROGA",
+    "idDummy": "52,02,13",
+    "canton": {
+      "id": "38"
+    }
+  },
+  {
+    "id": 720,
+    "name": "BERMEJOS",
+    "idDummy": "52,02,14",
+    "canton": {
+      "id": "39"
+    }
+  },
+  {
+    "id": 721,
+    "name": "SHELL",
+    "idDummy": "52,02,16",
+    "canton": {
+      "id": "40"
+    }
+  },
+  {
+    "id": 722,
+    "name": "CANGAHUA",
+    "idDummy": "52,02,17",
+    "canton": {
+      "id": "41"
+    }
+  },
+  {
+    "id": 723,
+    "name": "RÍO NEGRO",
+    "idDummy": "52,02,18",
+    "canton": {
+      "id": "42"
+    }
+  },
+  {
+    "id": 724,
+    "name": "EL CHORRO",
+    "idDummy": "52,02,19",
+    "canton": {
+      "id": "43"
+    }
+  },
+  {
+    "id": 725,
+    "name": "GONZALO PIZARRO",
+    "idDummy": "52,02,21",
+    "canton": {
+      "id": "45"
+    }
+  },
+  {
+    "id": 726,
+    "name": "CONONACO",
+    "idDummy": "52,02,22",
+    "canton": {
+      "id": "46"
+    }
+  },
+  {
+    "id": 727,
+    "name": "LA VILLEGAS",
+    "idDummy": "52,02,23",
+    "canton": {
+      "id": "47"
+    }
+  },
+  {
+    "id": 728,
+    "name": "DANIEL CÓRDOVA TORAL",
+    "idDummy": "52,03,01",
+    "canton": {
+      "id": "49"
+    }
+  },
+  {
+    "id": 729,
+    "name": "*CALUMA",
+    "idDummy": "52,03,02",
+    "canton": {
+      "id": "50"
+    }
+  },
+  {
+    "id": 730,
+    "name": "CHOROCOPTE",
+    "idDummy": "52,03,03",
+    "canton": {
+      "id": "51"
+    }
+  },
+  {
+    "id": 731,
+    "name": "LA LIBERTAD (ALIZO)",
+    "idDummy": "52,03,04",
+    "canton": {
+      "id": "52"
+    }
+  },
+  {
+    "id": 732,
+    "name": "PINLLOPATA",
+    "idDummy": "52,03,05",
+    "canton": {
+      "id": "53"
+    }
+  },
+  {
+    "id": 733,
+    "name": "COLUMBE",
+    "idDummy": "52,03,06",
+    "canton": {
+      "id": "54"
+    }
+  },
+  {
+    "id": 734,
+    "name": "CORDONCILLO",
+    "idDummy": "52,03,07",
+    "canton": {
+      "id": "55"
+    }
+  },
+  {
+    "id": 735,
+    "name": "DAULE",
+    "idDummy": "52,03,08",
+    "canton": {
+      "id": "56"
+    }
+  },
+  {
+    "id": 736,
+    "name": "GARCÍA MORENO (LLURIMAGUA)",
+    "idDummy": "52,03,10",
+    "canton": {
+      "id": "58"
+    }
+  },
+  {
+    "id": 737,
+    "name": "GUAYQUICHUMA",
+    "idDummy": "52,03,11",
+    "canton": {
+      "id": "59"
+    }
+  },
+  {
+    "id": 738,
+    "name": "CANUTO",
+    "idDummy": "52,03,13",
+    "canton": {
+      "id": "61"
+    }
+  },
+  {
+    "id": 739,
+    "name": "*PAN DE AZÚCAR",
+    "idDummy": "52,03,14",
+    "canton": {
+      "id": "62"
+    }
+  },
+  {
+    "id": 740,
+    "name": "COTUNDO",
+    "idDummy": "52,03,15",
+    "canton": {
+      "id": "63"
+    }
+  },
+  {
+    "id": 741,
+    "name": "ALOASÍ",
+    "idDummy": "52,03,17",
+    "canton": {
+      "id": "65"
+    }
+  },
+  {
+    "id": 742,
+    "name": "NUEVO PARAÌSO",
+    "idDummy": "52,03,19",
+    "canton": {
+      "id": "67"
+    }
+  },
+  {
+    "id": 743,
+    "name": "SANTA ROSA (INCLUYE LA ISLA BALTRA)",
+    "idDummy": "52,03,20",
+    "canton": {
+      "id": "68"
+    }
+  },
+  {
+    "id": 744,
+    "name": "PUERTO BOLÍVAR (PUERTO MONTÚFAR)",
+    "idDummy": "52,03,21",
+    "canton": {
+      "id": "69"
+    }
+  },
+  {
+    "id": 745,
+    "name": "POMPEYA",
+    "idDummy": "52,03,22",
+    "canton": {
+      "id": "70"
+    }
+  },
+  {
+    "id": 746,
+    "name": "JOSÉ LUIS TAMAYO (MUEY)",
+    "idDummy": "52,03,24",
+    "canton": {
+      "id": "71"
+    }
+  },
+  {
+    "id": 747,
+    "name": "EL PROGRESO (CAB.EN ZHIOTA)",
+    "idDummy": "52,04,01",
+    "canton": {
+      "id": "73"
+    }
+  },
+  {
+    "id": 748,
+    "name": "PANCHO NEGRO",
+    "idDummy": "52,04,03",
+    "canton": {
+      "id": "75"
+    }
+  },
+  {
+    "id": 749,
+    "name": "JIJÓN Y CAAMAÑO (CAB. EN RIO BLANCO)",
+    "idDummy": "52,04,04",
+    "canton": {
+      "id": "76"
+    }
+  },
+  {
+    "id": 750,
+    "name": "*CHUCCHILÁN (CHUGCHILÁN)",
+    "idDummy": "52,04,05",
+    "canton": {
+      "id": "77"
+    }
+  },
+  {
+    "id": 751,
+    "name": "CHURA (CHANCAMA) (CAB. EN EL YERBERO)",
+    "idDummy": "52,04,08",
+    "canton": {
+      "id": "80"
+    }
+  },
+  {
+    "id": 752,
+    "name": "EUGENIO ESPEJO (CALPAQUÍ)",
+    "idDummy": "52,04,10",
+    "canton": {
+      "id": "82"
+    }
+  },
+  {
+    "id": 753,
+    "name": "*CHAQUINAL",
+    "idDummy": "52,04,11",
+    "canton": {
+      "id": "83"
+    }
+  },
+  {
+    "id": 754,
+    "name": "SAN JUAN",
+    "idDummy": "52,04,12",
+    "canton": {
+      "id": "84"
+    }
+  },
+  {
+    "id": 755,
+    "name": "SAN PEDRO DE SUMA",
+    "idDummy": "52,04,13",
+    "canton": {
+      "id": "85"
+    }
+  },
+  {
+    "id": 756,
+    "name": "CUMANDÁ (CAB EN COLONIA AGRICOLA SEVILLA DE ORO)",
+    "idDummy": "52,04,14",
+    "canton": {
+      "id": "86"
+    }
+  },
+  {
+    "id": 757,
+    "name": "LINARES",
+    "idDummy": "52,04,15",
+    "canton": {
+      "id": "87"
+    }
+  },
+  {
+    "id": 758,
+    "name": "MALCHINGUÍ",
+    "idDummy": "52,04,17",
+    "canton": {
+      "id": "89"
+    }
+  },
+  {
+    "id": 759,
+    "name": "TUTUPALI",
+    "idDummy": "52,04,19",
+    "canton": {
+      "id": "91"
+    }
+  },
+  {
+    "id": 760,
+    "name": "PAÑACOCHA",
+    "idDummy": "52,04,21",
+    "canton": {
+      "id": "92"
+    }
+  },
+  {
+    "id": 761,
+    "name": "PUERTO MURIALDO",
+    "idDummy": "52,04,22",
+    "canton": {
+      "id": "93"
+    }
+  },
+  {
+    "id": 762,
+    "name": "BULÁN (JOSÉ VICTOR IZQUIERDO)",
+    "idDummy": "52,05,01",
+    "canton": {
+      "id": "95"
+    }
+  },
+  {
+    "id": 763,
+    "name": "BILOVÁN",
+    "idDummy": "52,05,02",
+    "canton": {
+      "id": "96"
+    }
+  },
+  {
+    "id": 764,
+    "name": "CHITÁN DE NAVARRETE",
+    "idDummy": "52,05,04",
+    "canton": {
+      "id": "98"
+    }
+  },
+  {
+    "id": 765,
+    "name": "CUSUBAMBA",
+    "idDummy": "52,05,05",
+    "canton": {
+      "id": "99"
+    }
+  },
+  {
+    "id": 766,
+    "name": "COMPUD",
+    "idDummy": "52,05,06",
+    "canton": {
+      "id": "100"
+    }
+  },
+  {
+    "id": 767,
+    "name": "ANCÓN (PICHANGAL) (CAB. EN PALMA REAL)",
+    "idDummy": "52,05,08",
+    "canton": {
+      "id": "102"
+    }
+  },
+  {
+    "id": 768,
+    "name": "MARIANO ACOSTA",
+    "idDummy": "52,05,10",
+    "canton": {
+      "id": "104"
+    }
+  },
+  {
+    "id": 769,
+    "name": "EL ROSARIO",
+    "idDummy": "52,05,11",
+    "canton": {
+      "id": "105"
+    }
+  },
+  {
+    "id": 770,
+    "name": "*MOCACHE",
+    "idDummy": "52,05,12",
+    "canton": {
+      "id": "106"
+    }
+  },
+  {
+    "id": 771,
+    "name": "ZAPALLO",
+    "idDummy": "52,05,13",
+    "canton": {
+      "id": "107"
+    }
+  },
+  {
+    "id": 772,
+    "name": "CHUPIANZA",
+    "idDummy": "52,05,14",
+    "canton": {
+      "id": "108"
+    }
+  },
+  {
+    "id": 773,
+    "name": "RUMIPAMBA",
+    "idDummy": "52,05,17",
+    "canton": {
+      "id": "109"
+    }
+  },
+  {
+    "id": 774,
+    "name": "LOS ANDES (CAB EN POATUG)",
+    "idDummy": "52,05,18",
+    "canton": {
+      "id": "110"
+    }
+  },
+  {
+    "id": 775,
+    "name": "*EL PANGUI",
+    "idDummy": "52,05,19",
+    "canton": {
+      "id": "111"
+    }
+  },
+  {
+    "id": 776,
+    "name": "LA SOFÍA",
+    "idDummy": "52,05,21",
+    "canton": {
+      "id": "112"
+    }
+  },
+  {
+    "id": 777,
+    "name": "SAN RAFAEL DE SHARUG",
+    "idDummy": "52,06,01",
+    "canton": {
+      "id": "113"
+    }
+  },
+  {
+    "id": 778,
+    "name": "CHANTILÍN",
+    "idDummy": "52,06,05",
+    "canton": {
+      "id": "117"
+    }
+  },
+  {
+    "id": 779,
+    "name": "PALMIRA",
+    "idDummy": "52,06,06",
+    "canton": {
+      "id": "118"
+    }
+  },
+  {
+    "id": 780,
+    "name": "LA IBERIA",
+    "idDummy": "52,06,07",
+    "canton": {
+      "id": "119"
+    }
+  },
+  {
+    "id": 781,
+    "name": "SÚA (CAB EN LA BOCANA)",
+    "idDummy": "52,06,08",
+    "canton": {
+      "id": "120"
+    }
+  },
+  {
+    "id": 782,
+    "name": "JUAN BAUTISTA AGUIRRE (LOS TINTOS)",
+    "idDummy": "52,06,09",
+    "canton": {
+      "id": "121"
+    }
+  },
+  {
+    "id": 783,
+    "name": "LA MERCED DE BUENOS AIRES",
+    "idDummy": "52,06,10",
+    "canton": {
+      "id": "122"
+    }
+  },
+  {
+    "id": 784,
+    "name": "JIMBURA",
+    "idDummy": "52,06,11",
+    "canton": {
+      "id": "123"
+    }
+  },
+  {
+    "id": 785,
+    "name": "EL ANEGADO (CAB EN ELOY ALFARO)",
+    "idDummy": "52,06,13",
+    "canton": {
+      "id": "125"
+    }
+  },
+  {
+    "id": 786,
+    "name": "HUAMBI",
+    "idDummy": "52,06,14",
+    "canton": {
+      "id": "126"
+    }
+  },
+  {
+    "id": 787,
+    "name": "YANAYACU-MOCHAPATA(CAB.EN YANAYACU)",
+    "idDummy": "52,06,18",
+    "canton": {
+      "id": "127"
+    }
+  },
+  {
+    "id": 788,
+    "name": "PACHICUTZA",
+    "idDummy": "52,06,19",
+    "canton": {
+      "id": "128"
+    }
+  },
+  {
+    "id": 789,
+    "name": "SEVILLA",
+    "idDummy": "52,06,21",
+    "canton": {
+      "id": "129"
+    }
+  },
+  {
+    "id": 790,
+    "name": "ISINLIVÍ",
+    "idDummy": "52,07,05",
+    "canton": {
+      "id": "133"
+    }
+  },
+  {
+    "id": 791,
+    "name": "ILAPO",
+    "idDummy": "52,07,06",
+    "canton": {
+      "id": "134"
+    }
+  },
+  {
+    "id": 792,
+    "name": "CHUMUNDÉ",
+    "idDummy": "52,07,08",
+    "canton": {
+      "id": "136"
+    }
+  },
+  {
+    "id": 793,
+    "name": "*FUNDOCHAMBA",
+    "idDummy": "52,07,11",
+    "canton": {
+      "id": "138"
+    }
+  },
+  {
+    "id": 794,
+    "name": "ZAPOTAL",
+    "idDummy": "52,07,12",
+    "canton": {
+      "id": "139"
+    }
+  },
+  {
+    "id": 795,
+    "name": "*PABLO SEXTO",
+    "idDummy": "52,07,14",
+    "canton": {
+      "id": "141"
+    }
+  },
+  {
+    "id": 796,
+    "name": "CUYUJA",
+    "idDummy": "52,07,15",
+    "canton": {
+      "id": "142"
+    }
+  },
+  {
+    "id": 797,
+    "name": "*PEDRO VICENTE MALDONADO",
+    "idDummy": "52,07,17",
+    "canton": {
+      "id": "143"
+    }
+  },
+  {
+    "id": 798,
+    "name": "BOLÍVAR",
+    "idDummy": "52,07,18",
+    "canton": {
+      "id": "144"
+    }
+  },
+  {
+    "id": 799,
+    "name": "TRIUNFO-DORADO",
+    "idDummy": "52,07,19",
+    "canton": {
+      "id": "145"
+    }
+  },
+  {
+    "id": 800,
+    "name": "AGUAS NEGRAS",
+    "idDummy": "52,07,21",
+    "canton": {
+      "id": "146"
+    }
+  },
+  {
+    "id": 801,
+    "name": "EL CARMEN DE PIJILI",
+    "idDummy": "52,08,01",
+    "canton": {
+      "id": "147"
+    }
+  },
+  {
+    "id": 802,
+    "name": "EL ROSARIO",
+    "idDummy": "52,08,09",
+    "canton": {
+      "id": "150"
+    }
+  },
+  {
+    "id": 803,
+    "name": "LA VICTORIA",
+    "idDummy": "52,08,11",
+    "canton": {
+      "id": "151"
+    }
+  },
+  {
+    "id": 804,
+    "name": "*PALENQUE",
+    "idDummy": "52,08,12",
+    "canton": {
+      "id": "152"
+    }
+  },
+  {
+    "id": 805,
+    "name": "SANTA MARIANITA (BOCA DE PACOCHE)",
+    "idDummy": "52,08,13",
+    "canton": {
+      "id": "153"
+    }
+  },
+  {
+    "id": 806,
+    "name": "SAN CARLOS DE LIMÓN",
+    "idDummy": "52,08,14",
+    "canton": {
+      "id": "154"
+    }
+  },
+  {
+    "id": 807,
+    "name": "EMILIO MARÍA TERÁN (RUMIPAMBA)",
+    "idDummy": "52,08,18",
+    "canton": {
+      "id": "156"
+    }
+  },
+  {
+    "id": 808,
+    "name": "SAN FRANCISCO DEL VERGEL",
+    "idDummy": "52,08,19",
+    "canton": {
+      "id": "157"
+    }
+  },
+  {
+    "id": 809,
+    "name": "JIMA (GIMA)",
+    "idDummy": "52,09,01",
+    "canton": {
+      "id": "158"
+    }
+  },
+  {
+    "id": 810,
+    "name": "MATUS",
+    "idDummy": "52,09,06",
+    "canton": {
+      "id": "159"
+    }
+  },
+  {
+    "id": 811,
+    "name": "CASACAY",
+    "idDummy": "52,09,07",
+    "canton": {
+      "id": "160"
+    }
+  },
+  {
+    "id": 812,
+    "name": "GUACHANAMÁ",
+    "idDummy": "52,09,11",
+    "canton": {
+      "id": "162"
+    }
+  },
+  {
+    "id": 813,
+    "name": "LA PILA",
+    "idDummy": "52,09,13",
+    "canton": {
+      "id": "164"
+    }
+  },
+  {
+    "id": 814,
+    "name": "MACUMA",
+    "idDummy": "52,09,14",
+    "canton": {
+      "id": "165"
+    }
+  },
+  {
+    "id": 815,
+    "name": "NUEVO QUITO",
+    "idDummy": "52,09,19",
+    "canton": {
+      "id": "169"
+    }
+  },
+  {
+    "id": 816,
+    "name": "LA BOCANA",
+    "idDummy": "52,10,07",
+    "canton": {
+      "id": "172"
+    }
+  },
+  {
+    "id": 817,
+    "name": "*GENERAL ELIZALDE (BUCAY)",
+    "idDummy": "52,10,09",
+    "canton": {
+      "id": "173"
+    }
+  },
+  {
+    "id": 818,
+    "name": "EL ARENAL",
+    "idDummy": "52,10,11",
+    "canton": {
+      "id": "174"
+    }
+  },
+  {
+    "id": 819,
+    "name": "CASCOL",
+    "idDummy": "52,10,13",
+    "canton": {
+      "id": "176"
+    }
+  },
+  {
+    "id": 820,
+    "name": "SHIMPIS",
+    "idDummy": "52,10,14",
+    "canton": {
+      "id": "177"
+    }
+  },
+  {
+    "id": 821,
+    "name": "LA UNIÓN",
+    "idDummy": "52,11,01",
+    "canton": {
+      "id": "178"
+    }
+  },
+  {
+    "id": 822,
+    "name": "MORALES",
+    "idDummy": "52,11,07",
+    "canton": {
+      "id": "179"
+    }
+  },
+  {
+    "id": 823,
+    "name": "SAN CARLOS",
+    "idDummy": "52,11,09",
+    "canton": {
+      "id": "180"
+    }
+  },
+  {
+    "id": 824,
+    "name": "EL TABLÓN",
+    "idDummy": "52,11,11",
+    "canton": {
+      "id": "181"
+    }
+  },
+  {
+    "id": 825,
+    "name": "SAN SEBASTIÁN",
+    "idDummy": "52,11,13",
+    "canton": {
+      "id": "183"
+    }
+  },
+  {
+    "id": 826,
+    "name": "*PALMAS",
+    "idDummy": "52,12,01",
+    "canton": {
+      "id": "185"
+    }
+  },
+  {
+    "id": 827,
+    "name": "JAMBELÍ",
+    "idDummy": "52,12,07",
+    "canton": {
+      "id": "186"
+    }
+  },
+  {
+    "id": 828,
+    "name": "TACAMOROS",
+    "idDummy": "52,12,11",
+    "canton": {
+      "id": "188"
+    }
+  },
+  {
+    "id": 829,
+    "name": "PALAMAS",
+    "idDummy": "52,13,01",
+    "canton": {
+      "id": "192"
+    }
+  },
+  {
+    "id": 830,
+    "name": "ARCAPAMBA",
+    "idDummy": "52,13,07",
+    "canton": {
+      "id": "193"
+    }
+  },
+  {
+    "id": 831,
+    "name": "GARZAREAL",
+    "idDummy": "52,13,11",
+    "canton": {
+      "id": "195"
+    }
+  },
+  {
+    "id": 832,
+    "name": "HONORATO VASQUEZ (CAB EN VASQUEZ)",
+    "idDummy": "52,13,13",
+    "canton": {
+      "id": "197"
+    }
+  },
+  {
+    "id": 833,
+    "name": "EL PARAÍSO",
+    "idDummy": "52,14,07",
+    "canton": {
+      "id": "199"
+    }
+  },
+  {
+    "id": 834,
+    "name": "SABANILLA",
+    "idDummy": "52,14,09",
+    "canton": {
+      "id": "200"
+    }
+  },
+  {
+    "id": 835,
+    "name": "12 DE DICIEMBRE (CAB EN ACHIOTES)",
+    "idDummy": "52,14,11",
+    "canton": {
+      "id": "201"
+    }
+  },
+  {
+    "id": 836,
+    "name": "*COJIMÍES",
+    "idDummy": "52,14,13",
+    "canton": {
+      "id": "202"
+    }
+  },
+  {
+    "id": 837,
+    "name": "SAN ANTONIO DE LAS ARADAS (CAB",
+    "idDummy": "52,15,11",
+    "canton": {
+      "id": "204"
+    }
+  },
+  {
+    "id": 838,
+    "name": "ÁNGEL PEDRO GILER (LA ESTANCILLA)",
+    "idDummy": "52,15,13",
+    "canton": {
+      "id": "205"
+    }
+  },
+  {
+    "id": 839,
+    "name": "NOBOA",
+    "idDummy": "52,16,13",
+    "canton": {
+      "id": "208"
+    }
+  },
+  {
+    "id": 840,
+    "name": "10 DE AGOSTO",
+    "idDummy": "52,17,13",
+    "canton": {
+      "id": "209"
+    }
+  },
+  {
+    "id": 841,
+    "name": "LA VICTORIA (ÑAUZA)",
+    "idDummy": "52,19,09",
+    "canton": {
+      "id": "212"
+    }
+  },
+  {
+    "id": 842,
+    "name": "SALANGO",
+    "idDummy": "52,19,13",
+    "canton": {
+      "id": "213"
+    }
+  },
+  {
+    "id": 843,
+    "name": "*CRNEL. MARCELINO MARIDUEÑA (SAN CARLOS)",
+    "idDummy": "52,20,09",
+    "canton": {
+      "id": "214"
+    }
+  },
+  {
+    "id": 844,
+    "name": "CHAUCHA",
+    "idDummy": "53,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 845,
+    "name": "JULIO E. MORENO (CATANAHÚAN GRANDE)",
+    "idDummy": "53,01,02",
+    "canton": {
+      "id": "2"
+    }
+  },
+  {
+    "id": 846,
+    "name": "GUAPÁN",
+    "idDummy": "53,01,03",
+    "canton": {
+      "id": "3"
+    }
+  },
+  {
+    "id": 847,
+    "name": "JULIO ANDRADE (OREJUELA)",
+    "idDummy": "53,01,04",
+    "canton": {
+      "id": "4"
+    }
+  },
+  {
+    "id": 848,
+    "name": "GUAITACAMA (GUAYTACAMA)",
+    "idDummy": "53,01,05",
+    "canton": {
+      "id": "5"
+    }
+  },
+  {
+    "id": 849,
+    "name": "CUBIJÍES",
+    "idDummy": "53,01,06",
+    "canton": {
+      "id": "6"
+    }
+  },
+  {
+    "id": 850,
+    "name": "CRNEL. CARLOS C. TORRES (CAB. EN HUELE)",
+    "idDummy": "53,01,08",
+    "canton": {
+      "id": "8"
+    }
+  },
+  {
+    "id": 851,
+    "name": "MORRO",
+    "idDummy": "53,01,09",
+    "canton": {
+      "id": "9"
+    }
+  },
+  {
+    "id": 852,
+    "name": "CAROLINA",
+    "idDummy": "53,01,10",
+    "canton": {
+      "id": "10"
+    }
+  },
+  {
+    "id": 853,
+    "name": "EL CISNE",
+    "idDummy": "53,01,11",
+    "canton": {
+      "id": "11"
+    }
+  },
+  {
+    "id": 854,
+    "name": "FEBRES CORDERO (LAS JUNTAS) (CAB EN MATA DE CACAO).",
+    "idDummy": "53,01,12",
+    "canton": {
+      "id": "12"
+    }
+  },
+  {
+    "id": 855,
+    "name": "CRUCITA",
+    "idDummy": "53,01,13",
+    "canton": {
+      "id": "13"
+    }
+  },
+  {
+    "id": 856,
+    "name": "GENERAL PROAÑO",
+    "idDummy": "53,01,14",
+    "canton": {
+      "id": "14"
+    }
+  },
+  {
+    "id": 857,
+    "name": "CHONTAPUNTA",
+    "idDummy": "53,01,15",
+    "canton": {
+      "id": "15"
+    }
+  },
+  {
+    "id": 858,
+    "name": "*CURARAY",
+    "idDummy": "53,01,16",
+    "canton": {
+      "id": "16"
+    }
+  },
+  {
+    "id": 859,
+    "name": "ATAHUALPA (HABASPAMBA)",
+    "idDummy": "53,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 860,
+    "name": "AUGUSTO N. MARTINEZ (MUNDUGLEO)",
+    "idDummy": "53,01,18",
+    "canton": {
+      "id": "18"
+    }
+  },
+  {
+    "id": 861,
+    "name": "IMBANA (LA VICTORIA DE IMBANA)",
+    "idDummy": "53,01,19",
+    "canton": {
+      "id": "19"
+    }
+  },
+  {
+    "id": 862,
+    "name": "GENERAL FARFÁN",
+    "idDummy": "53,01,21",
+    "canton": {
+      "id": "21"
+    }
+  },
+  {
+    "id": 863,
+    "name": "ALEJANDRO LABAKA",
+    "idDummy": "53,01,22",
+    "canton": {
+      "id": "22"
+    }
+  },
+  {
+    "id": 864,
+    "name": "LUZ DE AMÉRICA",
+    "idDummy": "53,01,23",
+    "canton": {
+      "id": "23"
+    }
+  },
+  {
+    "id": 865,
+    "name": "CHANDUY",
+    "idDummy": "53,01,24",
+    "canton": {
+      "id": "24"
+    }
+  },
+  {
+    "id": 866,
+    "name": "TURUPAMBA",
+    "idDummy": "53,02,03",
+    "canton": {
+      "id": "28"
+    }
+  },
+  {
+    "id": 867,
+    "name": "MONTE OLIVO",
+    "idDummy": "53,02,04",
+    "canton": {
+      "id": "29"
+    }
+  },
+  {
+    "id": 868,
+    "name": "GUASUNTOS",
+    "idDummy": "53,02,06",
+    "canton": {
+      "id": "31"
+    }
+  },
+  {
+    "id": 869,
+    "name": "*LAS LAJAS (CAB. EN LA VICTORIA)",
+    "idDummy": "53,02,07",
+    "canton": {
+      "id": "32"
+    }
+  },
+  {
+    "id": 870,
+    "name": "BORBÓN",
+    "idDummy": "53,02,08",
+    "canton": {
+      "id": "33"
+    }
+  },
+  {
+    "id": 871,
+    "name": "SAN JOSÉ DE CHALTURA",
+    "idDummy": "53,02,10",
+    "canton": {
+      "id": "35"
+    }
+  },
+  {
+    "id": 872,
+    "name": "UTUANA",
+    "idDummy": "53,02,11",
+    "canton": {
+      "id": "36"
+    }
+  },
+  {
+    "id": 873,
+    "name": "BOMBOIZA",
+    "idDummy": "53,02,14",
+    "canton": {
+      "id": "39"
+    }
+  },
+  {
+    "id": 874,
+    "name": "OLMEDO (PECILLO)",
+    "idDummy": "53,02,17",
+    "canton": {
+      "id": "41"
+    }
+  },
+  {
+    "id": 875,
+    "name": "RÍO VERDE",
+    "idDummy": "53,02,18",
+    "canton": {
+      "id": "42"
+    }
+  },
+  {
+    "id": 876,
+    "name": "*EL PORVENIR DEL CARMEN",
+    "idDummy": "53,02,19",
+    "canton": {
+      "id": "43"
+    }
+  },
+  {
+    "id": 877,
+    "name": "*LUMBAQUÍ",
+    "idDummy": "53,02,21",
+    "canton": {
+      "id": "45"
+    }
+  },
+  {
+    "id": 878,
+    "name": "SANTA MARÍA DE HUIRIRIMA",
+    "idDummy": "53,02,22",
+    "canton": {
+      "id": "46"
+    }
+  },
+  {
+    "id": 879,
+    "name": "PLAN PILOTO",
+    "idDummy": "53,02,23",
+    "canton": {
+      "id": "47"
+    }
+  },
+  {
+    "id": 880,
+    "name": "JADÁN",
+    "idDummy": "53,03,01",
+    "canton": {
+      "id": "49"
+    }
+  },
+  {
+    "id": 881,
+    "name": "MAGDALENA (CHAPACOTO)",
+    "idDummy": "53,03,02",
+    "canton": {
+      "id": "50"
+    }
+  },
+  {
+    "id": 882,
+    "name": "GENERAL MORALES (SOCARTE)",
+    "idDummy": "53,03,03",
+    "canton": {
+      "id": "51"
+    }
+  },
+  {
+    "id": 883,
+    "name": "SAN ISIDRO",
+    "idDummy": "53,03,04",
+    "canton": {
+      "id": "52"
+    }
+  },
+  {
+    "id": 884,
+    "name": "RAMÓN CAMPAÑA",
+    "idDummy": "53,03,05",
+    "canton": {
+      "id": "53"
+    }
+  },
+  {
+    "id": 885,
+    "name": "JUAN DE VELASCO (PANGOR)",
+    "idDummy": "53,03,06",
+    "canton": {
+      "id": "54"
+    }
+  },
+  {
+    "id": 886,
+    "name": "MILAGRO",
+    "idDummy": "53,03,07",
+    "canton": {
+      "id": "55"
+    }
+  },
+  {
+    "id": 887,
+    "name": "GALERA",
+    "idDummy": "53,03,08",
+    "canton": {
+      "id": "56"
+    }
+  },
+  {
+    "id": 888,
+    "name": "IMANTAG",
+    "idDummy": "53,03,10",
+    "canton": {
+      "id": "58"
+    }
+  },
+  {
+    "id": 889,
+    "name": "SAN PEDRO DE LA BENDITA",
+    "idDummy": "53,03,11",
+    "canton": {
+      "id": "59"
+    }
+  },
+  {
+    "id": 890,
+    "name": "CONVENTO",
+    "idDummy": "53,03,13",
+    "canton": {
+      "id": "61"
+    }
+  },
+  {
+    "id": 891,
+    "name": "SAN ANTONIO (CAB EN SAN ANTONIO CENTRO)",
+    "idDummy": "53,03,14",
+    "canton": {
+      "id": "62"
+    }
+  },
+  {
+    "id": 892,
+    "name": "*LORETO",
+    "idDummy": "53,03,15",
+    "canton": {
+      "id": "63"
+    }
+  },
+  {
+    "id": 893,
+    "name": "CUTUGLAHUA",
+    "idDummy": "53,03,17",
+    "canton": {
+      "id": "65"
+    }
+  },
+  {
+    "id": 894,
+    "name": "PUERTO RODRÍGUEZ",
+    "idDummy": "53,03,21",
+    "canton": {
+      "id": "69"
+    }
+  },
+  {
+    "id": 895,
+    "name": "SAN CARLOS",
+    "idDummy": "53,03,22",
+    "canton": {
+      "id": "70"
+    }
+  },
+  {
+    "id": 896,
+    "name": "LAS NIEVES (CHAYA)",
+    "idDummy": "53,04,01",
+    "canton": {
+      "id": "73"
+    }
+  },
+  {
+    "id": 897,
+    "name": "JUAN MONTALVO (SAN IGNACIO DE QUIL)",
+    "idDummy": "53,04,04",
+    "canton": {
+      "id": "76"
+    }
+  },
+  {
+    "id": 898,
+    "name": "GUANGAJE",
+    "idDummy": "53,04,05",
+    "canton": {
+      "id": "77"
+    }
+  },
+  {
+    "id": 899,
+    "name": "MALIMPIA",
+    "idDummy": "53,04,08",
+    "canton": {
+      "id": "80"
+    }
+  },
+  {
+    "id": 900,
+    "name": "GONZÁLEZ SUÁREZ",
+    "idDummy": "53,04,10",
+    "canton": {
+      "id": "82"
+    }
+  },
+  {
+    "id": 901,
+    "name": "*12 DE DICIEMBRE (CAB. EN ACHIOTES)",
+    "idDummy": "53,04,11",
+    "canton": {
+      "id": "83"
+    }
+  },
+  {
+    "id": 902,
+    "name": "*HUAMBOYA",
+    "idDummy": "53,04,14",
+    "canton": {
+      "id": "86"
+    }
+  },
+  {
+    "id": 903,
+    "name": "OYACACHI",
+    "idDummy": "53,04,15",
+    "canton": {
+      "id": "87"
+    }
+  },
+  {
+    "id": 904,
+    "name": "TOCACHI",
+    "idDummy": "53,04,17",
+    "canton": {
+      "id": "89"
+    }
+  },
+  {
+    "id": 905,
+    "name": "SAN ROQUE (CAB EN SAN VICENTE)",
+    "idDummy": "53,04,21",
+    "canton": {
+      "id": "92"
+    }
+  },
+  {
+    "id": 906,
+    "name": "SAN JOSÉ DE PAYAMINO",
+    "idDummy": "53,04,22",
+    "canton": {
+      "id": "93"
+    }
+  },
+  {
+    "id": 907,
+    "name": "CHICÁN (GUILLERMO ORTEGA)",
+    "idDummy": "53,05,01",
+    "canton": {
+      "id": "95"
+    }
+  },
+  {
+    "id": 908,
+    "name": "RÉGULO DE MORA",
+    "idDummy": "53,05,02",
+    "canton": {
+      "id": "96"
+    }
+  },
+  {
+    "id": 909,
+    "name": "FERNÁNDEZ SALVADOR",
+    "idDummy": "53,05,04",
+    "canton": {
+      "id": "98"
+    }
+  },
+  {
+    "id": 910,
+    "name": "MULALILLO",
+    "idDummy": "53,05,05",
+    "canton": {
+      "id": "99"
+    }
+  },
+  {
+    "id": 911,
+    "name": "GONZOL",
+    "idDummy": "53,05,06",
+    "canton": {
+      "id": "100"
+    }
+  },
+  {
+    "id": 912,
+    "name": "CALDERÓN",
+    "idDummy": "53,05,08",
+    "canton": {
+      "id": "102"
+    }
+  },
+  {
+    "id": 913,
+    "name": "SAN  FCO. DE SIGSIPAMBA",
+    "idDummy": "53,05,10",
+    "canton": {
+      "id": "104"
+    }
+  },
+  {
+    "id": 914,
+    "name": "SANTA RUFINA",
+    "idDummy": "53,05,11",
+    "canton": {
+      "id": "105"
+    }
+  },
+  {
+    "id": 915,
+    "name": "SAN CARLOS",
+    "idDummy": "53,05,12",
+    "canton": {
+      "id": "106"
+    }
+  },
+  {
+    "id": 916,
+    "name": "PATUCA",
+    "idDummy": "53,05,14",
+    "canton": {
+      "id": "108"
+    }
+  },
+  {
+    "id": 917,
+    "name": "SUCRE (CAB EN SUCRE- PATATE  URCO)",
+    "idDummy": "53,05,18",
+    "canton": {
+      "id": "110"
+    }
+  },
+  {
+    "id": 918,
+    "name": "LOS ENCUENTROS",
+    "idDummy": "53,05,19",
+    "canton": {
+      "id": "111"
+    }
+  },
+  {
+    "id": 919,
+    "name": "ROSA FLORIDA",
+    "idDummy": "53,05,21",
+    "canton": {
+      "id": "112"
+    }
+  },
+  {
+    "id": 920,
+    "name": "COCHAPAMBA",
+    "idDummy": "53,06,05",
+    "canton": {
+      "id": "117"
+    }
+  },
+  {
+    "id": 921,
+    "name": "TENDALES (CAB. EN PUERTO TENDALES)",
+    "idDummy": "53,06,07",
+    "canton": {
+      "id": "119"
+    }
+  },
+  {
+    "id": 922,
+    "name": "TONCHIGÜE",
+    "idDummy": "53,06,08",
+    "canton": {
+      "id": "120"
+    }
+  },
+  {
+    "id": 923,
+    "name": "LAUREL",
+    "idDummy": "53,06,09",
+    "canton": {
+      "id": "121"
+    }
+  },
+  {
+    "id": 924,
+    "name": "PABLO ARENAS",
+    "idDummy": "53,06,10",
+    "canton": {
+      "id": "122"
+    }
+  },
+  {
+    "id": 925,
+    "name": "SANTA TERESITA",
+    "idDummy": "53,06,11",
+    "canton": {
+      "id": "123"
+    }
+  },
+  {
+    "id": 926,
+    "name": "JULCUY",
+    "idDummy": "53,06,13",
+    "canton": {
+      "id": "125"
+    }
+  },
+  {
+    "id": 927,
+    "name": "*LOGROÑO",
+    "idDummy": "53,06,14",
+    "canton": {
+      "id": "126"
+    }
+  },
+  {
+    "id": 928,
+    "name": "TUNDAYME",
+    "idDummy": "53,06,19",
+    "canton": {
+      "id": "128"
+    }
+  },
+  {
+    "id": 929,
+    "name": "LAS PAMPAS",
+    "idDummy": "53,07,05",
+    "canton": {
+      "id": "133"
+    }
+  },
+  {
+    "id": 930,
+    "name": "LA PROVIDENCIA",
+    "idDummy": "53,07,06",
+    "canton": {
+      "id": "134"
+    }
+  },
+  {
+    "id": 931,
+    "name": "LAGARTO",
+    "idDummy": "53,07,08",
+    "canton": {
+      "id": "136"
+    }
+  },
+  {
+    "id": 932,
+    "name": "NAMBACOLA",
+    "idDummy": "53,07,11",
+    "canton": {
+      "id": "138"
+    }
+  },
+  {
+    "id": 933,
+    "name": "CHACARITA",
+    "idDummy": "53,07,12",
+    "canton": {
+      "id": "139"
+    }
+  },
+  {
+    "id": 934,
+    "name": "PAPALLACTA",
+    "idDummy": "53,07,15",
+    "canton": {
+      "id": "142"
+    }
+  },
+  {
+    "id": 935,
+    "name": "*PUERTO QUITO",
+    "idDummy": "53,07,17",
+    "canton": {
+      "id": "143"
+    }
+  },
+  {
+    "id": 936,
+    "name": "COTALÓ",
+    "idDummy": "53,07,18",
+    "canton": {
+      "id": "144"
+    }
+  },
+  {
+    "id": 937,
+    "name": "PANGUINTZA",
+    "idDummy": "53,07,19",
+    "canton": {
+      "id": "145"
+    }
+  },
+  {
+    "id": 938,
+    "name": "ZHAGLLI (SHAGLLI )",
+    "idDummy": "53,08,01",
+    "canton": {
+      "id": "147"
+    }
+  },
+  {
+    "id": 939,
+    "name": "SABIANGO (LA CAPILLA)",
+    "idDummy": "53,08,11",
+    "canton": {
+      "id": "151"
+    }
+  },
+  {
+    "id": 940,
+    "name": "SAN JACINTO DE WAKAMBEIS",
+    "idDummy": "53,08,14",
+    "canton": {
+      "id": "154"
+    }
+  },
+  {
+    "id": 941,
+    "name": "MARCOS ESPINEL (CHACATA)",
+    "idDummy": "53,08,18",
+    "canton": {
+      "id": "156"
+    }
+  },
+  {
+    "id": 942,
+    "name": "VALLADOLID",
+    "idDummy": "53,08,19",
+    "canton": {
+      "id": "157"
+    }
+  },
+  {
+    "id": 943,
+    "name": "GÜEL",
+    "idDummy": "53,09,01",
+    "canton": {
+      "id": "158"
+    }
+  },
+  {
+    "id": 944,
+    "name": "PUELA",
+    "idDummy": "53,09,06",
+    "canton": {
+      "id": "159"
+    }
+  },
+  {
+    "id": 945,
+    "name": "LA PEAÑA",
+    "idDummy": "53,09,07",
+    "canton": {
+      "id": "160"
+    }
+  },
+  {
+    "id": 946,
+    "name": "*LA TINGUE",
+    "idDummy": "53,09,11",
+    "canton": {
+      "id": "162"
+    }
+  },
+  {
+    "id": 947,
+    "name": "TUUTINENTZA",
+    "idDummy": "53,09,14",
+    "canton": {
+      "id": "165"
+    }
+  },
+  {
+    "id": 948,
+    "name": "MOROMORO (CAB. EN EL VADO)",
+    "idDummy": "53,10,07",
+    "canton": {
+      "id": "172"
+    }
+  },
+  {
+    "id": 949,
+    "name": "MARISCAL SUCRE (HUAQUES)",
+    "idDummy": "53,10,09",
+    "canton": {
+      "id": "173"
+    }
+  },
+  {
+    "id": 950,
+    "name": "EL LIMO (MARIANA DE JESUS)",
+    "idDummy": "53,10,11",
+    "canton": {
+      "id": "174"
+    }
+  },
+  {
+    "id": 951,
+    "name": "GUALE",
+    "idDummy": "53,10,13",
+    "canton": {
+      "id": "176"
+    }
+  },
+  {
+    "id": 952,
+    "name": "LUIS GALARZA ORELLANA (CAB. EN DELEGSOL)",
+    "idDummy": "53,11,01",
+    "canton": {
+      "id": "178"
+    }
+  },
+  {
+    "id": 953,
+    "name": "SALATÍ",
+    "idDummy": "53,11,07",
+    "canton": {
+      "id": "179"
+    }
+  },
+  {
+    "id": 954,
+    "name": "SANTA ROSA DE FLANDES",
+    "idDummy": "53,11,09",
+    "canton": {
+      "id": "180"
+    }
+  },
+  {
+    "id": 955,
+    "name": "LLUZHAPA",
+    "idDummy": "53,11,11",
+    "canton": {
+      "id": "181"
+    }
+  },
+  {
+    "id": 956,
+    "name": "SAN VICENTE",
+    "idDummy": "53,12,01",
+    "canton": {
+      "id": "185"
+    }
+  },
+  {
+    "id": 957,
+    "name": "LA AVANZADA",
+    "idDummy": "53,12,07",
+    "canton": {
+      "id": "186"
+    }
+  },
+  {
+    "id": 958,
+    "name": "GUANAZÁN",
+    "idDummy": "53,13,07",
+    "canton": {
+      "id": "193"
+    }
+  },
+  {
+    "id": 959,
+    "name": "LIMONES",
+    "idDummy": "53,13,11",
+    "canton": {
+      "id": "195"
+    }
+  },
+  {
+    "id": 960,
+    "name": "LA UNIÓN",
+    "idDummy": "53,13,13",
+    "canton": {
+      "id": "197"
+    }
+  },
+  {
+    "id": 961,
+    "name": "SAN ISIDRO",
+    "idDummy": "53,14,07",
+    "canton": {
+      "id": "199"
+    }
+  },
+  {
+    "id": 962,
+    "name": "MILAGROS",
+    "idDummy": "53,14,11",
+    "canton": {
+      "id": "201"
+    }
+  },
+  {
+    "id": 963,
+    "name": "CHARAPOTÓ",
+    "idDummy": "53,14,13",
+    "canton": {
+      "id": "202"
+    }
+  },
+  {
+    "id": 964,
+    "name": "ARQ. SIXTO DURÁN BALLÉN",
+    "idDummy": "53,16,13",
+    "canton": {
+      "id": "208"
+    }
+  },
+  {
+    "id": 965,
+    "name": "ATAHUALPA",
+    "idDummy": "53,17,13",
+    "canton": {
+      "id": "209"
+    }
+  },
+  {
+    "id": 966,
+    "name": "JUNQUILLAL",
+    "idDummy": "53,19,09",
+    "canton": {
+      "id": "212"
+    }
+  },
+  {
+    "id": 967,
+    "name": "GRAL. PEDRO J. MONTERO (BOLICHE)",
+    "idDummy": "53,20,09",
+    "canton": {
+      "id": "214"
+    }
+  },
+  {
+    "id": 968,
+    "name": "CHECA (JIDCAY)",
+    "idDummy": "54,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 969,
+    "name": "*LAS NAVES",
+    "idDummy": "54,01,02",
+    "canton": {
+      "id": "2"
+    }
+  },
+  {
+    "id": 970,
+    "name": "JAVIER LOYOLA (CHUQUIPATA)",
+    "idDummy": "54,01,03",
+    "canton": {
+      "id": "3"
+    }
+  },
+  {
+    "id": 971,
+    "name": "MALDONADO",
+    "idDummy": "54,01,04",
+    "canton": {
+      "id": "4"
+    }
+  },
+  {
+    "id": 972,
+    "name": "JOSEGUANGO BAJO",
+    "idDummy": "54,01,05",
+    "canton": {
+      "id": "5"
+    }
+  },
+  {
+    "id": 973,
+    "name": "FLORES",
+    "idDummy": "54,01,06",
+    "canton": {
+      "id": "6"
+    }
+  },
+  {
+    "id": 974,
+    "name": "CHINCA",
+    "idDummy": "54,01,08",
+    "canton": {
+      "id": "8"
+    }
+  },
+  {
+    "id": 975,
+    "name": "*PASCUALES",
+    "idDummy": "54,01,09",
+    "canton": {
+      "id": "9"
+    }
+  },
+  {
+    "id": 976,
+    "name": "LA ESPERANZA",
+    "idDummy": "54,01,10",
+    "canton": {
+      "id": "10"
+    }
+  },
+  {
+    "id": 977,
+    "name": "GUALEL",
+    "idDummy": "54,01,11",
+    "canton": {
+      "id": "11"
+    }
+  },
+  {
+    "id": 978,
+    "name": "PIMOCHA",
+    "idDummy": "54,01,12",
+    "canton": {
+      "id": "12"
+    }
+  },
+  {
+    "id": 979,
+    "name": "PUEBLO NUEVO",
+    "idDummy": "54,01,13",
+    "canton": {
+      "id": "13"
+    }
+  },
+  {
+    "id": 980,
+    "name": "*HUASAGA (CAB.EN WAMPUIK)",
+    "idDummy": "54,01,14",
+    "canton": {
+      "id": "14"
+    }
+  },
+  {
+    "id": 981,
+    "name": "PANO",
+    "idDummy": "54,01,15",
+    "canton": {
+      "id": "15"
+    }
+  },
+  {
+    "id": 982,
+    "name": "DIEZ DE AGOSTO",
+    "idDummy": "54,01,16",
+    "canton": {
+      "id": "16"
+    }
+  },
+  {
+    "id": 983,
+    "name": "CALACALÍ",
+    "idDummy": "54,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 984,
+    "name": "CONSTATINO FERNANDEZ (CAB EN CULLITAHUA)",
+    "idDummy": "54,01,18",
+    "canton": {
+      "id": "18"
+    }
+  },
+  {
+    "id": 985,
+    "name": "*PAQUISHA",
+    "idDummy": "54,01,19",
+    "canton": {
+      "id": "19"
+    }
+  },
+  {
+    "id": 986,
+    "name": "*TARAPOA",
+    "idDummy": "54,01,21",
+    "canton": {
+      "id": "21"
+    }
+  },
+  {
+    "id": 987,
+    "name": "EL DORADO",
+    "idDummy": "54,01,22",
+    "canton": {
+      "id": "22"
+    }
+  },
+  {
+    "id": 988,
+    "name": "SAN JACINTO DEL BÚA",
+    "idDummy": "54,01,23",
+    "canton": {
+      "id": "23"
+    }
+  },
+  {
+    "id": 989,
+    "name": "MANGLARALTO",
+    "idDummy": "54,01,24",
+    "canton": {
+      "id": "24"
+    }
+  },
+  {
+    "id": 990,
+    "name": "JERUSALÉN",
+    "idDummy": "54,02,03",
+    "canton": {
+      "id": "28"
+    }
+  },
+  {
+    "id": 991,
+    "name": "SAN VICENTE DE PUSIR",
+    "idDummy": "54,02,04",
+    "canton": {
+      "id": "29"
+    }
+  },
+  {
+    "id": 992,
+    "name": "HUIGRA",
+    "idDummy": "54,02,06",
+    "canton": {
+      "id": "31"
+    }
+  },
+  {
+    "id": 993,
+    "name": "PALMALES",
+    "idDummy": "54,02,07",
+    "canton": {
+      "id": "32"
+    }
+  },
+  {
+    "id": 994,
+    "name": "LA TOLA",
+    "idDummy": "54,02,08",
+    "canton": {
+      "id": "33"
+    }
+  },
+  {
+    "id": 995,
+    "name": "SAN ROQUE",
+    "idDummy": "54,02,10",
+    "canton": {
+      "id": "35"
+    }
+  },
+  {
+    "id": 996,
+    "name": "SANGUILLÍN",
+    "idDummy": "54,02,11",
+    "canton": {
+      "id": "36"
+    }
+  },
+  {
+    "id": 997,
+    "name": "CHIGUINDA",
+    "idDummy": "54,02,14",
+    "canton": {
+      "id": "39"
+    }
+  },
+  {
+    "id": 998,
+    "name": "OTÓN",
+    "idDummy": "54,02,17",
+    "canton": {
+      "id": "41"
+    }
+  },
+  {
+    "id": 999,
+    "name": "ULBA",
+    "idDummy": "54,02,18",
+    "canton": {
+      "id": "42"
+    }
+  },
+  {
+    "id": 1000,
+    "name": "LA CHONTA",
+    "idDummy": "54,02,19",
+    "canton": {
+      "id": "43"
+    }
+  },
+  {
+    "id": 1001,
+    "name": "PUERTO LIBRE",
+    "idDummy": "54,02,21",
+    "canton": {
+      "id": "45"
+    }
+  },
+  {
+    "id": 1002,
+    "name": "TIPUTINI",
+    "idDummy": "54,02,22",
+    "canton": {
+      "id": "46"
+    }
+  },
+  {
+    "id": 1003,
+    "name": "MARIANO MORENO",
+    "idDummy": "54,03,01",
+    "canton": {
+      "id": "49"
+    }
+  },
+  {
+    "id": 1004,
+    "name": "SAN SEBASTÍAN",
+    "idDummy": "54,03,02",
+    "canton": {
+      "id": "50"
+    }
+  },
+  {
+    "id": 1005,
+    "name": "GUALLETURO",
+    "idDummy": "54,03,03",
+    "canton": {
+      "id": "51"
+    }
+  },
+  {
+    "id": 1006,
+    "name": "SANTIAGO DE QUITO (CAB. EN SAN",
+    "idDummy": "54,03,06",
+    "canton": {
+      "id": "54"
+    }
+  },
+  {
+    "id": 1007,
+    "name": "SAN JOSÉ",
+    "idDummy": "54,03,07",
+    "canton": {
+      "id": "55"
+    }
+  },
+  {
+    "id": 1008,
+    "name": "QUINGUE (OLMEDO PERDOMO FRANCO)",
+    "idDummy": "54,03,08",
+    "canton": {
+      "id": "56"
+    }
+  },
+  {
+    "id": 1009,
+    "name": "PEÑAHERRERA",
+    "idDummy": "54,03,10",
+    "canton": {
+      "id": "58"
+    }
+  },
+  {
+    "id": 1010,
+    "name": "ZAMBÍ",
+    "idDummy": "54,03,11",
+    "canton": {
+      "id": "59"
+    }
+  },
+  {
+    "id": 1011,
+    "name": "CHIBUNGA",
+    "idDummy": "54,03,13",
+    "canton": {
+      "id": "61"
+    }
+  },
+  {
+    "id": 1012,
+    "name": "*SAN CARLOS DE LIMÓN (SAN CARLOS DEL",
+    "idDummy": "54,03,14",
+    "canton": {
+      "id": "62"
+    }
+  },
+  {
+    "id": 1013,
+    "name": "SAN PABLO DE USHPAYACU",
+    "idDummy": "54,03,15",
+    "canton": {
+      "id": "63"
+    }
+  },
+  {
+    "id": 1014,
+    "name": "EL CHAUPI",
+    "idDummy": "54,03,17",
+    "canton": {
+      "id": "65"
+    }
+  },
+  {
+    "id": 1015,
+    "name": "SANTA ELENA",
+    "idDummy": "54,03,21",
+    "canton": {
+      "id": "69"
+    }
+  },
+  {
+    "id": 1016,
+    "name": "SAN SEBASTIÁN DEL COCA",
+    "idDummy": "54,03,22",
+    "canton": {
+      "id": "70"
+    }
+  },
+  {
+    "id": 1017,
+    "name": "*OÑA",
+    "idDummy": "54,04,01",
+    "canton": {
+      "id": "73"
+    }
+  },
+  {
+    "id": 1018,
+    "name": "*ISINLIBÍ (ISINLIVÍ)",
+    "idDummy": "54,04,05",
+    "canton": {
+      "id": "77"
+    }
+  },
+  {
+    "id": 1019,
+    "name": "VICHE",
+    "idDummy": "54,04,08",
+    "canton": {
+      "id": "80"
+    }
+  },
+  {
+    "id": 1020,
+    "name": "PATAQUÍ",
+    "idDummy": "54,04,10",
+    "canton": {
+      "id": "82"
+    }
+  },
+  {
+    "id": 1021,
+    "name": "*PINDAL (FEDERICO PÁEZ)",
+    "idDummy": "54,04,11",
+    "canton": {
+      "id": "83"
+    }
+  },
+  {
+    "id": 1022,
+    "name": "SANGAY (CAB EN NAYAMANACA)",
+    "idDummy": "54,04,14",
+    "canton": {
+      "id": "86"
+    }
+  },
+  {
+    "id": 1023,
+    "name": "SANTA ROSA",
+    "idDummy": "54,04,15",
+    "canton": {
+      "id": "87"
+    }
+  },
+  {
+    "id": 1024,
+    "name": "TUPIGACHI",
+    "idDummy": "54,04,17",
+    "canton": {
+      "id": "89"
+    }
+  },
+  {
+    "id": 1025,
+    "name": "SAN PEDRO DE LOS COFANES",
+    "idDummy": "54,04,21",
+    "canton": {
+      "id": "92"
+    }
+  },
+  {
+    "id": 1026,
+    "name": "SAN JOSÉ DE DAHUANO",
+    "idDummy": "54,04,22",
+    "canton": {
+      "id": "93"
+    }
+  },
+  {
+    "id": 1027,
+    "name": "EL CABO",
+    "idDummy": "54,05,01",
+    "canton": {
+      "id": "95"
+    }
+  },
+  {
+    "id": 1028,
+    "name": "SAN PABLO (SAN PABLO DE ATENAS)",
+    "idDummy": "54,05,02",
+    "canton": {
+      "id": "96"
+    }
+  },
+  {
+    "id": 1029,
+    "name": "LA PAZ",
+    "idDummy": "54,05,04",
+    "canton": {
+      "id": "98"
+    }
+  },
+  {
+    "id": 1030,
+    "name": "MULLIQUINDIL (SANTA ANA)",
+    "idDummy": "54,05,05",
+    "canton": {
+      "id": "99"
+    }
+  },
+  {
+    "id": 1031,
+    "name": "LLAGOS",
+    "idDummy": "54,05,06",
+    "canton": {
+      "id": "100"
+    }
+  },
+  {
+    "id": 1032,
+    "name": "CARONDELET",
+    "idDummy": "54,05,08",
+    "canton": {
+      "id": "102"
+    }
+  },
+  {
+    "id": 1033,
+    "name": "AMARILLOS",
+    "idDummy": "54,05,11",
+    "canton": {
+      "id": "105"
+    }
+  },
+  {
+    "id": 1034,
+    "name": "*VALENCIA",
+    "idDummy": "54,05,12",
+    "canton": {
+      "id": "106"
+    }
+  },
+  {
+    "id": 1035,
+    "name": "SAN LUIS DE EL ACHO (CAB EN EL ACHO)",
+    "idDummy": "54,05,14",
+    "canton": {
+      "id": "108"
+    }
+  },
+  {
+    "id": 1036,
+    "name": "SANTA BARBARA",
+    "idDummy": "54,05,21",
+    "canton": {
+      "id": "112"
+    }
+  },
+  {
+    "id": 1037,
+    "name": "RÍO BONITO",
+    "idDummy": "54,06,07",
+    "canton": {
+      "id": "119"
+    }
+  },
+  {
+    "id": 1038,
+    "name": "TONSUPA",
+    "idDummy": "54,06,08",
+    "canton": {
+      "id": "120"
+    }
+  },
+  {
+    "id": 1039,
+    "name": "LIMONAL",
+    "idDummy": "54,06,09",
+    "canton": {
+      "id": "121"
+    }
+  },
+  {
+    "id": 1040,
+    "name": "SAN BLAS",
+    "idDummy": "54,06,10",
+    "canton": {
+      "id": "122"
+    }
+  },
+  {
+    "id": 1041,
+    "name": "27 DE ABRIL (CAB EN LA NARANJA)",
+    "idDummy": "54,06,11",
+    "canton": {
+      "id": "123"
+    }
+  },
+  {
+    "id": 1042,
+    "name": "LA UNIÓN",
+    "idDummy": "54,06,13",
+    "canton": {
+      "id": "125"
+    }
+  },
+  {
+    "id": 1043,
+    "name": "*YAUPI",
+    "idDummy": "54,06,14",
+    "canton": {
+      "id": "126"
+    }
+  },
+  {
+    "id": 1044,
+    "name": "PALO QUEMADO",
+    "idDummy": "54,07,05",
+    "canton": {
+      "id": "133"
+    }
+  },
+  {
+    "id": 1045,
+    "name": "SAN ANDRÉS",
+    "idDummy": "54,07,06",
+    "canton": {
+      "id": "134"
+    }
+  },
+  {
+    "id": 1046,
+    "name": "MONTALVO (CAB EN HORQUETA)",
+    "idDummy": "54,07,08",
+    "canton": {
+      "id": "136"
+    }
+  },
+  {
+    "id": 1047,
+    "name": "PURUNUMA (EGUIGUREN)",
+    "idDummy": "54,07,11",
+    "canton": {
+      "id": "138"
+    }
+  },
+  {
+    "id": 1048,
+    "name": "LOS ÁNGELES",
+    "idDummy": "54,07,12",
+    "canton": {
+      "id": "139"
+    }
+  },
+  {
+    "id": 1049,
+    "name": "SAN FRANCISCO DE BORJA (VIRGILIO DÁVILA)",
+    "idDummy": "54,07,15",
+    "canton": {
+      "id": "142"
+    }
+  },
+  {
+    "id": 1050,
+    "name": "CHIQUICHA (CAB EN CHIQUICHA GRANDE)",
+    "idDummy": "54,07,18",
+    "canton": {
+      "id": "144"
+    }
+  },
+  {
+    "id": 1051,
+    "name": "SAN SALVADOR DE CAÑARIBAMBA",
+    "idDummy": "54,08,01",
+    "canton": {
+      "id": "147"
+    }
+  },
+  {
+    "id": 1052,
+    "name": "SANTIAGO DE PANANZA",
+    "idDummy": "54,08,14",
+    "canton": {
+      "id": "154"
+    }
+  },
+  {
+    "id": 1053,
+    "name": "PRESIDENTE URBINA (CHAGRAPAMBA-PA",
+    "idDummy": "54,08,18",
+    "canton": {
+      "id": "156"
+    }
+  },
+  {
+    "id": 1054,
+    "name": "LA CANELA",
+    "idDummy": "54,08,19",
+    "canton": {
+      "id": "157"
+    }
+  },
+  {
+    "id": 1055,
+    "name": "LUDO",
+    "idDummy": "54,09,01",
+    "canton": {
+      "id": "158"
+    }
+  },
+  {
+    "id": 1056,
+    "name": "SAN ANTONIO DE BAYUSHIG",
+    "idDummy": "54,09,06",
+    "canton": {
+      "id": "159"
+    }
+  },
+  {
+    "id": 1057,
+    "name": "PROGRESO",
+    "idDummy": "54,09,07",
+    "canton": {
+      "id": "160"
+    }
+  },
+  {
+    "id": 1058,
+    "name": "LAURO GUERRERO",
+    "idDummy": "54,09,11",
+    "canton": {
+      "id": "162"
+    }
+  },
+  {
+    "id": 1059,
+    "name": "PUMPUENTSA",
+    "idDummy": "54,09,14",
+    "canton": {
+      "id": "165"
+    }
+  },
+  {
+    "id": 1060,
+    "name": "PIEDRAS",
+    "idDummy": "54,10,07",
+    "canton": {
+      "id": "172"
+    }
+  },
+  {
+    "id": 1061,
+    "name": "ROBERTO ASTUDILLO (CAB EN CRUCE DE VENECIA",
+    "idDummy": "54,10,09",
+    "canton": {
+      "id": "173"
+    }
+  },
+  {
+    "id": 1062,
+    "name": "MERCADILLO",
+    "idDummy": "54,10,11",
+    "canton": {
+      "id": "174"
+    }
+  },
+  {
+    "id": 1063,
+    "name": "LASCANO",
+    "idDummy": "54,10,13",
+    "canton": {
+      "id": "176"
+    }
+  },
+  {
+    "id": 1064,
+    "name": "SAN MARTÍN DE PUZHIO",
+    "idDummy": "54,11,01",
+    "canton": {
+      "id": "178"
+    }
+  },
+  {
+    "id": 1065,
+    "name": "TAURA",
+    "idDummy": "54,11,09",
+    "canton": {
+      "id": "180"
+    }
+  },
+  {
+    "id": 1066,
+    "name": "MANÚ",
+    "idDummy": "54,11,11",
+    "canton": {
+      "id": "181"
+    }
+  },
+  {
+    "id": 1067,
+    "name": "SAN ANTONIO",
+    "idDummy": "54,12,07",
+    "canton": {
+      "id": "186"
+    }
+  },
+  {
+    "id": 1068,
+    "name": "GUIZHAGUIÑA",
+    "idDummy": "54,13,07",
+    "canton": {
+      "id": "193"
+    }
+  },
+  {
+    "id": 1069,
+    "name": "PALETILLAS",
+    "idDummy": "54,13,11",
+    "canton": {
+      "id": "195"
+    }
+  },
+  {
+    "id": 1070,
+    "name": "*OLMEDO",
+    "idDummy": "54,13,13",
+    "canton": {
+      "id": "197"
+    }
+  },
+  {
+    "id": 1071,
+    "name": "*10 DE AGOSTO",
+    "idDummy": "54,14,13",
+    "canton": {
+      "id": "202"
+    }
+  },
+  {
+    "id": 1072,
+    "name": "*SIMÓN BOLÍVAR",
+    "idDummy": "54,20,09",
+    "canton": {
+      "id": "214"
+    }
+  },
+  {
+    "id": 1073,
+    "name": "CHUIQUINTAD",
+    "idDummy": "55,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 1074,
+    "name": "SALINAS",
+    "idDummy": "55,01,02",
+    "canton": {
+      "id": "2"
+    }
+  },
+  {
+    "id": 1075,
+    "name": "LUIS CORDERO",
+    "idDummy": "55,01,03",
+    "canton": {
+      "id": "3"
+    }
+  },
+  {
+    "id": 1076,
+    "name": "PIOTER",
+    "idDummy": "55,01,04",
+    "canton": {
+      "id": "4"
+    }
+  },
+  {
+    "id": 1077,
+    "name": "*LAS PAMPAS",
+    "idDummy": "55,01,05",
+    "canton": {
+      "id": "5"
+    }
+  },
+  {
+    "id": 1078,
+    "name": "LICÁN",
+    "idDummy": "55,01,06",
+    "canton": {
+      "id": "6"
+    }
+  },
+  {
+    "id": 1079,
+    "name": "*CHONTADURO",
+    "idDummy": "55,01,08",
+    "canton": {
+      "id": "8"
+    }
+  },
+  {
+    "id": 1080,
+    "name": "*PLAYAS (GRAL. VILLAMIL)",
+    "idDummy": "55,01,09",
+    "canton": {
+      "id": "9"
+    }
+  },
+  {
+    "id": 1081,
+    "name": "LITA",
+    "idDummy": "55,01,10",
+    "canton": {
+      "id": "10"
+    }
+  },
+  {
+    "id": 1082,
+    "name": "JIMBILLA",
+    "idDummy": "55,01,11",
+    "canton": {
+      "id": "11"
+    }
+  },
+  {
+    "id": 1083,
+    "name": "LA UNIÓN",
+    "idDummy": "55,01,12",
+    "canton": {
+      "id": "12"
+    }
+  },
+  {
+    "id": 1084,
+    "name": "RIOCHICO (RÍO CHICO)",
+    "idDummy": "55,01,13",
+    "canton": {
+      "id": "13"
+    }
+  },
+  {
+    "id": 1085,
+    "name": "*MACUMA",
+    "idDummy": "55,01,14",
+    "canton": {
+      "id": "14"
+    }
+  },
+  {
+    "id": 1086,
+    "name": "PUERTO MISAHUALLI",
+    "idDummy": "55,01,15",
+    "canton": {
+      "id": "15"
+    }
+  },
+  {
+    "id": 1087,
+    "name": "FÁTIMA",
+    "idDummy": "55,01,16",
+    "canton": {
+      "id": "16"
+    }
+  },
+  {
+    "id": 1088,
+    "name": "CALDERÓN (CARAPUNGO)",
+    "idDummy": "55,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 1089,
+    "name": "HUACHI GRANDE",
+    "idDummy": "55,01,18",
+    "canton": {
+      "id": "18"
+    }
+  },
+  {
+    "id": 1090,
+    "name": "SABANILLA",
+    "idDummy": "55,01,19",
+    "canton": {
+      "id": "19"
+    }
+  },
+  {
+    "id": 1091,
+    "name": "EL ENO",
+    "idDummy": "55,01,21",
+    "canton": {
+      "id": "21"
+    }
+  },
+  {
+    "id": 1092,
+    "name": "EL EDÉN",
+    "idDummy": "55,01,22",
+    "canton": {
+      "id": "22"
+    }
+  },
+  {
+    "id": 1093,
+    "name": "VALLE HERMOSO",
+    "idDummy": "55,01,23",
+    "canton": {
+      "id": "23"
+    }
+  },
+  {
+    "id": 1094,
+    "name": "SIMÓN BOLÍVAR (JULIO MORENO)",
+    "idDummy": "55,01,24",
+    "canton": {
+      "id": "24"
+    }
+  },
+  {
+    "id": 1095,
+    "name": "SAN RAFAEL",
+    "idDummy": "55,02,04",
+    "canton": {
+      "id": "29"
+    }
+  },
+  {
+    "id": 1096,
+    "name": "MULTITUD",
+    "idDummy": "55,02,06",
+    "canton": {
+      "id": "31"
+    }
+  },
+  {
+    "id": 1097,
+    "name": "CARCABÓN",
+    "idDummy": "55,02,07",
+    "canton": {
+      "id": "32"
+    }
+  },
+  {
+    "id": 1098,
+    "name": "LUIS V. TORRES (CAB. EN PLAYA DE ORO)",
+    "idDummy": "55,02,08",
+    "canton": {
+      "id": "33"
+    }
+  },
+  {
+    "id": 1099,
+    "name": "EL ROSARIO",
+    "idDummy": "55,02,14",
+    "canton": {
+      "id": "39"
+    }
+  },
+  {
+    "id": 1100,
+    "name": "SANTA ROSA DE CUZUBAMBA",
+    "idDummy": "55,02,17",
+    "canton": {
+      "id": "41"
+    }
+  },
+  {
+    "id": 1101,
+    "name": "*PALANDA",
+    "idDummy": "55,02,19",
+    "canton": {
+      "id": "43"
+    }
+  },
+  {
+    "id": 1102,
+    "name": "*SANTA ROSA DE SUCUMBÍOS",
+    "idDummy": "55,02,21",
+    "canton": {
+      "id": "45"
+    }
+  },
+  {
+    "id": 1103,
+    "name": "YASUNÍ",
+    "idDummy": "55,02,22",
+    "canton": {
+      "id": "46"
+    }
+  },
+  {
+    "id": 1104,
+    "name": "*PRINCIPAL",
+    "idDummy": "55,03,01",
+    "canton": {
+      "id": "49"
+    }
+  },
+  {
+    "id": 1105,
+    "name": "TELIMBELA",
+    "idDummy": "55,03,02",
+    "canton": {
+      "id": "50"
+    }
+  },
+  {
+    "id": 1106,
+    "name": "HONORATO VÁSQUEZ (TAMBO VIEJO)",
+    "idDummy": "55,03,03",
+    "canton": {
+      "id": "51"
+    }
+  },
+  {
+    "id": 1107,
+    "name": "SAN JUAN DE CERRO AZUL",
+    "idDummy": "55,03,07",
+    "canton": {
+      "id": "55"
+    }
+  },
+  {
+    "id": 1108,
+    "name": "SALIMA",
+    "idDummy": "55,03,08",
+    "canton": {
+      "id": "56"
+    }
+  },
+  {
+    "id": 1109,
+    "name": "PLAZA GUTIERREZ (CALVARIO)",
+    "idDummy": "55,03,10",
+    "canton": {
+      "id": "58"
+    }
+  },
+  {
+    "id": 1110,
+    "name": "ELOY ALFARO",
+    "idDummy": "55,03,13",
+    "canton": {
+      "id": "61"
+    }
+  },
+  {
+    "id": 1111,
+    "name": "*SAN JUAN BOSCO",
+    "idDummy": "55,03,14",
+    "canton": {
+      "id": "62"
+    }
+  },
+  {
+    "id": 1112,
+    "name": "*PUERTO MURIALDO",
+    "idDummy": "55,03,15",
+    "canton": {
+      "id": "63"
+    }
+  },
+  {
+    "id": 1113,
+    "name": "MANUEL CORNEJO ASTORGA (TANDAPI)",
+    "idDummy": "55,03,17",
+    "canton": {
+      "id": "65"
+    }
+  },
+  {
+    "id": 1114,
+    "name": "LAGO SAN PEDRO",
+    "idDummy": "55,03,22",
+    "canton": {
+      "id": "70"
+    }
+  },
+  {
+    "id": 1115,
+    "name": "*LA PAZ",
+    "idDummy": "55,04,01",
+    "canton": {
+      "id": "73"
+    }
+  },
+  {
+    "id": 1116,
+    "name": "LA VICTORIA",
+    "idDummy": "55,04,05",
+    "canton": {
+      "id": "77"
+    }
+  },
+  {
+    "id": 1117,
+    "name": "LA UNIÓN",
+    "idDummy": "55,04,08",
+    "canton": {
+      "id": "80"
+    }
+  },
+  {
+    "id": 1118,
+    "name": "SAN JOSÉ DE QUICHINCHE",
+    "idDummy": "55,04,10",
+    "canton": {
+      "id": "82"
+    }
+  },
+  {
+    "id": 1119,
+    "name": "POZUL (SAN JUAN DE POZUL)",
+    "idDummy": "55,04,11",
+    "canton": {
+      "id": "83"
+    }
+  },
+  {
+    "id": 1120,
+    "name": "16 DE AGOSTO",
+    "idDummy": "55,04,14",
+    "canton": {
+      "id": "86"
+    }
+  },
+  {
+    "id": 1121,
+    "name": "SARDINAS",
+    "idDummy": "55,04,15",
+    "canton": {
+      "id": "87"
+    }
+  },
+  {
+    "id": 1122,
+    "name": "SIETE DE JULIO",
+    "idDummy": "55,04,21",
+    "canton": {
+      "id": "92"
+    }
+  },
+  {
+    "id": 1123,
+    "name": "SAN VICENTE DE HUATICOCHA",
+    "idDummy": "55,04,22",
+    "canton": {
+      "id": "93"
+    }
+  },
+  {
+    "id": 1124,
+    "name": "*GUACHAPALA",
+    "idDummy": "55,05,01",
+    "canton": {
+      "id": "95"
+    }
+  },
+  {
+    "id": 1125,
+    "name": "SANTIAGO",
+    "idDummy": "55,05,02",
+    "canton": {
+      "id": "96"
+    }
+  },
+  {
+    "id": 1126,
+    "name": "PIARTAL",
+    "idDummy": "55,05,04",
+    "canton": {
+      "id": "98"
+    }
+  },
+  {
+    "id": 1127,
+    "name": "PANSALEO",
+    "idDummy": "55,05,05",
+    "canton": {
+      "id": "99"
+    }
+  },
+  {
+    "id": 1128,
+    "name": "5 DE JUNIO (CAB EN UIMBÌ)",
+    "idDummy": "55,05,08",
+    "canton": {
+      "id": "102"
+    }
+  },
+  {
+    "id": 1129,
+    "name": "LA ESPERANZA",
+    "idDummy": "55,05,12",
+    "canton": {
+      "id": "106"
+    }
+  },
+  {
+    "id": 1130,
+    "name": "*SANTIAGO",
+    "idDummy": "55,05,14",
+    "canton": {
+      "id": "108"
+    }
+  },
+  {
+    "id": 1131,
+    "name": "*LOMAS DE SARGENTILLO",
+    "idDummy": "55,06,09",
+    "canton": {
+      "id": "121"
+    }
+  },
+  {
+    "id": 1132,
+    "name": "TUMBABIRO",
+    "idDummy": "55,06,10",
+    "canton": {
+      "id": "122"
+    }
+  },
+  {
+    "id": 1133,
+    "name": "EL INGENIO",
+    "idDummy": "55,06,11",
+    "canton": {
+      "id": "123"
+    }
+  },
+  {
+    "id": 1134,
+    "name": "*MACHALILLA",
+    "idDummy": "55,06,13",
+    "canton": {
+      "id": "125"
+    }
+  },
+  {
+    "id": 1135,
+    "name": "SANTA MARIANITA DE JESÚS",
+    "idDummy": "55,06,14",
+    "canton": {
+      "id": "126"
+    }
+  },
+  {
+    "id": 1136,
+    "name": "SAN GERARDO DE PACAICAGUÁN",
+    "idDummy": "55,07,06",
+    "canton": {
+      "id": "134"
+    }
+  },
+  {
+    "id": 1137,
+    "name": "ROCAFUERTE",
+    "idDummy": "55,07,08",
+    "canton": {
+      "id": "136"
+    }
+  },
+  {
+    "id": 1138,
+    "name": "*QUILANGA (LA PAZ)",
+    "idDummy": "55,07,11",
+    "canton": {
+      "id": "138"
+    }
+  },
+  {
+    "id": 1139,
+    "name": "*SAN JOSÉ DEL PAYAMINO",
+    "idDummy": "55,07,15",
+    "canton": {
+      "id": "142"
+    }
+  },
+  {
+    "id": 1140,
+    "name": "EL ROSARIO (RUMICHACA)",
+    "idDummy": "55,07,18",
+    "canton": {
+      "id": "144"
+    }
+  },
+  {
+    "id": 1141,
+    "name": "SAN ANDRÉS",
+    "idDummy": "55,08,18",
+    "canton": {
+      "id": "156"
+    }
+  },
+  {
+    "id": 1142,
+    "name": "SAN BARTOLOMÉ",
+    "idDummy": "55,09,01",
+    "canton": {
+      "id": "158"
+    }
+  },
+  {
+    "id": 1143,
+    "name": "LA CANDELARIA",
+    "idDummy": "55,09,06",
+    "canton": {
+      "id": "159"
+    }
+  },
+  {
+    "id": 1144,
+    "name": "UZHCURRUMI",
+    "idDummy": "55,09,07",
+    "canton": {
+      "id": "160"
+    }
+  },
+  {
+    "id": 1145,
+    "name": "*OLMEDO (SANTA BÁRBARA)",
+    "idDummy": "55,09,11",
+    "canton": {
+      "id": "162"
+    }
+  },
+  {
+    "id": 1146,
+    "name": "SAN ROQUE (AMBROSIO MALDONADO)",
+    "idDummy": "55,10,07",
+    "canton": {
+      "id": "172"
+    }
+  },
+  {
+    "id": 1147,
+    "name": "VICENTINO",
+    "idDummy": "55,10,11",
+    "canton": {
+      "id": "174"
+    }
+  },
+  {
+    "id": 1148,
+    "name": "SAN ANTONIO DE QUMBE (CUMBE)",
+    "idDummy": "55,11,11",
+    "canton": {
+      "id": "181"
+    }
+  },
+  {
+    "id": 1149,
+    "name": "TORATA",
+    "idDummy": "55,12,07",
+    "canton": {
+      "id": "186"
+    }
+  },
+  {
+    "id": 1150,
+    "name": "HUERTAS",
+    "idDummy": "55,13,07",
+    "canton": {
+      "id": "193"
+    }
+  },
+  {
+    "id": 1151,
+    "name": "BOLASPAMBA",
+    "idDummy": "55,13,11",
+    "canton": {
+      "id": "195"
+    }
+  },
+  {
+    "id": 1152,
+    "name": "SAN PABLO (CAB EN PUEBLO NUEVO)",
+    "idDummy": "55,13,13",
+    "canton": {
+      "id": "197"
+    }
+  },
+  {
+    "id": 1153,
+    "name": "*JAMA",
+    "idDummy": "55,14,13",
+    "canton": {
+      "id": "202"
+    }
+  },
+  {
+    "id": 1154,
+    "name": "YAGUACHI VIEJO (CONE)",
+    "idDummy": "55,20,09",
+    "canton": {
+      "id": "214"
+    }
+  },
+  {
+    "id": 1155,
+    "name": "LLACAO",
+    "idDummy": "56,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 1156,
+    "name": "SAN LORENZO",
+    "idDummy": "56,01,02",
+    "canton": {
+      "id": "2"
+    }
+  },
+  {
+    "id": 1157,
+    "name": "PINDILIG",
+    "idDummy": "56,01,03",
+    "canton": {
+      "id": "3"
+    }
+  },
+  {
+    "id": 1158,
+    "name": "TOBAR DONOSO (LA BOCANA DE CAMUNBÍ)",
+    "idDummy": "56,01,04",
+    "canton": {
+      "id": "4"
+    }
+  },
+  {
+    "id": 1159,
+    "name": "MULALÓ",
+    "idDummy": "56,01,05",
+    "canton": {
+      "id": "5"
+    }
+  },
+  {
+    "id": 1160,
+    "name": "LICTO",
+    "idDummy": "56,01,06",
+    "canton": {
+      "id": "6"
+    }
+  },
+  {
+    "id": 1161,
+    "name": "*CHUMUNDÉ",
+    "idDummy": "56,01,08",
+    "canton": {
+      "id": "8"
+    }
+  },
+  {
+    "id": 1162,
+    "name": "POSORJA",
+    "idDummy": "56,01,09",
+    "canton": {
+      "id": "9"
+    }
+  },
+  {
+    "id": 1163,
+    "name": "SALINAS",
+    "idDummy": "56,01,10",
+    "canton": {
+      "id": "10"
+    }
+  },
+  {
+    "id": 1164,
+    "name": "MALACATOS (VALLADOLID)",
+    "idDummy": "56,01,11",
+    "canton": {
+      "id": "11"
+    }
+  },
+  {
+    "id": 1165,
+    "name": "SAN PLÁCIDO",
+    "idDummy": "56,01,13",
+    "canton": {
+      "id": "13"
+    }
+  },
+  {
+    "id": 1166,
+    "name": "SAN ISIDRO",
+    "idDummy": "56,01,14",
+    "canton": {
+      "id": "14"
+    }
+  },
+  {
+    "id": 1167,
+    "name": "PUERTO NAPO",
+    "idDummy": "56,01,15",
+    "canton": {
+      "id": "15"
+    }
+  },
+  {
+    "id": 1168,
+    "name": "MONTALVO (ANDOAS)",
+    "idDummy": "56,01,16",
+    "canton": {
+      "id": "16"
+    }
+  },
+  {
+    "id": 1169,
+    "name": "CONOCOTO",
+    "idDummy": "56,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 1170,
+    "name": "IZAMBA",
+    "idDummy": "56,01,18",
+    "canton": {
+      "id": "18"
+    }
+  },
+  {
+    "id": 1171,
+    "name": "TIMBARA",
+    "idDummy": "56,01,19",
+    "canton": {
+      "id": "19"
+    }
+  },
+  {
+    "id": 1172,
+    "name": "PACAYACÚ",
+    "idDummy": "56,01,21",
+    "canton": {
+      "id": "21"
+    }
+  },
+  {
+    "id": 1173,
+    "name": "GARCÍA MORENO",
+    "idDummy": "56,01,22",
+    "canton": {
+      "id": "22"
+    }
+  },
+  {
+    "id": 1174,
+    "name": "EL ESFUERZO",
+    "idDummy": "56,01,23",
+    "canton": {
+      "id": "23"
+    }
+  },
+  {
+    "id": 1175,
+    "name": "SAN JOSÉ DE ANCÓN",
+    "idDummy": "56,01,24",
+    "canton": {
+      "id": "24"
+    }
+  },
+  {
+    "id": 1176,
+    "name": "PISTISHÍ (NARIZ DEL DIABLO)",
+    "idDummy": "56,02,06",
+    "canton": {
+      "id": "31"
+    }
+  },
+  {
+    "id": 1177,
+    "name": "MALDONADO",
+    "idDummy": "56,02,08",
+    "canton": {
+      "id": "33"
+    }
+  },
+  {
+    "id": 1178,
+    "name": "NUEVA TARQUI",
+    "idDummy": "56,02,14",
+    "canton": {
+      "id": "39"
+    }
+  },
+  {
+    "id": 1179,
+    "name": "SAN JOSE DE AYORA",
+    "idDummy": "56,02,17",
+    "canton": {
+      "id": "41"
+    }
+  },
+  {
+    "id": 1180,
+    "name": "PUCAPAMBA",
+    "idDummy": "56,02,19",
+    "canton": {
+      "id": "43"
+    }
+  },
+  {
+    "id": 1181,
+    "name": "REMIGIO CRESPO TORAL (GULAG)",
+    "idDummy": "56,03,01",
+    "canton": {
+      "id": "49"
+    }
+  },
+  {
+    "id": 1182,
+    "name": "INGAPIRCA",
+    "idDummy": "56,03,03",
+    "canton": {
+      "id": "51"
+    }
+  },
+  {
+    "id": 1183,
+    "name": "SAN FRANCISCO",
+    "idDummy": "56,03,08",
+    "canton": {
+      "id": "56"
+    }
+  },
+  {
+    "id": 1184,
+    "name": "QUIROGA",
+    "idDummy": "56,03,10",
+    "canton": {
+      "id": "58"
+    }
+  },
+  {
+    "id": 1185,
+    "name": "RICAURTE",
+    "idDummy": "56,03,13",
+    "canton": {
+      "id": "61"
+    }
+  },
+  {
+    "id": 1186,
+    "name": "SAN MIGUEL DE CONCHAY",
+    "idDummy": "56,03,14",
+    "canton": {
+      "id": "62"
+    }
+  },
+  {
+    "id": 1187,
+    "name": "HATUN SUMAKU",
+    "idDummy": "56,03,15",
+    "canton": {
+      "id": "63"
+    }
+  },
+  {
+    "id": 1188,
+    "name": "TAMBILLO",
+    "idDummy": "56,03,17",
+    "canton": {
+      "id": "65"
+    }
+  },
+  {
+    "id": 1189,
+    "name": "RUMIPAMBA",
+    "idDummy": "56,03,22",
+    "canton": {
+      "id": "70"
+    }
+  },
+  {
+    "id": 1190,
+    "name": "PILALÓ",
+    "idDummy": "56,04,05",
+    "canton": {
+      "id": "77"
+    }
+  },
+  {
+    "id": 1191,
+    "name": "SAN JUAN DE ILUMÁN",
+    "idDummy": "56,04,10",
+    "canton": {
+      "id": "82"
+    }
+  },
+  {
+    "id": 1192,
+    "name": "SABANILLA",
+    "idDummy": "56,04,11",
+    "canton": {
+      "id": "83"
+    }
+  },
+  {
+    "id": 1193,
+    "name": "GUARAINAG",
+    "idDummy": "56,05,01",
+    "canton": {
+      "id": "95"
+    }
+  },
+  {
+    "id": 1194,
+    "name": "SAN VICENTE",
+    "idDummy": "56,05,02",
+    "canton": {
+      "id": "96"
+    }
+  },
+  {
+    "id": 1195,
+    "name": "CONCEPCIÓN",
+    "idDummy": "56,05,08",
+    "canton": {
+      "id": "102"
+    }
+  },
+  {
+    "id": 1196,
+    "name": "TAYUZA",
+    "idDummy": "56,05,14",
+    "canton": {
+      "id": "108"
+    }
+  },
+  {
+    "id": 1197,
+    "name": "LOS LOJAS (ENRIQUE BAQUERIZO MORENO)",
+    "idDummy": "56,06,09",
+    "canton": {
+      "id": "121"
+    }
+  },
+  {
+    "id": 1198,
+    "name": "EL AIRO",
+    "idDummy": "56,06,11",
+    "canton": {
+      "id": "123"
+    }
+  },
+  {
+    "id": 1199,
+    "name": "MEMBRILLAL",
+    "idDummy": "56,06,13",
+    "canton": {
+      "id": "125"
+    }
+  },
+  {
+    "id": 1200,
+    "name": "SAN ISIDRO DE PATULÚ",
+    "idDummy": "56,07,06",
+    "canton": {
+      "id": "134"
+    }
+  },
+  {
+    "id": 1201,
+    "name": "SACAPALCA",
+    "idDummy": "56,07,11",
+    "canton": {
+      "id": "138"
+    }
+  },
+  {
+    "id": 1202,
+    "name": "SUMACO",
+    "idDummy": "56,07,15",
+    "canton": {
+      "id": "142"
+    }
+  },
+  {
+    "id": 1203,
+    "name": "GARCÍA MORENO (CHUMAQUI)",
+    "idDummy": "56,07,18",
+    "canton": {
+      "id": "144"
+    }
+  },
+  {
+    "id": 1204,
+    "name": "SAN JOSÉ DE POALÓ",
+    "idDummy": "56,08,18",
+    "canton": {
+      "id": "156"
+    }
+  },
+  {
+    "id": 1205,
+    "name": "SAN JOSÉ DE RARANGA",
+    "idDummy": "56,09,01",
+    "canton": {
+      "id": "158"
+    }
+  },
+  {
+    "id": 1206,
+    "name": "BILBAO (CAB. EN QUILLUYACU)",
+    "idDummy": "56,09,06",
+    "canton": {
+      "id": "159"
+    }
+  },
+  {
+    "id": 1207,
+    "name": "CAÑAQUEMADA",
+    "idDummy": "56,09,07",
+    "canton": {
+      "id": "160"
+    }
+  },
+  {
+    "id": 1208,
+    "name": "ORIANGA",
+    "idDummy": "56,09,11",
+    "canton": {
+      "id": "162"
+    }
+  },
+  {
+    "id": 1209,
+    "name": "SARACAY",
+    "idDummy": "56,10,07",
+    "canton": {
+      "id": "172"
+    }
+  },
+  {
+    "id": 1210,
+    "name": "SAN PABLO DE TENTA",
+    "idDummy": "56,11,11",
+    "canton": {
+      "id": "181"
+    }
+  },
+  {
+    "id": 1211,
+    "name": "VICTORIA",
+    "idDummy": "56,12,07",
+    "canton": {
+      "id": "186"
+    }
+  },
+  {
+    "id": 1212,
+    "name": "MALVAS",
+    "idDummy": "56,13,07",
+    "canton": {
+      "id": "193"
+    }
+  },
+  {
+    "id": 1213,
+    "name": "CAZADEROS",
+    "idDummy": "56,13,11",
+    "canton": {
+      "id": "195"
+    }
+  },
+  {
+    "id": 1214,
+    "name": "*PEDERNALES",
+    "idDummy": "56,14,13",
+    "canton": {
+      "id": "202"
+    }
+  },
+  {
+    "id": 1215,
+    "name": "VIRGEN DE FÁTIMA",
+    "idDummy": "56,20,09",
+    "canton": {
+      "id": "214"
+    }
+  },
+  {
+    "id": 1216,
+    "name": "MOLLETURO",
+    "idDummy": "57,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 1217,
+    "name": "SAN SIMÓN (YACOTO)",
+    "idDummy": "57,01,02",
+    "canton": {
+      "id": "2"
+    }
+  },
+  {
+    "id": 1218,
+    "name": "RIVERA",
+    "idDummy": "57,01,03",
+    "canton": {
+      "id": "3"
+    }
+  },
+  {
+    "id": 1219,
+    "name": "TUFIÑO",
+    "idDummy": "57,01,04",
+    "canton": {
+      "id": "4"
+    }
+  },
+  {
+    "id": 1220,
+    "name": "11 DE NOVIEMBRE (ILINCHISI)",
+    "idDummy": "57,01,05",
+    "canton": {
+      "id": "5"
+    }
+  },
+  {
+    "id": 1221,
+    "name": "PUNGALÁ",
+    "idDummy": "57,01,06",
+    "canton": {
+      "id": "6"
+    }
+  },
+  {
+    "id": 1222,
+    "name": "*LAGARTO",
+    "idDummy": "57,01,08",
+    "canton": {
+      "id": "8"
+    }
+  },
+  {
+    "id": 1223,
+    "name": "PUNÁ",
+    "idDummy": "57,01,09",
+    "canton": {
+      "id": "9"
+    }
+  },
+  {
+    "id": 1224,
+    "name": "SAN ANTONIO",
+    "idDummy": "57,01,10",
+    "canton": {
+      "id": "10"
+    }
+  },
+  {
+    "id": 1225,
+    "name": "SAN LUCAS",
+    "idDummy": "57,01,11",
+    "canton": {
+      "id": "11"
+    }
+  },
+  {
+    "id": 1226,
+    "name": "CHIRIJOS",
+    "idDummy": "57,01,13",
+    "canton": {
+      "id": "13"
+    }
+  },
+  {
+    "id": 1227,
+    "name": "SEVILLA DON BOSCO",
+    "idDummy": "57,01,14",
+    "canton": {
+      "id": "14"
+    }
+  },
+  {
+    "id": 1228,
+    "name": "TALAG",
+    "idDummy": "57,01,15",
+    "canton": {
+      "id": "15"
+    }
+  },
+  {
+    "id": 1229,
+    "name": "POMONA",
+    "idDummy": "57,01,16",
+    "canton": {
+      "id": "16"
+    }
+  },
+  {
+    "id": 1230,
+    "name": "CUMBAYA",
+    "idDummy": "57,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 1231,
+    "name": "JUAN BENIGNO VELA",
+    "idDummy": "57,01,18",
+    "canton": {
+      "id": "18"
+    }
+  },
+  {
+    "id": 1232,
+    "name": "*ZUMBI",
+    "idDummy": "57,01,19",
+    "canton": {
+      "id": "19"
+    }
+  },
+  {
+    "id": 1233,
+    "name": "JAMBELÍ",
+    "idDummy": "57,01,21",
+    "canton": {
+      "id": "21"
+    }
+  },
+  {
+    "id": 1234,
+    "name": "INES ARANGO (CAB. EN WESTERN)",
+    "idDummy": "57,01,22",
+    "canton": {
+      "id": "22"
+    }
+  },
+  {
+    "id": 1235,
+    "name": "SANTA MARÍA DEL TOACHI",
+    "idDummy": "57,01,23",
+    "canton": {
+      "id": "23"
+    }
+  },
+  {
+    "id": 1236,
+    "name": "PUMALLACTA",
+    "idDummy": "57,02,06",
+    "canton": {
+      "id": "31"
+    }
+  },
+  {
+    "id": 1237,
+    "name": "PAMPANAL DE BOLÍVAR",
+    "idDummy": "57,02,08",
+    "canton": {
+      "id": "33"
+    }
+  },
+  {
+    "id": 1238,
+    "name": "SAN MIGUEL DE CUYES",
+    "idDummy": "57,02,14",
+    "canton": {
+      "id": "39"
+    }
+  },
+  {
+    "id": 1239,
+    "name": "*SAN FRANCISCO DEL VERGEL",
+    "idDummy": "57,02,19",
+    "canton": {
+      "id": "43"
+    }
+  },
+  {
+    "id": 1240,
+    "name": "SAN JUAN",
+    "idDummy": "57,03,01",
+    "canton": {
+      "id": "49"
+    }
+  },
+  {
+    "id": 1241,
+    "name": "JUNCAL",
+    "idDummy": "57,03,03",
+    "canton": {
+      "id": "51"
+    }
+  },
+  {
+    "id": 1242,
+    "name": "SAN GREGORIO",
+    "idDummy": "57,03,08",
+    "canton": {
+      "id": "56"
+    }
+  },
+  {
+    "id": 1243,
+    "name": "6 DE JULIO DE CUELLAJE (CAB EN CUELLAJE)",
+    "idDummy": "57,03,10",
+    "canton": {
+      "id": "58"
+    }
+  },
+  {
+    "id": 1244,
+    "name": "SAN ANTONIO",
+    "idDummy": "57,03,13",
+    "canton": {
+      "id": "61"
+    }
+  },
+  {
+    "id": 1245,
+    "name": "STA SUSANA DE CHIVIAZA (CAB EN CHIVIAZA)",
+    "idDummy": "57,03,14",
+    "canton": {
+      "id": "62"
+    }
+  },
+  {
+    "id": 1246,
+    "name": "UYUMBICHO",
+    "idDummy": "57,03,17",
+    "canton": {
+      "id": "65"
+    }
+  },
+  {
+    "id": 1247,
+    "name": "TRES DE NOVIEMBRE",
+    "idDummy": "57,03,22",
+    "canton": {
+      "id": "70"
+    }
+  },
+  {
+    "id": 1248,
+    "name": "TINGO",
+    "idDummy": "57,04,05",
+    "canton": {
+      "id": "77"
+    }
+  },
+  {
+    "id": 1249,
+    "name": "SAN PABLO",
+    "idDummy": "57,04,10",
+    "canton": {
+      "id": "82"
+    }
+  },
+  {
+    "id": 1250,
+    "name": "TNTE. MAXIMILIANO RODRIGUEZ LOAIZA",
+    "idDummy": "57,04,11",
+    "canton": {
+      "id": "83"
+    }
+  },
+  {
+    "id": 1251,
+    "name": "*PALMAS",
+    "idDummy": "57,05,01",
+    "canton": {
+      "id": "95"
+    }
+  },
+  {
+    "id": 1252,
+    "name": "MATAJE (CAB EN SANTANDER)",
+    "idDummy": "57,05,08",
+    "canton": {
+      "id": "102"
+    }
+  },
+  {
+    "id": 1253,
+    "name": "SAN FRANCISCO DE CHINIMBIMI",
+    "idDummy": "57,05,14",
+    "canton": {
+      "id": "108"
+    }
+  },
+  {
+    "id": 1254,
+    "name": "*PIEDRAHITA (NOBOL)",
+    "idDummy": "57,06,09",
+    "canton": {
+      "id": "121"
+    }
+  },
+  {
+    "id": 1255,
+    "name": "PEDRO PABLO GOMEZ",
+    "idDummy": "57,06,13",
+    "canton": {
+      "id": "125"
+    }
+  },
+  {
+    "id": 1256,
+    "name": "SAN JOSÉ DEL CHAZO",
+    "idDummy": "57,07,06",
+    "canton": {
+      "id": "134"
+    }
+  },
+  {
+    "id": 1257,
+    "name": "*SAN ANTONIO DE LAS ARADAS (CAB. EN LAS ARADAS)",
+    "idDummy": "57,07,11",
+    "canton": {
+      "id": "138"
+    }
+  },
+  {
+    "id": 1258,
+    "name": "GUAMBALÓ (HUAMBALO)",
+    "idDummy": "57,07,18",
+    "canton": {
+      "id": "144"
+    }
+  },
+  {
+    "id": 1259,
+    "name": "SAN MIGUELITO",
+    "idDummy": "57,08,18",
+    "canton": {
+      "id": "156"
+    }
+  },
+  {
+    "id": 1260,
+    "name": "SAN ANTONIO",
+    "idDummy": "57,09,11",
+    "canton": {
+      "id": "162"
+    }
+  },
+  {
+    "id": 1261,
+    "name": "SAN SEBASTIÁN DE YULUC",
+    "idDummy": "57,11,11",
+    "canton": {
+      "id": "181"
+    }
+  },
+  {
+    "id": 1262,
+    "name": "BELLAMARÍA",
+    "idDummy": "57,12,07",
+    "canton": {
+      "id": "186"
+    }
+  },
+  {
+    "id": 1263,
+    "name": "MULUNCAY GRANDE",
+    "idDummy": "57,13,07",
+    "canton": {
+      "id": "193"
+    }
+  },
+  {
+    "id": 1264,
+    "name": "SAN ISIDRO",
+    "idDummy": "57,14,13",
+    "canton": {
+      "id": "202"
+    }
+  },
+  {
+    "id": 1265,
+    "name": "NULTI",
+    "idDummy": "58,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 1266,
+    "name": "SANTAFÉ (SANTA FE)",
+    "idDummy": "58,01,02",
+    "canton": {
+      "id": "2"
+    }
+  },
+  {
+    "id": 1267,
+    "name": "SAN MIGUEL",
+    "idDummy": "58,01,03",
+    "canton": {
+      "id": "3"
+    }
+  },
+  {
+    "id": 1268,
+    "name": "URBINA (TAYA)",
+    "idDummy": "58,01,04",
+    "canton": {
+      "id": "4"
+    }
+  },
+  {
+    "id": 1269,
+    "name": "POALÓ",
+    "idDummy": "58,01,05",
+    "canton": {
+      "id": "5"
+    }
+  },
+  {
+    "id": 1270,
+    "name": "PUNÍN",
+    "idDummy": "58,01,06",
+    "canton": {
+      "id": "6"
+    }
+  },
+  {
+    "id": 1271,
+    "name": "*LA UNIÓN",
+    "idDummy": "58,01,08",
+    "canton": {
+      "id": "8"
+    }
+  },
+  {
+    "id": 1272,
+    "name": "TENGUEL",
+    "idDummy": "58,01,09",
+    "canton": {
+      "id": "9"
+    }
+  },
+  {
+    "id": 1273,
+    "name": "SAN PEDRO DE VILCABAMBA",
+    "idDummy": "58,01,11",
+    "canton": {
+      "id": "11"
+    }
+  },
+  {
+    "id": 1274,
+    "name": "SINAÍ",
+    "idDummy": "58,01,14",
+    "canton": {
+      "id": "14"
+    }
+  },
+  {
+    "id": 1275,
+    "name": "SAN JUAN DE MUYUNA",
+    "idDummy": "58,01,15",
+    "canton": {
+      "id": "15"
+    }
+  },
+  {
+    "id": 1276,
+    "name": "RÍO CORRIENTES",
+    "idDummy": "58,01,16",
+    "canton": {
+      "id": "16"
+    }
+  },
+  {
+    "id": 1277,
+    "name": "CHAVEZPAMBA",
+    "idDummy": "58,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 1278,
+    "name": "MONTALVO",
+    "idDummy": "58,01,18",
+    "canton": {
+      "id": "18"
+    }
+  },
+  {
+    "id": 1279,
+    "name": "SAN CARLOS DE LAS MINAS",
+    "idDummy": "58,01,19",
+    "canton": {
+      "id": "19"
+    }
+  },
+  {
+    "id": 1280,
+    "name": "SANTA CECILIA",
+    "idDummy": "58,01,21",
+    "canton": {
+      "id": "21"
+    }
+  },
+  {
+    "id": 1281,
+    "name": "LA BELLEZA",
+    "idDummy": "58,01,22",
+    "canton": {
+      "id": "22"
+    }
+  },
+  {
+    "id": 1282,
+    "name": "SEVILLA",
+    "idDummy": "58,02,06",
+    "canton": {
+      "id": "31"
+    }
+  },
+  {
+    "id": 1283,
+    "name": "SAN FRANCISCO DE ONZOLE",
+    "idDummy": "58,02,08",
+    "canton": {
+      "id": "33"
+    }
+  },
+  {
+    "id": 1284,
+    "name": "EL IDEAL",
+    "idDummy": "58,02,14",
+    "canton": {
+      "id": "39"
+    }
+  },
+  {
+    "id": 1285,
+    "name": "*VALLADOLID",
+    "idDummy": "58,02,19",
+    "canton": {
+      "id": "43"
+    }
+  },
+  {
+    "id": 1286,
+    "name": "ZHIDMAD",
+    "idDummy": "58,03,01",
+    "canton": {
+      "id": "49"
+    }
+  },
+  {
+    "id": 1287,
+    "name": "SAN ANTONIO",
+    "idDummy": "58,03,03",
+    "canton": {
+      "id": "51"
+    }
+  },
+  {
+    "id": 1288,
+    "name": "SAN JOSÉ DE CHAMANGA (CAB. EN CAHAMANGA)",
+    "idDummy": "58,03,08",
+    "canton": {
+      "id": "56"
+    }
+  },
+  {
+    "id": 1289,
+    "name": "VACAS GALINDO (CAB. EN SAN MIGUEL ALTO)",
+    "idDummy": "58,03,10",
+    "canton": {
+      "id": "58"
+    }
+  },
+  {
+    "id": 1290,
+    "name": "YUNGANZA (CAB EN EL ROSARIO)",
+    "idDummy": "58,03,14",
+    "canton": {
+      "id": "62"
+    }
+  },
+  {
+    "id": 1291,
+    "name": "UNÓN MILAGREÑA",
+    "idDummy": "58,03,22",
+    "canton": {
+      "id": "70"
+    }
+  },
+  {
+    "id": 1292,
+    "name": "ZUMBAHUA",
+    "idDummy": "58,04,05",
+    "canton": {
+      "id": "77"
+    }
+  },
+  {
+    "id": 1293,
+    "name": "SAN RAFAEL",
+    "idDummy": "58,04,10",
+    "canton": {
+      "id": "82"
+    }
+  },
+  {
+    "id": 1294,
+    "name": "*PAN",
+    "idDummy": "58,05,01",
+    "canton": {
+      "id": "95"
+    }
+  },
+  {
+    "id": 1295,
+    "name": "SAN JAVIER DE CACHAVÍ (CAM. EN SAN JAVIER)",
+    "idDummy": "58,05,08",
+    "canton": {
+      "id": "102"
+    }
+  },
+  {
+    "id": 1296,
+    "name": "PUERTO DE CAYO",
+    "idDummy": "58,06,13",
+    "canton": {
+      "id": "125"
+    }
+  },
+  {
+    "id": 1297,
+    "name": "SANTA FÉ DE GALÁN",
+    "idDummy": "58,07,06",
+    "canton": {
+      "id": "134"
+    }
+  },
+  {
+    "id": 1298,
+    "name": "SALASACA",
+    "idDummy": "58,07,18",
+    "canton": {
+      "id": "144"
+    }
+  },
+  {
+    "id": 1299,
+    "name": "CASANGA",
+    "idDummy": "58,09,11",
+    "canton": {
+      "id": "162"
+    }
+  },
+  {
+    "id": 1300,
+    "name": "SELVA ALEGRE",
+    "idDummy": "58,11,11",
+    "canton": {
+      "id": "181"
+    }
+  },
+  {
+    "id": 1301,
+    "name": "SINSAO",
+    "idDummy": "58,13,07",
+    "canton": {
+      "id": "193"
+    }
+  },
+  {
+    "id": 1302,
+    "name": "*SAN VICENTE",
+    "idDummy": "58,14,13",
+    "canton": {
+      "id": "202"
+    }
+  },
+  {
+    "id": 1303,
+    "name": "OCTAVIO CORDERO PALACIOS (STA. ROSA)",
+    "idDummy": "59,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 1304,
+    "name": "SIMIÁTUG",
+    "idDummy": "59,01,02",
+    "canton": {
+      "id": "2"
+    }
+  },
+  {
+    "id": 1305,
+    "name": "*SOLANO",
+    "idDummy": "59,01,03",
+    "canton": {
+      "id": "3"
+    }
+  },
+  {
+    "id": 1306,
+    "name": "EL CHICAL",
+    "idDummy": "59,01,04",
+    "canton": {
+      "id": "4"
+    }
+  },
+  {
+    "id": 1307,
+    "name": "SAN JUAN DE PASTOCALLE",
+    "idDummy": "59,01,05",
+    "canton": {
+      "id": "5"
+    }
+  },
+  {
+    "id": 1308,
+    "name": "QUIMIAG",
+    "idDummy": "59,01,06",
+    "canton": {
+      "id": "6"
+    }
+  },
+  {
+    "id": 1309,
+    "name": "MAJUA",
+    "idDummy": "59,01,08",
+    "canton": {
+      "id": "8"
+    }
+  },
+  {
+    "id": 1310,
+    "name": "NUEVA TRONCAL",
+    "idDummy": "53,06,21",
+    "canton": {
+      "id": "11"
+    }
+  },
+  {
+    "id": 1311,
+    "name": "SANTIAGO",
+    "idDummy": "59,01,11",
+    "canton": {
+      "id": "11"
+    }
+  },
+  {
+    "id": 1312,
+    "name": "*TAISHA",
+    "idDummy": "59,01,14",
+    "canton": {
+      "id": "14"
+    }
+  },
+  {
+    "id": 1313,
+    "name": "RÍO TIGRE",
+    "idDummy": "59,01,16",
+    "canton": {
+      "id": "16"
+    }
+  },
+  {
+    "id": 1314,
+    "name": "CHECA (CHILPA)",
+    "idDummy": "59,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 1315,
+    "name": "PASA",
+    "idDummy": "59,01,18",
+    "canton": {
+      "id": "18"
+    }
+  },
+  {
+    "id": 1316,
+    "name": "*AGUAS NEGRAS",
+    "idDummy": "59,01,21",
+    "canton": {
+      "id": "21"
+    }
+  },
+  {
+    "id": 1317,
+    "name": "NUEVO PARAISO (CAB. EN UNIÓN CHIMBORAZO)",
+    "idDummy": "59,01,22",
+    "canton": {
+      "id": "22"
+    }
+  },
+  {
+    "id": 1318,
+    "name": "SIBAMBE",
+    "idDummy": "59,02,06",
+    "canton": {
+      "id": "31"
+    }
+  },
+  {
+    "id": 1319,
+    "name": "SANTO DOMINGO DE ONZOLE",
+    "idDummy": "59,02,08",
+    "canton": {
+      "id": "33"
+    }
+  },
+  {
+    "id": 1320,
+    "name": "SAN ANDRÉS",
+    "idDummy": "59,02,19",
+    "canton": {
+      "id": "43"
+    }
+  },
+  {
+    "id": 1321,
+    "name": "LUIS CORDERO VEGA",
+    "idDummy": "59,03,01",
+    "canton": {
+      "id": "49"
+    }
+  },
+  {
+    "id": 1322,
+    "name": "*SUSCAL",
+    "idDummy": "59,03,03",
+    "canton": {
+      "id": "51"
+    }
+  },
+  {
+    "id": 1323,
+    "name": "SELVA ALEGRE(CAB. EN SAN MIGUEL DE PAMPLONA.)",
+    "idDummy": "59,04,10",
+    "canton": {
+      "id": "82"
+    }
+  },
+  {
+    "id": 1324,
+    "name": "SAN CRISTÓBAL (CARLOS ORDOÑEZ LAZO)",
+    "idDummy": "59,05,01",
+    "canton": {
+      "id": "95"
+    }
+  },
+  {
+    "id": 1325,
+    "name": "SANTA RITA",
+    "idDummy": "59,05,08",
+    "canton": {
+      "id": "102"
+    }
+  },
+  {
+    "id": 1326,
+    "name": "*PUERTO LÓPEZ",
+    "idDummy": "59,06,13",
+    "canton": {
+      "id": "125"
+    }
+  },
+  {
+    "id": 1327,
+    "name": "VALPARAISO",
+    "idDummy": "59,07,06",
+    "canton": {
+      "id": "134"
+    }
+  },
+  {
+    "id": 1328,
+    "name": "YAMANA",
+    "idDummy": "59,09,11",
+    "canton": {
+      "id": "162"
+    }
+  },
+  {
+    "id": 1329,
+    "name": "URDANETA (PAQUISHAPA)",
+    "idDummy": "59,11,11",
+    "canton": {
+      "id": "181"
+    }
+  },
+  {
+    "id": 1330,
+    "name": "SALVIAS",
+    "idDummy": "59,13,07",
+    "canton": {
+      "id": "193"
+    }
+  },
+  {
+    "id": 1331,
+    "name": "PACCHA",
+    "idDummy": "60,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 1332,
+    "name": "SAN LUIS DE PAMBIL",
+    "idDummy": "60,01,02",
+    "canton": {
+      "id": "2"
+    }
+  },
+  {
+    "id": 1333,
+    "name": "TADAY",
+    "idDummy": "60,01,03",
+    "canton": {
+      "id": "3"
+    }
+  },
+  {
+    "id": 1334,
+    "name": "*MARISCAL SUCRE",
+    "idDummy": "60,01,04",
+    "canton": {
+      "id": "4"
+    }
+  },
+  {
+    "id": 1335,
+    "name": "*SIGCHOS",
+    "idDummy": "60,01,05",
+    "canton": {
+      "id": "5"
+    }
+  },
+  {
+    "id": 1336,
+    "name": "SAN JUAN",
+    "idDummy": "60,01,06",
+    "canton": {
+      "id": "6"
+    }
+  },
+  {
+    "id": 1337,
+    "name": "*MONTALVO (CAB. EN HORQUETA)",
+    "idDummy": "60,01,08",
+    "canton": {
+      "id": "8"
+    }
+  },
+  {
+    "id": 1338,
+    "name": "TAQUIL (MIGUEL RIOFRIO)",
+    "idDummy": "60,01,11",
+    "canton": {
+      "id": "11"
+    }
+  },
+  {
+    "id": 1339,
+    "name": "ZUÑA (ZUÑAC)",
+    "idDummy": "60,01,14",
+    "canton": {
+      "id": "14"
+    }
+  },
+  {
+    "id": 1340,
+    "name": "*SANTA CLARA",
+    "idDummy": "60,01,16",
+    "canton": {
+      "id": "16"
+    }
+  },
+  {
+    "id": 1341,
+    "name": "EL QUINCHE",
+    "idDummy": "60,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 1342,
+    "name": "PICAIGUA",
+    "idDummy": "60,01,18",
+    "canton": {
+      "id": "18"
+    }
+  },
+  {
+    "id": 1343,
+    "name": "10 DE AGOSTO",
+    "idDummy": "60,01,21",
+    "canton": {
+      "id": "21"
+    }
+  },
+  {
+    "id": 1344,
+    "name": "SAN JOSÉ DE GUAYUSA",
+    "idDummy": "60,01,22",
+    "canton": {
+      "id": "22"
+    }
+  },
+  {
+    "id": 1345,
+    "name": "TIXÁN",
+    "idDummy": "60,02,06",
+    "canton": {
+      "id": "31"
+    }
+  },
+  {
+    "id": 1346,
+    "name": "SELVA ALEGRE",
+    "idDummy": "60,02,08",
+    "canton": {
+      "id": "33"
+    }
+  },
+  {
+    "id": 1347,
+    "name": "SIMÓN BOLÍVAR (CAB. EN GAÑANZOL)",
+    "idDummy": "60,03,01",
+    "canton": {
+      "id": "49"
+    }
+  },
+  {
+    "id": 1348,
+    "name": "*TAMBO",
+    "idDummy": "60,03,03",
+    "canton": {
+      "id": "51"
+    }
+  },
+  {
+    "id": 1349,
+    "name": "*SEVILLA DE ORO",
+    "idDummy": "60,05,01",
+    "canton": {
+      "id": "95"
+    }
+  },
+  {
+    "id": 1350,
+    "name": "TAMBILLO",
+    "idDummy": "60,05,08",
+    "canton": {
+      "id": "102"
+    }
+  },
+  {
+    "id": 1351,
+    "name": "SUMAYPAMBA",
+    "idDummy": "60,11,11",
+    "canton": {
+      "id": "181"
+    }
+  },
+  {
+    "id": 1352,
+    "name": "QUINGEO",
+    "idDummy": "61,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 1353,
+    "name": "SANTA MARTHA DE CUBA",
+    "idDummy": "61,01,04",
+    "canton": {
+      "id": "4"
+    }
+  },
+  {
+    "id": 1354,
+    "name": "TANICUCHÍ",
+    "idDummy": "61,01,05",
+    "canton": {
+      "id": "5"
+    }
+  },
+  {
+    "id": 1355,
+    "name": "SAN LUIS",
+    "idDummy": "61,01,06",
+    "canton": {
+      "id": "6"
+    }
+  },
+  {
+    "id": 1356,
+    "name": "*RÍO VERDE",
+    "idDummy": "61,01,08",
+    "canton": {
+      "id": "8"
+    }
+  },
+  {
+    "id": 1357,
+    "name": "VILCABAMBA (VICTORIA)",
+    "idDummy": "61,01,11",
+    "canton": {
+      "id": "11"
+    }
+  },
+  {
+    "id": 1358,
+    "name": "*TUUTINENTZA",
+    "idDummy": "61,01,14",
+    "canton": {
+      "id": "14"
+    }
+  },
+  {
+    "id": 1359,
+    "name": "SARAYACU",
+    "idDummy": "61,01,16",
+    "canton": {
+      "id": "16"
+    }
+  },
+  {
+    "id": 1360,
+    "name": "GUALEA",
+    "idDummy": "61,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 1361,
+    "name": "PILAGÜÍN (PILAHUIN)",
+    "idDummy": "61,01,18",
+    "canton": {
+      "id": "18"
+    }
+  },
+  {
+    "id": 1362,
+    "name": "SAN LUIS DE ARMENIA",
+    "idDummy": "61,01,22",
+    "canton": {
+      "id": "22"
+    }
+  },
+  {
+    "id": 1363,
+    "name": "TELEMBÍ",
+    "idDummy": "61,02,08",
+    "canton": {
+      "id": "33"
+    }
+  },
+  {
+    "id": 1364,
+    "name": "ZHUD",
+    "idDummy": "61,03,03",
+    "canton": {
+      "id": "51"
+    }
+  },
+  {
+    "id": 1365,
+    "name": "TOMEBAMBA",
+    "idDummy": "61,05,01",
+    "canton": {
+      "id": "95"
+    }
+  },
+  {
+    "id": 1366,
+    "name": "TULULBÍ (CAB EN RICAURTE)",
+    "idDummy": "61,05,08",
+    "canton": {
+      "id": "102"
+    }
+  },
+  {
+    "id": 1367,
+    "name": "RICAURTE",
+    "idDummy": "62,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 1368,
+    "name": "TOACASO",
+    "idDummy": "62,01,05",
+    "canton": {
+      "id": "5"
+    }
+  },
+  {
+    "id": 1369,
+    "name": "*ROCAFUERTE",
+    "idDummy": "62,01,08",
+    "canton": {
+      "id": "8"
+    }
+  },
+  {
+    "id": 1370,
+    "name": "YANGANA (ARSENIO CASTILLO)",
+    "idDummy": "62,01,11",
+    "canton": {
+      "id": "11"
+    }
+  },
+  {
+    "id": 1371,
+    "name": "CUCHAENTZA",
+    "idDummy": "62,01,14",
+    "canton": {
+      "id": "14"
+    }
+  },
+  {
+    "id": 1372,
+    "name": "SIMÓN BOLÍVAR (CAB EN MUSHULLACTA)",
+    "idDummy": "62,01,16",
+    "canton": {
+      "id": "16"
+    }
+  },
+  {
+    "id": 1373,
+    "name": "GUANGOPOLO",
+    "idDummy": "62,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 1374,
+    "name": "QUISAPINCHA (QUIZAPINCHA)",
+    "idDummy": "62,01,18",
+    "canton": {
+      "id": "18"
+    }
+  },
+  {
+    "id": 1375,
+    "name": "COLÓN ELOY DEL MARÍA",
+    "idDummy": "62,02,08",
+    "canton": {
+      "id": "33"
+    }
+  },
+  {
+    "id": 1376,
+    "name": "VENTURA",
+    "idDummy": "62,03,03",
+    "canton": {
+      "id": "51"
+    }
+  },
+  {
+    "id": 1377,
+    "name": "DUG DUG",
+    "idDummy": "62,05,01",
+    "canton": {
+      "id": "95"
+    }
+  },
+  {
+    "id": 1378,
+    "name": "URBINA",
+    "idDummy": "62,05,08",
+    "canton": {
+      "id": "102"
+    }
+  },
+  {
+    "id": 1379,
+    "name": "SAN JOAQUÍN",
+    "idDummy": "63,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 1380,
+    "name": "*PALO QUEMADO",
+    "idDummy": "63,01,05",
+    "canton": {
+      "id": "5"
+    }
+  },
+  {
+    "id": 1381,
+    "name": "SAN MATEO",
+    "idDummy": "63,01,08",
+    "canton": {
+      "id": "8"
+    }
+  },
+  {
+    "id": 1382,
+    "name": "QUINARA",
+    "idDummy": "63,01,11",
+    "canton": {
+      "id": "11"
+    }
+  },
+  {
+    "id": 1383,
+    "name": "*SAN JOSÉ DE MORONA",
+    "idDummy": "63,01,14",
+    "canton": {
+      "id": "14"
+    }
+  },
+  {
+    "id": 1384,
+    "name": "TARQUI",
+    "idDummy": "63,01,16",
+    "canton": {
+      "id": "16"
+    }
+  },
+  {
+    "id": 1385,
+    "name": "GUAYLLABAMBA",
+    "idDummy": "63,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 1386,
+    "name": "SAN BARTOLOME DE PINLLOG",
+    "idDummy": "63,01,18",
+    "canton": {
+      "id": "18"
+    }
+  },
+  {
+    "id": 1387,
+    "name": "SAN JOSÉ DE CAYAPAS",
+    "idDummy": "63,02,08",
+    "canton": {
+      "id": "33"
+    }
+  },
+  {
+    "id": 1388,
+    "name": "DUCUR",
+    "idDummy": "63,03,03",
+    "canton": {
+      "id": "51"
+    }
+  },
+  {
+    "id": 1389,
+    "name": "SANTA ANA",
+    "idDummy": "64,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 1390,
+    "name": "*SÚA (CAB. EN LA BOCANA)",
+    "idDummy": "64,01,08",
+    "canton": {
+      "id": "8"
+    }
+  },
+  {
+    "id": 1391,
+    "name": "RÍO BLANCO",
+    "idDummy": "64,01,14",
+    "canton": {
+      "id": "14"
+    }
+  },
+  {
+    "id": 1392,
+    "name": "TENIENTE HUGO ORTÍZ",
+    "idDummy": "64,01,16",
+    "canton": {
+      "id": "16"
+    }
+  },
+  {
+    "id": 1393,
+    "name": "LA MERCED",
+    "idDummy": "64,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 1394,
+    "name": "SAN FERNANDO (PASA SAN FERNANDO)",
+    "idDummy": "64,01,18",
+    "canton": {
+      "id": "18"
+    }
+  },
+  {
+    "id": 1395,
+    "name": "TIMBIRÉ",
+    "idDummy": "64,02,08",
+    "canton": {
+      "id": "33"
+    }
+  },
+  {
+    "id": 1396,
+    "name": "SAYAUSÍ",
+    "idDummy": "65,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 1397,
+    "name": "TABIAZO",
+    "idDummy": "65,01,08",
+    "canton": {
+      "id": "8"
+    }
+  },
+  {
+    "id": 1398,
+    "name": "VERACRUZ (CAB EN INDILLAMA)",
+    "idDummy": "65,01,16",
+    "canton": {
+      "id": "16"
+    }
+  },
+  {
+    "id": 1399,
+    "name": "LLANO CHICO",
+    "idDummy": "65,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 1400,
+    "name": "SANTA ROSA",
+    "idDummy": "65,01,18",
+    "canton": {
+      "id": "18"
+    }
+  },
+  {
+    "id": 1401,
+    "name": "SANTA LUCÍA DE LAS PEÑAS",
+    "idDummy": "65,02,08",
+    "canton": {
+      "id": "33"
+    }
+  },
+  {
+    "id": 1402,
+    "name": "SIDCAY",
+    "idDummy": "66,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 1403,
+    "name": "TACHINA",
+    "idDummy": "66,01,08",
+    "canton": {
+      "id": "8"
+    }
+  },
+  {
+    "id": 1404,
+    "name": "EL TRIUNFO",
+    "idDummy": "66,01,16",
+    "canton": {
+      "id": "16"
+    }
+  },
+  {
+    "id": 1405,
+    "name": "LLOA",
+    "idDummy": "66,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 1406,
+    "name": "TOTORAS",
+    "idDummy": "66,01,18",
+    "canton": {
+      "id": "18"
+    }
+  },
+  {
+    "id": 1407,
+    "name": "SINICAY",
+    "idDummy": "67,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 1408,
+    "name": "*TONCHIGÜE",
+    "idDummy": "67,01,08",
+    "canton": {
+      "id": "8"
+    }
+  },
+  {
+    "id": 1409,
+    "name": "*MINDO",
+    "idDummy": "67,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 1410,
+    "name": "CUNCHIBAMBA",
+    "idDummy": "67,01,18",
+    "canton": {
+      "id": "18"
+    }
+  },
+  {
+    "id": 1411,
+    "name": "TARQUI",
+    "idDummy": "68,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 1412,
+    "name": "VUELTA LARGA",
+    "idDummy": "68,01,08",
+    "canton": {
+      "id": "8"
+    }
+  },
+  {
+    "id": 1413,
+    "name": "NANEGAL",
+    "idDummy": "68,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 1414,
+    "name": "UNAMUNCHO",
+    "idDummy": "68,01,18",
+    "canton": {
+      "id": "18"
+    }
+  },
+  {
+    "id": 1415,
+    "name": "TURI",
+    "idDummy": "69,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 1416,
+    "name": "NANEGALITO",
+    "idDummy": "69,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 1417,
+    "name": "VALLE",
+    "idDummy": "70,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 1418,
+    "name": "NAYÓN",
+    "idDummy": "70,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 1419,
+    "name": "VICTORIA DEL PORTETE",
+    "idDummy": "71,01,01",
+    "canton": {
+      "id": "1"
+    }
+  },
+  {
+    "id": 1420,
+    "name": "NONO",
+    "idDummy": "71,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 1421,
+    "name": "PACTO",
+    "idDummy": "72,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 1422,
+    "name": "*PEDRO VICENTE MALDONADO",
+    "idDummy": "73,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 1423,
+    "name": "PERUCHO",
+    "idDummy": "74,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 1424,
+    "name": "PIFO",
+    "idDummy": "75,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 1425,
+    "name": "PINTAG",
+    "idDummy": "76,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 1426,
+    "name": "POMASQUI",
+    "idDummy": "77,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 1427,
+    "name": "PUELLARO",
+    "idDummy": "78,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 1428,
+    "name": "PUEMBO",
+    "idDummy": "79,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 1429,
+    "name": "SAN ANTONIO",
+    "idDummy": "80,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 1430,
+    "name": "SAN JOSÉ DE MINAS",
+    "idDummy": "81,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 1431,
+    "name": "*SAN MIGUEL DE LOS BANCOS",
+    "idDummy": "82,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 1432,
+    "name": "TABABELA",
+    "idDummy": "83,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 1433,
+    "name": "TUMBACO",
+    "idDummy": "84,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 1434,
+    "name": "YARUQUÍ",
+    "idDummy": "85,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 1435,
+    "name": "ZAMBIZA",
+    "idDummy": "86,01,17",
+    "canton": {
+      "id": "17"
+    }
+  },
+  {
+    "id": 1436,
+    "name": "*PUERTO QUITO",
+    "idDummy": "87,01,17",
+    "canton": {
+      "id": "17"
+    }
+  }
+]

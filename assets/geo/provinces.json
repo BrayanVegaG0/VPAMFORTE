@@ -1,0 +1,127 @@
+[
+  {
+    "id": 1,
+    "zone": 6,
+    "name": "AZUAY"
+  },
+  {
+    "id": 2,
+    "zone": 5,
+    "name": "BOLIVAR"
+  },
+  {
+    "id": 3,
+    "zone": 6,
+    "name": "CAÑAR"
+  },
+  {
+    "id": 4,
+    "zone": 1,
+    "name": "CARCHI"
+  },
+  {
+    "id": 5,
+    "zone": 3,
+    "name": "COTOPAXI"
+  },
+  {
+    "id": 6,
+    "zone": 3,
+    "name": "CHIMBORAZO"
+  },
+  {
+    "id": 7,
+    "zone": 7,
+    "name": "EL ORO"
+  },
+  {
+    "id": 8,
+    "zone": 1,
+    "name": "ESMERALDAS"
+  },
+  {
+    "id": 9,
+    "zone": 5,
+    "name": "GUAYAS"
+  },
+  {
+    "id": 10,
+    "zone": 1,
+    "name": "IMBABURA"
+  },
+  {
+    "id": 11,
+    "zone": 7,
+    "name": "LOJA"
+  },
+  {
+    "id": 12,
+    "zone": 5,
+    "name": "LOS RIOS"
+  },
+  {
+    "id": 13,
+    "zone": 4,
+    "name": "MANABI"
+  },
+  {
+    "id": 14,
+    "zone": 6,
+    "name": "MORONA SANTIAGO"
+  },
+  {
+    "id": 15,
+    "zone": 2,
+    "name": "NAPO"
+  },
+  {
+    "id": 16,
+    "zone": 3,
+    "name": "PASTAZA"
+  },
+  {
+    "id": 17,
+    "zone": 2,
+    "name": "PICHINCHA"
+  },
+  {
+    "id": 18,
+    "zone": 3,
+    "name": "TUNGURAHUA"
+  },
+  {
+    "id": 19,
+    "zone": 7,
+    "name": "ZAMORA CHINCHIPE"
+  },
+  {
+    "id": 20,
+    "zone": 5,
+    "name": "GALAPAGOS"
+  },
+  {
+    "id": 21,
+    "zone": 1,
+    "name": "SUCUMBIOS"
+  },
+  {
+    "id": 22,
+    "zone": 2,
+    "name": "ORELLANA"
+  },
+  {
+    "id": 23,
+    "zone": 4,
+    "name": "SANTO DOMINGO"
+  },
+  {
+    "id": 24,
+    "zone": 5,
+    "name": "SANTA ELENA"
+  },
+  {
+    "id": 90,
+    "zone": 4,
+    "name": "ZONAS NO DELIMITADAS"
+  }
+]

@@ -1,0 +1,289 @@
+﻿00:00 +0: loading C:/src/ficha_vulnerabilidad-master-507a278778ebd8ea29447f16530a655144f12a83/test/presentation/state/survey/survey_bloc_test.dart
+00:00 +0: estado inicial es SurveyState.initial()
+00:00 +0 -1: estado inicial es SurveyState.initial() [E]
+  Bad state: A test tried to use `any` or `captureAny` on a parameter of type `SurveySubmission`, but
+  registerFallbackValue was not previously called to register a fallback value for `SurveySubmission`.
+  
+  To fix, do:
+  
+  ```
+  void main() {
+    setUpAll(() {
+      registerFallbackValue(/* create a dummy instance of `SurveySubmission` */);
+    });
+  }
+  ```
+  
+  This instance of `SurveySubmission` will only be passed around, but never be interacted with.
+  Therefore, if `SurveySubmission` is a function, it does not have to return a valid object and
+  could throw unconditionally.
+  If you cannot easily create an instance of `SurveySubmission`, consider defining a `Fake`:
+  
+  ```
+  class MyTypeFake extends Fake implements MyType {}
+  
+  void main() {
+    setUpAll(() {
+      registerFallbackValue(MyTypeFake());
+    });
+  }
+  ```
+  
+  Fallbacks are required because mocktail has to know of a valid `SurveySubmission` to prevent
+  TypeErrors from being thrown in Dart's sound null safe mode, while still
+  providing a convenient syntax.
+  
+  package:mocktail/src/_register_matcher.dart 49:5             _getFallbackValue
+  package:mocktail/src/_register_matcher.dart 160:25           _registerMatcher
+  package:mocktail/src/_register_matcher.dart 104:10           any
+  test\presentation\state\survey\survey_bloc_test.dart 106:30  main.<fn>.<fn>
+  package:mocktail/src/mocktail.dart 211:9                     when.<fn>
+  test\presentation\state\survey\survey_bloc_test.dart 106:9   main.<fn>
+  
+00:00 +0 -1: emite [loading, ready] cuando SurveyLoadRequested es exitoso (sin borrador)
+00:00 +0 -2: emite [loading, ready] cuando SurveyLoadRequested es exitoso (sin borrador) [E]
+  Bad state: A test tried to use `any` or `captureAny` on a parameter of type `SurveySubmission`, but
+  registerFallbackValue was not previously called to register a fallback value for `SurveySubmission`.
+  
+  To fix, do:
+  
+  ```
+  void main() {
+    setUpAll(() {
+      registerFallbackValue(/* create a dummy instance of `SurveySubmission` */);
+    });
+  }
+  ```
+  
+  This instance of `SurveySubmission` will only be passed around, but never be interacted with.
+  Therefore, if `SurveySubmission` is a function, it does not have to return a valid object and
+  could throw unconditionally.
+  If you cannot easily create an instance of `SurveySubmission`, consider defining a `Fake`:
+  
+  ```
+  class MyTypeFake extends Fake implements MyType {}
+  
+  void main() {
+    setUpAll(() {
+      registerFallbackValue(MyTypeFake());
+    });
+  }
+  ```
+  
+  Fallbacks are required because mocktail has to know of a valid `SurveySubmission` to prevent
+  TypeErrors from being thrown in Dart's sound null safe mode, while still
+  providing a convenient syntax.
+  
+  package:mocktail/src/_register_matcher.dart 49:5             _getFallbackValue
+  package:mocktail/src/_register_matcher.dart 160:25           _registerMatcher
+  package:mocktail/src/_register_matcher.dart 104:10           any
+  test\presentation\state\survey\survey_bloc_test.dart 106:30  main.<fn>.<fn>
+  package:mocktail/src/mocktail.dart 211:9                     when.<fn>
+  test\presentation\state\survey\survey_bloc_test.dart 106:9   main.<fn>
+  
+00:00 +0 -2: carga borrador desde local si existe (answers precargadas)
+00:00 +0 -3: carga borrador desde local si existe (answers precargadas) [E]
+  Bad state: A test tried to use `any` or `captureAny` on a parameter of type `SurveySubmission`, but
+  registerFallbackValue was not previously called to register a fallback value for `SurveySubmission`.
+  
+  To fix, do:
+  
+  ```
+  void main() {
+    setUpAll(() {
+      registerFallbackValue(/* create a dummy instance of `SurveySubmission` */);
+    });
+  }
+  ```
+  
+  This instance of `SurveySubmission` will only be passed around, but never be interacted with.
+  Therefore, if `SurveySubmission` is a function, it does not have to return a valid object and
+  could throw unconditionally.
+  If you cannot easily create an instance of `SurveySubmission`, consider defining a `Fake`:
+  
+  ```
+  class MyTypeFake extends Fake implements MyType {}
+  
+  void main() {
+    setUpAll(() {
+      registerFallbackValue(MyTypeFake());
+    });
+  }
+  ```
+  
+  Fallbacks are required because mocktail has to know of a valid `SurveySubmission` to prevent
+  TypeErrors from being thrown in Dart's sound null safe mode, while still
+  providing a convenient syntax.
+  
+  package:mocktail/src/_register_matcher.dart 49:5             _getFallbackValue
+  package:mocktail/src/_register_matcher.dart 160:25           _registerMatcher
+  package:mocktail/src/_register_matcher.dart 104:10           any
+  test\presentation\state\survey\survey_bloc_test.dart 106:30  main.<fn>.<fn>
+  package:mocktail/src/mocktail.dart 211:9                     when.<fn>
+  test\presentation\state\survey\survey_bloc_test.dart 106:9   main.<fn>
+  
+00:00 +0 -3: SurveyAnswerChanged actualiza answers y guarda draft (saveSurveyDraftUseCase)
+00:00 +0 -4: SurveyAnswerChanged actualiza answers y guarda draft (saveSurveyDraftUseCase) [E]
+  Bad state: A test tried to use `any` or `captureAny` on a parameter of type `SurveySubmission`, but
+  registerFallbackValue was not previously called to register a fallback value for `SurveySubmission`.
+  
+  To fix, do:
+  
+  ```
+  void main() {
+    setUpAll(() {
+      registerFallbackValue(/* create a dummy instance of `SurveySubmission` */);
+    });
+  }
+  ```
+  
+  This instance of `SurveySubmission` will only be passed around, but never be interacted with.
+  Therefore, if `SurveySubmission` is a function, it does not have to return a valid object and
+  could throw unconditionally.
+  If you cannot easily create an instance of `SurveySubmission`, consider defining a `Fake`:
+  
+  ```
+  class MyTypeFake extends Fake implements MyType {}
+  
+  void main() {
+    setUpAll(() {
+      registerFallbackValue(MyTypeFake());
+    });
+  }
+  ```
+  
+  Fallbacks are required because mocktail has to know of a valid `SurveySubmission` to prevent
+  TypeErrors from being thrown in Dart's sound null safe mode, while still
+  providing a convenient syntax.
+  
+  package:mocktail/src/_register_matcher.dart 49:5             _getFallbackValue
+  package:mocktail/src/_register_matcher.dart 160:25           _registerMatcher
+  package:mocktail/src/_register_matcher.dart 104:10           any
+  test\presentation\state\survey\survey_bloc_test.dart 106:30  main.<fn>.<fn>
+  package:mocktail/src/mocktail.dart 211:9                     when.<fn>
+  test\presentation\state\survey\survey_bloc_test.dart 106:9   main.<fn>
+  
+00:00 +0 -4: SurveyFinalizeRequested falla si falta requerida (q2)
+00:00 +0 -5: SurveyFinalizeRequested falla si falta requerida (q2) [E]
+  Bad state: A test tried to use `any` or `captureAny` on a parameter of type `SurveySubmission`, but
+  registerFallbackValue was not previously called to register a fallback value for `SurveySubmission`.
+  
+  To fix, do:
+  
+  ```
+  void main() {
+    setUpAll(() {
+      registerFallbackValue(/* create a dummy instance of `SurveySubmission` */);
+    });
+  }
+  ```
+  
+  This instance of `SurveySubmission` will only be passed around, but never be interacted with.
+  Therefore, if `SurveySubmission` is a function, it does not have to return a valid object and
+  could throw unconditionally.
+  If you cannot easily create an instance of `SurveySubmission`, consider defining a `Fake`:
+  
+  ```
+  class MyTypeFake extends Fake implements MyType {}
+  
+  void main() {
+    setUpAll(() {
+      registerFallbackValue(MyTypeFake());
+    });
+  }
+  ```
+  
+  Fallbacks are required because mocktail has to know of a valid `SurveySubmission` to prevent
+  TypeErrors from being thrown in Dart's sound null safe mode, while still
+  providing a convenient syntax.
+  
+  package:mocktail/src/_register_matcher.dart 49:5             _getFallbackValue
+  package:mocktail/src/_register_matcher.dart 160:25           _registerMatcher
+  package:mocktail/src/_register_matcher.dart 104:10           any
+  test\presentation\state\survey\survey_bloc_test.dart 106:30  main.<fn>.<fn>
+  package:mocktail/src/mocktail.dart 211:9                     when.<fn>
+  test\presentation\state\survey\survey_bloc_test.dart 106:9   main.<fn>
+  
+00:00 +0 -5: SurveyFinalizeRequested guarda pending si todas requeridas están completas
+00:00 +0 -6: SurveyFinalizeRequested guarda pending si todas requeridas están completas [E]
+  Bad state: A test tried to use `any` or `captureAny` on a parameter of type `SurveySubmission`, but
+  registerFallbackValue was not previously called to register a fallback value for `SurveySubmission`.
+  
+  To fix, do:
+  
+  ```
+  void main() {
+    setUpAll(() {
+      registerFallbackValue(/* create a dummy instance of `SurveySubmission` */);
+    });
+  }
+  ```
+  
+  This instance of `SurveySubmission` will only be passed around, but never be interacted with.
+  Therefore, if `SurveySubmission` is a function, it does not have to return a valid object and
+  could throw unconditionally.
+  If you cannot easily create an instance of `SurveySubmission`, consider defining a `Fake`:
+  
+  ```
+  class MyTypeFake extends Fake implements MyType {}
+  
+  void main() {
+    setUpAll(() {
+      registerFallbackValue(MyTypeFake());
+    });
+  }
+  ```
+  
+  Fallbacks are required because mocktail has to know of a valid `SurveySubmission` to prevent
+  TypeErrors from being thrown in Dart's sound null safe mode, while still
+  providing a convenient syntax.
+  
+  package:mocktail/src/_register_matcher.dart 49:5             _getFallbackValue
+  package:mocktail/src/_register_matcher.dart 160:25           _registerMatcher
+  package:mocktail/src/_register_matcher.dart 104:10           any
+  test\presentation\state\survey\survey_bloc_test.dart 106:30  main.<fn>.<fn>
+  package:mocktail/src/mocktail.dart 211:9                     when.<fn>
+  test\presentation\state\survey\survey_bloc_test.dart 106:9   main.<fn>
+  
+00:00 +0 -6: SendPendingSubmissions emite isSending true/false y llama usecase
+00:00 +0 -7: SendPendingSubmissions emite isSending true/false y llama usecase [E]
+  Bad state: A test tried to use `any` or `captureAny` on a parameter of type `SurveySubmission`, but
+  registerFallbackValue was not previously called to register a fallback value for `SurveySubmission`.
+  
+  To fix, do:
+  
+  ```
+  void main() {
+    setUpAll(() {
+      registerFallbackValue(/* create a dummy instance of `SurveySubmission` */);
+    });
+  }
+  ```
+  
+  This instance of `SurveySubmission` will only be passed around, but never be interacted with.
+  Therefore, if `SurveySubmission` is a function, it does not have to return a valid object and
+  could throw unconditionally.
+  If you cannot easily create an instance of `SurveySubmission`, consider defining a `Fake`:
+  
+  ```
+  class MyTypeFake extends Fake implements MyType {}
+  
+  void main() {
+    setUpAll(() {
+      registerFallbackValue(MyTypeFake());
+    });
+  }
+  ```
+  
+  Fallbacks are required because mocktail has to know of a valid `SurveySubmission` to prevent
+  TypeErrors from being thrown in Dart's sound null safe mode, while still
+  providing a convenient syntax.
+  
+  package:mocktail/src/_register_matcher.dart 49:5             _getFallbackValue
+  package:mocktail/src/_register_matcher.dart 160:25           _registerMatcher
+  package:mocktail/src/_register_matcher.dart 104:10           any
+  test\presentation\state\survey\survey_bloc_test.dart 106:30  main.<fn>.<fn>
+  package:mocktail/src/mocktail.dart 211:9                     when.<fn>
+  test\presentation\state\survey\survey_bloc_test.dart 106:9   main.<fn>
+  
+00:00 +0 -7: Some tests failed.
