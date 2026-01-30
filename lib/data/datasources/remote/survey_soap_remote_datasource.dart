@@ -26,7 +26,7 @@ abstract class SurveySoapRemoteDataSource {
 class SurveySoapRemoteDataSourceHttp implements SurveySoapRemoteDataSource {
   static const String _endpoint =
       'https://capacitacionalpha.desarrollohumano.gob.ec/vulnerabilidadam-ws/logusrenc-service';
-  //'http://192.168.61.240:8080/vulnerabilidadam-ws/logusrenc-service';
+    //'http://192.168.61.240:8080/vulnerabilidadam-ws/logusrenc-service';
 
   final http.Client client;
   SurveySoapRemoteDataSourceHttp({required this.client});

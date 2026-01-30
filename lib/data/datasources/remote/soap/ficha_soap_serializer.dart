@@ -9,7 +9,7 @@ class FichaSoapSerializer {
     'idFamFactoresRiesgos',
     'idIngGastosDisc',
     'idSaludDisc',
-    'idFichaPam',
+    'idFichapam',
     'idIndiceBarthelDisc',
     'idLawtonBrody',
     'idMinimentalPam',
@@ -309,7 +309,7 @@ class FichaSoapSerializer {
     final p = f.fichaPam;
 
     final inner = [
-      _t('idFichaPam', p.idFichaPam),
+      _t('idFichapam', p.idFichaPam),
       _t('fechaNacimiento', p.fechaNacimiento),
       _t('idCedConDiscapacidad', p.idCedConDiscapacidad),
       _t('numeroCedula', p.numeroCedula),
@@ -381,7 +381,7 @@ class FichaSoapSerializer {
       _t('accesTrasladoFacil', p.accesTrasladoFacil),
     ].where((e) => e.isNotEmpty).join('\n');
 
-    return _wrapIfHasBusinessFields('fichaPam', inner);
+    return _wrapIfHasBusinessFields('fichapam', inner);
   }
 
   // -------------------------
@@ -425,7 +425,7 @@ class FichaSoapSerializer {
       _t('idUtilizarDinero', x.idUtilizarDinero),
     ].where((e) => e.isNotEmpty).join('\n');
 
-    return _wrapIfHasBusinessFields('lawtonBrody', inner);
+    return _wrapIfHasBusinessFields('lawtonybrodyDisc', inner);
   }
 
   // -------------------------
@@ -468,7 +468,7 @@ class FichaSoapSerializer {
       _t('idCopiaUno', x.idCopiaUno),
     ].where((e) => e.isNotEmpty).join('\n');
 
-    return _wrapIfHasBusinessFields('minimentalPam', inner);
+    return _wrapIfHasBusinessFields('minimentalpam', inner);
   }
 
   // -------------------------
@@ -496,7 +496,7 @@ class FichaSoapSerializer {
       _t('idYesavageQuince', x.idYesavageQuince),
     ].where((e) => e.isNotEmpty).join('\n');
 
-    return _wrapIfHasBusinessFields('yesavagePam', inner);
+    return _wrapIfHasBusinessFields('yesavagepam', inner);
   }
 
   // ==========================================================
