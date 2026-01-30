@@ -240,6 +240,16 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
     // ✅ NO VALIDAR - La validación ya se hizo página por página
     // Solo enviar la encuesta tal como está
 
+    // Limpiar cualquier mensaje de error previo
+    emit(
+      state.copyWith(
+        showValidationErrors: false,
+        invalidQuestionIds: const [],
+        firstInvalidQuestionId: null,
+        message: null,
+      ),
+    );
+
     emit(state.copyWith(status: SurveyStatus.submitting, message: null));
 
     try {

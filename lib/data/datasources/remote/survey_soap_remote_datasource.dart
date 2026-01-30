@@ -25,8 +25,8 @@ abstract class SurveySoapRemoteDataSource {
 
 class SurveySoapRemoteDataSourceHttp implements SurveySoapRemoteDataSource {
   static const String _endpoint =
-      //'https://capacitacionalpha.desarrollohumano.gob.ec/vulnerabilidadam-ws/logusrenc-service';
-      'http://192.168.61.240:8080/vulnerabilidadam-ws/logusrenc-service';
+      'https://capacitacionalpha.desarrollohumano.gob.ec/vulnerabilidadam-ws/logusrenc-service';
+  //'http://192.168.61.240:8080/vulnerabilidadam-ws/logusrenc-service';
 
   final http.Client client;
   SurveySoapRemoteDataSourceHttp({required this.client});
@@ -36,7 +36,9 @@ class SurveySoapRemoteDataSourceHttp implements SurveySoapRemoteDataSource {
     required SoapCredentials credentials,
     required String envelopeXml,
   }) async {
-    final auth = base64Encode(utf8.encode('${credentials.username}:${credentials.password}'));
+    final auth = base64Encode(
+      utf8.encode('${credentials.username}:${credentials.password}'),
+    );
 
     final res = await client.post(
       Uri.parse(_endpoint),
@@ -59,24 +61,26 @@ class SurveySoapRemoteDataSourceHttp implements SurveySoapRemoteDataSource {
   SoapResultMsg _parseResultMsg(String xml) {
     final doc = XmlDocument.parse(xml);
 
-    final resultMsg = doc.descendants
-        .whereType<XmlElement>()
-        .firstWhere((e) => e.name.local == 'resultMsg', orElse: () {
-      throw SoapParseException('No se encontró <resultMsg> en la respuesta');
-    });
+    final resultMsg = doc.descendants.whereType<XmlElement>().firstWhere(
+      (e) => e.name.local == 'resultMsg',
+      orElse: () {
+        throw SoapParseException('No se encontró <resultMsg> en la respuesta');
+      },
+    );
 
     String pick(String name) {
-      final el = resultMsg.findElements(name).firstWhere(
+      final el = resultMsg
+          .findElements(name)
+          .firstWhere(
             (_) => true,
-        orElse: () => throw SoapParseException('No se encontró <$name> en <resultMsg>'),
-      );
+            orElse: () => throw SoapParseException(
+              'No se encontró <$name> en <resultMsg>',
+            ),
+          );
       return el.text.trim();
     }
 
-    return SoapResultMsg(
-      code: pick('cod'),
-      message: pick('mensaje'),
-    );
+    return SoapResultMsg(code: pick('cod'), message: pick('mensaje'));
   }
 }
 
@@ -86,7 +90,8 @@ class SoapHttpException implements Exception {
   SoapHttpException({required this.statusCode, required this.body});
 
   @override
-  String toString() => 'SoapHttpException(statusCode: $statusCode, body: $body)';
+  String toString() =>
+      'SoapHttpException(statusCode: $statusCode, body: $body)';
 }
 
 class SoapParseException implements Exception {
