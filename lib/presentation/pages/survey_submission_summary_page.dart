@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../domain/entities/survey_section.dart';
+import '../../domain/rules/survey_rules_engine.dart';
 import '../state/survey/survey_bloc.dart';
 import '../state/survey/survey_event.dart';
 import '../state/survey/survey_state.dart';
 import '../utils/survey_section_filter_helper.dart';
+import '../utils/question_progress_helper.dart';
 
 /// Pantalla de resumen pre-envío
 /// Muestra al usuario qué secciones completó antes de enviar la encuesta
@@ -29,8 +31,19 @@ class SurveySubmissionSummaryPage extends StatelessWidget {
             return const Center(child: Text('No hay encuesta activa'));
           }
 
-          final totalQuestions = survey.questions.length;
-          final answeredQuestions = state.answers.length;
+          // ✅ Contar solo preguntas visibles según el flujo
+          final rules = const SurveyRulesEngine();
+          final totalQuestions = QuestionProgressHelper.countVisibleQuestions(
+            survey.questions,
+            state.answers,
+            rules,
+          );
+          final answeredQuestions =
+              QuestionProgressHelper.countAnsweredVisibleQuestions(
+                survey.questions,
+                state.answers,
+                rules,
+              );
           final progress = totalQuestions > 0
               ? answeredQuestions / totalQuestions
               : 0.0;
@@ -205,11 +218,14 @@ class SurveySubmissionSummaryPage extends StatelessWidget {
     int index,
   ) {
     final section = surveySectionsOrder[index];
+    final rules = const SurveyRulesEngine();
+
+    // ✅ Contar solo preguntas visibles de esta sección
     final sectionQuestions = survey.questions
-        .where((q) => q.section == section)
+        .where((q) => q.section == section && rules.isVisible(q, state.answers))
         .toList();
     final sectionAnswered = sectionQuestions
-        .where((q) => state.answers.containsKey(q.id))
+        .where((q) => QuestionProgressHelper.isAnswered(q, state.answers[q.id]))
         .length;
     final sectionTotal = sectionQuestions.length;
     final isCompleted = sectionAnswered == sectionTotal && sectionTotal > 0;

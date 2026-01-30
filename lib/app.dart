@@ -104,10 +104,16 @@ class _AppState extends State<App> {
     final saveSurveyDraftUseCase = SaveSurveyDraftUseCase(surveyRepo);
     final loadSurveyDraftUseCase = LoadSurveyDraftUseCase(surveyRepo);
     final finalizeToPendingUseCase = FinalizeToPendingUseCase(surveyRepo);
-    final loadPendingSubmissionsUseCase = LoadPendingSubmissionsUseCase(surveyRepo);
-    final sendPendingSubmissionsUseCase = SendPendingSubmissionsUseCase(surveyRepo);
+    final loadPendingSubmissionsUseCase = LoadPendingSubmissionsUseCase(
+      surveyRepo,
+    );
+    final sendPendingSubmissionsUseCase = SendPendingSubmissionsUseCase(
+      surveyRepo,
+    );
     final clearSurveyLocalUseCase = ClearSurveyLocalUseCase(surveyRepo);
-    final deletePendingSubmissionUseCase = DeletePendingSubmissionUseCase(surveyRepo);
+    final deletePendingSubmissionUseCase = DeletePendingSubmissionUseCase(
+      surveyRepo,
+    );
     final clearSurveyDraftUseCase = ClearSurveyDraftUseCase(surveyRepo);
 
     final dinardapRemote = DinardapSoapRemoteDataSourceHttp(
@@ -143,6 +149,33 @@ class _AppState extends State<App> {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          // Tema general de la aplicación
+          useMaterial3: true,
+
+          // Configuración del AppBar
+          appBarTheme: AppBarTheme(
+            backgroundColor: const Color(0xFF1565C0), // Fondo azul oscuro
+            foregroundColor: Colors.white, // Iconos y texto en blanco
+            elevation: 2,
+            centerTitle: false,
+            titleTextStyle: const TextStyle(
+              color: Colors.blue, // Título en azul claro
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+            iconTheme: const IconThemeData(
+              color: Colors.white, // Iconos en blanco
+            ),
+          ),
+
+          // Color primario de la app
+          primaryColor: const Color(0xFF1565C0),
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color(0xFF1565C0),
+            primary: const Color(0xFF1565C0),
+          ),
+        ),
         initialRoute: '/splash',
         routes: {
           '/splash': (_) => const SplashPage(),

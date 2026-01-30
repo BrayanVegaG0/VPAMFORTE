@@ -20,6 +20,7 @@ import '../widgets/ecuador_location_dropdown.dart';
 import '../widgets/household_members_question.dart';
 import 'survey_submission_summary_page.dart';
 import '../utils/survey_section_filter_helper.dart';
+import '../utils/question_progress_helper.dart';
 
 class SurveysPage extends StatefulWidget {
   const SurveysPage({super.key});
@@ -385,40 +386,21 @@ class _SurveysPageState extends State<SurveysPage> {
 
           final bottomSafe = MediaQuery.of(context).viewPadding.bottom;
 
-          return ListView(
-            controller: _scroll,
-            padding: EdgeInsets.fromLTRB(16, 16, 16, 16 + bottomSafe),
+          // ========================================
+          // USAR COLUMN CON HEADER STICKY
+          // ========================================
+          return Column(
             children: [
-              // Calcular secciones visibles para el contador
-              Builder(
-                builder: (context) {
-                  final visibleSections = _getVisibleSections(state.answers);
-                  final currentIndexInVisible = visibleSections.indexOf(
-                    section,
-                  );
-                  final displayIndex = currentIndexInVisible >= 0
-                      ? currentIndexInVisible + 1
-                      : state.pageIndex + 1;
-
-                  return Text(
-                    '${section.title} ($displayIndex de ${visibleSections.length})',
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF2C2FA3),
-                    ),
-                  );
-                },
-              ),
-              const SizedBox(height: 12),
               // ========================================
-              // BARRA DE PROGRESO VISUAL (basada en secciones visibles)
+              // HEADER STICKY (Título + Barra de Progreso)
               // ========================================
               Container(
-                margin: const EdgeInsets.only(bottom: 16),
+                color: Colors.white,
+                padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    // Título de la sección
                     Builder(
                       builder: (context) {
                         final visibleSections = _getVisibleSections(
@@ -427,88 +409,131 @@ class _SurveysPageState extends State<SurveysPage> {
                         final currentIndexInVisible = visibleSections.indexOf(
                           section,
                         );
-                        final progress = currentIndexInVisible >= 0
-                            ? (currentIndexInVisible + 1) /
-                                  visibleSections.length
-                            : (state.pageIndex + 1) /
-                                  surveySectionsOrder.length;
+                        final displayIndex = currentIndexInVisible >= 0
+                            ? currentIndexInVisible + 1
+                            : state.pageIndex + 1;
+
+                        return Text(
+                          '${section.title} ($displayIndex de ${visibleSections.length})',
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF2C2FA3),
+                          ),
+                        );
+                      },
+                    ),
+                    const SizedBox(height: 12),
+
+                    // ========================================
+                    // BARRA DE PROGRESO (basada en PREGUNTAS VISIBLES)
+                    // ========================================
+                    Builder(
+                      builder: (context) {
+                        final totalVisible =
+                            QuestionProgressHelper.countVisibleQuestions(
+                              survey.questions,
+                              state.answers,
+                              _rules,
+                            );
+                        final answeredVisible =
+                            QuestionProgressHelper.countAnsweredVisibleQuestions(
+                              survey.questions,
+                              state.answers,
+                              _rules,
+                            );
+                        final progress = totalVisible > 0
+                            ? answeredVisible / totalVisible
+                            : 0.0;
                         final percentage = (progress * 100).round();
 
-                        return Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
-                              'Progreso general',
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.grey,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                const Text(
+                                  'Progreso general',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.grey,
+                                  ),
+                                ),
+                                Text(
+                                  '$answeredVisible / $totalVisible preguntas',
+                                  style: const TextStyle(
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF2C2FA3),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 8),
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: LinearProgressIndicator(
+                                value: progress,
+                                backgroundColor: Colors.grey[300],
+                                valueColor: const AlwaysStoppedAnimation<Color>(
+                                  Color(0xFF2C2FA3),
+                                ),
+                                minHeight: 10,
                               ),
                             ),
+                            const SizedBox(height: 4),
                             Text(
-                              '$percentage%',
-                              style: const TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xFF2C2FA3),
+                              '$percentage% completado',
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.grey[600],
                               ),
                             ),
                           ],
                         );
                       },
                     ),
-                    const SizedBox(height: 8),
-                    Builder(
-                      builder: (context) {
-                        final visibleSections = _getVisibleSections(
-                          state.answers,
-                        );
-                        final currentIndexInVisible = visibleSections.indexOf(
-                          section,
-                        );
-                        final progress = currentIndexInVisible >= 0
-                            ? (currentIndexInVisible + 1) /
-                                  visibleSections.length
-                            : (state.pageIndex + 1) /
-                                  surveySectionsOrder.length;
-
-                        return ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
-                          child: LinearProgressIndicator(
-                            value: progress,
-                            backgroundColor: Colors.grey[300],
-                            valueColor: const AlwaysStoppedAnimation<Color>(
-                              Color(0xFF2C2FA3),
-                            ),
-                            minHeight: 10,
-                          ),
-                        );
-                      },
-                    ),
+                    const SizedBox(height: 16),
+                    const Divider(height: 1),
                   ],
                 ),
               ),
-              for (final q in pageQuestions) ...[
-                KeyedSubtree(
-                  key: ValueKey('q_${q.id}'),
-                  child: _QuestionCard(
-                    key: _questionKeys[q.id],
-                    question: q,
-                    requiredNow: _rules.isRequired(q, state.answers),
-                    markError: missingIds.contains(q.id),
 
-                    isInlineLoading:
-                        q.id == 'nroDocumentoM' && state.isDinardapLoading,
-                    inlineError: q.id == 'nroDocumentoM'
-                        ? state.dinardapError
-                        : null,
-                  ),
+              // ========================================
+              // CONTENIDO SCROLLABLE (Preguntas)
+              // ========================================
+              Expanded(
+                child: ListView(
+                  controller: _scroll,
+                  padding: EdgeInsets.fromLTRB(16, 16, 16, 16 + bottomSafe),
+                  children: [
+                    for (final q in pageQuestions) ...[
+                      KeyedSubtree(
+                        key: ValueKey('q_${q.id}'),
+                        child: _QuestionCard(
+                          key: _questionKeys[q.id],
+                          question: q,
+                          requiredNow: _rules.isRequired(q, state.answers),
+                          markError: missingIds.contains(q.id),
+
+                          isInlineLoading:
+                              q.id == 'nroDocumentoM' &&
+                              state.isDinardapLoading,
+                          inlineError: q.id == 'nroDocumentoM'
+                              ? state.dinardapError
+                              : null,
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                    ],
+                    const SizedBox(height: 8),
+                    _WizardButtons(
+                      pageIndex: state.pageIndex,
+                      answers: state.answers,
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 12),
-              ],
-              const SizedBox(height: 8),
-              _WizardButtons(
-                pageIndex: state.pageIndex,
-                answers: state.answers,
               ),
             ],
           );
