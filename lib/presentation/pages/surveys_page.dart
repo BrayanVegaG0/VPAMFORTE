@@ -430,17 +430,22 @@ class _SurveysPageState extends State<SurveysPage> {
                     // ========================================
                     Builder(
                       builder: (context) {
+                        final visibleSections = _getVisibleSections(
+                          state.answers,
+                        );
                         final totalVisible =
                             QuestionProgressHelper.countVisibleQuestions(
                               survey.questions,
                               state.answers,
                               _rules,
+                              visibleSections,
                             );
                         final answeredVisible =
                             QuestionProgressHelper.countAnsweredVisibleQuestions(
                               survey.questions,
                               state.answers,
                               _rules,
+                              visibleSections,
                             );
                         final progress = totalVisible > 0
                             ? answeredVisible / totalVisible

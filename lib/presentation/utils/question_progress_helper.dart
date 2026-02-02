@@ -1,16 +1,27 @@
 import '../../domain/entities/question.dart';
+import '../../domain/entities/survey_section.dart';
 import '../../domain/rules/survey_rules_engine.dart';
 
 /// Helper para calcular el progreso de la encuesta basado en preguntas visibles
 /// en lugar de secciones, considerando el flujo condicional de preguntas.
 class QuestionProgressHelper {
   /// Cuenta el total de preguntas visibles según las respuestas actuales
+  /// Solo cuenta preguntas de secciones que estén visibles
   static int countVisibleQuestions(
     List<Question> allQuestions,
     Map<String, dynamic> answers,
     SurveyRulesEngine rules,
+    List<SurveySection> visibleSections,
   ) {
-    return allQuestions.where((q) => rules.isVisible(q, answers)).length;
+    // SurveySection es un enum, así que comparamos directamente
+    final visibleSectionSet = visibleSections.toSet();
+    return allQuestions
+        .where(
+          (q) =>
+              visibleSectionSet.contains(q.section) &&
+              rules.isVisible(q, answers),
+        )
+        .length;
   }
 
   /// Cuenta las preguntas obligatorias que están visibles
@@ -18,10 +29,15 @@ class QuestionProgressHelper {
     List<Question> allQuestions,
     Map<String, dynamic> answers,
     SurveyRulesEngine rules,
+    List<SurveySection> visibleSections,
   ) {
+    final visibleSectionSet = visibleSections.toSet();
     return allQuestions
         .where(
-          (q) => rules.isVisible(q, answers) && rules.isRequired(q, answers),
+          (q) =>
+              visibleSectionSet.contains(q.section) &&
+              rules.isVisible(q, answers) &&
+              rules.isRequired(q, answers),
         )
         .length;
   }
@@ -31,9 +47,12 @@ class QuestionProgressHelper {
     List<Question> allQuestions,
     Map<String, dynamic> answers,
     SurveyRulesEngine rules,
+    List<SurveySection> visibleSections,
   ) {
+    final visibleSectionSet = visibleSections.toSet();
     int count = 0;
     for (final q in allQuestions) {
+      if (!visibleSectionSet.contains(q.section)) continue;
       if (!rules.isVisible(q, answers)) continue;
 
       final answer = answers[q.id];
@@ -49,14 +68,21 @@ class QuestionProgressHelper {
     List<Question> allQuestions,
     Map<String, dynamic> answers,
     SurveyRulesEngine rules,
+    List<SurveySection> visibleSections,
   ) {
-    final total = countVisibleQuestions(allQuestions, answers, rules);
+    final total = countVisibleQuestions(
+      allQuestions,
+      answers,
+      rules,
+      visibleSections,
+    );
     if (total == 0) return 0.0;
 
     final answered = countAnsweredVisibleQuestions(
       allQuestions,
       answers,
       rules,
+      visibleSections,
     );
     return answered / total;
   }
@@ -102,15 +128,23 @@ class QuestionProgressHelper {
     List<Question> allQuestions,
     Map<String, dynamic> answers,
     SurveyRulesEngine rules,
+    List<SurveySection> visibleSections,
   ) {
     final answered = countAnsweredVisibleQuestions(
       allQuestions,
       answers,
       rules,
+      visibleSections,
     );
-    final total = countVisibleQuestions(allQuestions, answers, rules);
-    final percentage = (calculateProgress(allQuestions, answers, rules) * 100)
-        .round();
+    final total = countVisibleQuestions(
+      allQuestions,
+      answers,
+      rules,
+      visibleSections,
+    );
+    final percentage =
+        (calculateProgress(allQuestions, answers, rules, visibleSections) * 100)
+            .round();
 
     return '$answered / $total preguntas ($percentage%)';
   }

@@ -33,16 +33,22 @@ class SurveySubmissionSummaryPage extends StatelessWidget {
 
           // ✅ Contar solo preguntas visibles según el flujo
           final rules = const SurveyRulesEngine();
+          final visibleSections = SurveySectionFilterHelper.getVisibleSections(
+            surveySectionsOrder,
+            state.answers,
+          );
           final totalQuestions = QuestionProgressHelper.countVisibleQuestions(
             survey.questions,
             state.answers,
             rules,
+            visibleSections,
           );
           final answeredQuestions =
               QuestionProgressHelper.countAnsweredVisibleQuestions(
                 survey.questions,
                 state.answers,
                 rules,
+                visibleSections,
               );
           final progress = totalQuestions > 0
               ? answeredQuestions / totalQuestions
