@@ -102,7 +102,9 @@ class HouseholdMembersQuestion extends StatelessWidget {
                     Card(
                       child: ListTile(
                         title: Text(members[i].nombresApellidos),
-                        subtitle: Text('Cédula: ${members[i].cedula}  •  Edad: ${members[i].edad}'),
+                        subtitle: Text(
+                          'Cédula: ${members[i].cedula}  •  Edad: ${members[i].edad}',
+                        ),
                         trailing: Wrap(
                           spacing: 6,
                           children: [
@@ -131,7 +133,8 @@ class HouseholdMembersQuestion extends StatelessWidget {
                                   builder: (_) => _MemberDialog(
                                     initial: members[i],
                                     existingCedulas: cedulas,
-                                    editingIndex: i, // permite misma cédula del registro
+                                    editingIndex:
+                                        i, // permite misma cédula del registro
                                     bloc: context.read<SurveyBloc>(),
                                   ),
                                 );
@@ -209,6 +212,10 @@ class _MemberDialogState extends State<_MemberDialog> {
   bool _loadingDinardap = false;
   String? _dinardapError;
 
+  // Campos poblados por DINARDAP (para hacerlos read-only)
+  bool _nombreFromDinardap = false;
+  bool _edadFromDinardap = false;
+
   bool get _ro => widget.readOnly;
 
   @override
@@ -219,8 +226,12 @@ class _MemberDialogState extends State<_MemberDialog> {
     _cedula = TextEditingController(text: i?.cedula ?? '');
     _nombres = TextEditingController(text: i?.nombresApellidos ?? '');
     _edad = TextEditingController(text: (i?.edad ?? '').toString());
-    _porcentaje = TextEditingController(text: i?.porcentajeDiscapacidad?.toString() ?? '');
-    _ingresoCuanto = TextEditingController(text: i?.generaIngresosCuanto?.toString() ?? '');
+    _porcentaje = TextEditingController(
+      text: i?.porcentajeDiscapacidad?.toString() ?? '',
+    );
+    _ingresoCuanto = TextEditingController(
+      text: i?.generaIngresosCuanto?.toString() ?? '',
+    );
 
     identidadGenero = i?.identidadGenero;
     tieneDiscapacidad = i?.idTieneDiscapacidad;
@@ -250,10 +261,7 @@ class _MemberDialogState extends State<_MemberDialog> {
     '4': 'Prefiere no decir',
   };
 
-  static const _siNo = <String, String>{
-    '1': 'Sí',
-    '0': 'No',
-  };
+  static const _siNo = <String, String>{'1': 'Sí', '0': 'No'};
 
   static const _tipoDiscapacidad = <String, String>{
     '1': 'Física',
@@ -322,11 +330,15 @@ class _MemberDialogState extends State<_MemberDialog> {
     final existing = [...widget.existingCedulas];
 
     // si editas, permite la cédula del índice actual
-    if (widget.editingIndex != null && widget.editingIndex! >= 0 && widget.editingIndex! < existing.length) {
+    if (widget.editingIndex != null &&
+        widget.editingIndex! >= 0 &&
+        widget.editingIndex! < existing.length) {
       existing.removeAt(widget.editingIndex!);
     }
 
-    return existing.any((c) => c.replaceAll(RegExp(r'\D'), '') == cedulaDigitsOnly);
+    return existing.any(
+      (c) => c.replaceAll(RegExp(r'\D'), '') == cedulaDigitsOnly,
+    );
   }
 
   // ===== DINARDAP =====
@@ -344,7 +356,9 @@ class _MemberDialogState extends State<_MemberDialog> {
   int _calcAge(DateTime birth) {
     final now = DateTime.now();
     int age = now.year - birth.year;
-    final beforeBirthday = (now.month < birth.month) || (now.month == birth.month && now.day < birth.day);
+    final beforeBirthday =
+        (now.month < birth.month) ||
+        (now.month == birth.month && now.day < birth.day);
     if (beforeBirthday) age--;
     return age;
   }
@@ -365,7 +379,9 @@ class _MemberDialogState extends State<_MemberDialog> {
       return;
     }
     if (_cedulaRepetida(cedula)) {
-      setState(() => _dinardapError = 'Esta cédula ya fue registrada en el hogar.');
+      setState(
+        () => _dinardapError = 'Esta cédula ya fue registrada en el hogar.',
+      );
       return;
     }
 
@@ -383,11 +399,13 @@ class _MemberDialogState extends State<_MemberDialog> {
 
       if (full.isNotEmpty) {
         _nombres.text = full;
+        _nombreFromDinardap = true;
       }
 
       final birth = _parseDdMmYyyy(nac);
       if (birth != null) {
         _edad.text = _calcAge(birth).toString();
+        _edadFromDinardap = true;
       }
 
       setState(() {
@@ -425,11 +443,14 @@ class _MemberDialogState extends State<_MemberDialog> {
     }
   }
 
-  String? _reqDropdown(String? v) => (v == null || v.trim().isEmpty) ? 'Requerido' : null;
+  String? _reqDropdown(String? v) =>
+      (v == null || v.trim().isEmpty) ? 'Requerido' : null;
 
   @override
   Widget build(BuildContext context) {
-    final title = _ro ? 'Ver persona' : (widget.initial == null ? 'Agregar persona' : 'Editar persona');
+    final title = _ro
+        ? 'Ver persona'
+        : (widget.initial == null ? 'Agregar persona' : 'Editar persona');
 
     return AlertDialog(
       title: Text(title),
@@ -452,12 +473,33 @@ class _MemberDialogState extends State<_MemberDialog> {
                           border: OutlineInputBorder(),
                         ),
                         validator: (v) {
-                          final ced = (v ?? '').trim().replaceAll(RegExp(r'\D'), '');
+                          final ced = (v ?? '').trim().replaceAll(
+                            RegExp(r'\D'),
+                            '',
+                          );
                           if (ced.isEmpty) return 'Requerido';
                           if (ced.length != 10) return 'Debe tener 10 dígitos';
                           if (!_isValidCedulaEc(ced)) return 'Cédula inválida';
-                          if (_cedulaRepetida(ced)) return 'Cédula repetida en el hogar';
+                          if (_cedulaRepetida(ced))
+                            return 'Cédula repetida en el hogar';
                           return null;
+                        },
+                        onChanged: (v) {
+                          // Si se modifica la cédula, limpiar datos de DINARDAP
+                          final ced = v.trim().replaceAll(RegExp(r'\D'), '');
+                          if (ced.length < 10) {
+                            setState(() {
+                              if (_nombreFromDinardap) {
+                                _nombres.clear();
+                                _nombreFromDinardap = false;
+                              }
+                              if (_edadFromDinardap) {
+                                _edad.clear();
+                                _edadFromDinardap = false;
+                              }
+                              _dinardapError = null;
+                            });
+                          }
                         },
                       ),
                     ),
@@ -468,7 +510,13 @@ class _MemberDialogState extends State<_MemberDialog> {
                         child: ElevatedButton.icon(
                           onPressed: _loadingDinardap ? null : _consultDinardap,
                           icon: _loadingDinardap
-                              ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2))
+                              ? const SizedBox(
+                                  width: 16,
+                                  height: 16,
+                                  child: CircularProgressIndicator(
+                                    strokeWidth: 2,
+                                  ),
+                                )
                               : const Icon(Icons.search),
                           label: const Text('DINARDAP'),
                         ),
@@ -479,29 +527,45 @@ class _MemberDialogState extends State<_MemberDialog> {
                   const SizedBox(height: 8),
                   Align(
                     alignment: Alignment.centerLeft,
-                    child: Text(_dinardapError!, style: const TextStyle(color: Colors.red, fontSize: 12)),
+                    child: Text(
+                      _dinardapError!,
+                      style: const TextStyle(color: Colors.red, fontSize: 12),
+                    ),
                   ),
                 ],
                 const SizedBox(height: 12),
 
                 TextFormField(
                   controller: _nombres,
-                  enabled: !_ro,
-                  decoration: const InputDecoration(
+                  enabled: !_ro && !_nombreFromDinardap,
+                  decoration: InputDecoration(
                     labelText: 'Nombres y apellidos',
-                    border: OutlineInputBorder(),
+                    border: const OutlineInputBorder(),
+                    suffixIcon: _nombreFromDinardap
+                        ? const Icon(Icons.lock, size: 16, color: Colors.grey)
+                        : null,
                   ),
-                  validator: (v) => (v ?? '').trim().isEmpty ? 'Requerido' : null,
+                  validator: (v) =>
+                      (v ?? '').trim().isEmpty ? 'Requerido' : null,
+                  onChanged: (v) {
+                    // Si el usuario modifica manualmente, quitar el lock
+                    if (_nombreFromDinardap && v != _nombres.text) {
+                      setState(() => _nombreFromDinardap = false);
+                    }
+                  },
                 ),
                 const SizedBox(height: 12),
 
                 TextFormField(
                   controller: _edad,
-                  enabled: !_ro,
+                  enabled: !_ro && !_edadFromDinardap,
                   keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     labelText: 'Edad',
-                    border: OutlineInputBorder(),
+                    border: const OutlineInputBorder(),
+                    suffixIcon: _edadFromDinardap
+                        ? const Icon(Icons.lock, size: 16, color: Colors.grey)
+                        : null,
                   ),
                   validator: (v) {
                     final n = int.tryParse((v ?? '').trim());
@@ -509,9 +573,13 @@ class _MemberDialogState extends State<_MemberDialog> {
                     if (n < 0 || n > 120) return 'Edad fuera de rango';
                     return null;
                   },
-                  onChanged: (_) => setState(() {
+                  onChanged: (v) {
+                    // Si el usuario modifica manualmente, quitar el lock
+                    if (_edadFromDinardap && v != _edad.text) {
+                      setState(() => _edadFromDinardap = false);
+                    }
                     _applyConditionalCleanup();
-                  }),
+                  },
                 ),
                 const SizedBox(height: 12),
 
@@ -523,14 +591,19 @@ class _MemberDialogState extends State<_MemberDialog> {
                     border: OutlineInputBorder(),
                   ),
                   items: _generos.entries
-                      .map((e) => DropdownMenuItem(value: e.key, child: Text(e.value)))
+                      .map(
+                        (e) => DropdownMenuItem(
+                          value: e.key,
+                          child: Text(e.value),
+                        ),
+                      )
                       .toList(),
                   onChanged: _ro
                       ? null
                       : (v) => setState(() {
-                    identidadGenero = v;
-                    _applyConditionalCleanup();
-                  }),
+                          identidadGenero = v;
+                          _applyConditionalCleanup();
+                        }),
                   validator: (v) => _reqDropdown(v),
                 ),
                 const SizedBox(height: 12),
@@ -544,9 +617,16 @@ class _MemberDialogState extends State<_MemberDialog> {
                       border: OutlineInputBorder(),
                     ),
                     items: _siNo.entries
-                        .map((e) => DropdownMenuItem(value: e.key, child: Text(e.value)))
+                        .map(
+                          (e) => DropdownMenuItem(
+                            value: e.key,
+                            child: Text(e.value),
+                          ),
+                        )
                         .toList(),
-                    onChanged: _ro ? null : (v) => setState(() => etapaGestacional = v),
+                    onChanged: _ro
+                        ? null
+                        : (v) => setState(() => etapaGestacional = v),
                     validator: (v) => _reqDropdown(v),
                   ),
                   const SizedBox(height: 12),
@@ -561,9 +641,16 @@ class _MemberDialogState extends State<_MemberDialog> {
                       border: OutlineInputBorder(),
                     ),
                     items: _siNo.entries
-                        .map((e) => DropdownMenuItem(value: e.key, child: Text(e.value)))
+                        .map(
+                          (e) => DropdownMenuItem(
+                            value: e.key,
+                            child: Text(e.value),
+                          ),
+                        )
                         .toList(),
-                    onChanged: _ro ? null : (v) => setState(() => menorTrabaja = v),
+                    onChanged: _ro
+                        ? null
+                        : (v) => setState(() => menorTrabaja = v),
                     validator: (v) => _reqDropdown(v),
                   ),
                   const SizedBox(height: 12),
@@ -577,14 +664,19 @@ class _MemberDialogState extends State<_MemberDialog> {
                     border: OutlineInputBorder(),
                   ),
                   items: _siNo.entries
-                      .map((e) => DropdownMenuItem(value: e.key, child: Text(e.value)))
+                      .map(
+                        (e) => DropdownMenuItem(
+                          value: e.key,
+                          child: Text(e.value),
+                        ),
+                      )
                       .toList(),
                   onChanged: _ro
                       ? null
                       : (v) => setState(() {
-                    tieneDiscapacidad = v;
-                    _applyConditionalCleanup();
-                  }),
+                          tieneDiscapacidad = v;
+                          _applyConditionalCleanup();
+                        }),
                   validator: (v) => _reqDropdown(v),
                 ),
                 const SizedBox(height: 12),
@@ -598,9 +690,16 @@ class _MemberDialogState extends State<_MemberDialog> {
                       border: OutlineInputBorder(),
                     ),
                     items: _tipoDiscapacidad.entries
-                        .map((e) => DropdownMenuItem(value: e.key, child: Text(e.value)))
+                        .map(
+                          (e) => DropdownMenuItem(
+                            value: e.key,
+                            child: Text(e.value),
+                          ),
+                        )
                         .toList(),
-                    onChanged: _ro ? null : (v) => setState(() => tipoDiscapacidad = v),
+                    onChanged: _ro
+                        ? null
+                        : (v) => setState(() => tipoDiscapacidad = v),
                     validator: (v) => _reqDropdown(v),
                   ),
                   const SizedBox(height: 12),
@@ -631,9 +730,16 @@ class _MemberDialogState extends State<_MemberDialog> {
                     border: OutlineInputBorder(),
                   ),
                   items: _siNo.entries
-                      .map((e) => DropdownMenuItem(value: e.key, child: Text(e.value)))
+                      .map(
+                        (e) => DropdownMenuItem(
+                          value: e.key,
+                          child: Text(e.value),
+                        ),
+                      )
                       .toList(),
-                  onChanged: _ro ? null : (v) => setState(() => enfermedadCatastrofica = v),
+                  onChanged: _ro
+                      ? null
+                      : (v) => setState(() => enfermedadCatastrofica = v),
                   validator: (v) => _reqDropdown(v),
                 ),
                 const SizedBox(height: 12),
@@ -646,7 +752,12 @@ class _MemberDialogState extends State<_MemberDialog> {
                     border: OutlineInputBorder(),
                   ),
                   items: _parentesco.entries
-                      .map((e) => DropdownMenuItem(value: e.key, child: Text(e.value)))
+                      .map(
+                        (e) => DropdownMenuItem(
+                          value: e.key,
+                          child: Text(e.value),
+                        ),
+                      )
                       .toList(),
                   onChanged: _ro ? null : (v) => setState(() => parentesco = v),
                   validator: (v) => _reqDropdown(v),
@@ -661,14 +772,19 @@ class _MemberDialogState extends State<_MemberDialog> {
                     border: OutlineInputBorder(),
                   ),
                   items: _siNo.entries
-                      .map((e) => DropdownMenuItem(value: e.key, child: Text(e.value)))
+                      .map(
+                        (e) => DropdownMenuItem(
+                          value: e.key,
+                          child: Text(e.value),
+                        ),
+                      )
                       .toList(),
                   onChanged: _ro
                       ? null
                       : (v) => setState(() {
-                    generaIngresos = v;
-                    _applyConditionalCleanup();
-                  }),
+                          generaIngresos = v;
+                          _applyConditionalCleanup();
+                        }),
                   validator: (v) => _reqDropdown(v),
                 ),
                 const SizedBox(height: 12),
@@ -677,13 +793,17 @@ class _MemberDialogState extends State<_MemberDialog> {
                   TextFormField(
                     controller: _ingresoCuanto,
                     enabled: !_ro,
-                    keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                    keyboardType: const TextInputType.numberWithOptions(
+                      decimal: true,
+                    ),
                     decoration: const InputDecoration(
                       labelText: '¿Cuánto genera de ingresos?',
                       border: OutlineInputBorder(),
                     ),
                     validator: (v) {
-                      final d = double.tryParse((v ?? '').trim().replaceAll(',', '.'));
+                      final d = double.tryParse(
+                        (v ?? '').trim().replaceAll(',', '.'),
+                      );
                       if (d == null) return 'Requerido';
                       if (d < 0) return 'No puede ser negativo';
                       return null;
@@ -697,7 +817,10 @@ class _MemberDialogState extends State<_MemberDialog> {
         ),
       ),
       actions: [
-        TextButton(onPressed: () => Navigator.pop(context), child: const Text('Cerrar')),
+        TextButton(
+          onPressed: () => Navigator.pop(context),
+          child: const Text('Cerrar'),
+        ),
         if (!_ro)
           ElevatedButton(
             onPressed: () {
@@ -705,7 +828,10 @@ class _MemberDialogState extends State<_MemberDialog> {
 
               if (!_formKey.currentState!.validate()) return;
 
-              final cedulaDigits = _cedula.text.trim().replaceAll(RegExp(r'\D'), '');
+              final cedulaDigits = _cedula.text.trim().replaceAll(
+                RegExp(r'\D'),
+                '',
+              );
 
               final member = HouseholdMember(
                 cedula: cedulaDigits,
@@ -714,8 +840,12 @@ class _MemberDialogState extends State<_MemberDialog> {
 
                 identidadGenero: identidadGenero,
                 idTieneDiscapacidad: tieneDiscapacidad,
-                idTipoDiscapacidad: _tieneDiscapacidadSi ? tipoDiscapacidad : null,
-                porcentajeDiscapacidad: _tieneDiscapacidadSi ? int.tryParse(_porcentaje.text.trim()) : null,
+                idTipoDiscapacidad: _tieneDiscapacidadSi
+                    ? tipoDiscapacidad
+                    : null,
+                porcentajeDiscapacidad: _tieneDiscapacidadSi
+                    ? int.tryParse(_porcentaje.text.trim())
+                    : null,
 
                 enfermedadCatastrofica: enfermedadCatastrofica,
                 idEtapaGestacional: _isMujer ? etapaGestacional : null,
@@ -725,7 +855,9 @@ class _MemberDialogState extends State<_MemberDialog> {
 
                 idGeneraIngresos: generaIngresos,
                 generaIngresosCuanto: _generaIngresosSi
-                    ? double.tryParse(_ingresoCuanto.text.trim().replaceAll(',', '.'))
+                    ? double.tryParse(
+                        _ingresoCuanto.text.trim().replaceAll(',', '.'),
+                      )
                     : null,
               );
 

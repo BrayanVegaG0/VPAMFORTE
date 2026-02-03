@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/foundation.dart';
 
 import '../../domain/entities/survey.dart';
@@ -44,10 +42,12 @@ class SurveyRepositoryImpl implements SurveyRepository {
   );
 
   @override
-  Future<void> saveDraft(SurveySubmission draft) => local.saveDraft(_toModel(draft));
+  Future<void> saveDraft(SurveySubmission draft) =>
+      local.saveDraft(_toModel(draft));
 
   @override
-  Future<SurveySubmission?> loadDraft(String surveyId) => local.loadDraft(surveyId);
+  Future<SurveySubmission?> loadDraft(String surveyId) =>
+      local.loadDraft(surveyId);
 
   @override
   Future<void> clearDraft(String surveyId) => local.clearDraft(surveyId);
@@ -62,7 +62,9 @@ class SurveyRepositoryImpl implements SurveyRepository {
   Future<List<SurveySubmission>> loadPending(String surveyId) async {
     final list = await local.loadPending(surveyId);
 
-    final sentItems = list.where((e) => e.status == SubmissionStatus.sent).toList();
+    final sentItems = list
+        .where((e) => e.status == SubmissionStatus.sent)
+        .toList();
     for (final s in sentItems) {
       await local.removePending(_toModel(s));
     }
@@ -71,19 +73,27 @@ class SurveyRepositoryImpl implements SurveyRepository {
   }
 
   @override
-  Future<void> updatePending(SurveySubmission updated) => local.updatePending(_toModel(updated));
+  Future<void> updatePending(SurveySubmission updated) =>
+      local.updatePending(_toModel(updated));
 
   @override
   Future<void> sendPendingOneByOne(
-      String surveyId, {
-        List<String>? selectedCreatedAtIso,
-      }) async {
+    String surveyId, {
+    List<String>? selectedCreatedAtIso,
+  }) async {
     final all = await local.loadPending(surveyId);
     if (all.isEmpty) return;
 
-    final selected = (selectedCreatedAtIso == null || selectedCreatedAtIso.isEmpty)
+    final selected =
+        (selectedCreatedAtIso == null || selectedCreatedAtIso.isEmpty)
         ? all
-        : all.where((x) => selectedCreatedAtIso.contains(x.createdAt.toIso8601String())).toList();
+        : all
+              .where(
+                (x) => selectedCreatedAtIso.contains(
+                  x.createdAt.toIso8601String(),
+                ),
+              )
+              .toList();
 
     void _logXml(String xml) {
       if (kReleaseMode) return;
@@ -104,7 +114,9 @@ class SurveyRepositoryImpl implements SurveyRepository {
       try {
         final creds = await authLocal.getBasicAuthCredentials();
         if (creds == null) {
-          throw Exception('No hay credenciales Basic Auth guardadas. Inicia sesión nuevamente.');
+          throw Exception(
+            'No hay credenciales Basic Auth guardadas. Inicia sesión nuevamente.',
+          );
         }
 
         final fichaDb = fichaMapper.map(updatedAttempt.answers);
@@ -112,7 +124,10 @@ class SurveyRepositoryImpl implements SurveyRepository {
         _logXml(xml);
 
         final result = await soap.insertFichaAdultoMayorDiscXml(
-          credentials: SoapCredentials(username: creds.username, password: creds.password),
+          credentials: SoapCredentials(
+            username: creds.username,
+            password: creds.password,
+          ),
           envelopeXml: xml,
         );
 
@@ -148,9 +163,9 @@ class SurveyRepositoryImpl implements SurveyRepository {
     }
   }
 
-
   @override
-  Future<void> clearPendingAll(String surveyId) => local.clearPendingAll(surveyId);
+  Future<void> clearPendingAll(String surveyId) =>
+      local.clearPendingAll(surveyId);
 
   @override
   Future<void> deletePending(SurveySubmission item) async {
@@ -164,5 +179,4 @@ class SurveyRepositoryImpl implements SurveyRepository {
   }) {
     return local.removePendingById(surveyId, createdAtIso);
   }
-
 }

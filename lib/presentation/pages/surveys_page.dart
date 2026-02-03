@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/services.dart';
 
+import '../../core/theme/app_colors.dart';
 import '../../domain/entities/question.dart';
 import '../../domain/entities/survey.dart';
 import '../../domain/entities/survey_section.dart';
@@ -395,7 +396,6 @@ class _SurveysPageState extends State<SurveysPage> {
               // HEADER STICKY (Título + Barra de Progreso)
               // ========================================
               Container(
-                color: Colors.white,
                 padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -418,7 +418,7 @@ class _SurveysPageState extends State<SurveysPage> {
                           style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: Color(0xFF2C2FA3),
+                            color: AppColors.primary,
                           ),
                         );
                       },
@@ -470,7 +470,7 @@ class _SurveysPageState extends State<SurveysPage> {
                                   style: const TextStyle(
                                     fontSize: 13,
                                     fontWeight: FontWeight.w600,
-                                    color: Color(0xFF2C2FA3),
+                                    color: AppColors.primary,
                                   ),
                                 ),
                               ],
@@ -482,7 +482,7 @@ class _SurveysPageState extends State<SurveysPage> {
                                 value: progress,
                                 backgroundColor: Colors.grey[300],
                                 valueColor: const AlwaysStoppedAnimation<Color>(
-                                  Color(0xFF2C2FA3),
+                                  AppColors.primary,
                                 ),
                                 minHeight: 10,
                               ),
@@ -654,7 +654,7 @@ class _QuestionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final borderSide = BorderSide(
-      color: markError ? Colors.red : Colors.transparent,
+      color: markError ? AppColors.error : Colors.transparent,
       width: 1.5,
     );
 
@@ -677,7 +677,7 @@ class _QuestionCard extends StatelessWidget {
                     requiredNow ? '${question.title} *' : question.title,
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
-                      color: markError ? Colors.red : Colors.black,
+                      color: markError ? AppColors.error : Colors.black,
                     ),
                   ),
                 ),
@@ -700,7 +700,7 @@ class _QuestionCard extends StatelessWidget {
               const SizedBox(height: 8),
               Text(
                 inlineError!,
-                style: const TextStyle(color: Colors.red, fontSize: 12),
+                style: const TextStyle(color: AppColors.error, fontSize: 12),
               ),
             ],
           ],
@@ -779,9 +779,12 @@ class _QuestionInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SurveyBloc, SurveyState>(
-      buildWhen: (p, c) => p.answers != c.answers,
+      buildWhen: (p, c) =>
+          p.answers != c.answers ||
+          p.dinardapPopulatedFields != c.dinardapPopulatedFields,
       builder: (context, state) {
         final answer = state.answers[question.id];
+        final isReadOnly = state.dinardapPopulatedFields.contains(question.id);
 
         switch (question.type) {
           case QuestionType.singleChoice:
@@ -790,9 +793,14 @@ class _QuestionInput extends StatelessWidget {
                 return RadioListTile<String>(
                   value: opt.id,
                   groupValue: _asDropdownValue(answer),
-                  onChanged: (v) => context.read<SurveyBloc>().add(
-                    SurveyAnswerChanged(questionId: question.id, value: v),
-                  ),
+                  onChanged: isReadOnly
+                      ? null
+                      : (v) => context.read<SurveyBloc>().add(
+                          SurveyAnswerChanged(
+                            questionId: question.id,
+                            value: v,
+                          ),
+                        ),
                   title: Text(opt.label),
                 );
               }).toList(),
@@ -805,17 +813,27 @@ class _QuestionInput extends StatelessWidget {
                 RadioListTile<String>(
                   value: '1',
                   groupValue: current,
-                  onChanged: (v) => context.read<SurveyBloc>().add(
-                    SurveyAnswerChanged(questionId: question.id, value: v),
-                  ),
+                  onChanged: isReadOnly
+                      ? null
+                      : (v) => context.read<SurveyBloc>().add(
+                          SurveyAnswerChanged(
+                            questionId: question.id,
+                            value: v,
+                          ),
+                        ),
                   title: const Text('Sí'),
                 ),
                 RadioListTile<String>(
                   value: '0',
                   groupValue: current,
-                  onChanged: (v) => context.read<SurveyBloc>().add(
-                    SurveyAnswerChanged(questionId: question.id, value: v),
-                  ),
+                  onChanged: isReadOnly
+                      ? null
+                      : (v) => context.read<SurveyBloc>().add(
+                          SurveyAnswerChanged(
+                            questionId: question.id,
+                            value: v,
+                          ),
+                        ),
                   title: const Text('No'),
                 ),
               ],
@@ -850,21 +868,20 @@ class _QuestionInput extends StatelessWidget {
             return DropdownButtonFormField<String>(
               value: _asDropdownValue(answer),
               isExpanded: true,
-              items: question.options.map((o) {
-                return DropdownMenuItem(
-                  value: o.id,
-                  child: Text(
-                    o.label,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    softWrap: false,
-                  ),
-                );
-              }).toList(),
-              onChanged: (v) => context.read<SurveyBloc>().add(
-                SurveyAnswerChanged(questionId: question.id, value: v),
-              ),
-              decoration: _decoration(hintText: 'Selecciona una opción'),
+              items: question.options
+                  .map(
+                    (opt) =>
+                        DropdownMenuItem(value: opt.id, child: Text(opt.label)),
+                  )
+                  .toList(),
+              onChanged: isReadOnly
+                  ? null
+                  : (v) {
+                      context.read<SurveyBloc>().add(
+                        SurveyAnswerChanged(questionId: question.id, value: v),
+                      );
+                    },
+              decoration: _decoration(hintText: 'Seleccione una opción'),
             );
 
           case QuestionType.multiChoice:
@@ -899,6 +916,7 @@ class _QuestionInput extends StatelessWidget {
               markError: markError,
               minLines: 1,
               maxLines: 1,
+              isReadOnly: isReadOnly,
             );
 
           case QuestionType.textLong:
@@ -909,42 +927,48 @@ class _QuestionInput extends StatelessWidget {
               markError: markError,
               minLines: 3,
               maxLines: 5,
+              isReadOnly: isReadOnly,
             );
 
           case QuestionType.date:
             final value = _asString(answer);
             return InkWell(
-              onTap: () async {
-                final now = DateTime.now();
-                final initialDate = value != null
-                    ? DateTime.tryParse(value) ?? DateTime(1980)
-                    : DateTime(1980);
+              onTap: isReadOnly
+                  ? null
+                  : () async {
+                      final now = DateTime.now();
+                      final initialDate = value != null
+                          ? DateTime.tryParse(value) ?? DateTime(1980)
+                          : DateTime(1980);
 
-                final picked = await showDatePicker(
-                  context: context,
-                  initialDate: initialDate,
-                  firstDate: DateTime(1900),
-                  lastDate: now,
-                );
+                      final picked = await showDatePicker(
+                        context: context,
+                        initialDate: initialDate,
+                        firstDate: DateTime(1900),
+                        lastDate: now,
+                      );
 
-                if (picked != null) {
-                  final formatted =
-                      '${picked.year.toString().padLeft(4, '0')}-'
-                      '${picked.month.toString().padLeft(2, '0')}-'
-                      '${picked.day.toString().padLeft(2, '0')}';
+                      if (picked != null) {
+                        final formatted =
+                            '${picked.year.toString().padLeft(4, '0')}-'
+                            '${picked.month.toString().padLeft(2, '0')}-'
+                            '${picked.day.toString().padLeft(2, '0')}';
 
-                  context.read<SurveyBloc>().add(
-                    SurveyAnswerChanged(
-                      questionId: question.id,
-                      value: formatted,
-                    ),
-                  );
-                }
-              },
+                        context.read<SurveyBloc>().add(
+                          SurveyAnswerChanged(
+                            questionId: question.id,
+                            value: formatted,
+                          ),
+                        );
+                      }
+                    },
               child: InputDecorator(
                 decoration: InputDecoration(
                   border: const OutlineInputBorder(),
-                  suffixIcon: const Icon(Icons.calendar_month),
+                  suffixIcon: Icon(
+                    Icons.calendar_month,
+                    color: isReadOnly ? Colors.grey : null,
+                  ),
                   hintText: 'Seleccione una fecha',
                   errorText: markError ? 'Campo obligatorio' : null,
                 ),
@@ -975,6 +999,7 @@ class BlocTextField extends StatefulWidget {
   final bool markError;
   final int minLines;
   final int maxLines;
+  final bool isReadOnly;
 
   const BlocTextField({
     super.key,
@@ -984,6 +1009,7 @@ class BlocTextField extends StatefulWidget {
     required this.markError,
     required this.minLines,
     required this.maxLines,
+    this.isReadOnly = false,
   });
 
   @override
@@ -1066,6 +1092,7 @@ class _BlocTextFieldState extends State<BlocTextField> {
       controller: _controller,
       minLines: widget.minLines,
       maxLines: widget.maxLines,
+      enabled: !widget.isReadOnly,
       decoration: InputDecoration(
         border: const OutlineInputBorder(),
         hintText: 'Escribe aquí...',
@@ -1247,7 +1274,7 @@ class _SurveyDebugSheetState extends State<_SurveyDebugSheet> {
             const SizedBox(height: 8),
             Text(
               'Error cargando storage: $_sourceError',
-              style: const TextStyle(color: Colors.red),
+              style: const TextStyle(color: AppColors.error),
             ),
           ],
 

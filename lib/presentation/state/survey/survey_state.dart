@@ -34,6 +34,9 @@ class SurveyState extends Equatable {
   final bool isDinardapLoading;
   final String? dinardapError;
 
+  // Campos poblados por DINARDAP (para hacerlos read-only)
+  final Set<String> dinardapPopulatedFields;
+
   // GUARDADO AUTOMÁTICO
   final DateTime? lastSavedAt;
 
@@ -53,6 +56,7 @@ class SurveyState extends Equatable {
     this.isDinardapLoading = false,
     this.dinardapError,
     this.lastSavedAt,
+    this.dinardapPopulatedFields = const {},
   });
 
   factory SurveyState.initial() => const SurveyState(
@@ -71,6 +75,7 @@ class SurveyState extends Equatable {
     isDinardapLoading: false,
     dinardapError: null,
     lastSavedAt: null,
+    dinardapPopulatedFields: const {},
   );
 
   SurveyState copyWith({
@@ -89,6 +94,7 @@ class SurveyState extends Equatable {
     bool? isDinardapLoading,
     String? dinardapError,
     DateTime? lastSavedAt,
+    Set<String>? dinardapPopulatedFields,
   }) {
     return SurveyState(
       status: status ?? this.status,
@@ -106,6 +112,8 @@ class SurveyState extends Equatable {
       isDinardapLoading: isDinardapLoading ?? this.isDinardapLoading,
       dinardapError: dinardapError,
       lastSavedAt: lastSavedAt ?? this.lastSavedAt,
+      dinardapPopulatedFields:
+          dinardapPopulatedFields ?? this.dinardapPopulatedFields,
     );
   }
 
@@ -126,5 +134,6 @@ class SurveyState extends Equatable {
     isDinardapLoading,
     dinardapError,
     lastSavedAt,
+    dinardapPopulatedFields,
   ];
 }

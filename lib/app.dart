@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
 // imports tuyos...
+import 'core/theme/app_colors.dart';
 import 'presentation/pages/splash_page.dart';
 import 'presentation/pages/home_page.dart';
 import 'presentation/pages/login_page.dart';
@@ -150,30 +151,111 @@ class _AppState extends State<App> {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          // Tema general de la aplicación
           useMaterial3: true,
 
-          // Configuración del AppBar
-          appBarTheme: AppBarTheme(
-            backgroundColor: const Color(0xFF1565C0), // Fondo azul oscuro
-            foregroundColor: Colors.white, // Iconos y texto en blanco
+          // Colores principales
+          scaffoldBackgroundColor: AppColors.background,
+          primaryColor: AppColors.primary,
+
+          // Esquema de colores
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: AppColors.primary,
+            primary: AppColors.primary,
+            error: AppColors.error,
+            surface: AppColors.surface,
+            background: AppColors.background,
+          ),
+
+          // Configuración de las tarjetas
+          cardTheme: CardThemeData(
+            color: AppColors.surface,
             elevation: 2,
-            centerTitle: false,
-            titleTextStyle: const TextStyle(
-              color: Colors.blue, // Título en azul claro
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
-            iconTheme: const IconThemeData(
-              color: Colors.white, // Iconos en blanco
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
             ),
           ),
 
-          // Color primario de la app
-          primaryColor: const Color(0xFF1565C0),
-          colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color(0xFF1565C0),
-            primary: const Color(0xFF1565C0),
+          // Configuración del AppBar
+          appBarTheme: AppBarTheme(
+            backgroundColor: AppColors.primary,
+            foregroundColor: AppColors.textOnPrimary,
+            elevation: 2,
+            centerTitle: false,
+            titleTextStyle: const TextStyle(
+              color: AppColors.textOnPrimary,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+            iconTheme: const IconThemeData(color: AppColors.textOnPrimary),
+          ),
+
+          // Configuración de botones elevados
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: AppColors.primary,
+              foregroundColor: AppColors.textOnPrimary,
+              elevation: 2,
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+              textStyle: const TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+
+          // Configuración de botones de texto
+          textButtonTheme: TextButtonThemeData(
+            style: TextButton.styleFrom(
+              foregroundColor: AppColors.primary,
+              textStyle: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+
+          // Configuración de campos de texto
+          inputDecorationTheme: InputDecorationTheme(
+            filled: true,
+            fillColor: AppColors.background,
+            // Texto negro en los inputs
+            labelStyle: const TextStyle(color: AppColors.textPrimary),
+            hintStyle: TextStyle(
+              color: AppColors.textSecondary.withOpacity(0.6),
+            ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: BorderSide(color: AppColors.divider),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: BorderSide(color: AppColors.divider),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: BorderSide(color: AppColors.primary, width: 2),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: BorderSide(color: AppColors.error, width: 1.5),
+            ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: BorderSide(color: AppColors.error, width: 2),
+            ),
+            contentPadding: const EdgeInsets.symmetric(
+              horizontal: 16,
+              vertical: 14,
+            ),
+          ),
+
+          // Configuración de dividers
+          dividerTheme: DividerThemeData(
+            color: AppColors.divider,
+            thickness: 1,
           ),
         ),
         initialRoute: '/splash',

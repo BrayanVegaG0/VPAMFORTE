@@ -116,6 +116,12 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
       if (v.length < 10) {
         _lastDinardapCedula = null;
 
+        // ✅ Limpiar campos poblados por DINARDAP
+        final fieldsToRemove = state.dinardapPopulatedFields.toList();
+        for (final field in fieldsToRemove) {
+          newAnswers.remove(field);
+        }
+
         // ✅ si el user está editando, quita error y apaga loading
         emit(
           state.copyWith(
@@ -123,6 +129,7 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
             dinardapError: null,
             message: null,
             answers: newAnswers,
+            dinardapPopulatedFields: const {}, // Limpiar conjunto
           ),
         );
 
@@ -461,29 +468,37 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
       _lastDinardapCedula = cedula;
 
       final newAnswers = Map<String, dynamic>.from(state.answers);
+      final populatedFields = <String>{};
 
       final nac = (person.nacionalidad ?? '').toUpperCase().trim();
       if (nac.contains('ECUATOR')) {
         newAnswers['idNacionalidadM'] = '1';
+        populatedFields.add('idNacionalidadM');
       } else if (nac.isNotEmpty) {
         newAnswers['idNacionalidadM'] = '2';
+        populatedFields.add('idNacionalidadM');
       }
 
       final sexo = (person.sexo ?? '').toUpperCase().trim();
       if (sexo.contains('MUJER') || sexo.contains('FEMEN')) {
         newAnswers['10'] = '1';
+        populatedFields.add('10');
       } else if (sexo.contains('HOMBRE') || sexo.contains('MASCUL')) {
         newAnswers['10'] = '2';
+        populatedFields.add('10');
       }
 
       final iso = _toIsoDateFromDdMmYyyy(person.fechaNacimientoDdMmYyyy);
       if (iso != null) {
         newAnswers['fechaNacimientoM'] = iso;
+        populatedFields.add('fechaNacimientoM');
       }
 
       final full = (person.nombresCompletos ?? '').trim();
       if (full.isNotEmpty) {
         _fillNames(newAnswers, full);
+        populatedFields.add('Nombres');
+        populatedFields.add('Apellidos');
       }
 
       emit(
@@ -492,6 +507,7 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
           isDinardapLoading: false,
           dinardapError: null,
           message: null,
+          dinardapPopulatedFields: populatedFields,
         ),
       );
     } catch (e) {
