@@ -9,6 +9,7 @@ import '../state/survey/survey_bloc.dart';
 import '../state/survey/survey_event.dart';
 import '../state/survey/survey_state.dart';
 import '../widgets/app_drawer.dart';
+import '../../core/theme/app_colors.dart';
 
 class RegisteredSurveysPage extends StatefulWidget {
   const RegisteredSurveysPage({super.key});
@@ -28,7 +29,8 @@ class _RegisteredSurveysPageState extends State<RegisteredSurveysPage> {
 
     setState(() {
       _future = bloc.loadRegisteredSubmissions(surveyId);
-      _selected.clear(); // al recargar, limpia selección para evitar inconsistencias
+      _selected
+          .clear(); // al recargar, limpia selección para evitar inconsistencias
     });
   }
 
@@ -43,25 +45,20 @@ class _RegisteredSurveysPageState extends State<RegisteredSurveysPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: const AppDrawer(),
-      appBar: AppBar(
-        title: const Text('Encuestas Registradas'),
-        actions: [
-          IconButton(
-            tooltip: 'Actualizar',
-            icon: const Icon(Icons.refresh),
-            onPressed: _load,
-          ),
-        ],
-      ),
+      appBar: AppBar(title: const Text('Encuestas Registradas')),
 
       body: BlocListener<SurveyBloc, SurveyState>(
         // ✅ Solo reaccionar cuando TERMINA el envío (true -> false) o cuando hay mensaje nuevo
         listenWhen: (p, c) =>
-        (p.isSending && !c.isSending) || (p.message != c.message) || (p.sendError != c.sendError),
+            (p.isSending && !c.isSending) ||
+            (p.message != c.message) ||
+            (p.sendError != c.sendError),
         listener: (context, state) {
           final msg = state.message;
           if (msg != null && msg.trim().isNotEmpty) {
-            ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(msg)));
+            ScaffoldMessenger.of(
+              context,
+            ).showSnackBar(SnackBar(content: Text(msg)));
           }
           // ✅ al terminar envío o si hubo cambios, recarga lista
           _load();
@@ -73,7 +70,9 @@ class _RegisteredSurveysPageState extends State<RegisteredSurveysPage> {
               return const Center(child: Text('No hay encuesta cargada.'));
             }
 
-            final future = _future ?? context.read<SurveyBloc>().loadRegisteredSubmissions(survey.id);
+            final future =
+                _future ??
+                context.read<SurveyBloc>().loadRegisteredSubmissions(survey.id);
 
             return FutureBuilder<List<SurveySubmission>>(
               future: future,
@@ -88,46 +87,149 @@ class _RegisteredSurveysPageState extends State<RegisteredSurveysPage> {
                 final list = snapshot.data ?? const [];
 
                 if (list.isEmpty) {
-                  return const Center(child: Text('No hay encuestas registradas aún.'));
+                  return const Center(
+                    child: Text('No hay encuestas registradas aún.'),
+                  );
                 }
 
                 // ✅ Seleccionables: solo pending o error (sent no debería venir porque lo borras del pending)
-                final selectable = list.where((x) =>
-                x.status == SubmissionStatus.pending || x.status == SubmissionStatus.error).toList();
+                final selectable = list
+                    .where(
+                      (x) =>
+                          x.status == SubmissionStatus.pending ||
+                          x.status == SubmissionStatus.error,
+                    )
+                    .toList();
 
-                final allSelectableIds = selectable.map((e) => e.createdAt.toIso8601String()).toList();
+                final allSelectableIds = selectable
+                    .map((e) => e.createdAt.toIso8601String())
+                    .toList();
 
                 final selectedCount = _selected.length;
                 final totalSelectable = allSelectableIds.length;
 
-                final isAllSelected = totalSelectable > 0 && selectedCount == totalSelectable;
+                final isAllSelected =
+                    totalSelectable > 0 && selectedCount == totalSelectable;
 
                 return Column(
                   children: [
-                    // ====== Seleccionar todo ======
+                    // ====== Card Informativa (Header) ======
                     Padding(
                       padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
                       child: Card(
-                        child: ListTile(
-                          leading: Checkbox(
-                            value: isAllSelected,
-                            onChanged: totalSelectable == 0
-                                ? null
-                                : (v) {
-                              setState(() {
-                                if (v == true) {
-                                  _selected
-                                    ..clear()
-                                    ..addAll(allSelectableIds);
-                                } else {
-                                  _selected.clear();
-                                }
-                              });
-                            },
+                        elevation: 0,
+                        color: AppColors.primary.withOpacity(0.05),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16),
+                          side: BorderSide(
+                            color: AppColors.primary.withOpacity(0.1),
                           ),
-                          title: const Text('Seleccionar todo'),
-                          subtitle: Text('Total: $totalSelectable'),
-                          trailing: const Icon(Icons.swap_horiz),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Row(
+                            children: [
+                              const CircleAvatar(
+                                backgroundColor: AppColors.primary,
+                                child: Icon(
+                                  Icons.info_outline,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              const SizedBox(width: 16),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const Text(
+                                      'Gestión de Encuestas',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16,
+                                        color: AppColors.primary,
+                                      ),
+                                    ),
+                                    Text(
+                                      'Aquí puedes gestionar las encuestas guardadas localmente y sincronizarlas con el servidor.',
+                                      style: TextStyle(
+                                        fontSize: 13,
+                                        color: Colors.grey[700],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+
+                    // ====== Seleccionar todo ======
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
+                      child: InkWell(
+                        onTap: totalSelectable == 0
+                            ? null
+                            : () {
+                                setState(() {
+                                  if (isAllSelected) {
+                                    _selected.clear();
+                                  } else {
+                                    _selected
+                                      ..clear()
+                                      ..addAll(allSelectableIds);
+                                  }
+                                });
+                              },
+                        borderRadius: BorderRadius.circular(12),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 12,
+                          ),
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey[300]!),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: Row(
+                            children: [
+                              Icon(
+                                isAllSelected
+                                    ? Icons.check_circle
+                                    : Icons.radio_button_unchecked,
+                                color: totalSelectable == 0
+                                    ? Colors.grey
+                                    : AppColors.primary,
+                              ),
+                              const SizedBox(width: 16),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const Text(
+                                      'Seleccionar todo',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text(
+                                      'Disponibles: $totalSelectable',
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        color: Colors.grey[600],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const Icon(
+                                Icons.swap_horiz,
+                                color: Colors.grey,
+                                size: 20,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -135,7 +237,7 @@ class _RegisteredSurveysPageState extends State<RegisteredSurveysPage> {
                     // ====== Lista ======
                     Expanded(
                       child: ListView.separated(
-                        padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                        padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
                         itemCount: list.length,
                         separatorBuilder: (_, __) => const SizedBox(height: 12),
                         itemBuilder: (context, i) {
@@ -143,74 +245,152 @@ class _RegisteredSurveysPageState extends State<RegisteredSurveysPage> {
                           final summary = _buildSummary(item);
 
                           final id = item.createdAt.toIso8601String();
-                          final isSelectable = item.status == SubmissionStatus.pending ||
+                          final isSelectable =
+                              item.status == SubmissionStatus.pending ||
                               item.status == SubmissionStatus.error;
                           final checked = _selected.contains(id);
 
                           return Card(
-                            child: ListTile(
-                              leading: Checkbox(
-                                value: checked,
-                                onChanged: !isSelectable
-                                    ? null
-                                    : (v) {
-                                  setState(() {
-                                    if (v == true) {
-                                      _selected.add(id);
-                                    } else {
-                                      _selected.remove(id);
-                                    }
-                                  });
-                                },
+                            elevation: 2,
+                            shadowColor: Colors.black12,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(16),
+                              side: BorderSide(
+                                color: checked
+                                    ? AppColors.primary
+                                    : Colors.transparent,
+                                width: 1,
                               ),
-                              title: Text('Cédula: ${summary.cedula}'),
-                              subtitle: Text(
-                                '${summary.nombre}\n'
-                                    'Creado: ${_fmtDateTime(item.createdAt)}',
-                              ),
-                              isThreeLine: true,
-
-                              // ====== Chips de estado ======
-                              trailing: PopupMenuButton<String>(
-                                onSelected: (value) async {
-                                  if (value == 'view') {
-                                    await _showViewDialog(context, item, summary);
-                                  } else if (value == 'answers') {
-                                    await _showAnswersDialog(context, item);
-                                  } else if (value == 'delete') {
-                                    final ok = await _confirmDelete(context);
-                                    if (ok == true && context.mounted) {
-                                      context.read<SurveyBloc>().add(
-                                        DeletePendingSubmissionRequested(
-                                          surveyId: item.surveyId,
-                                          createdAtIso: item.createdAt.toIso8601String(),
+                            ),
+                            child: InkWell(
+                              onTap: !isSelectable
+                                  ? null
+                                  : () {
+                                      setState(() {
+                                        if (checked) {
+                                          _selected.remove(id);
+                                        } else {
+                                          _selected.add(id);
+                                        }
+                                      });
+                                    },
+                              borderRadius: BorderRadius.circular(16),
+                              child: Padding(
+                                padding: const EdgeInsets.all(12),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        if (isSelectable)
+                                          Icon(
+                                            checked
+                                                ? Icons.check_circle
+                                                : Icons.radio_button_unchecked,
+                                            color: AppColors.primary,
+                                            size: 22,
+                                          ),
+                                        const SizedBox(width: 12),
+                                        Expanded(
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'Cédula: ${summary.cedula}',
+                                                style: const TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 15,
+                                                ),
+                                              ),
+                                              Text(
+                                                summary.nombre,
+                                                style: TextStyle(
+                                                  color: Colors.grey[700],
+                                                  fontSize: 13,
+                                                ),
+                                                maxLines: 1,
+                                                overflow: TextOverflow.ellipsis,
+                                              ),
+                                            ],
+                                          ),
                                         ),
-                                      );
-                                    }
-                                  }
-                                },
-                                itemBuilder: (_) => const [
-                                  PopupMenuItem(value: 'view', child: Text('Ver')),
-                                  PopupMenuItem(value: 'answers', child: Text('Ver answers')),
-                                  PopupMenuItem(value: 'delete', child: Text('Eliminar')),
-                                ],
+                                        PopupMenuButton<String>(
+                                          icon: const Icon(
+                                            Icons.more_vert,
+                                            size: 20,
+                                          ),
+                                          onSelected: (value) async {
+                                            if (value == 'answers') {
+                                              await _showAnswersDialog(
+                                                context,
+                                                item,
+                                              );
+                                            } else if (value == 'delete') {
+                                              final ok = await _confirmDelete(
+                                                context,
+                                              );
+                                              if (ok == true &&
+                                                  context.mounted) {
+                                                context.read<SurveyBloc>().add(
+                                                  DeletePendingSubmissionRequested(
+                                                    surveyId: item.surveyId,
+                                                    createdAtIso: item.createdAt
+                                                        .toIso8601String(),
+                                                  ),
+                                                );
+                                              }
+                                            }
+                                          },
+                                          itemBuilder: (_) => const [
+                                            PopupMenuItem(
+                                              value: 'answers',
+                                              child: Text(
+                                                'Ver respuestas JSON',
+                                              ),
+                                            ),
+                                            PopupMenuItem(
+                                              value: 'delete',
+                                              child: Text(
+                                                'Eliminar',
+                                                style: TextStyle(
+                                                  color: Colors.red,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    const Divider(height: 16),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        if (summary.edad != null)
+                                          Text(
+                                            'Edad: ${summary.edad} años',
+                                            style: const TextStyle(
+                                              fontSize: 12,
+                                            ),
+                                          ),
+                                        Text(
+                                          'Registrado el: ${_fmtDateTime(item.createdAt)}',
+                                          style: TextStyle(
+                                            fontSize: 11,
+                                            color: Colors.grey[600],
+                                          ),
+                                        ),
+                                        const SizedBox(height: 8),
+                                        _buildStatusBadge(item),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               ),
-
-                              // ====== Estado debajo (visible) ======
-                              contentPadding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-                              dense: false,
                             ),
                           );
                         },
-                      ),
-                    ),
-
-                    // footer text
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
-                      child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text('Seleccionadas: $selectedCount / $totalSelectable'),
                       ),
                     ),
                   ],
@@ -223,37 +403,77 @@ class _RegisteredSurveysPageState extends State<RegisteredSurveysPage> {
 
       // ====== Botón Sincronizar ======
       bottomNavigationBar: SafeArea(
-        minimum: const EdgeInsets.fromLTRB(16, 8, 16, 12),
+        minimum: const EdgeInsets.fromLTRB(
+          16,
+          8,
+          16,
+          24,
+        ), // ✅ Aumentado el padding inferior
         child: BlocBuilder<SurveyBloc, SurveyState>(
-          buildWhen: (p, c) => p.isSending != c.isSending || p.activeSurvey != c.activeSurvey,
+          buildWhen: (p, c) =>
+              p.isSending != c.isSending || p.activeSurvey != c.activeSurvey,
           builder: (context, state) {
             final surveyId = state.activeSurvey?.id;
             final sending = state.isSending;
 
-            final canSend = (surveyId != null) && !sending && _selected.isNotEmpty;
+            final canSend =
+                (surveyId != null) && !sending && _selected.isNotEmpty;
 
-            return SizedBox(
-              height: 52,
-              child: ElevatedButton.icon(
-                onPressed: canSend
-                    ? () {
-                  context.read<SurveyBloc>().add(
-                    SendPendingSubmissions(
-                      surveyId!,
-                      selectedCreatedAtIso: _selected.toList(),
+            return FutureBuilder<List<SurveySubmission>>(
+              future:
+                  _future ??
+                  context.read<SurveyBloc>().loadRegisteredSubmissions(
+                    surveyId ?? '',
+                  ),
+              builder: (context, snapshot) {
+                final list = snapshot.data ?? [];
+                final selectable = list
+                    .where(
+                      (x) =>
+                          x.status == SubmissionStatus.pending ||
+                          x.status == SubmissionStatus.error,
+                    )
+                    .toList();
+                final totalSelectable = selectable.length;
+
+                return SizedBox(
+                  height: 56,
+                  child: ElevatedButton.icon(
+                    onPressed: canSend
+                        ? () {
+                            context.read<SurveyBloc>().add(
+                              SendPendingSubmissions(
+                                surveyId!,
+                                selectedCreatedAtIso: _selected.toList(),
+                              ),
+                            );
+                          }
+                        : null,
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      elevation: 4,
                     ),
-                  );
-                }
-                    : null,
-                icon: sending
-                    ? const SizedBox(
-                  width: 18,
-                  height: 18,
-                  child: CircularProgressIndicator(strokeWidth: 2),
-                )
-                    : const Icon(Icons.sync),
-                label: Text(sending ? 'Sincronizando...' : 'Sincronizar (${_selected.length})'),
-              ),
+                    icon: sending
+                        ? const SizedBox(
+                            width: 18,
+                            height: 18,
+                            child: CircularProgressIndicator(
+                              strokeWidth: 2,
+                              color: Colors.white,
+                            ),
+                          )
+                        : const Icon(Icons.sync),
+                    label: Text(
+                      sending
+                          ? 'Sincronizando...'
+                          : 'Sincronizar (${_selected.length} / $totalSelectable)',
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                );
+              },
             );
           },
         ),
@@ -261,7 +481,10 @@ class _RegisteredSurveysPageState extends State<RegisteredSurveysPage> {
     );
   }
 
-  Future<void> _showAnswersDialog(BuildContext context, SurveySubmission item) async {
+  Future<void> _showAnswersDialog(
+    BuildContext context,
+    SurveySubmission item,
+  ) async {
     final pretty = const JsonEncoder.withIndent('  ').convert(item.answers);
 
     return showDialog(
@@ -286,130 +509,23 @@ class _RegisteredSurveysPageState extends State<RegisteredSurveysPage> {
     );
   }
 
-  Future<void> _showViewDialog(BuildContext context, SurveySubmission item, _Summary s) async {
-    String two(int n) => n.toString().padLeft(2, '0');
-    String fmtDateTime(DateTime dt) {
-      final date = '${dt.year.toString().padLeft(4, '0')}-${two(dt.month)}-${two(dt.day)}';
-      final time = '${two(dt.hour)}:${two(dt.minute)}:${two(dt.second)}';
-      return '$date $time';
-    }
-
-    final created = fmtDateTime(item.createdAt);
-    final statusText = item.status.name.toUpperCase();
-
-    final isError = item.status == SubmissionStatus.error;
-    final hasErrorText = item.lastError != null && item.lastError!.trim().isNotEmpty;
-
-    return showDialog(
-      context: context,
-      builder: (_) => AlertDialog(
-        titlePadding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
-        contentPadding: const EdgeInsets.fromLTRB(16, 12, 16, 16),
-        title: Row(
-          children: [
-            const CircleAvatar(child: Icon(Icons.person_outline)),
-            const SizedBox(width: 12),
-            Expanded(child: Text(s.nombre, maxLines: 2, overflow: TextOverflow.ellipsis)),
-          ],
-        ),
-        content: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Wrap(
-                spacing: 8,
-                runSpacing: 8,
-                children: [
-                  if (s.edad != null)
-                    Chip(
-                      avatar: const Icon(Icons.cake_outlined),
-                      label: Text('${s.edad} años'),
-                    ),
-                  if (s.estadoCivil != null)
-                    Chip(
-                      avatar: const Icon(Icons.favorite_border),
-                      label: Text(s.estadoCivil!),
-                    ),
-                  Chip(
-                    avatar: Icon(isError ? Icons.error_outline : Icons.info_outline),
-                    label: Text(statusText),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 12),
-              Card(
-                elevation: 0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  side: BorderSide(color: Theme.of(context).dividerColor),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(12),
-                  child: Column(
-                    children: [
-                      _kvRow('Cédula', s.cedula),
-                      const Divider(height: 16),
-                      _kvRow('Creado', created),
-                      const Divider(height: 16),
-                      _kvRow('Intentos', item.attempts.toString()),
-                    ],
-                  ),
-                ),
-              ),
-              if (hasErrorText) ...[
-                const SizedBox(height: 12),
-                Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.all(12),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    color: Theme.of(context).colorScheme.errorContainer,
-                  ),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Icon(Icons.error_outline, color: Theme.of(context).colorScheme.onErrorContainer),
-                      const SizedBox(width: 10),
-                      Expanded(
-                        child: Text(
-                          item.lastError!,
-                          style: TextStyle(color: Theme.of(context).colorScheme.onErrorContainer),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ],
-          ),
-        ),
-        actions: [
-          TextButton(onPressed: () => Navigator.pop(context), child: const Text('Cerrar')),
-        ],
-      ),
-    );
-  }
-
-  Widget _kvRow(String k, String v) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SizedBox(width: 90, child: Text(k, style: const TextStyle(fontWeight: FontWeight.w600))),
-        const SizedBox(width: 8),
-        Expanded(child: Text(v, textAlign: TextAlign.right)),
-      ],
-    );
-  }
-
   Future<bool?> _confirmDelete(BuildContext context) {
     return showDialog<bool>(
       context: context,
       builder: (_) => AlertDialog(
         title: const Text('Eliminar encuesta'),
-        content: const Text('Esto borrará este registro del almacenamiento local. ¿Continuar?'),
+        content: const Text(
+          'Esto borrará este registro del almacenamiento local. ¿Continuar?',
+        ),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(context, false), child: const Text('Cancelar')),
-          ElevatedButton(onPressed: () => Navigator.pop(context, true), child: const Text('Eliminar')),
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: const Text('Cancelar'),
+          ),
+          ElevatedButton(
+            onPressed: () => Navigator.pop(context, true),
+            child: const Text('Eliminar'),
+          ),
         ],
       ),
     );
@@ -420,7 +536,9 @@ class _RegisteredSurveysPageState extends State<RegisteredSurveysPage> {
 
     final nombres = (a['Nombres'] ?? '').toString().trim();
     final apellidos = (a['Apellidos'] ?? '').toString().trim();
-    final nombre = ('$nombres $apellidos').trim().isEmpty ? '-' : ('$nombres $apellidos').trim();
+    final nombre = ('$nombres $apellidos').trim().isEmpty
+        ? '-'
+        : ('$nombres $apellidos').trim();
 
     final cedula = (a['nroDocumentoM'] ?? '-').toString().trim();
     final estadoCivilId = (a['11'] ?? '').toString().trim();
@@ -445,7 +563,8 @@ class _RegisteredSurveysPageState extends State<RegisteredSurveysPage> {
     final now = DateTime.now();
     int years = now.year - dob.year;
     final hadBirthdayThisYear =
-        (now.month > dob.month) || (now.month == dob.month && now.day >= dob.day);
+        (now.month > dob.month) ||
+        (now.month == dob.month && now.day >= dob.day);
     if (!hadBirthdayThisYear) years--;
 
     if (years < 0) return null;
@@ -473,9 +592,54 @@ class _RegisteredSurveysPageState extends State<RegisteredSurveysPage> {
 
   String _fmtDateTime(DateTime dt) {
     String two(int n) => n.toString().padLeft(2, '0');
-    final date = '${dt.year.toString().padLeft(4, '0')}-${two(dt.month)}-${two(dt.day)}';
-    final time = '${two(dt.hour)}:${two(dt.minute)}:${two(dt.second)}';
+    final date =
+        '${dt.year.toString().padLeft(4, '0')}-${two(dt.month)}-${two(dt.day)}';
+    final time = '${two(dt.hour)}:${two(dt.minute)}';
     return '$date $time';
+  }
+
+  Widget _buildStatusBadge(SurveySubmission item) {
+    Color color;
+    String text;
+    IconData icon;
+
+    if (item.status == SubmissionStatus.pending) {
+      color = Colors.blue;
+      text = 'Lista para enviar';
+      icon = Icons.hourglass_empty;
+    } else if (item.status == SubmissionStatus.error) {
+      color = Colors.red;
+      text = 'ERROR INTERNO (${item.attempts} intentos)';
+      icon = Icons.error_outline;
+    } else {
+      color = Colors.green;
+      text = 'Enviado';
+      icon = Icons.check_circle_outline;
+    }
+
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      decoration: BoxDecoration(
+        color: color.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: color.withOpacity(0.5)),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, size: 14, color: color),
+          const SizedBox(width: 4),
+          Text(
+            text,
+            style: TextStyle(
+              color: color,
+              fontSize: 10,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
 
