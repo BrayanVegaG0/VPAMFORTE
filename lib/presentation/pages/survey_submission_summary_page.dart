@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:geolocator/geolocator.dart';
+
+import '../../core/theme/app_colors.dart';
 
 import '../../domain/entities/survey_section.dart';
 import '../../domain/rules/survey_rules_engine.dart';
@@ -152,19 +155,30 @@ class SurveySubmissionSummaryPage extends StatelessWidget {
               Row(
                 children: [
                   Expanded(
-                    child: OutlinedButton.icon(
-                      onPressed: () => Navigator.pop(context),
-                      icon: const Icon(Icons.edit),
-                      label: const Text('Revisar Respuestas'),
-                      style: OutlinedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(vertical: 16),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(
                     child: ElevatedButton.icon(
-                      onPressed: () {
+                      onPressed: () async {
+                        // VERIFICACIÓN ESTRICTA DE UBICACIÓN
+                        final serviceEnabled =
+                            await Geolocator.isLocationServiceEnabled();
+                        if (!serviceEnabled) {
+                          if (context.mounted) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                backgroundColor: AppColors.primary,
+                                content: Text(
+                                  'La ubicación es obligatoria para enviar la encuesta. Por favor actívela.',
+                                  style: TextStyle(
+                                    color: AppColors.accent,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            );
+                          }
+                          return;
+                        }
+
+                        if (!context.mounted) return;
                         Navigator.pop(context);
                         context.read<SurveyBloc>().add(
                           const SurveyFinalizeRequested(),
@@ -186,28 +200,31 @@ class SurveySubmissionSummaryPage extends StatelessWidget {
 
               // Advertencia si faltan respuestas
               if (answeredQuestions < totalQuestions)
-                Container(
-                  padding: const EdgeInsets.all(12),
-                  decoration: BoxDecoration(
-                    color: Colors.orange[50],
-                    borderRadius: BorderRadius.circular(8),
-                    border: Border.all(color: Colors.orange[300]!),
-                  ),
-                  child: Row(
-                    children: [
-                      Icon(Icons.warning_amber, color: Colors.orange[700]),
-                      const SizedBox(width: 12),
-                      Expanded(
-                        child: Text(
-                          'Hay ${totalQuestions - answeredQuestions} pregunta(s) sin responder. '
-                          'Puedes enviar de todas formas o revisar para completar.',
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: Colors.orange[900],
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 40.0), // Padding extra
+                  child: Container(
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                      color: Colors.orange[50],
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(color: Colors.orange[300]!),
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(Icons.warning_amber, color: Colors.orange[700]),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Text(
+                            'Hay ${totalQuestions - answeredQuestions} pregunta(s) sin responder. '
+                            'Puedes enviar de todas formas o revisar para completar.',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.orange[900],
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
             ],
@@ -257,10 +274,9 @@ class SurveySubmissionSummaryPage extends StatelessWidget {
         ),
         trailing: Icon(Icons.chevron_right, color: Colors.grey[400]),
         onTap: () {
-          context.read<SurveyBloc>().add(
-            SurveyJumpToPageRequested(pageIndex: index),
-          );
-          Navigator.pop(context);
+          // Retornamos el índice para que SurveysPage sepa a dónde ir
+          // y active el modo "Edición desde Resumen".
+          Navigator.pop(context, index);
         },
       ),
     );

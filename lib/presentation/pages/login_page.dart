@@ -38,22 +38,25 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  void _loginAsGuest() {
-    // TODO: Implementar lógica de login como invitado
-    Navigator.pushReplacementNamed(context, '/');
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: AppColors.background, // Gris de la paleta
       body: BlocListener<AuthBloc, AuthState>(
         listener: (context, state) {
           if (state is AuthAuthenticated) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: Text('Bienvenido: ${state.user.nombre}'),
-                backgroundColor: Colors.green,
+                // Background azul
+                backgroundColor: AppColors.primary,
+                content: Text(
+                  'Bienvenido: ${state.user.nombre}',
+                  // Letras amarillas
+                  style: const TextStyle(
+                    color: AppColors.accent,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
             );
             Navigator.pushReplacementNamed(context, '/');
@@ -77,32 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // Botón de ayuda en la esquina superior derecha
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: AppColors.primary,
-                          shape: BoxShape.circle,
-                        ),
-                        child: IconButton(
-                          icon: const Icon(
-                            Icons.help_outline,
-                            color: Colors.white,
-                          ),
-                          onPressed: () {
-                            // TODO: Mostrar ayuda
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text('Ayuda - Próximamente'),
-                              ),
-                            );
-                          },
-                          tooltip: 'Ayuda',
-                        ),
-                      ),
-                    ),
-
+                    // Se eliminó el botón de ayuda (Align top right)
                     const SizedBox(height: 20),
 
                     // Logo "Infancia EC" con línea amarilla
@@ -112,9 +90,9 @@ class _LoginPageState extends State<LoginPage> {
                           text: const TextSpan(
                             children: [
                               TextSpan(
-                                text: 'Infancia',
+                                text: 'Ficha Vulnerabilidad',
                                 style: TextStyle(
-                                  fontSize: 36,
+                                  fontSize: 28, // Reducido de 36
                                   fontWeight: FontWeight.bold,
                                   color: AppColors.primary,
                                   fontStyle: FontStyle.italic,
@@ -129,7 +107,7 @@ class _LoginPageState extends State<LoginPage> {
                           children: [
                             Container(
                               height: 4,
-                              width: 80,
+                              width: 60, // Ajustado proporcionalmente
                               decoration: BoxDecoration(
                                 color: AppColors.accent,
                                 borderRadius: BorderRadius.circular(2),
@@ -137,9 +115,9 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             const SizedBox(width: 8),
                             const Text(
-                              'ec',
+                              'El Nuevo Ecuador',
                               style: TextStyle(
-                                fontSize: 32,
+                                fontSize: 26, // Reducido de 32
                                 fontWeight: FontWeight.bold,
                                 color: AppColors.accent,
                                 fontStyle: FontStyle.italic,
@@ -166,7 +144,7 @@ class _LoginPageState extends State<LoginPage> {
                               const Text(
                                 'Bienvenido',
                                 style: TextStyle(
-                                  fontSize: 24,
+                                  fontSize: 20, // Reducido de 24
                                   fontWeight: FontWeight.bold,
                                   color: AppColors.primary,
                                 ),
@@ -176,7 +154,7 @@ class _LoginPageState extends State<LoginPage> {
                               const Text(
                                 'Ingresa con tu cédula y contraseña para continuar.',
                                 style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 12, // Reducido de 14
                                   color: AppColors.textSecondary,
                                 ),
                                 textAlign: TextAlign.center,
@@ -237,28 +215,9 @@ class _LoginPageState extends State<LoginPage> {
                                   return null;
                                 },
                               ),
-                              const SizedBox(height: 12),
+                              const SizedBox(height: 24),
 
-                              // Link "¿Olvidaste tu contraseña?"
-                              Align(
-                                alignment: Alignment.centerRight,
-                                child: TextButton(
-                                  onPressed: () {
-                                    // TODO: Implementar recuperación de contraseña
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
-                                        content: Text(
-                                          'Recuperación de contraseña - Próximamente',
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                  child: const Text(
-                                    '¿Olvidaste tu contraseña?',
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(height: 16),
+                              // Se elimino "¿Olvidaste tu contraseña?"
 
                               // Botón "Ingresar"
                               BlocBuilder<AuthBloc, AuthState>(
@@ -282,51 +241,15 @@ class _LoginPageState extends State<LoginPage> {
                                   );
                                 },
                               ),
-                              const SizedBox(height: 16),
 
-                              // Divisor con "o"
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: Divider(color: AppColors.divider),
-                                  ),
-                                  const Padding(
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal: 16,
-                                    ),
-                                    child: Text(
-                                      'o',
-                                      style: TextStyle(
-                                        color: AppColors.textSecondary,
-                                      ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Divider(color: AppColors.divider),
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(height: 16),
-
-                              // Botón "Ingresar como invitado"
-                              SizedBox(
-                                height: 50,
-                                child: ElevatedButton(
-                                  onPressed: _loginAsGuest,
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: AppColors.primaryLight,
-                                    foregroundColor: Colors.white,
-                                  ),
-                                  child: const Text('Ingresar como invitado'),
-                                ),
-                              ),
+                              // Se eliminó el divisor y el botón de invitado
                               const SizedBox(height: 16),
 
                               // Texto de política de privacidad
                               const Text(
                                 'Al crear una cuenta usted está de acuerdo con nuestra Política de Privacidad.',
                                 style: TextStyle(
-                                  fontSize: 12,
+                                  fontSize: 10, // Reducido de 12
                                   color: AppColors.textSecondary,
                                 ),
                                 textAlign: TextAlign.center,

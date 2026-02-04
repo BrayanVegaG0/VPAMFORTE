@@ -5,10 +5,7 @@ import 'package:xml/xml.dart';
 import '../../models/user_model.dart';
 
 abstract class AuthRemoteDataSource {
-  Future<UserModel> login({
-    required String username,
-    required String password,
-  });
+  Future<UserModel> login({required String username, required String password});
 
   Future<void> logout();
 }
@@ -43,7 +40,18 @@ class AuthRemoteDataSourceSoap implements AuthRemoteDataSource {
     );
 
     if (resp.statusCode != 200) {
-      throw AuthException('HTTP ${resp.statusCode}: ${resp.body}');
+      // Manejo de error 503 o servidor caído
+      throw AuthException(
+        'El servicio no está disponible temporalmente (Estado ${resp.statusCode}). Intente más tarde.',
+      );
+    }
+
+    final bodyLower = resp.body.trim().toLowerCase();
+    if (bodyLower.startsWith('<!doctype') || bodyLower.startsWith('<html')) {
+      // Manejo de respuesta HTML (Proxy, Mantenimiento, etc.) en lugar de SOAP/XML
+      throw AuthException(
+        'El servicio está en mantenimiento o no disponible temporalmente. Intente más tarde.',
+      );
     }
 
     return _parseAutenticacionResponse(resp.body);
@@ -77,7 +85,8 @@ class AuthRemoteDataSourceSoap implements AuthRemoteDataSource {
   UserModel _parseAutenticacionResponse(String xmlStr) {
     final doc = XmlDocument.parse(xmlStr);
 
-    final body = doc.findAllElements('Body').firstOrNull ??
+    final body =
+        doc.findAllElements('Body').firstOrNull ??
         doc.findAllElements('soap:Body').firstOrNull;
 
     if (body == null) {
@@ -87,7 +96,8 @@ class AuthRemoteDataSourceSoap implements AuthRemoteDataSource {
     // SOAP Fault (por si acaso)
     final fault = body.findAllElements('Fault').firstOrNull;
     if (fault != null) {
-      final faultString = fault.findAllElements('faultstring').firstOrNull?.innerText ??
+      final faultString =
+          fault.findAllElements('faultstring').firstOrNull?.innerText ??
           'SOAP Fault';
       throw AuthException(faultString);
     }
@@ -98,8 +108,10 @@ class AuthRemoteDataSourceSoap implements AuthRemoteDataSource {
       throw AuthException('Respuesta SOAP inválida: no existe nodo <acceso>');
     }
 
-    final cod = acceso.findAllElements('cod').firstOrNull?.innerText.trim() ?? '';
-    final mensaje = acceso.findAllElements('mensaje').firstOrNull?.innerText.trim() ?? '';
+    final cod =
+        acceso.findAllElements('cod').firstOrNull?.innerText.trim() ?? '';
+    final mensaje =
+        acceso.findAllElements('mensaje').firstOrNull?.innerText.trim() ?? '';
 
     // Error funcional: E002 CREDENCIALES INCORRECTAS
     if (cod.isEmpty) {
@@ -112,8 +124,16 @@ class AuthRemoteDataSourceSoap implements AuthRemoteDataSource {
     }
 
     // OK: E000
-    final idUser = acceso.findAllElements('iduser').firstOrNull?.innerText.trim();
-    final nombreUser = acceso.findAllElements('nombreuser').firstOrNull?.innerText.trim();
+    final idUser = acceso
+        .findAllElements('iduser')
+        .firstOrNull
+        ?.innerText
+        .trim();
+    final nombreUser = acceso
+        .findAllElements('nombreuser')
+        .firstOrNull
+        ?.innerText
+        .trim();
     final token = acceso.findAllElements('token').firstOrNull?.innerText.trim();
 
     if (idUser == null || idUser.isEmpty) {

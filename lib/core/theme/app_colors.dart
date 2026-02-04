@@ -12,13 +12,14 @@ class AppColors {
   static const Color primary = Color(0xFF2D2D96);
 
   /// Rojo - Usado para errores, alertas, acciones destructivas
-  static const Color error = Color(0xFD0118);
+  /// Rojo - Usado para errores, alertas, acciones destructivas
+  static const Color error = Color(0xFFD32F2F);
 
   /// Amarillo - Usado para acentos, highlights, elementos decorativos
   static const Color accent = Color(0xFFFFC003);
 
   /// Gris claro - Usado para fondos de la aplicación
-  static const Color background = Color(0xFFF8F9FA);
+  static const Color background = Color(0xFFEEEEEE);
 
   /// Blanco - Usado para cards, contenedores, superficies
   static const Color surface = Colors.white;

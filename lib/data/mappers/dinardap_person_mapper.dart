@@ -20,6 +20,7 @@ class DinardapPersonMapper {
       fechaNacimientoDdMmYyyy: _cleanDdMmYyyy(m.fechaNacimiento),
       nacionalidad: m.nacionalidad,
       sexo: m.sexo,
+      estadoCivil: m.estadoCivil,
     );
   }
 }

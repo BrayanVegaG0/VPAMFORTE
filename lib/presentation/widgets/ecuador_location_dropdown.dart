@@ -17,7 +17,11 @@ class _GeoCanton {
   final int id;
   final String name;
   final int provinceInternalId;
-  _GeoCanton({required this.id, required this.name, required this.provinceInternalId});
+  _GeoCanton({
+    required this.id,
+    required this.name,
+    required this.provinceInternalId,
+  });
 
   factory _GeoCanton.fromJson(Map<String, dynamic> j) {
     final prov = j['province'] as Map<String, dynamic>;
@@ -76,8 +80,10 @@ class EcuadorGeoStore {
   late final List<_GeoProvince> _provinces;
   late final Map<int, String> _cantonNameByInternalId;
 
-  late final Map<int, List<GeoOption>> _cantonsByProvinceCode; // provCode -> cantons
-  late final Map<String, List<GeoOption>> _parishesByProvCantonCode; // "prov|canton" -> parishes
+  late final Map<int, List<GeoOption>>
+  _cantonsByProvinceCode; // provCode -> cantons
+  late final Map<String, List<GeoOption>>
+  _parishesByProvCantonCode; // "prov|canton" -> parishes
 
   Future<void> ensureLoaded({
     String provincesAsset = 'assets/geo/provinces.json',
@@ -89,21 +95,28 @@ class EcuadorGeoStore {
     return _loadingFuture!;
   }
 
-  Future<void> _doLoad(String provincesAsset, String cantonsAsset, String parishesAsset) async {
+  Future<void> _doLoad(
+    String provincesAsset,
+    String cantonsAsset,
+    String parishesAsset,
+  ) async {
     try {
       final provincesRaw = await rootBundle.loadString(provincesAsset);
       final cantonsRaw = await rootBundle.loadString(cantonsAsset);
       final parishesRaw = await rootBundle.loadString(parishesAsset);
 
-      final provList = (jsonDecode(provincesRaw) as List).cast<dynamic>()
+      final provList = (jsonDecode(provincesRaw) as List)
+          .cast<dynamic>()
           .map((e) => (e as Map).cast<String, dynamic>())
           .toList();
 
-      final cantonList = (jsonDecode(cantonsRaw) as List).cast<dynamic>()
+      final cantonList = (jsonDecode(cantonsRaw) as List)
+          .cast<dynamic>()
           .map((e) => (e as Map).cast<String, dynamic>())
           .toList();
 
-      final parishList = (jsonDecode(parishesRaw) as List).cast<dynamic>()
+      final parishList = (jsonDecode(parishesRaw) as List)
+          .cast<dynamic>()
           .map((e) => (e as Map).cast<String, dynamic>())
           .toList();
 
@@ -128,10 +141,16 @@ class EcuadorGeoStore {
           GeoOption(code: parishCode.toString(), label: p.name),
         );
 
-        final cantonName = _cantonNameByInternalId[p.cantonInternalId] ?? 'Cantón ${p.cantonInternalId}';
-        final option = GeoOption(code: cantonCode.toString(), label: cantonName);
+        final cantonName =
+            _cantonNameByInternalId[p.cantonInternalId] ??
+            'Cantón ${p.cantonInternalId}';
+        final option = GeoOption(
+          code: cantonCode.toString(),
+          label: cantonName,
+        );
 
-        final byCantonCode = (cantonsByProv[provinceCode] ??= <int, GeoOption>{});
+        final byCantonCode = (cantonsByProv[provinceCode] ??=
+            <int, GeoOption>{});
         byCantonCode[cantonCode] = option;
       }
 
@@ -142,7 +161,8 @@ class EcuadorGeoStore {
 
       _cantonsByProvinceCode = {
         for (final e in cantonsByProv.entries)
-          e.key: (e.value.values.toList()..sort((a, b) => a.label.compareTo(b.label))),
+          e.key: (e.value.values.toList()
+            ..sort((a, b) => a.label.compareTo(b.label))),
       };
 
       _loaded = true;
@@ -162,11 +182,61 @@ class EcuadorGeoStore {
     return _cantonsByProvinceCode[provinceCode] ?? const [];
   }
 
-  List<GeoOption> getParishesByCodes({required int provinceCode, required int cantonCode}) {
-    return _parishesByProvCantonCode[_key(provinceCode, cantonCode)] ?? const [];
+  List<GeoOption> getParishesByCodes({
+    required int provinceCode,
+    required int cantonCode,
+  }) {
+    return _parishesByProvCantonCode[_key(provinceCode, cantonCode)] ??
+        const [];
   }
 
   static String _key(int prov, int canton) => '$prov|$canton';
+
+  // Métodos de búsqueda por nombre (Case Insensitive)
+  String? findProvinceIdByName(String name) {
+    if (!_loaded) return null;
+    final normalized = name.trim().toUpperCase();
+    try {
+      final match = _provinces.firstWhere(
+        (p) => p.name.toUpperCase() == normalized,
+      );
+      return match.id.toString();
+    } catch (_) {
+      return null;
+    }
+  }
+
+  String? findCantonIdByName(int provinceId, String name) {
+    if (!_loaded) return null;
+    final cantons = _cantonsByProvinceCode[provinceId];
+    if (cantons == null) return null;
+
+    final normalized = name.trim().toUpperCase();
+    try {
+      final match = cantons.firstWhere(
+        (c) => c.label.toUpperCase() == normalized,
+      );
+      return match.code;
+    } catch (_) {
+      return null;
+    }
+  }
+
+  String? findParishIdByName(int provinceId, int cantonId, String name) {
+    if (!_loaded) return null;
+    final parishes = _parishesByProvCantonCode[_key(provinceId, cantonId)];
+    if (parishes == null) return null;
+
+    final normalized = name.trim().toUpperCase();
+    try {
+      final match = parishes.firstWhere(
+        (p) => p.label.toUpperCase() == normalized,
+      );
+      return match.code;
+    } catch (_) {
+      return null;
+    }
+  }
 }
 
 class EcuadorLocationDropdown extends StatefulWidget {
@@ -192,7 +262,8 @@ class EcuadorLocationDropdown extends StatefulWidget {
   });
 
   @override
-  State<EcuadorLocationDropdown> createState() => _EcuadorLocationDropdownState();
+  State<EcuadorLocationDropdown> createState() =>
+      _EcuadorLocationDropdownState();
 }
 
 class _EcuadorLocationDropdownState extends State<EcuadorLocationDropdown> {
@@ -262,7 +333,10 @@ class _EcuadorLocationDropdownState extends State<EcuadorLocationDropdown> {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(_error!, style: const TextStyle(color: Colors.red, fontSize: 12)),
+          Text(
+            _error!,
+            style: const TextStyle(color: Colors.red, fontSize: 12),
+          ),
           const SizedBox(height: 8),
           OutlinedButton.icon(
             onPressed: () {
@@ -289,16 +363,26 @@ class _EcuadorLocationDropdownState extends State<EcuadorLocationDropdown> {
 
     if (isProvince) {
       final items = EcuadorGeoStore.I.getProvinces();
-      final current = _safeValue(_asStr(widget.answers[widget.provinceQuestionId]), items);
+      final current = _safeValue(
+        _asStr(widget.answers[widget.provinceQuestionId]),
+        items,
+      );
 
       return DropdownButtonFormField<String>(
         value: current,
         isExpanded: true,
         items: items
-            .map((o) => DropdownMenuItem<String>(
-          value: o.code,
-          child: Text(o.label, maxLines: 1, overflow: TextOverflow.ellipsis),
-        ))
+            .map(
+              (o) => DropdownMenuItem<String>(
+                value: o.code,
+                child: Text(
+                  o.label,
+                  maxLines: null,
+                  overflow: TextOverflow.visible,
+                  style: const TextStyle(color: Colors.black),
+                ),
+              ),
+            )
             .toList(),
         onChanged: (v) {
           widget.onAnswerChanged(widget.provinceQuestionId, v);
@@ -306,37 +390,56 @@ class _EcuadorLocationDropdownState extends State<EcuadorLocationDropdown> {
           widget.onAnswerChanged(widget.parishQuestionId, null);
         },
         decoration: _decoration(hint: 'Seleccione provincia'),
+        style: const TextStyle(color: Colors.black),
       );
     }
 
     if (isCanton) {
       final enabled = provCode != null;
-      final items = enabled ? EcuadorGeoStore.I.getCantonsByProvinceCode(provCode!) : const <GeoOption>[];
-      final current = _safeValue(_asStr(widget.answers[widget.cantonQuestionId]), items);
+      final items = enabled
+          ? EcuadorGeoStore.I.getCantonsByProvinceCode(provCode!)
+          : const <GeoOption>[];
+      final current = _safeValue(
+        _asStr(widget.answers[widget.cantonQuestionId]),
+        items,
+      );
 
       return DropdownButtonFormField<String>(
         value: current,
         isExpanded: true,
         items: items
-            .map((o) => DropdownMenuItem<String>(
-          value: o.code,
-          child: Text(o.label, maxLines: 1, overflow: TextOverflow.ellipsis),
-        ))
+            .map(
+              (o) => DropdownMenuItem<String>(
+                value: o.code,
+                child: Text(
+                  o.label,
+                  maxLines: null,
+                  overflow: TextOverflow.visible,
+                  style: const TextStyle(color: Colors.black),
+                ),
+              ),
+            )
             .toList(),
         onChanged: !enabled
             ? null
             : (v) {
-          widget.onAnswerChanged(widget.cantonQuestionId, v);
-          widget.onAnswerChanged(widget.parishQuestionId, null);
-        },
-        decoration: _decoration(hint: enabled ? 'Seleccione cantón' : 'Seleccione provincia primero'),
+                widget.onAnswerChanged(widget.cantonQuestionId, v);
+                widget.onAnswerChanged(widget.parishQuestionId, null);
+              },
+        decoration: _decoration(
+          hint: enabled ? 'Seleccione cantón' : 'Seleccione provincia primero',
+        ),
+        style: const TextStyle(color: Colors.black),
       );
     }
 
     if (isParish) {
       final enabled = provCode != null && cantonCode != null;
       final items = enabled
-          ? EcuadorGeoStore.I.getParishesByCodes(provinceCode: provCode!, cantonCode: cantonCode!)
+          ? EcuadorGeoStore.I.getParishesByCodes(
+              provinceCode: provCode!,
+              cantonCode: cantonCode!,
+            )
           : const <GeoOption>[];
 
       final current = _safeValue(parishCode, items);
@@ -345,17 +448,27 @@ class _EcuadorLocationDropdownState extends State<EcuadorLocationDropdown> {
         value: current,
         isExpanded: true,
         items: items
-            .map((o) => DropdownMenuItem<String>(
-          value: o.code,
-          child: Text(o.label, maxLines: 1, overflow: TextOverflow.ellipsis),
-        ))
+            .map(
+              (o) => DropdownMenuItem<String>(
+                value: o.code,
+                child: Text(
+                  o.label,
+                  maxLines: null,
+                  overflow: TextOverflow.visible,
+                  style: const TextStyle(color: Colors.black),
+                ),
+              ),
+            )
             .toList(),
         onChanged: !enabled
             ? null
             : (v) {
-          widget.onAnswerChanged(widget.parishQuestionId, v);
-        },
-        decoration: _decoration(hint: enabled ? 'Seleccione parroquia' : 'Seleccione cantón primero'),
+                widget.onAnswerChanged(widget.parishQuestionId, v);
+              },
+        decoration: _decoration(
+          hint: enabled ? 'Seleccione parroquia' : 'Seleccione cantón primero',
+        ),
+        style: const TextStyle(color: Colors.black),
       );
     }
 

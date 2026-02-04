@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../core/theme/app_colors.dart';
 import '../state/auth/auth_bloc.dart';
 import '../state/auth/auth_event.dart';
 import '../state/auth/auth_state.dart';
@@ -24,7 +25,9 @@ class AppDrawer extends StatelessWidget {
 
     final bool isAuthed = state is AuthAuthenticated;
     final String userName = isAuthed
-        ? (state as AuthAuthenticated).user.nombre
+        ? state
+              .user
+              .nombre // Cast innecesario eliminado
         : 'INVITADO/A';
 
     return Drawer(
@@ -38,28 +41,24 @@ class AppDrawer extends StatelessWidget {
                 children: [
                   _DrawerItem(
                     icon: Icons.home,
-                    iconBg: const Color(0xFF1976D2),
                     title: 'Principal',
                     subtitle: 'Pantalla principal',
                     onTap: () => _goReplace(context, '/'),
                   ),
                   _DrawerItem(
                     icon: Icons.edit_note,
-                    iconBg: const Color(0xFF455A64),
                     title: 'LLenar encuesta',
                     subtitle: 'Persona vulnerable',
                     onTap: () => _goReplace(context, '/usuario_consentimiento'),
                   ),
                   _DrawerItem(
                     icon: Icons.assignment,
-                    iconBg: const Color(0xFF0288D1),
                     title: 'Encuestas registradas',
                     subtitle: 'Lista de encuestas',
                     onTap: () => _goReplace(context, '/registered_surveys'),
                   ),
                   _DrawerItem(
                     icon: Icons.info,
-                    iconBg: const Color(0xFF0097A7),
                     title: 'Acerca de',
                     subtitle: 'Información aplicación',
                     onTap: () => _goReplace(context, '/about_of'),
@@ -70,7 +69,6 @@ class AppDrawer extends StatelessWidget {
                   if (!isAuthed)
                     _DrawerItem(
                       icon: Icons.login,
-                      iconBg: const Color(0xFF43A047),
                       title: 'Iniciar sesión',
                       subtitle: 'Acceder al sistema',
                       onTap: () => _goReplace(context, '/login'),
@@ -80,17 +78,34 @@ class AppDrawer extends StatelessWidget {
                   if (isAuthed)
                     _DrawerItem(
                       icon: Icons.logout,
-                      iconBg: const Color(0xFFFBC02D),
                       title: 'Cerrar sesión',
                       subtitle: 'Finalizar sesión',
                       onTap: () {
+                        // 1. Cerrar Drawer
                         Navigator.pop(context);
-                        context.read<AuthBloc>().add(const AuthLogoutRequested());
-                        // opcional: volver a Principal
-                        Navigator.pushReplacementNamed(context, '/');
+
+                        // 2. Despachar evento
+                        context.read<AuthBloc>().add(
+                          const AuthLogoutRequested(),
+                        );
+
+                        // 3. Navegar a Home SOLO si no estamos ahí
+                        // Esto permite que el listener de HomePage muestre el SnackBar
+                        final current = ModalRoute.of(context)?.settings.name;
+                        if (current != '/') {
+                          Navigator.pushReplacementNamed(context, '/');
+                        }
                       },
                     ),
                 ],
+              ),
+            ),
+            // Footer del drawer (opcional)
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                'v1.3.4',
+                style: TextStyle(color: Colors.grey[400], fontSize: 12),
               ),
             ),
           ],
@@ -110,14 +125,14 @@ class _DrawerHeader extends StatelessWidget {
     return Container(
       height: 140,
       width: double.infinity,
-      color: const Color(0xFF2C2FA3), // similar al drawer objetivo
+      color: AppColors.primary,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
       child: Row(
         children: [
           const CircleAvatar(
             radius: 26,
             backgroundColor: Colors.white,
-            child: Icon(Icons.person, color: Color(0xFF2C2FA3), size: 30),
+            child: Icon(Icons.person, color: AppColors.primary, size: 30),
           ),
           const SizedBox(width: 12),
           Expanded(
@@ -147,7 +162,7 @@ class _DrawerHeader extends StatelessWidget {
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );
@@ -156,14 +171,12 @@ class _DrawerHeader extends StatelessWidget {
 
 class _DrawerItem extends StatelessWidget {
   final IconData icon;
-  final Color iconBg;
   final String title;
   final String subtitle;
   final VoidCallback onTap;
 
   const _DrawerItem({
     required this.icon,
-    required this.iconBg,
     required this.title,
     required this.subtitle,
     required this.onTap,
@@ -173,20 +186,21 @@ class _DrawerItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       leading: CircleAvatar(
-        radius: 22,
-        backgroundColor: iconBg.withOpacity(0.15),
-        child: Icon(icon, color: iconBg, size: 22),
+        radius: 20,
+        backgroundColor: AppColors.primary.withOpacity(0.1),
+        child: Icon(icon, color: AppColors.primary, size: 20),
       ),
       title: Text(
         title,
         style: const TextStyle(
           fontWeight: FontWeight.w700,
-          fontSize: 15,
+          fontSize: 14,
+          color: Color(0xFF333333),
         ),
       ),
       subtitle: Text(
         subtitle,
-        style: const TextStyle(fontSize: 12),
+        style: const TextStyle(fontSize: 12, color: Colors.grey),
       ),
       onTap: onTap,
     );

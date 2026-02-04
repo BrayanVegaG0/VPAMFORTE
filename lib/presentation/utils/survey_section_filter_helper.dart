@@ -44,11 +44,9 @@ class SurveySectionFilterHelper {
       return true;
     }
 
-    // Para secciones de adultos mayores, verificar edad ≥ 65
-    final fechaNacimiento = answers['fechaNacimientoM']?.toString();
-    final age = calculateAge(fechaNacimiento);
-
-    return age != null && age >= 65;
+    // Para secciones de adultos mayores, verificar si el servicio seleccionado es '3' (Adulto Mayor)
+    final serviceId = answers['idServMdh']?.toString();
+    return serviceId == '3';
   }
 
   /// Filtra la lista de secciones según la edad del encuestado

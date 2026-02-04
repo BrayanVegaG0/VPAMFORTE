@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../core/theme/app_colors.dart';
+
 class UsuarioConsentimientoPage extends StatefulWidget {
   static const routeName = '/usuario_consentimiento';
 
@@ -39,13 +41,35 @@ class _UsuarioConsentimientoPageState extends State<UsuarioConsentimientoPage>
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    // Si el usuario vuelve de la configuración (resumed), verificamos de nuevo automágicamente
     if (state == AppLifecycleState.resumed) {
-      _checkLocationRequirements();
+      // Solo verificamos estado, NO solicitamos permisos automágicamente
+      _checkStatusOnly();
     }
   }
 
-  Future<void> _checkLocationRequirements() async {
+  /// Verifica estado sin solicitar nada (seguro para onResume)
+  Future<void> _checkStatusOnly() async {
+    if (!mounted) return;
+    // Si ya tenemos permisos y ubicación, no hacemos nada más que refrescar UI
+    final service = await Geolocator.isLocationServiceEnabled();
+    final permission = await Geolocator.checkPermission();
+
+    // Solo actualizamos si cambió algo positivo
+    if (service &&
+        (permission == LocationPermission.always ||
+            permission == LocationPermission.whileInUse)) {
+      setState(() {
+        _locationEnabled = true;
+        _permissionGranted = true;
+        _isChecking = false;
+        _errorMessage = null; // Limpiamos error si ya se arregló
+      });
+    }
+  }
+
+  Future<void> _checkLocationRequirements({
+    bool requestIfDenied = false,
+  }) async {
     if (!mounted) return;
     setState(() {
       _isChecking = true;
@@ -53,13 +77,13 @@ class _UsuarioConsentimientoPageState extends State<UsuarioConsentimientoPage>
     });
 
     try {
-      // 1. Verificar servicio de ubicación (GPS prendido)
+      // 1. Verificar servicio
       bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
       if (!serviceEnabled) {
         if (mounted) {
           setState(() {
             _locationEnabled = false;
-            _permissionGranted = false;
+            // No cambiamos _permissionGranted aquí, solo locationEnabled
             _isChecking = false;
             _errorMessage =
                 'La ubicación está desactivada. Por favor, actívela para continuar.';
@@ -71,30 +95,26 @@ class _UsuarioConsentimientoPageState extends State<UsuarioConsentimientoPage>
 
       // 2. Verificar permisos
       LocationPermission permission = await Geolocator.checkPermission();
+
       if (permission == LocationPermission.denied) {
-        permission = await Geolocator.requestPermission();
-        if (permission == LocationPermission.denied) {
-          if (mounted) {
-            setState(() {
-              _permissionGranted = false;
-              _isChecking = false;
-              _errorMessage =
-                  'El permiso de ubicación fue denegado. Es necesario para continuar.';
-            });
+        if (requestIfDenied) {
+          permission = await Geolocator.requestPermission();
+          if (permission == LocationPermission.denied) {
+            _setError('El permiso de ubicación es necesario.');
+            return;
           }
+        } else {
+          _setError(
+            'El permiso fue denegado. Presione "Intentar de nuevo" para concederlo.',
+          );
           return;
         }
       }
 
       if (permission == LocationPermission.deniedForever) {
-        if (mounted) {
-          setState(() {
-            _permissionGranted = false;
-            _isChecking = false;
-            _errorMessage =
-                'El permiso de ubicación está bloqueado permanentemente. Habilítelo desde la configuración del dispositivo.';
-          });
-        }
+        _setError(
+          'Permiso bloqueado permanentemente. Habilítelo en Configuración.',
+        );
         return;
       }
 
@@ -107,12 +127,17 @@ class _UsuarioConsentimientoPageState extends State<UsuarioConsentimientoPage>
         });
       }
     } catch (e) {
-      if (mounted) {
-        setState(() {
-          _isChecking = false;
-          _errorMessage = 'Error verificando ubicación: $e';
-        });
-      }
+      _setError('Error verificando ubicación: $e');
+    }
+  }
+
+  void _setError(String msg) {
+    if (mounted) {
+      setState(() {
+        _permissionGranted = false;
+        _isChecking = false;
+        _errorMessage = msg;
+      });
     }
   }
 
@@ -157,7 +182,7 @@ class _UsuarioConsentimientoPageState extends State<UsuarioConsentimientoPage>
                       ? Icons.location_searching
                       : Icons.location_disabled,
                   size: 64,
-                  color: _isChecking ? Colors.blue : Colors.red,
+                  color: _isChecking ? Colors.blue : AppColors.error,
                 ),
                 const SizedBox(height: 24),
                 if (_isChecking) ...[
@@ -174,7 +199,11 @@ class _UsuarioConsentimientoPageState extends State<UsuarioConsentimientoPage>
                   Text(
                     _errorMessage ?? 'Es necesario activar la ubicación.',
                     textAlign: TextAlign.center,
-                    style: const TextStyle(fontSize: 16),
+                    style: const TextStyle(
+                      fontSize: 16,
+                      color: AppColors.error, // Rojo visible
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   const SizedBox(height: 32),
                   SizedBox(
@@ -189,17 +218,9 @@ class _UsuarioConsentimientoPageState extends State<UsuarioConsentimientoPage>
                     ),
                   ),
                   const SizedBox(height: 16),
-                  SizedBox(
-                    width: double.infinity,
-                    child: OutlinedButton.icon(
-                      onPressed: _checkLocationRequirements,
-                      icon: const Icon(Icons.refresh),
-                      label: const Text('Intentar de nuevo'),
-                      style: OutlinedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(vertical: 16),
-                      ),
-                    ),
-                  ),
+                  const SizedBox(height: 16),
+                  // Se eliminó el botón "Intentar de nuevo" por solicitud.
+                  // La app verifica automáticamente al volver del background (onResume).
                   const SizedBox(height: 16),
                   TextButton(
                     onPressed: () => _goHome(context),
@@ -242,8 +263,13 @@ class _UsuarioConsentimientoPageState extends State<UsuarioConsentimientoPage>
                   if (!mounted) return;
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
+                      backgroundColor: AppColors.primary,
                       content: Text(
                         'Debe aceptar el tratamiento de datos personales para continuar con la encuesta.',
+                        style: TextStyle(
+                          color: AppColors.accent,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   );

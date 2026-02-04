@@ -34,10 +34,12 @@ class SurveyRulesEngine {
         final emptyList = v is List && v.isEmpty;
 
         if (v == null || emptyText || emptyList) {
-          errors.add(ValidationError(
-            questionId: q.id,
-            message: 'Falta responder: ${q.title}',
-          ));
+          errors.add(
+            ValidationError(
+              questionId: q.id,
+              message: 'Falta responder: ${q.title}',
+            ),
+          );
           continue; // si está vacío, no sigas con constraints
         }
       }
@@ -53,10 +55,10 @@ class SurveyRulesEngine {
   }
 
   List<ValidationError> validateSection(
-      Survey survey,
-      SurveySection section,
-      Map<String, dynamic> answers,
-      ) {
+    Survey survey,
+    SurveySection section,
+    Map<String, dynamic> answers,
+  ) {
     final errors = <ValidationError>[];
 
     final questions = survey.questions.where((q) => q.section == section);
@@ -70,10 +72,12 @@ class SurveyRulesEngine {
         final emptyList = v is List && v.isEmpty;
 
         if (v == null || emptyText || emptyList) {
-          errors.add(ValidationError(
-            questionId: q.id,
-            message: 'Falta responder: ${q.title}',
-          ));
+          errors.add(
+            ValidationError(
+              questionId: q.id,
+              message: 'Falta responder: ${q.title}',
+            ),
+          );
           continue;
         }
       }
@@ -87,11 +91,13 @@ class SurveyRulesEngine {
     return errors;
   }
 
-
-
   String? _validateConstraints(Question q, Map<String, dynamic> answers) {
     final c = q.constraints;
-    if (c == null) return null;
+    if (c == null)
+      return _validateCustomRules(
+        q,
+        answers,
+      ); // Check custom rules even if no constraints
 
     final raw = answers[q.id];
     if (raw == null) return null; // required lo valida arriba
@@ -121,7 +127,44 @@ class SurveyRulesEngine {
       }
     }
 
+    return _validateCustomRules(q, answers);
+  }
+
+  String? _validateCustomRules(Question q, Map<String, dynamic> answers) {
+    // Regla de Edad vs Servicio
+    if (q.id == 'fechaNacimientoM') {
+      final serviceId = answers['idServMdh']?.toString();
+      final dobIso = answers['fechaNacimientoM']?.toString();
+
+      if (serviceId != null && dobIso != null) {
+        final age = _calculateAge(dobIso);
+        if (age != null) {
+          // 3 = Adulto Mayor => >= 65
+          if (serviceId == '3' && age < 65) {
+            return 'Servicio Adulto Mayor no cumple con el requisito de edad: debe tener 65 años o más.';
+          }
+          // 2 = Desarrollo Infantil => <= 3
+          if (serviceId == '2' && age > 3) {
+            return 'Servicio Desarrollo Infantil no cumple con el requisito de edad: debe tener 3 años o menos.';
+          }
+        }
+      }
+    }
     return null;
   }
 
+  int? _calculateAge(String dobIso) {
+    try {
+      final birth = DateTime.parse(dobIso);
+      final now = DateTime.now();
+      int age = now.year - birth.year;
+      if (now.month < birth.month ||
+          (now.month == birth.month && now.day < birth.day)) {
+        age--;
+      }
+      return age;
+    } catch (_) {
+      return null;
+    }
+  }
 }

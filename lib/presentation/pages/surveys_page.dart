@@ -34,11 +34,10 @@ class _SurveysPageState extends State<SurveysPage> {
   static const _rules = SurveyRulesEngine();
 
   final ScrollController _scroll = ScrollController();
-
-  // GlobalKeys por pregunta visible (para scroll al faltante)
   final Map<String, GlobalKey> _questionKeys = {};
 
   int? _lastPageIndex;
+  bool _isEditingFromSummary = false; // ✅ Nueva bandera
 
   @override
   void dispose() {
@@ -207,6 +206,27 @@ class _SurveysPageState extends State<SurveysPage> {
     );
   }
 
+  Future<void> _showSummary() async {
+    final result = await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => BlocProvider.value(
+          value: context.read<SurveyBloc>(),
+          child: const SurveySubmissionSummaryPage(),
+        ),
+      ),
+    );
+
+    if (result is int && mounted) {
+      setState(() {
+        _isEditingFromSummary = true;
+      });
+      context.read<SurveyBloc>().add(
+        SurveyJumpToPageRequested(pageIndex: result),
+      );
+    }
+  }
+
   // ===== UI =====
 
   @override
@@ -320,9 +340,18 @@ class _SurveysPageState extends State<SurveysPage> {
         },
         listener: (context, state) {
           if (state.message != null && state.message!.isNotEmpty) {
-            ScaffoldMessenger.of(
-              context,
-            ).showSnackBar(SnackBar(content: Text(state.message!)));
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(
+                  state.message!,
+                  style: const TextStyle(
+                    color: AppColors.accent,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                backgroundColor: AppColors.primary,
+              ),
+            );
           }
 
           if (state.status == SurveyStatus.success) {
@@ -388,158 +417,197 @@ class _SurveysPageState extends State<SurveysPage> {
           final bottomSafe = MediaQuery.of(context).viewPadding.bottom;
 
           // ========================================
-          // USAR COLUMN CON HEADER STICKY
+          // STACK PARA OVERLAY DE CARGA
           // ========================================
-          return Column(
+          return Stack(
             children: [
-              // ========================================
-              // HEADER STICKY (Título + Barra de Progreso)
-              // ========================================
-              Container(
-                padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // Título de la sección
-                    Builder(
-                      builder: (context) {
-                        final visibleSections = _getVisibleSections(
-                          state.answers,
-                        );
-                        final currentIndexInVisible = visibleSections.indexOf(
-                          section,
-                        );
-                        final displayIndex = currentIndexInVisible >= 0
-                            ? currentIndexInVisible + 1
-                            : state.pageIndex + 1;
-
-                        return Text(
-                          '${section.title} ($displayIndex de ${visibleSections.length})',
-                          style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: AppColors.primary,
-                          ),
-                        );
-                      },
-                    ),
-                    const SizedBox(height: 12),
-
-                    // ========================================
-                    // BARRA DE PROGRESO (basada en PREGUNTAS VISIBLES)
-                    // ========================================
-                    Builder(
-                      builder: (context) {
-                        final visibleSections = _getVisibleSections(
-                          state.answers,
-                        );
-                        final totalVisible =
-                            QuestionProgressHelper.countVisibleQuestions(
-                              survey.questions,
+              Column(
+                children: [
+                  // ========================================
+                  // HEADER STICKY (Título + Barra de Progreso)
+                  // ========================================
+                  Container(
+                    padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        // Título de la sección
+                        Builder(
+                          builder: (context) {
+                            final visibleSections = _getVisibleSections(
                               state.answers,
-                              _rules,
-                              visibleSections,
                             );
-                        final answeredVisible =
-                            QuestionProgressHelper.countAnsweredVisibleQuestions(
-                              survey.questions,
-                              state.answers,
-                              _rules,
-                              visibleSections,
-                            );
-                        final progress = totalVisible > 0
-                            ? answeredVisible / totalVisible
-                            : 0.0;
-                        final percentage = (progress * 100).round();
+                            final currentIndexInVisible = visibleSections
+                                .indexOf(section);
+                            final displayIndex = currentIndexInVisible >= 0
+                                ? currentIndexInVisible + 1
+                                : state.pageIndex + 1;
 
-                        return Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            return Text(
+                              '${section.title} ($displayIndex de ${visibleSections.length})',
+                              style: const TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: AppColors.primary,
+                              ),
+                            );
+                          },
+                        ),
+                        const SizedBox(height: 12),
+
+                        // ========================================
+                        // BARRA DE PROGRESO (basada en PREGUNTAS VISIBLES)
+                        // ========================================
+                        Builder(
+                          builder: (context) {
+                            final visibleSections = _getVisibleSections(
+                              state.answers,
+                            );
+                            final totalVisible =
+                                QuestionProgressHelper.countVisibleQuestions(
+                                  survey.questions,
+                                  state.answers,
+                                  _rules,
+                                  visibleSections,
+                                );
+                            final answeredVisible =
+                                QuestionProgressHelper.countAnsweredVisibleQuestions(
+                                  survey.questions,
+                                  state.answers,
+                                  _rules,
+                                  visibleSections,
+                                );
+                            final progress = totalVisible > 0
+                                ? answeredVisible / totalVisible
+                                : 0.0;
+                            final percentage = (progress * 100).round();
+
+                            return Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Text(
-                                  'Progreso general',
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    color: Colors.grey,
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    const Text(
+                                      'Progreso general',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.grey,
+                                      ),
+                                    ),
+                                    Text(
+                                      '$answeredVisible / $totalVisible preguntas',
+                                      style: const TextStyle(
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w600,
+                                        color: AppColors.primary,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(height: 8),
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(10),
+                                  child: LinearProgressIndicator(
+                                    value: progress,
+                                    backgroundColor: Colors.grey[300],
+                                    valueColor:
+                                        const AlwaysStoppedAnimation<Color>(
+                                          AppColors.primary,
+                                        ),
+                                    minHeight: 10,
                                   ),
                                 ),
+                                const SizedBox(height: 4),
                                 Text(
-                                  '$answeredVisible / $totalVisible preguntas',
-                                  style: const TextStyle(
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.w600,
-                                    color: AppColors.primary,
+                                  '$percentage% completado',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.grey[600],
                                   ),
                                 ),
                               ],
-                            ),
-                            const SizedBox(height: 8),
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
-                              child: LinearProgressIndicator(
-                                value: progress,
-                                backgroundColor: Colors.grey[300],
-                                valueColor: const AlwaysStoppedAnimation<Color>(
-                                  AppColors.primary,
-                                ),
-                                minHeight: 10,
-                              ),
-                            ),
-                            const SizedBox(height: 4),
-                            Text(
-                              '$percentage% completado',
-                              style: TextStyle(
-                                fontSize: 12,
-                                color: Colors.grey[600],
-                              ),
-                            ),
-                          ],
-                        );
-                      },
-                    ),
-                    const SizedBox(height: 16),
-                    const Divider(height: 1),
-                  ],
-                ),
-              ),
-
-              // ========================================
-              // CONTENIDO SCROLLABLE (Preguntas)
-              // ========================================
-              Expanded(
-                child: ListView(
-                  controller: _scroll,
-                  padding: EdgeInsets.fromLTRB(16, 16, 16, 16 + bottomSafe),
-                  children: [
-                    for (final q in pageQuestions) ...[
-                      KeyedSubtree(
-                        key: ValueKey('q_${q.id}'),
-                        child: _QuestionCard(
-                          key: _questionKeys[q.id],
-                          question: q,
-                          requiredNow: _rules.isRequired(q, state.answers),
-                          markError: missingIds.contains(q.id),
-
-                          isInlineLoading:
-                              q.id == 'nroDocumentoM' &&
-                              state.isDinardapLoading,
-                          inlineError: q.id == 'nroDocumentoM'
-                              ? state.dinardapError
-                              : null,
+                            );
+                          },
                         ),
-                      ),
-                      const SizedBox(height: 12),
-                    ],
-                    const SizedBox(height: 8),
-                    _WizardButtons(
-                      pageIndex: state.pageIndex,
-                      answers: state.answers,
+                        const SizedBox(height: 16),
+                        const Divider(height: 1),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+
+                  // ========================================
+                  // CONTENIDO SCROLLABLE (Preguntas)
+                  // ========================================
+                  Expanded(
+                    child: ListView(
+                      controller: _scroll,
+                      padding: EdgeInsets.fromLTRB(16, 16, 16, 16 + bottomSafe),
+                      children: [
+                        for (final q in pageQuestions) ...[
+                          KeyedSubtree(
+                            key: ValueKey('q_${q.id}'),
+                            child: _QuestionCard(
+                              key: _questionKeys[q.id],
+                              question: q,
+                              requiredNow: _rules.isRequired(q, state.answers),
+                              markError: missingIds.contains(q.id),
+                              // Ya no necesitamos spinner inline aquí si usamos overlay,
+                              // pero lo mantenemos por si acaso o lo quitamos.
+                              // Lo dejaremos false para evitar duplicidad visual si está el overlay.
+                              isInlineLoading: false,
+                              inlineError: q.id == 'nroDocumentoM'
+                                  ? state.dinardapError
+                                  : null,
+                            ),
+                          ),
+                          const SizedBox(height: 12),
+                        ],
+                        const SizedBox(height: 8),
+                        _WizardButtons(
+                          pageIndex: state.pageIndex,
+                          answers: state.answers,
+                          isEditingFromSummary: _isEditingFromSummary,
+                          onReturnToSummary: _showSummary,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
+
+              // 🔄 OVERLAY DE CARGA (DINARDAP)
+              if (state.isDinardapLoading)
+                Container(
+                  color: Colors.black45,
+                  child: Center(
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 32,
+                        vertical: 24,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: const Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          CircularProgressIndicator(),
+                          SizedBox(height: 20),
+                          Text(
+                            'Consultando información...',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
             ],
           );
         },
@@ -550,22 +618,42 @@ class _SurveysPageState extends State<SurveysPage> {
 
 class _WizardButtons extends StatelessWidget {
   final int pageIndex;
-  final Map<String, dynamic>
-  answers; // Agregado para calcular secciones visibles
+  final Map<String, dynamic> answers;
+  final bool isEditingFromSummary;
+  final VoidCallback? onReturnToSummary;
 
-  const _WizardButtons({required this.pageIndex, required this.answers});
+  const _WizardButtons({
+    required this.pageIndex,
+    required this.answers,
+    this.isEditingFromSummary = false,
+    this.onReturnToSummary,
+  });
 
   @override
   Widget build(BuildContext context) {
     final bloc = context.read<SurveyBloc>();
 
-    // Calcular secciones visibles para determinar última página
+    // Si venimos del resumen, el botón "siguiente" se convierte en "Volver al Resumen"
+    // o "Guardar y Volver", y debe guardar el progreso antes de volver.
+    if (isEditingFromSummary) {
+      return SizedBox(
+        width: double.infinity,
+        child: ElevatedButton.icon(
+          onPressed: onReturnToSummary,
+          icon: const Icon(Icons.check),
+          label: const Text('Guardar y Volver al Resumen'),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.amber[700],
+            foregroundColor: Colors.white,
+          ),
+        ),
+      );
+    }
+
     final visibleSections = SurveySectionFilterHelper.getVisibleSections(
       surveySectionsOrder,
-      answers, // Usar parámetro en lugar de state.answers
+      answers,
     );
-
-    // Encontrar última sección visible
     final lastVisibleSection = visibleSections.isNotEmpty
         ? visibleSections.last
         : surveySectionsOrder.last;
@@ -594,18 +682,7 @@ class _WizardButtons extends StatelessWidget {
           const SizedBox(width: 12),
           Expanded(
             child: ElevatedButton(
-              onPressed: () {
-                // Mostrar resumen antes de enviar
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => BlocProvider.value(
-                      value: context.read<SurveyBloc>(),
-                      child: const SurveySubmissionSummaryPage(),
-                    ),
-                  ),
-                );
-              },
+              onPressed: onReturnToSummary,
               child: const Text('Ver Resumen'),
             ),
           ),
@@ -768,11 +845,18 @@ class _QuestionInput extends StatelessWidget {
     return v.toString();
   }
 
-  InputDecoration _decoration({String? hintText}) {
+  InputDecoration _decoration({String? hintText, bool isReadOnly = false}) {
     return InputDecoration(
       border: const OutlineInputBorder(),
       hintText: hintText,
       errorText: markError ? 'Campo obligatorio' : null,
+      suffixIcon: isReadOnly
+          ? const Icon(
+              Icons.lock,
+              size: 16,
+              color: Colors.blue,
+            ) // 🔒 Candado azul
+          : null,
     );
   }
 
@@ -870,8 +954,14 @@ class _QuestionInput extends StatelessWidget {
               isExpanded: true,
               items: question.options
                   .map(
-                    (opt) =>
-                        DropdownMenuItem(value: opt.id, child: Text(opt.label)),
+                    (opt) => DropdownMenuItem(
+                      value: opt.id,
+                      child: Text(
+                        opt.label,
+                        style: const TextStyle(color: Colors.black),
+                        overflow: TextOverflow.visible,
+                      ),
+                    ),
                   )
                   .toList(),
               onChanged: isReadOnly
@@ -881,7 +971,11 @@ class _QuestionInput extends StatelessWidget {
                         SurveyAnswerChanged(questionId: question.id, value: v),
                       );
                     },
-              decoration: _decoration(hintText: 'Seleccione una opción'),
+              decoration: _decoration(
+                hintText: 'Seleccione una opción',
+                isReadOnly: isReadOnly,
+              ),
+              style: const TextStyle(color: Colors.black), // Texto seleccionado
             );
 
           case QuestionType.multiChoice:
@@ -966,8 +1060,8 @@ class _QuestionInput extends StatelessWidget {
                 decoration: InputDecoration(
                   border: const OutlineInputBorder(),
                   suffixIcon: Icon(
-                    Icons.calendar_month,
-                    color: isReadOnly ? Colors.grey : null,
+                    isReadOnly ? Icons.lock : Icons.calendar_month,
+                    color: isReadOnly ? Colors.blue : null,
                   ),
                   hintText: 'Seleccione una fecha',
                   errorText: markError ? 'Campo obligatorio' : null,
@@ -1093,10 +1187,14 @@ class _BlocTextFieldState extends State<BlocTextField> {
       minLines: widget.minLines,
       maxLines: widget.maxLines,
       enabled: !widget.isReadOnly,
+      style: const TextStyle(color: Colors.black), // Texto negro
       decoration: InputDecoration(
         border: const OutlineInputBorder(),
         hintText: 'Escribe aquí...',
         errorText: widget.markError ? 'Campo obligatorio' : null,
+        suffixIcon: widget.isReadOnly && widget.fieldId != 'nroDocumentoM'
+            ? const Icon(Icons.lock, size: 16, color: Colors.blue)
+            : null,
       ),
       keyboardType: _keyboardFor(c),
       inputFormatters: _formattersFor(c),

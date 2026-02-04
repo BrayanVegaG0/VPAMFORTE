@@ -100,57 +100,141 @@ class HouseholdMembersQuestion extends StatelessWidget {
                 children: [
                   for (int i = 0; i < members.length; i++)
                     Card(
+                      elevation: 2,
+                      margin: const EdgeInsets.only(bottom: 12),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
                       child: ListTile(
-                        title: Text(members[i].nombresApellidos),
-                        subtitle: Text(
-                          'Cédula: ${members[i].cedula}  •  Edad: ${members[i].edad}',
+                        contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 8,
                         ),
-                        trailing: Wrap(
-                          spacing: 6,
-                          children: [
-                            IconButton(
-                              tooltip: 'Ver',
-                              icon: const Icon(Icons.visibility),
-                              onPressed: () async {
-                                await showDialog<void>(
-                                  context: context,
-                                  builder: (_) => _MemberDialog(
-                                    initial: members[i],
-                                    readOnly: true,
-                                    existingCedulas: cedulas,
-                                    editingIndex: i,
-                                    bloc: context.read<SurveyBloc>(),
+                        leading: CircleAvatar(
+                          backgroundColor: Theme.of(context).primaryColor,
+                          child: Text(
+                            members[i].nombresApellidos.isNotEmpty
+                                ? members[i].nombresApellidos[0].toUpperCase()
+                                : '?',
+                            style: const TextStyle(color: Colors.white),
+                          ),
+                        ),
+                        title: Text(
+                          members[i].nombresApellidos,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                          ),
+                        ),
+                        subtitle: Padding(
+                          padding: const EdgeInsets.only(top: 4),
+                          child: Text(
+                            'C.I.: ${members[i].cedula}\nEdad: ${members[i].edad} años',
+                            style: const TextStyle(fontSize: 13),
+                          ),
+                        ),
+                        trailing: PopupMenuButton<String>(
+                          icon: const Icon(Icons.more_vert),
+                          tooltip: 'Opciones',
+                          onSelected: (value) async {
+                            if (value == 'view') {
+                              await showDialog<void>(
+                                context: context,
+                                builder: (_) => _MemberDialog(
+                                  initial: members[i],
+                                  readOnly: true,
+                                  existingCedulas: cedulas,
+                                  editingIndex: i,
+                                  bloc: context.read<SurveyBloc>(),
+                                ),
+                              );
+                            } else if (value == 'edit') {
+                              final edited = await showDialog<HouseholdMember>(
+                                context: context,
+                                builder: (_) => _MemberDialog(
+                                  initial: members[i],
+                                  existingCedulas: cedulas,
+                                  editingIndex: i,
+                                  bloc: context.read<SurveyBloc>(),
+                                ),
+                              );
+                              if (edited == null) return;
+                              final next = [...members];
+                              next[i] = edited;
+                              _save(context, next);
+                            } else if (value == 'delete') {
+                              final confirm = await showDialog<bool>(
+                                context: context,
+                                builder: (_) => AlertDialog(
+                                  title: const Text('Eliminar persona'),
+                                  content: Text(
+                                    '¿Seguro de borrar a ${members[i].nombresApellidos}?',
                                   ),
-                                );
-                              },
-                            ),
-                            IconButton(
-                              tooltip: 'Editar',
-                              icon: const Icon(Icons.edit),
-                              onPressed: () async {
-                                final edited = await showDialog<HouseholdMember>(
-                                  context: context,
-                                  builder: (_) => _MemberDialog(
-                                    initial: members[i],
-                                    existingCedulas: cedulas,
-                                    editingIndex:
-                                        i, // permite misma cédula del registro
-                                    bloc: context.read<SurveyBloc>(),
-                                  ),
-                                );
-                                if (edited == null) return;
-                                final next = [...members];
-                                next[i] = edited;
-                                _save(context, next);
-                              },
-                            ),
-                            IconButton(
-                              tooltip: 'Borrar',
-                              icon: const Icon(Icons.delete),
-                              onPressed: () {
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () =>
+                                          Navigator.pop(context, false),
+                                      child: const Text('Cancelar'),
+                                    ),
+                                    TextButton(
+                                      onPressed: () =>
+                                          Navigator.pop(context, true),
+                                      style: TextButton.styleFrom(
+                                        foregroundColor: Colors.red,
+                                      ),
+                                      child: const Text('Eliminar'),
+                                    ),
+                                  ],
+                                ),
+                              );
+                              if (confirm == true) {
                                 final next = [...members]..removeAt(i);
                                 _save(context, next);
-                              },
+                              }
+                            }
+                          },
+                          itemBuilder: (context) => [
+                            const PopupMenuItem(
+                              value: 'view',
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.visibility,
+                                    size: 20,
+                                    color: Colors.blue,
+                                  ),
+                                  SizedBox(width: 10),
+                                  Text('Ver información'),
+                                ],
+                              ),
+                            ),
+                            const PopupMenuItem(
+                              value: 'edit',
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.edit,
+                                    size: 20,
+                                    color: Colors.orange,
+                                  ),
+                                  SizedBox(width: 10),
+                                  Text('Editar'),
+                                ],
+                              ),
+                            ),
+                            const PopupMenuItem(
+                              value: 'delete',
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.delete,
+                                    size: 20,
+                                    color: Colors.red,
+                                  ),
+                                  SizedBox(width: 10),
+                                  Text('Eliminar'),
+                                ],
+                              ),
                             ),
                           ],
                         ),
@@ -209,12 +293,12 @@ class _MemberDialogState extends State<_MemberDialog> {
   String? parentesco;
   String? generaIngresos;
 
-  bool _loadingDinardap = false;
+  // Campos poblados por DINARDAP (para hacerlos read-only)
   String? _dinardapError;
 
-  // Campos poblados por DINARDAP (para hacerlos read-only)
   bool _nombreFromDinardap = false;
   bool _edadFromDinardap = false;
+  bool _generoFromDinardap = false;
 
   bool get _ro => widget.readOnly;
 
@@ -385,17 +469,46 @@ class _MemberDialogState extends State<_MemberDialog> {
       return;
     }
 
-    setState(() {
-      _loadingDinardap = true;
-      _dinardapError = null;
-    });
+    // 🔄 UI DE CARGA MODERNA (Overlay)
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (_) => PopScope(
+        canPop: false,
+        child: Dialog(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          child: Container(
+            padding: const EdgeInsets.all(24),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: const Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                CircularProgressIndicator(),
+                SizedBox(height: 20),
+                Text(
+                  'Consultando información...',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
 
     try {
       final person = await widget.bloc.consultDinardapNow(cedula);
 
-      // person.nombresCompletos, person.fechaNacimientoDdMmYyyy (según tu implementación)
+      // Cerrar el dialog de carga
+      if (mounted) Navigator.pop(context);
+
       final full = (person.nombresCompletos ?? '').toString().trim();
       final nac = (person.fechaNacimientoDdMmYyyy ?? '').toString().trim();
+      final sexo = (person.sexo ?? '').trim().toUpperCase();
 
       if (full.isNotEmpty) {
         _nombres.text = full;
@@ -408,14 +521,26 @@ class _MemberDialogState extends State<_MemberDialog> {
         _edadFromDinardap = true;
       }
 
+      // Mapeo Sexo -> Identidad Género
+      if (sexo == 'HOMBRE') {
+        identidadGenero = '1';
+        _generoFromDinardap = true;
+      } else if (sexo == 'MUJER') {
+        identidadGenero = '2';
+        _generoFromDinardap = true;
+      }
+
       setState(() {
-        _loadingDinardap = false;
         _dinardapError = null;
+        _applyConditionalCleanup(); // Para aplicar reglas de género si cambió
       });
     } catch (e) {
+      // Cerrar el dialog de carga si falla
+      if (mounted) Navigator.pop(context);
+
       setState(() {
-        _loadingDinardap = false;
-        _dinardapError = 'No se pudo consultar DINARDAP. ${e.toString()}';
+        _dinardapError =
+            'No se pudo consultar DINARDAP (${e.toString()}).\nIngrese los campos manualmente.';
       });
     }
   }
@@ -497,28 +622,31 @@ class _MemberDialogState extends State<_MemberDialog> {
                                 _edad.clear();
                                 _edadFromDinardap = false;
                               }
+                              if (_generoFromDinardap) {
+                                identidadGenero = null;
+                                _generoFromDinardap = false;
+                              }
                               _dinardapError = null;
                             });
                           }
                         },
                       ),
                     ),
-                    const SizedBox(width: 10),
+                    const SizedBox(width: 8),
                     if (!_ro)
-                      SizedBox(
-                        height: 48,
-                        child: ElevatedButton.icon(
-                          onPressed: _loadingDinardap ? null : _consultDinardap,
-                          icon: _loadingDinardap
-                              ? const SizedBox(
-                                  width: 16,
-                                  height: 16,
-                                  child: CircularProgressIndicator(
-                                    strokeWidth: 2,
-                                  ),
-                                )
-                              : const Icon(Icons.search),
-                          label: const Text('DINARDAP'),
+                      // ✅ Botón DINARDAP solo ícono
+                      Container(
+                        width: 50,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          color: Colors.blue[50], // color suave
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(color: Colors.blue[100]!),
+                        ),
+                        child: IconButton(
+                          tooltip: 'Consultar DINARDAP',
+                          onPressed: _consultDinardap, // ✅ Ya maneja su loading
+                          icon: const Icon(Icons.search, color: Colors.blue),
                         ),
                       ),
                   ],
@@ -529,7 +657,11 @@ class _MemberDialogState extends State<_MemberDialog> {
                     alignment: Alignment.centerLeft,
                     child: Text(
                       _dinardapError!,
-                      style: const TextStyle(color: Colors.red, fontSize: 12),
+                      style: const TextStyle(
+                        color: Colors.red,
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ],
@@ -585,32 +717,40 @@ class _MemberDialogState extends State<_MemberDialog> {
 
                 // Identidad de género
                 DropdownButtonFormField<String>(
+                  isExpanded: true, // ✅ Texto largo permitido
                   value: identidadGenero,
-                  decoration: const InputDecoration(
-                    labelText: 'Identidad de género',
-                    border: OutlineInputBorder(),
-                  ),
                   items: _generos.entries
                       .map(
                         (e) => DropdownMenuItem(
                           value: e.key,
-                          child: Text(e.value),
+                          child: Text(e.value, overflow: TextOverflow.visible),
                         ),
                       )
                       .toList(),
-                  onChanged: _ro
+                  onChanged:
+                      _ro ||
+                          _generoFromDinardap // ✅ Locked if Dinardap
                       ? null
                       : (v) => setState(() {
                           identidadGenero = v;
                           _applyConditionalCleanup();
                         }),
                   validator: (v) => _reqDropdown(v),
+                  decoration: InputDecoration(
+                    labelText: 'Identidad de género',
+                    border: const OutlineInputBorder(),
+                    // ✅ Lock icon for Gender
+                    suffixIcon: _generoFromDinardap
+                        ? const Icon(Icons.lock, size: 16, color: Colors.grey)
+                        : null,
+                  ),
                 ),
                 const SizedBox(height: 12),
 
                 // Mujer -> Etapa gestacional
                 if (_isMujer) ...[
                   DropdownButtonFormField<String>(
+                    isExpanded: true, // ✅ Texto largo permitido
                     value: etapaGestacional,
                     decoration: const InputDecoration(
                       labelText: '¿Mujer en etapa gestacional?',
@@ -620,7 +760,10 @@ class _MemberDialogState extends State<_MemberDialog> {
                         .map(
                           (e) => DropdownMenuItem(
                             value: e.key,
-                            child: Text(e.value),
+                            child: Text(
+                              e.value,
+                              overflow: TextOverflow.visible,
+                            ),
                           ),
                         )
                         .toList(),
@@ -635,6 +778,7 @@ class _MemberDialogState extends State<_MemberDialog> {
                 // <18 -> Menor trabaja
                 if (_isMenor) ...[
                   DropdownButtonFormField<String>(
+                    isExpanded: true, // ✅ Texto largo permitido
                     value: menorTrabaja,
                     decoration: const InputDecoration(
                       labelText: '¿Menor de edad trabajando?',
@@ -644,7 +788,10 @@ class _MemberDialogState extends State<_MemberDialog> {
                         .map(
                           (e) => DropdownMenuItem(
                             value: e.key,
-                            child: Text(e.value),
+                            child: Text(
+                              e.value,
+                              overflow: TextOverflow.visible,
+                            ),
                           ),
                         )
                         .toList(),
@@ -658,6 +805,7 @@ class _MemberDialogState extends State<_MemberDialog> {
 
                 // Tiene discapacidad
                 DropdownButtonFormField<String>(
+                  isExpanded: true, // ✅ Texto largo permitido
                   value: tieneDiscapacidad,
                   decoration: const InputDecoration(
                     labelText: '¿Tiene discapacidad?',
@@ -667,7 +815,7 @@ class _MemberDialogState extends State<_MemberDialog> {
                       .map(
                         (e) => DropdownMenuItem(
                           value: e.key,
-                          child: Text(e.value),
+                          child: Text(e.value, overflow: TextOverflow.visible),
                         ),
                       )
                       .toList(),
@@ -684,6 +832,7 @@ class _MemberDialogState extends State<_MemberDialog> {
                 // Discapacidad -> Tipo + porcentaje
                 if (_tieneDiscapacidadSi) ...[
                   DropdownButtonFormField<String>(
+                    isExpanded: true, // ✅ Texto largo permitido
                     value: tipoDiscapacidad,
                     decoration: const InputDecoration(
                       labelText: 'Tipo de discapacidad',
@@ -693,7 +842,10 @@ class _MemberDialogState extends State<_MemberDialog> {
                         .map(
                           (e) => DropdownMenuItem(
                             value: e.key,
-                            child: Text(e.value),
+                            child: Text(
+                              e.value,
+                              overflow: TextOverflow.visible,
+                            ),
                           ),
                         )
                         .toList(),
@@ -724,6 +876,7 @@ class _MemberDialogState extends State<_MemberDialog> {
 
                 // Enfermedad catastrófica
                 DropdownButtonFormField<String>(
+                  isExpanded: true, // ✅ Texto largo permitido
                   value: enfermedadCatastrofica,
                   decoration: const InputDecoration(
                     labelText: '¿Enfermedad catastrófica?',
@@ -733,7 +886,7 @@ class _MemberDialogState extends State<_MemberDialog> {
                       .map(
                         (e) => DropdownMenuItem(
                           value: e.key,
-                          child: Text(e.value),
+                          child: Text(e.value, overflow: TextOverflow.visible),
                         ),
                       )
                       .toList(),
@@ -746,6 +899,7 @@ class _MemberDialogState extends State<_MemberDialog> {
 
                 // Parentesco
                 DropdownButtonFormField<String>(
+                  isExpanded: true, // ✅ Texto largo permitido
                   value: parentesco,
                   decoration: const InputDecoration(
                     labelText: 'Parentesco',
@@ -755,7 +909,7 @@ class _MemberDialogState extends State<_MemberDialog> {
                       .map(
                         (e) => DropdownMenuItem(
                           value: e.key,
-                          child: Text(e.value),
+                          child: Text(e.value, overflow: TextOverflow.visible),
                         ),
                       )
                       .toList(),
@@ -766,6 +920,7 @@ class _MemberDialogState extends State<_MemberDialog> {
 
                 // Genera ingresos?
                 DropdownButtonFormField<String>(
+                  isExpanded: true, // ✅ Texto largo permitido
                   value: generaIngresos,
                   decoration: const InputDecoration(
                     labelText: '¿Genera ingresos?',
@@ -775,7 +930,7 @@ class _MemberDialogState extends State<_MemberDialog> {
                       .map(
                         (e) => DropdownMenuItem(
                           value: e.key,
-                          child: Text(e.value),
+                          child: Text(e.value, overflow: TextOverflow.visible),
                         ),
                       )
                       .toList(),

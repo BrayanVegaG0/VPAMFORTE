@@ -14,6 +14,7 @@ import '../../../domain/rules/survey_rules_engine.dart';
 import '../../../domain/usecases/clear_survey_draft_usecase.dart';
 import '../../../domain/usecases/consult_dinardap_usecase.dart';
 
+import '../../widgets/ecuador_location_dropdown.dart';
 import 'survey_event.dart';
 import 'survey_state.dart';
 
@@ -208,6 +209,9 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
       state.answers,
     );
 
+    // ⚠️ VALIDACIÓN DESACTIVADA TEMPORALMENTE POR SOLICITUD DEL USUARIO (MODO PRUEBAS)
+    // Cuando se quiera reactivar, descomentar el bloque siguiente:
+    /*
     if (errors.isNotEmpty) {
       final ids = errors.map((e) => e.questionId).toList();
       final targetId =
@@ -223,6 +227,7 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
       );
       return; // NO avanzar
     }
+    */
 
     final next = (state.pageIndex + 1).clamp(0, surveySectionsOrder.length - 1);
 
@@ -467,8 +472,21 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
       final person = await consultDinardapUseCase(cedula: cedula);
       _lastDinardapCedula = cedula;
 
+      // 🔍 DEBUG LOGS
+      print('--- DINARDAP DEBUG ---');
+      print('Nombres: ${person.nombresCompletos}');
+      print('Sexo RAW: ${person.sexo}');
+      print('EstadoCivil RAW: ${person.estadoCivil}');
+      print('Domicilio RAW: ${person.domicilio}');
+      print('Nacionalidad RAW: ${person.nacionalidad}');
+      print('FechaNac RAW: ${person.fechaNacimientoDdMmYyyy}');
+      print('----------------------');
+
       final newAnswers = Map<String, dynamic>.from(state.answers);
       final populatedFields = <String>{};
+
+      // Asegurar carga de geo
+      await EcuadorGeoStore.I.ensureLoaded();
 
       final nac = (person.nacionalidad ?? '').toUpperCase().trim();
       if (nac.contains('ECUATOR')) {
@@ -479,26 +497,77 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
         populatedFields.add('idNacionalidadM');
       }
 
-      final sexo = (person.sexo ?? '').toUpperCase().trim();
-      if (sexo.contains('MUJER') || sexo.contains('FEMEN')) {
-        newAnswers['10'] = '1';
-        populatedFields.add('10');
-      } else if (sexo.contains('HOMBRE') || sexo.contains('MASCUL')) {
-        newAnswers['10'] = '2';
-        populatedFields.add('10');
+      // Sexo
+      final sexoId = _mapDinardapSexo(person.sexo);
+      if (sexoId != null) {
+        newAnswers['idSexoM'] = sexoId;
+        populatedFields.add('idSexoM');
       }
 
+      // Estado Civil
+      final civilId = _mapDinardapEstadoCivil(person.estadoCivil);
+      if (civilId != null) {
+        newAnswers['idEstadoCivilM'] = civilId;
+        populatedFields.add('idEstadoCivilM');
+      }
+
+      // Fecha Nacimiento
       final iso = _toIsoDateFromDdMmYyyy(person.fechaNacimientoDdMmYyyy);
       if (iso != null) {
         newAnswers['fechaNacimientoM'] = iso;
         populatedFields.add('fechaNacimientoM');
       }
 
+      // Nombres
       final full = (person.nombresCompletos ?? '').trim();
       if (full.isNotEmpty) {
         _fillNames(newAnswers, full);
         populatedFields.add('Nombres');
         populatedFields.add('Apellidos');
+      }
+
+      // Ubicación (Domicilio: PROVINCIA/CANTON/PARROQUIA)
+      final dom = person.domicilio;
+      if (dom != null && dom.isNotEmpty) {
+        final parts = dom.split('/');
+        if (parts.isNotEmpty) {
+          final provName = parts[0];
+          final provId = EcuadorGeoStore.I.findProvinceIdByName(provName);
+
+          if (provId != null) {
+            newAnswers['idProvinciaM'] = provId;
+            populatedFields.add('idProvinciaM');
+
+            if (parts.length > 1) {
+              final cantonName = parts[1];
+              final cantonId = EcuadorGeoStore.I.findCantonIdByName(
+                int.parse(provId),
+                cantonName,
+              );
+
+              if (cantonId != null) {
+                newAnswers['idCantonM'] = cantonId;
+                populatedFields.add('idCantonM');
+
+                if (parts.length > 2) {
+                  final parishName = parts[2];
+                  final parishId = EcuadorGeoStore.I.findParishIdByName(
+                    int.parse(provId),
+                    int.parse(cantonId),
+                    parishName,
+                  );
+
+                  // Si encontramos la parroquia, la asignamos y bloqueamos.
+                  // Si NO la encontramos (ej. VILLAFLORA), no asignamos nada y queda desbloqueada.
+                  if (parishId != null) {
+                    newAnswers['idParroquiaM'] = parishId;
+                    populatedFields.add('idParroquiaM');
+                  }
+                }
+              }
+            }
+          }
+        }
       }
 
       emit(
@@ -571,6 +640,27 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
     }
 
     return 'No se pudo consultar DINARDAP. ${e.toString()}';
+  }
+
+  String? _mapDinardapSexo(String? sexo) {
+    if (sexo == null) return null;
+    final s = sexo.toUpperCase().trim();
+    if (s == 'HOMBRE') return '2'; // 2 = Masculino
+    if (s == 'MUJER') return '1'; // 1 = Femenino
+    return null;
+  }
+
+  String? _mapDinardapEstadoCivil(String? estado) {
+    if (estado == null) return null;
+    final s = estado.toUpperCase().trim();
+    // 1=Soltero, 2=Casado, 3=Separado, 4=Divorciado, 5=Viudo, 6=Unión Libre
+    if (s.contains('SOLTER')) return '1';
+    if (s.contains('CASAD')) return '2';
+    if (s.contains('SEPARA')) return '3';
+    if (s.contains('DIVORC')) return '4';
+    if (s.contains('VIUD')) return '5';
+    if (s.contains('UNION')) return '6';
+    return null;
   }
 
   Future<SurveySubmission?> loadDraftNow(String surveyId) {

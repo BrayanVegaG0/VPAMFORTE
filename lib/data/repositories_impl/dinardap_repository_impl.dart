@@ -15,6 +15,8 @@ class DinardapRepositoryImpl implements DinardapRepository {
       fechaNacimientoDdMmYyyy: f['fechaNacimiento'],
       nacionalidad: f['nacionalidad'],
       sexo: f['sexo'],
+      estadoCivil: f['estadoCivil'],
+      domicilio: f['domicilio'],
     );
   }
 }

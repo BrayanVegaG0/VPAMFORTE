@@ -5,6 +5,9 @@ import '../../../domain/usecases/logout_usecase.dart';
 import 'auth_event.dart';
 import 'auth_state.dart';
 
+import '../../../core/error/failures.dart' hide AuthFailure;
+import '../../utils/failure_mapper.dart';
+
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final LoginUseCase loginUseCase;
   final LogoutUseCase logoutUseCase;
@@ -21,32 +24,39 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   Future<void> _onLoginRequested(
-      AuthLoginRequested event,
-      Emitter<AuthState> emit,
-      ) async {
+    AuthLoginRequested event,
+    Emitter<AuthState> emit,
+  ) async {
     emit(const AuthLoading());
     try {
-      final user = await loginUseCase(username: event.username, password: event.password);
+      final user = await loginUseCase(
+        username: event.username,
+        password: event.password,
+      );
 
+      // ... guardado de sesión ...
       await localDataSource.saveSession(user);
-
-      // guardar credenciales Basic Auth para SOAP
       await localDataSource.saveBasicAuthCredentials(
         username: event.username,
         password: event.password,
       );
 
       emit(AuthAuthenticated(user));
+    } on Failure catch (f) {
+      final msg = FailureMapper.mapFailureToMessage(f);
+      emit(AuthFailure(msg));
+      emit(const AuthUnauthenticated());
     } catch (e) {
-      emit(AuthFailure(e.toString())); // aquí te saldrá: "E002: CREDENCIALES INCORRECTAS"
+      // Fallback para errores no mapeados (aunque el repo debería atrapar todo)
+      emit(AuthFailure("Error desconocido: $e"));
       emit(const AuthUnauthenticated());
     }
   }
 
   Future<void> _onLogoutRequested(
-      AuthLogoutRequested event,
-      Emitter<AuthState> emit,
-      ) async {
+    AuthLogoutRequested event,
+    Emitter<AuthState> emit,
+  ) async {
     emit(const AuthLoading());
     try {
       await logoutUseCase();
@@ -58,9 +68,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   Future<void> _onCheckSession(
-      AuthCheckSessionRequested event,
-      Emitter<AuthState> emit,
-      ) async {
+    AuthCheckSessionRequested event,
+    Emitter<AuthState> emit,
+  ) async {
     emit(const AuthLoading());
 
     final user = await localDataSource.getSession();
@@ -71,6 +81,3 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     }
   }
 }
-
-
-

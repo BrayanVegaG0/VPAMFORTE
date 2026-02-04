@@ -1,8 +1,9 @@
 class DinardapPersonModel {
   final String? nombresCompletos;
-  final String? fechaNacimiento;  // "19/04/2002"
-  final String? nacionalidad;     // "ECUATORIANA"
-  final String? sexo;             // "HOMBRE" / "MUJER"
+  final String? fechaNacimiento; // "19/04/2002"
+  final String? nacionalidad; // "ECUATORIANA"
+  final String? sexo; // "HOMBRE" / "MUJER"
+  final String? estadoCivil;
   final String? calleDomicilio;
 
   DinardapPersonModel({
@@ -10,6 +11,7 @@ class DinardapPersonModel {
     required this.fechaNacimiento,
     required this.nacionalidad,
     required this.sexo,
+    required this.estadoCivil,
     required this.calleDomicilio,
   });
 }
