@@ -107,7 +107,11 @@ class _LoginPageState extends State<LoginPage> {
                           children: [
                             Container(
                               height: 4,
+<<<<<<< Updated upstream
                               width: 60, // Ajustado proporcionalmente
+=======
+                              width: 40,
+>>>>>>> Stashed changes
                               decoration: BoxDecoration(
                                 color: AppColors.accent,
                                 borderRadius: BorderRadius.circular(2),
@@ -115,7 +119,11 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             const SizedBox(width: 8),
                             const Text(
+<<<<<<< Updated upstream
                               'El Nuevo Ecuador',
+=======
+                              'Nuevo Ecuador',
+>>>>>>> Stashed changes
                               style: TextStyle(
                                 fontSize: 26, // Reducido de 32
                                 fontWeight: FontWeight.bold,
@@ -247,7 +255,7 @@ class _LoginPageState extends State<LoginPage> {
 
                               // Texto de política de privacidad
                               const Text(
-                                'Al crear una cuenta usted está de acuerdo con nuestra Política de Privacidad.',
+                                'Ingrese para enviar la encuesta',
                                 style: TextStyle(
                                   fontSize: 10, // Reducido de 12
                                   color: AppColors.textSecondary,

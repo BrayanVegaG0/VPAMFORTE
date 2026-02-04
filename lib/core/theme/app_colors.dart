@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// Paleta de colores de la aplicación Infancia EC
+/// Paleta de colores
 class AppColors {
   AppColors._(); // Constructor privado para evitar instanciación
 
