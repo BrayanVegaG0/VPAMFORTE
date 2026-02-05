@@ -107,11 +107,7 @@ class _LoginPageState extends State<LoginPage> {
                           children: [
                             Container(
                               height: 4,
-<<<<<<< Updated upstream
-                              width: 60, // Ajustado proporcionalmente
-=======
                               width: 40,
->>>>>>> Stashed changes
                               decoration: BoxDecoration(
                                 color: AppColors.accent,
                                 borderRadius: BorderRadius.circular(2),
@@ -119,11 +115,7 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             const SizedBox(width: 8),
                             const Text(
-<<<<<<< Updated upstream
                               'El Nuevo Ecuador',
-=======
-                              'Nuevo Ecuador',
->>>>>>> Stashed changes
                               style: TextStyle(
                                 fontSize: 26, // Reducido de 32
                                 fontWeight: FontWeight.bold,
