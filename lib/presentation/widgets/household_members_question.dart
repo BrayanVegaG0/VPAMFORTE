@@ -5,7 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../domain/entities/household_member.dart';
 import '../state/survey/survey_bloc.dart';
 import '../state/survey/survey_event.dart';
+import '../utils/survey_input_styles.dart';
 import '../state/survey/survey_state.dart';
+import '../../core/theme/app_colors.dart';
 
 class HouseholdMembersQuestion extends StatelessWidget {
   final String questionId; // ej: 'personasHogarM'
@@ -100,6 +102,7 @@ class HouseholdMembersQuestion extends StatelessWidget {
                 children: [
                   for (int i = 0; i < members.length; i++)
                     Card(
+                      color: Colors.white, // ✅ Fondo blanco
                       elevation: 2,
                       margin: const EdgeInsets.only(bottom: 12),
                       shape: RoundedRectangleBorder(
@@ -578,6 +581,7 @@ class _MemberDialogState extends State<_MemberDialog> {
         : (widget.initial == null ? 'Agregar persona' : 'Editar persona');
 
     return AlertDialog(
+      backgroundColor: const Color(0xFFF5F5F5), // ✅ Fondo plomo/gris claro
       title: Text(title),
       content: SizedBox(
         width: 560,
@@ -593,9 +597,8 @@ class _MemberDialogState extends State<_MemberDialog> {
                       child: TextFormField(
                         controller: _cedula,
                         enabled: !_ro,
-                        decoration: const InputDecoration(
+                        decoration: SurveyInputStyles.decoration(
                           labelText: 'Cédula',
-                          border: OutlineInputBorder(),
                         ),
                         validator: (v) {
                           final ced = (v ?? '').trim().replaceAll(
@@ -634,19 +637,22 @@ class _MemberDialogState extends State<_MemberDialog> {
                     ),
                     const SizedBox(width: 8),
                     if (!_ro)
-                      // ✅ Botón DINARDAP solo ícono
+                      // ✅ Botón DINARDAP estilo "Guardar"
                       Container(
                         width: 50,
                         height: 50,
                         decoration: BoxDecoration(
-                          color: Colors.blue[50], // color suave
+                          color: AppColors.primary, // ✅ Fondo azul
                           borderRadius: BorderRadius.circular(8),
-                          border: Border.all(color: Colors.blue[100]!),
+                          border: Border.all(color: Colors.blue),
                         ),
                         child: IconButton(
                           tooltip: 'Consultar DINARDAP',
-                          onPressed: _consultDinardap, // ✅ Ya maneja su loading
-                          icon: const Icon(Icons.search, color: Colors.blue),
+                          onPressed: _consultDinardap,
+                          icon: const Icon(
+                            Icons.search,
+                            color: Colors.white,
+                          ), // ✅ Icono blanco
                         ),
                       ),
                   ],
@@ -670,11 +676,10 @@ class _MemberDialogState extends State<_MemberDialog> {
                 TextFormField(
                   controller: _nombres,
                   enabled: !_ro && !_nombreFromDinardap,
-                  decoration: InputDecoration(
+                  decoration: SurveyInputStyles.decoration(
                     labelText: 'Nombres y apellidos',
-                    border: const OutlineInputBorder(),
                     suffixIcon: _nombreFromDinardap
-                        ? const Icon(Icons.lock, size: 16, color: Colors.grey)
+                        ? const Icon(Icons.lock, size: 16, color: Colors.blue)
                         : null,
                   ),
                   validator: (v) =>
@@ -692,11 +697,10 @@ class _MemberDialogState extends State<_MemberDialog> {
                   controller: _edad,
                   enabled: !_ro && !_edadFromDinardap,
                   keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
+                  decoration: SurveyInputStyles.decoration(
                     labelText: 'Edad',
-                    border: const OutlineInputBorder(),
                     suffixIcon: _edadFromDinardap
-                        ? const Icon(Icons.lock, size: 16, color: Colors.grey)
+                        ? const Icon(Icons.lock, size: 16, color: Colors.blue)
                         : null,
                   ),
                   validator: (v) {
@@ -736,12 +740,10 @@ class _MemberDialogState extends State<_MemberDialog> {
                           _applyConditionalCleanup();
                         }),
                   validator: (v) => _reqDropdown(v),
-                  decoration: InputDecoration(
+                  decoration: SurveyInputStyles.decoration(
                     labelText: 'Identidad de género',
-                    border: const OutlineInputBorder(),
-                    // ✅ Lock icon for Gender
                     suffixIcon: _generoFromDinardap
-                        ? const Icon(Icons.lock, size: 16, color: Colors.grey)
+                        ? const Icon(Icons.lock, size: 16, color: Colors.blue)
                         : null,
                   ),
                 ),
@@ -752,9 +754,12 @@ class _MemberDialogState extends State<_MemberDialog> {
                   DropdownButtonFormField<String>(
                     isExpanded: true, // ✅ Texto largo permitido
                     value: etapaGestacional,
-                    decoration: const InputDecoration(
-                      labelText: '¿Mujer en etapa gestacional?',
-                      border: OutlineInputBorder(),
+                    decoration: SurveyInputStyles.decoration().copyWith(
+                      label: const Text(
+                        '¿Mujer en etapa gestacional?',
+                        maxLines: 2,
+                        overflow: TextOverflow.visible,
+                      ),
                     ),
                     items: _siNo.entries
                         .map(
@@ -780,9 +785,8 @@ class _MemberDialogState extends State<_MemberDialog> {
                   DropdownButtonFormField<String>(
                     isExpanded: true, // ✅ Texto largo permitido
                     value: menorTrabaja,
-                    decoration: const InputDecoration(
+                    decoration: SurveyInputStyles.decoration(
                       labelText: '¿Menor de edad trabajando?',
-                      border: OutlineInputBorder(),
                     ),
                     items: _siNo.entries
                         .map(
@@ -807,9 +811,8 @@ class _MemberDialogState extends State<_MemberDialog> {
                 DropdownButtonFormField<String>(
                   isExpanded: true, // ✅ Texto largo permitido
                   value: tieneDiscapacidad,
-                  decoration: const InputDecoration(
+                  decoration: SurveyInputStyles.decoration(
                     labelText: '¿Tiene discapacidad?',
-                    border: OutlineInputBorder(),
                   ),
                   items: _siNo.entries
                       .map(
@@ -834,9 +837,8 @@ class _MemberDialogState extends State<_MemberDialog> {
                   DropdownButtonFormField<String>(
                     isExpanded: true, // ✅ Texto largo permitido
                     value: tipoDiscapacidad,
-                    decoration: const InputDecoration(
+                    decoration: SurveyInputStyles.decoration(
                       labelText: 'Tipo de discapacidad',
-                      border: OutlineInputBorder(),
                     ),
                     items: _tipoDiscapacidad.entries
                         .map(
@@ -860,9 +862,12 @@ class _MemberDialogState extends State<_MemberDialog> {
                     controller: _porcentaje,
                     enabled: !_ro,
                     keyboardType: TextInputType.number,
-                    decoration: const InputDecoration(
-                      labelText: 'Porcentaje de discapacidad (0-100)',
-                      border: OutlineInputBorder(),
+                    decoration: SurveyInputStyles.decoration().copyWith(
+                      label: const Text(
+                        'Porcentaje de discapacidad (0-100)',
+                        maxLines: 2,
+                        overflow: TextOverflow.visible,
+                      ),
                     ),
                     validator: (v) {
                       final n = int.tryParse((v ?? '').trim());
@@ -878,9 +883,12 @@ class _MemberDialogState extends State<_MemberDialog> {
                 DropdownButtonFormField<String>(
                   isExpanded: true, // ✅ Texto largo permitido
                   value: enfermedadCatastrofica,
-                  decoration: const InputDecoration(
-                    labelText: '¿Enfermedad catastrófica?',
-                    border: OutlineInputBorder(),
+                  decoration: SurveyInputStyles.decoration().copyWith(
+                    label: const Text(
+                      '¿Enfermedad catastrófica?',
+                      maxLines: 2,
+                      overflow: TextOverflow.visible,
+                    ),
                   ),
                   items: _siNo.entries
                       .map(
@@ -901,9 +909,8 @@ class _MemberDialogState extends State<_MemberDialog> {
                 DropdownButtonFormField<String>(
                   isExpanded: true, // ✅ Texto largo permitido
                   value: parentesco,
-                  decoration: const InputDecoration(
+                  decoration: SurveyInputStyles.decoration(
                     labelText: 'Parentesco',
-                    border: OutlineInputBorder(),
                   ),
                   items: _parentesco.entries
                       .map(
@@ -922,9 +929,8 @@ class _MemberDialogState extends State<_MemberDialog> {
                 DropdownButtonFormField<String>(
                   isExpanded: true, // ✅ Texto largo permitido
                   value: generaIngresos,
-                  decoration: const InputDecoration(
+                  decoration: SurveyInputStyles.decoration(
                     labelText: '¿Genera ingresos?',
-                    border: OutlineInputBorder(),
                   ),
                   items: _siNo.entries
                       .map(
@@ -951,9 +957,12 @@ class _MemberDialogState extends State<_MemberDialog> {
                     keyboardType: const TextInputType.numberWithOptions(
                       decimal: true,
                     ),
-                    decoration: const InputDecoration(
-                      labelText: '¿Cuánto genera de ingresos?',
-                      border: OutlineInputBorder(),
+                    decoration: SurveyInputStyles.decoration().copyWith(
+                      label: const Text(
+                        '¿Cuánto genera de ingresos?',
+                        maxLines: 2,
+                        overflow: TextOverflow.visible,
+                      ),
                     ),
                     validator: (v) {
                       final d = double.tryParse(

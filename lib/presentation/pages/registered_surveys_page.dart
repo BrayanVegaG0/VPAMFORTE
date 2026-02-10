@@ -117,8 +117,9 @@ class _RegisteredSurveysPageState extends State<RegisteredSurveysPage> {
                     Padding(
                       padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
                       child: Card(
-                        elevation: 0,
-                        color: AppColors.primary.withOpacity(0.05),
+                        elevation: 2, // Slight elevation for white card
+                        color: Colors.white, // White background
+                        shadowColor: Colors.black12,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(16),
                           side: BorderSide(
@@ -189,6 +190,7 @@ class _RegisteredSurveysPageState extends State<RegisteredSurveysPage> {
                             vertical: 12,
                           ),
                           decoration: BoxDecoration(
+                            color: Colors.white,
                             border: Border.all(color: Colors.grey[300]!),
                             borderRadius: BorderRadius.circular(12),
                           ),
@@ -351,11 +353,21 @@ class _RegisteredSurveysPageState extends State<RegisteredSurveysPage> {
                                             ),
                                             PopupMenuItem(
                                               value: 'delete',
-                                              child: Text(
-                                                'Eliminar',
-                                                style: TextStyle(
-                                                  color: Colors.red,
-                                                ),
+                                              child: Row(
+                                                // Using Row for Icon + Text or just Icon if preferred, but user said "icon of trash"
+                                                children: const [
+                                                  Icon(
+                                                    Icons.delete,
+                                                    color: Colors.red,
+                                                  ),
+                                                  SizedBox(width: 8),
+                                                  //Text(
+                                                  //'Eliminar',
+                                                  //style: TextStyle(
+                                                  //  color: Colors.red,
+                                                  //),
+                                                  //),
+                                                ],
                                               ),
                                             ),
                                           ],
@@ -405,9 +417,9 @@ class _RegisteredSurveysPageState extends State<RegisteredSurveysPage> {
       bottomNavigationBar: SafeArea(
         minimum: const EdgeInsets.fromLTRB(
           16,
-          8,
+          24, // Top padding
           16,
-          24,
+          48, // Increased bottom padding to avoid overlap with nav buttons
         ), // ✅ Aumentado el padding inferior
         child: BlocBuilder<SurveyBloc, SurveyState>(
           buildWhen: (p, c) =>

@@ -4,7 +4,7 @@
 
     <item>
         <bitmap
-            android:src="@drawable/logo_mdh"
+            android:src="@drawable/ic_banner_mdh"
             android:gravity="center"
             android:filter="true"/>
     </item>

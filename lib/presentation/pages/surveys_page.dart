@@ -18,6 +18,7 @@ import '../state/survey/survey_event.dart';
 import '../state/survey/survey_state.dart';
 
 import '../widgets/ecuador_location_dropdown.dart';
+import '../utils/survey_input_styles.dart';
 import '../widgets/household_members_question.dart';
 import 'survey_submission_summary_page.dart';
 import '../utils/survey_section_filter_helper.dart';
@@ -658,7 +659,12 @@ class _WizardButtons extends StatelessWidget {
         ? visibleSections.last
         : surveySectionsOrder.last;
     final lastPageIndex = surveySectionsOrder.indexOf(lastVisibleSection);
-    final isLastPage = pageIndex >= lastPageIndex;
+
+    // Si estamos en la última sección absoluta (PCD), forzar lastPage
+    // O si el índice actual supera/iguala al último visible
+    final isLastPage =
+        (pageIndex >= surveySectionsOrder.length - 1) ||
+        (pageIndex >= lastPageIndex);
 
     if (pageIndex == 0 && !isLastPage) {
       return SizedBox(
@@ -736,6 +742,7 @@ class _QuestionCard extends StatelessWidget {
     );
 
     return Card(
+      color: Colors.white, // ✅ Fondo blanco
       shape: RoundedRectangleBorder(
         side: borderSide,
         borderRadius: BorderRadius.circular(12),
@@ -846,16 +853,11 @@ class _QuestionInput extends StatelessWidget {
   }
 
   InputDecoration _decoration({String? hintText, bool isReadOnly = false}) {
-    return InputDecoration(
-      border: const OutlineInputBorder(),
+    return SurveyInputStyles.decoration(
       hintText: hintText,
       errorText: markError ? 'Campo obligatorio' : null,
       suffixIcon: isReadOnly
-          ? const Icon(
-              Icons.lock,
-              size: 16,
-              color: Colors.blue,
-            ) // 🔒 Candado azul
+          ? const Icon(Icons.lock, size: 16, color: Colors.blue)
           : null,
     );
   }
@@ -1057,14 +1059,13 @@ class _QuestionInput extends StatelessWidget {
                       }
                     },
               child: InputDecorator(
-                decoration: InputDecoration(
-                  border: const OutlineInputBorder(),
+                decoration: SurveyInputStyles.decoration(
+                  hintText: 'Seleccione una fecha',
+                  errorText: markError ? 'Campo obligatorio' : null,
                   suffixIcon: Icon(
                     isReadOnly ? Icons.lock : Icons.calendar_month,
                     color: isReadOnly ? Colors.blue : null,
                   ),
-                  hintText: 'Seleccione una fecha',
-                  errorText: markError ? 'Campo obligatorio' : null,
                 ),
                 child: Text(
                   value ?? 'Seleccione una fecha',
@@ -1188,8 +1189,7 @@ class _BlocTextFieldState extends State<BlocTextField> {
       maxLines: widget.maxLines,
       enabled: !widget.isReadOnly,
       style: const TextStyle(color: Colors.black), // Texto negro
-      decoration: InputDecoration(
-        border: const OutlineInputBorder(),
+      decoration: SurveyInputStyles.decoration(
         hintText: 'Escribe aquí...',
         errorText: widget.markError ? 'Campo obligatorio' : null,
         suffixIcon: widget.isReadOnly && widget.fieldId != 'nroDocumentoM'

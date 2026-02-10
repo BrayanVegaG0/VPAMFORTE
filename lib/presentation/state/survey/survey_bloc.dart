@@ -15,6 +15,7 @@ import '../../../domain/usecases/clear_survey_draft_usecase.dart';
 import '../../../domain/usecases/consult_dinardap_usecase.dart';
 
 import '../../widgets/ecuador_location_dropdown.dart';
+import '../../utils/survey_section_filter_helper.dart';
 import 'survey_event.dart';
 import 'survey_state.dart';
 
@@ -165,10 +166,25 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
   }
 
   void _onPrevPage(SurveyPrevPageRequested event, Emitter<SurveyState> emit) {
-    final prev = (state.pageIndex - 1).clamp(0, surveySectionsOrder.length - 1);
+    if (state.pageIndex <= 0) return;
+
+    final allSections = surveySectionsOrder;
+    int prevIndex = state.pageIndex - 1;
+
+    // Retroceder hasta encontrar una sección visible
+    while (prevIndex >= 0) {
+      final section = allSections[prevIndex];
+      if (SurveySectionFilterHelper.shouldShowSection(section, state.answers)) {
+        break;
+      }
+      prevIndex--;
+    }
+
+    if (prevIndex < 0) prevIndex = 0;
+
     emit(
       state.copyWith(
-        pageIndex: prev,
+        pageIndex: prevIndex,
         message: null,
         showValidationErrors: false,
         invalidQuestionIds: const [],
@@ -229,11 +245,26 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
     }
     */
 
-    final next = (state.pageIndex + 1).clamp(0, surveySectionsOrder.length - 1);
+    // Calcular la siguiente sección visible
+    int nextIndex = state.pageIndex + 1;
+    final allSections = surveySectionsOrder;
+
+    while (nextIndex < allSections.length) {
+      final section = allSections[nextIndex];
+      if (SurveySectionFilterHelper.shouldShowSection(section, state.answers)) {
+        break;
+      }
+      nextIndex++;
+    }
+
+    // Si nos pasamos, nos quedamos en la última visible (o la actual)
+    if (nextIndex >= allSections.length) {
+      nextIndex = state.pageIndex;
+    }
 
     emit(
       state.copyWith(
-        pageIndex: next,
+        pageIndex: nextIndex,
         showValidationErrors: false,
         invalidQuestionIds: const [],
         firstInvalidQuestionId: null,

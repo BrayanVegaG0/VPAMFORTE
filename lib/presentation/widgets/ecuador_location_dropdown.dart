@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../utils/survey_input_styles.dart';
 
 class _GeoProvince {
   final int id;
@@ -308,11 +309,11 @@ class _EcuadorLocationDropdownState extends State<EcuadorLocationDropdown> {
     return int.tryParse(s);
   }
 
-  InputDecoration _decoration({required String hint}) => InputDecoration(
-    border: const OutlineInputBorder(),
-    hintText: hint,
-    errorText: widget.markError ? 'Campo obligatorio' : null,
-  );
+  InputDecoration _decoration({required String hint}) =>
+      SurveyInputStyles.decoration(
+        hintText: hint,
+        errorText: widget.markError ? 'Campo obligatorio' : null,
+      );
 
   String? _safeValue(String? current, List<GeoOption> items) {
     if (current == null) return null;

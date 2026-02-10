@@ -22,11 +22,7 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: _SplashContent(),
-      ),
-    );
+    return const Scaffold(body: Center(child: _SplashContent()));
   }
 }
 
@@ -40,10 +36,9 @@ class _SplashContent extends StatelessWidget {
       children: [
         // Si el asset falla, muestra ícono
         Image(
-          image: AssetImage('assets/images/logo_mdh.png'),
+          image: AssetImage('assets/images/ic_banner_mdh.png'),
           width: 180,
-          errorBuilder: (_, __, ___) =>
-              Icon(Icons.account_balance, size: 120),
+          errorBuilder: (_, __, ___) => Icon(Icons.account_balance, size: 120),
         ),
         SizedBox(height: 32),
         CircularProgressIndicator(),

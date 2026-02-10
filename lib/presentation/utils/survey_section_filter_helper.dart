@@ -39,14 +39,25 @@ class SurveySectionFilterHelper {
     SurveySection section,
     Map<String, dynamic> answers,
   ) {
-    // Si no es una sección exclusiva de adultos mayores, siempre se muestra
-    if (!_elderOnlySections.contains(section)) {
-      return true;
+    final raw = answers['idServMdh'];
+    if (raw == null)
+      return !_elderOnlySections.contains(section) &&
+          section != SurveySection.fichaPcd;
+
+    final serviceId = raw.toString().trim();
+
+    // 1. Regla específica para Ficha PCD: solo si serv == '4'
+    if (section == SurveySection.fichaPcd) {
+      return serviceId == '4';
     }
 
-    // Para secciones de adultos mayores, verificar si el servicio seleccionado es '3' (Adulto Mayor)
-    final serviceId = answers['idServMdh']?.toString();
-    return serviceId == '3';
+    // 2. Reglas para secciones exclusivas de adulto mayor
+    if (_elderOnlySections.contains(section)) {
+      return serviceId == '3';
+    }
+
+    // 3. El resto de secciones siempre visibles
+    return true;
   }
 
   /// Filtra la lista de secciones según la edad del encuestado
