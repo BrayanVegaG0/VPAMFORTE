@@ -1,7 +1,7 @@
 import 'ing_gastos_disc_db.dart';
 import 'ficha_pam_db.dart';
-import 'indice_barthel_disc_db.dart'; // Import nuevo
-import 'lawton_brody_db.dart'; // Import nuevo
+import 'indice_barthel_disc_db.dart';
+import 'lawton_brody_db.dart';
 import 'minimental_pam_db.dart';
 import 'yesavage_pam_db.dart';
 
@@ -9,6 +9,7 @@ import 'familias_factores_riesgo_db.dart';
 import 'vulnerabilidad_per_discapacidad_db.dart';
 import 'vulnerabilidad_vivienda_disc_db.dart';
 import 'salud_disc_db.dart';
+import 'ficha_pcd_db.dart';
 
 class FichaAdultoMayorDiscDb {
   final VulnerabilidadPerDiscapacidadDb vulnerabilidadPerDiscapacidad;
@@ -21,6 +22,7 @@ class FichaAdultoMayorDiscDb {
   final LawtonBrodyDb lawtonBrody; // Nuevo campo
   final MiniMentalPamDb minimentalPam;
   final YesavagePamDb yesavagePam;
+  final FichaPcdDb fichaPcd;
 
   FichaAdultoMayorDiscDb({
     required this.vulnerabilidadPerDiscapacidad,
@@ -33,6 +35,7 @@ class FichaAdultoMayorDiscDb {
     required this.lawtonBrody,
     required this.minimentalPam,
     required this.yesavagePam,
+    required this.fichaPcd,
   });
 
   Map<String, dynamic> toJson() => {
@@ -46,6 +49,7 @@ class FichaAdultoMayorDiscDb {
     'lawtonBrody': lawtonBrody.toJson(),
     'minimentalPam': minimentalPam.toJson(),
     'yesavagePam': yesavagePam.toJson(),
+    'fichaPcd': fichaPcd.toJson(),
   };
 
   static FichaAdultoMayorDiscDb fromJson(Map<String, dynamic> json) {
@@ -65,7 +69,9 @@ class FichaAdultoMayorDiscDb {
       saludDisc: SaludDiscDb.fromJson(
         json['saludDisc'] as Map<String, dynamic>,
       ),
-      fichaPam: FichaPamDb.fromJson(json['fichaPam'] as Map<String, dynamic>),
+      fichaPam: FichaPamDb.fromJson(
+          json['fichaPam'] as Map<String, dynamic>
+      ),
       indiceBarthel: IndiceBarthelDiscDb.fromJson(
         json['indiceBarthel'] as Map<String, dynamic>,
       ),
@@ -77,6 +83,9 @@ class FichaAdultoMayorDiscDb {
       ),
       yesavagePam: YesavagePamDb.fromJson(
         json['yesavagePam'] as Map<String, dynamic>,
+      ),
+      fichaPcd: FichaPcdDb.fromJson(
+          json['fichaPcd'] as Map <String, dynamic>
       ),
     );
   }

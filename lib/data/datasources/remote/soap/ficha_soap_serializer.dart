@@ -14,6 +14,7 @@ class FichaSoapSerializer {
     'idLawtonBrody',
     'idMinimentalPam',
     'idYesavagePam',
+    'idFichapcd',
     // agrega aquí cualquier otro id* que sea PK de entidad
   };
 
@@ -29,6 +30,7 @@ class FichaSoapSerializer {
       _lawtonBrody(ficha),
       _minimentalPam(ficha),
       _yesavagePam(ficha),
+      _fichaPcd(ficha),
     ].where((x) => x.trim().isNotEmpty).join('\n');
 
     return '''
@@ -497,6 +499,56 @@ class FichaSoapSerializer {
     ].where((e) => e.isNotEmpty).join('\n');
 
     return _wrapIfHasBusinessFields('yesavagepam', inner);
+  }
+
+  // -------------------------
+  // 11) FichaPcd
+  // -------------------------
+  String _fichaPcd(FichaAdultoMayorDiscDb f) {
+    final k = f.fichaPcd;
+
+    final inner = [
+      _t('idFichapcd', k.idFichapcd),
+      _t('idAtenMed', k.idAtenMed),
+      _t('idRecursosSuf', k.idRecursosSuf),
+      _t('idApoyoEmoc', k.idApoyoEmoc),
+      _t('idRedApoyo', k.idRedApoyo),
+      _t('idOportFormProf', k.idOportFormProf),
+      _t('idDecisVida', k.idDecisVida),
+      _t('idOportunEmpleo', k.idOportunEmpleo),
+      _t('idAccesInfoDere', k.idAccesInfoDere),
+      _t('idNoVolDecis', k.idNoVolDecis),
+      _t('idParticipaEntor', k.idParticipaEntor),
+      _t('idSinApoyo', k.idSinApoyo),
+      _t('idAccederObst', k.idAccederObst),
+      _t('idExpresarOpin', k.idExpresarOpin),
+      _t('idApoyoDesaHabil', k.idApoyoDesaHabil),
+      _t('idDiscrimViolencia', k.idDiscrimViolencia),
+      _t('idIntitutoAprender', k.idIntitutoAprender),
+      _t('idCondicMinimSeg', k.idCondicMinimSeg),
+      _t('idEnseUtiliMat', k.idEnseUtiliMat),
+      _t('idApoyoDecisVida', k.idApoyoDecisVida),
+      _t('idValOpiniones', k.idValOpiniones),
+      _t('idEnseFormaAcces', k.idEnseFormaAcces),
+      _t('idSegComuni', k.idSegComuni),
+      _t('idAyudaTecnic', k.idAyudaTecnic),
+      _t('idApoyoDialog', k.idApoyoDialog),
+      _t('idAudifAyuTec', k.idAudifAyuTec),
+      _t('idMantAyuTec', k.idMantAyuTec),
+      _t('idAyuTecBuenEst', k.idAyuTecBuenEst),
+      _t('idAyuTecMovMas', k.idAyuTecMovMas),
+      _t('idMedDifMov', k.idMedDifMov),
+      _t('idApoyoPsico', k.idApoyoPsico),
+      _t('idNoAsisteTrat', k.idNoAsisteTrat),
+      _t('idAccesContrMental', k.idAccesContrMental),
+      _t('idEntornoAdaptado', k.idEntornoAdaptado),
+      _t('idBienestarSenia', k.idBienestarSenia),
+      _t('idExprDeciPref', k.idExprDeciPref),
+      _t('idAccesTerapias', k.idAccesTerapias),
+      _t('idExclAct', k.idExclAct),
+      _t('idAyuTecCom', k.idAyuTecCom),
+    ].where((e) => e.isNotEmpty).join('\n');
+    return _wrapIfHasBusinessFields('fichapcd', inner);
   }
 
   // ==========================================================

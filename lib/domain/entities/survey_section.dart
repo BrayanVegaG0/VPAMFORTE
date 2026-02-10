@@ -10,6 +10,7 @@ enum SurveySection {
   lawtonBrody,
   minimentalPam,
   yesavagePam,
+  fichaPcd,
 }
 
 extension SurveySectionX on SurveySection {
@@ -37,11 +38,12 @@ extension SurveySectionX on SurveySection {
         return 'Mini Examen Mental';
       case SurveySection.yesavagePam:
         return 'Escala Yesavage';
+      case SurveySection.fichaPcd:
+        return 'Ficha de Personas con Discapacidad';
     }
   }
 }
 
-/// ✅ ESTA CONSTANTE ES LA QUE TE FALTA
 const List<SurveySection> surveySectionsOrder = [
   SurveySection.datosGenerales,
   SurveySection.situacionSocioEconomica,
@@ -54,4 +56,5 @@ const List<SurveySection> surveySectionsOrder = [
   SurveySection.lawtonBrody,
   SurveySection.minimentalPam,
   SurveySection.yesavagePam,
+  SurveySection.fichaPcd,
 ];

@@ -12,6 +12,8 @@ import '../models/db/lawton_brody_db.dart';
 import '../models/db/minimental_pam_db.dart';
 import '../models/db/yesavage_pam_db.dart';
 
+import '../models/db/ficha_pcd_db.dart';
+
 class SurveyAnswersToFichaDbMapper {
   FichaAdultoMayorDiscDb map(Map<String, dynamic> a) {
     // =========================
@@ -432,6 +434,7 @@ class SurveyAnswersToFichaDbMapper {
       lawtonBrody: _mapLawtonBrody(a),
       minimentalPam: _mapMiniMental(a),
       yesavagePam: _mapYesavage(a),
+      fichaPcd: _mapFichaPcd(a),
     );
   }
 
@@ -521,6 +524,52 @@ class SurveyAnswersToFichaDbMapper {
       idYesavageQuince: _bool01(a['id_yesavage_quince']),
     );
   }
+
+  FichaPcdDb _mapFichaPcd(Map<String, dynamic> a) {
+    return FichaPcdDb(
+        idFichapcd: const Uuid().v4(),
+      idAtenMed: _s(a['idAtenMedD']),
+      idRecursosSuf: _s(a['idRecursosSufD']),
+      idApoyoEmoc: _s(a['idApoyoEmocD']),
+      idRedApoyo: _s(a['idRedApoyoD']),
+      idOportFormProf: _s(a['idOportFormProfD']),
+      idDecisVida: _s(a['idDecisVidaD']),
+      idOportunEmpleo: _s(a['idOportunEmpleoD']),
+      idAccesInfoDere: _s(a['idAccesInfoDereD']),
+      idNoVolDecis: _s(a['idNoVolDecisD']),
+      idParticipaEntor: _s(a['idParticipaEntorD']),
+      idSinApoyo: _s(a['idSinApoyoD']),
+      idAccederObst: _s(a['idAccederObstD']),
+      idExpresarOpin: _s(a['idExpresarOpinD']),
+      idApoyoDesaHabil: _s(a['idApoyoDesaHabilD']),
+      idDiscrimViolencia: _s(a['idDiscrimViolenciaD']),
+      idIntitutoAprender: _s(a['idIntitutoAprenderD']),
+      idCondicMinimSeg: _s(a['idCondicMinimSegD']),
+      idEnseUtiliMat: _s(a['idEnseUtiliMatD']),
+      idApoyoDecisVida: _s(a['idApoyoDecisVidaD']),
+      idValOpiniones: _s(a['idValOpinionesD']),
+      idEnseFormaAcces: _s(a['idEnseFormaAccesD']),
+      idSegComuni: _s(a['idSegComuniD']),
+      idAyudaTecnic: _s(a['idAyudaTecnicD']),
+      idApoyoDialog: _s(a['idApoyoDialogD']),
+      idAudifAyuTec: _s(a['idAudifAyuTecD']),
+      idMantAyuTec: _s(a['idMantAyuTecD']),
+      idAyuTecBuenEst: _s(a['idAyuTecBuenEstD']),
+      idAyuTecMovMas: _s(a['idAyuTecMovMasD']),
+      idMedDifMov: _s(a['idMedDifMovD']),
+      idApoyoPsico: _s(a['idApoyoPsicoD']),
+      idNoAsisteTrat: _s(a['idNoAsisteTratD']),
+      idAccesContrMental: _s(a['idAccesContrMentalD']),
+      idEntornoAdaptado: _s(a['idEntornoAdaptadoD']),
+      idBienestarSenia: _s(a['idBienestarSeniaD']),
+      idExprDeciPref: _s(a['idExprDeciPrefD']),
+      idAccesTerapias: _s(a['idAccesTerapiasD']),
+      idExclAct: _s(a['idExclActD']),
+      idAyuTecCom: _s(a['idAyuTecComD']),
+    );
+  }
+
+
 
   // ===== Helpers =====
 
