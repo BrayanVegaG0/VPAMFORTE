@@ -58,6 +58,12 @@ class AppDrawer extends StatelessWidget {
                     onTap: () => _goReplace(context, '/registered_surveys'),
                   ),
                   _DrawerItem(
+                    icon: Icons.history,
+                    title: 'Historial de Envíos',
+                    subtitle: 'Encuestas enviadas',
+                    onTap: () => _goReplace(context, '/survey_history'),
+                  ),
+                  _DrawerItem(
                     icon: Icons.info,
                     title: 'Acerca de',
                     subtitle: 'Información aplicación',

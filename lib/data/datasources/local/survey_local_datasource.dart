@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../models/survey_submission_model.dart';
+import '../../models/survey_history_model.dart';
 
 abstract class SurveyLocalDataSource {
   Future<void> saveDraft(SurveySubmissionModel draft);
@@ -13,11 +14,18 @@ abstract class SurveyLocalDataSource {
 
   Future<void> removePending(SurveySubmissionModel item);
 
-  Future<void> addToSentHistory(SurveySubmissionModel sent, {required String remoteCode, required String remoteMessage});
+  Future<void> addToSentHistory(
+    SurveySubmissionModel sent, {
+    required String remoteCode,
+    required String remoteMessage,
+  });
   Future<List<Map<String, dynamic>>> loadSentHistory(String surveyId);
 
   Future<void> clearPendingAll(String surveyId);
   Future<void> removePendingById(String surveyId, String createdAtIso);
+
+  Future<void> saveHistoryItem(SurveyHistoryModel item);
+  Future<List<SurveyHistoryModel>> getHistory();
 }
 
 class SurveyLocalDataSourcePrefs implements SurveyLocalDataSource {
@@ -28,17 +36,24 @@ class SurveyLocalDataSourcePrefs implements SurveyLocalDataSource {
   String _pendingKey(String surveyId) => 'survey_pending_$surveyId';
 
   String _historyKey(String surveyId) => 'survey_sent_history_$surveyId';
+  String get _surveySentHistoryKey =>
+      'survey_history_items_v1'; // Historial resumido
 
   @override
   Future<void> saveDraft(SurveySubmissionModel draft) async {
-    await prefs.setString(_draftKey(draft.surveyId), jsonEncode(draft.toJson()));
+    await prefs.setString(
+      _draftKey(draft.surveyId),
+      jsonEncode(draft.toJson()),
+    );
   }
 
   @override
   Future<SurveySubmissionModel?> loadDraft(String surveyId) async {
     final raw = prefs.getString(_draftKey(surveyId));
     if (raw == null || raw.isEmpty) return null;
-    return SurveySubmissionModel.fromJson(jsonDecode(raw) as Map<String, dynamic>);
+    return SurveySubmissionModel.fromJson(
+      jsonDecode(raw) as Map<String, dynamic>,
+    );
   }
 
   @override
@@ -59,7 +74,11 @@ class SurveyLocalDataSourcePrefs implements SurveyLocalDataSource {
     final key = _pendingKey(surveyId);
     final list = prefs.getStringList(key) ?? <String>[];
     return list
-        .map((s) => SurveySubmissionModel.fromJson(jsonDecode(s) as Map<String, dynamic>))
+        .map(
+          (s) => SurveySubmissionModel.fromJson(
+            jsonDecode(s) as Map<String, dynamic>,
+          ),
+        )
         .toList();
   }
 
@@ -69,11 +88,14 @@ class SurveyLocalDataSourcePrefs implements SurveyLocalDataSource {
     final list = prefs.getStringList(key) ?? <String>[];
 
     // identificador: createdAt + surveyId (suficiente para MVP)
-    final targetId = '${updated.surveyId}_${updated.createdAt.toIso8601String()}';
+    final targetId =
+        '${updated.surveyId}_${updated.createdAt.toIso8601String()}';
 
     final next = <String>[];
     for (final raw in list) {
-      final item = SurveySubmissionModel.fromJson(jsonDecode(raw) as Map<String, dynamic>);
+      final item = SurveySubmissionModel.fromJson(
+        jsonDecode(raw) as Map<String, dynamic>,
+      );
       final id = '${item.surveyId}_${item.createdAt.toIso8601String()}';
       next.add(id == targetId ? jsonEncode(updated.toJson()) : raw);
     }
@@ -90,7 +112,9 @@ class SurveyLocalDataSourcePrefs implements SurveyLocalDataSource {
 
     final next = <String>[];
     for (final raw in list) {
-      final current = SurveySubmissionModel.fromJson(jsonDecode(raw) as Map<String, dynamic>);
+      final current = SurveySubmissionModel.fromJson(
+        jsonDecode(raw) as Map<String, dynamic>,
+      );
       final id = '${current.surveyId}_${current.createdAt.toIso8601String()}';
       if (id != targetId) next.add(raw);
     }
@@ -99,10 +123,10 @@ class SurveyLocalDataSourcePrefs implements SurveyLocalDataSource {
 
   @override
   Future<void> addToSentHistory(
-      SurveySubmissionModel sent, {
-        required String remoteCode,
-        required String remoteMessage,
-      }) async {
+    SurveySubmissionModel sent, {
+    required String remoteCode,
+    required String remoteMessage,
+  }) async {
     final key = _historyKey(sent.surveyId);
     final list = prefs.getStringList(key) ?? <String>[];
 
@@ -138,7 +162,9 @@ class SurveyLocalDataSourcePrefs implements SurveyLocalDataSource {
 
     final next = <String>[];
     for (final raw in list) {
-      final current = SurveySubmissionModel.fromJson(jsonDecode(raw) as Map<String, dynamic>);
+      final current = SurveySubmissionModel.fromJson(
+        jsonDecode(raw) as Map<String, dynamic>,
+      );
       final id = '${current.surveyId}_${current.createdAt.toIso8601String()}';
       if (id != targetId) next.add(raw);
     }
@@ -146,5 +172,16 @@ class SurveyLocalDataSourcePrefs implements SurveyLocalDataSource {
     await prefs.setStringList(key, next);
   }
 
+  @override
+  Future<void> saveHistoryItem(SurveyHistoryModel item) async {
+    final list = prefs.getStringList(_surveySentHistoryKey) ?? [];
+    list.insert(0, jsonEncode(item.toJson())); // Add to top
+    await prefs.setStringList(_surveySentHistoryKey, list);
+  }
 
+  @override
+  Future<List<SurveyHistoryModel>> getHistory() async {
+    final list = prefs.getStringList(_surveySentHistoryKey) ?? [];
+    return list.map((e) => SurveyHistoryModel.fromJson(jsonDecode(e))).toList();
+  }
 }

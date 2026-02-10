@@ -17,6 +17,8 @@ import 'package:ficha_vulnerabilidad/domain/usecases/clear_survey_local_usecase.
 import 'package:ficha_vulnerabilidad/domain/usecases/delete_pending_submission_usecase.dart';
 import 'package:ficha_vulnerabilidad/domain/usecases/clear_survey_draft_usecase.dart';
 import 'package:ficha_vulnerabilidad/domain/usecases/consult_dinardap_usecase.dart';
+import 'package:ficha_vulnerabilidad/domain/usecases/save_survey_history_usecase.dart';
+import 'package:ficha_vulnerabilidad/domain/usecases/get_survey_history_usecase.dart';
 
 import 'package:ficha_vulnerabilidad/presentation/state/survey/survey_bloc.dart';
 import 'package:ficha_vulnerabilidad/presentation/state/survey/survey_event.dart';
@@ -52,6 +54,12 @@ class MockClearSurveyDraftUseCase extends Mock
 class MockConsultDinardapUseCase extends Mock
     implements ConsultDinardapUseCase {}
 
+class MockSaveSurveyHistoryUseCase extends Mock
+    implements SaveSurveyHistoryUseCase {}
+
+class MockGetSurveyHistoryUseCase extends Mock
+    implements GetSurveyHistoryUseCase {}
+
 class FakeSurveySubmission extends Fake implements SurveySubmission {}
 
 void main() {
@@ -65,6 +73,8 @@ void main() {
   late MockDeletePendingSubmissionUseCase mockDeletePending;
   late MockClearSurveyDraftUseCase mockClearDraft;
   late MockConsultDinardapUseCase mockConsultDinardap;
+  late MockSaveSurveyHistoryUseCase mockSaveHistory;
+  late MockGetSurveyHistoryUseCase mockGetHistory;
 
   final fakeSurvey = Survey(
     id: 'survey-001',
@@ -106,6 +116,8 @@ void main() {
     mockDeletePending = MockDeletePendingSubmissionUseCase();
     mockClearDraft = MockClearSurveyDraftUseCase();
     mockConsultDinardap = MockConsultDinardapUseCase();
+    mockSaveHistory = MockSaveSurveyHistoryUseCase();
+    mockGetHistory = MockGetSurveyHistoryUseCase();
 
     when(() => mockGetSurveys()).thenAnswer((_) async => [fakeSurvey]);
     when(() => mockLoadDraft(any())).thenAnswer((_) async => null);
@@ -121,6 +133,8 @@ void main() {
       ),
     ).thenAnswer((_) async {});
     when(() => mockClearDraft(any())).thenAnswer((_) async {});
+    when(() => mockSaveHistory(any())).thenAnswer((_) async {});
+    when(() => mockGetHistory()).thenAnswer((_) async => []);
   });
 
   SurveyBloc buildBloc() => SurveyBloc(
@@ -134,6 +148,8 @@ void main() {
     deletePendingSubmissionUseCase: mockDeletePending,
     clearSurveyDraftUseCase: mockClearDraft,
     consultDinardapUseCase: mockConsultDinardap,
+    saveSurveyHistoryUseCase: mockSaveHistory,
+    getSurveyHistoryUseCase: mockGetHistory,
   );
 
   test('estado inicial es SurveyState.initial()', () {

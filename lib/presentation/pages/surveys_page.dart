@@ -1065,6 +1065,7 @@ class _QuestionInput extends StatelessWidget {
                   suffixIcon: Icon(
                     isReadOnly ? Icons.lock : Icons.calendar_month,
                     color: isReadOnly ? Colors.blue : null,
+                    size: isReadOnly ? 16 : null, // ✅ Tamaño 16 para el candado
                   ),
                 ),
                 child: Text(

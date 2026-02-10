@@ -13,6 +13,9 @@ import '../../../domain/usecases/send_pending_submissions_usecase.dart';
 import '../../../domain/rules/survey_rules_engine.dart';
 import '../../../domain/usecases/clear_survey_draft_usecase.dart';
 import '../../../domain/usecases/consult_dinardap_usecase.dart';
+import '../../../domain/usecases/save_survey_history_usecase.dart';
+import '../../../domain/usecases/get_survey_history_usecase.dart';
+import '../../../domain/entities/survey_history_item.dart';
 
 import '../../widgets/ecuador_location_dropdown.dart';
 import '../../utils/survey_section_filter_helper.dart';
@@ -30,6 +33,9 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
   final DeletePendingSubmissionUseCase deletePendingSubmissionUseCase;
   final ClearSurveyDraftUseCase clearSurveyDraftUseCase;
   final ConsultDinardapUseCase consultDinardapUseCase;
+  final SaveSurveyHistoryUseCase saveSurveyHistoryUseCase;
+  final GetSurveyHistoryUseCase getSurveyHistoryUseCase;
+
   String? _lastDinardapCedula;
 
   SurveyBloc({
@@ -43,8 +49,11 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
     required this.deletePendingSubmissionUseCase,
     required this.clearSurveyDraftUseCase,
     required this.consultDinardapUseCase,
+    required this.saveSurveyHistoryUseCase,
+    required this.getSurveyHistoryUseCase,
   }) : super(SurveyState.initial()) {
     on<SurveyLoadRequested>(_onLoad);
+    on<SurveyLoadHistoryRequested>(_onLoadHistory);
     on<SurveyAnswerChanged>(_onAnswerChanged);
     on<SurveyPrevPageRequested>(_onPrevPage);
     on<SurveyNextPageRequested>(_onNextPage);
@@ -356,10 +365,45 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
     );
 
     try {
+      // 1. Cargar pendientes actuales (antes de envío, para obtener datos)
+      final prePending = await loadPendingSubmissionsUseCase(event.surveyId);
+      final toSend = prePending.where(
+        (p) =>
+            event.selectedCreatedAtIso.contains(p.createdAt.toIso8601String()),
+      );
+
       await sendPendingSubmissionsUseCase(
         event.surveyId,
         selectedCreatedAtIso: event.selectedCreatedAtIso,
       );
+
+      // 2. Si no hubo excepción, guardamos en historial
+      for (final sub in toSend) {
+        final cedula = sub.answers['nroDocumentoM']?.toString() ?? '';
+        final apellidos = sub.answers['Apellidos']?.toString() ?? '';
+        final nombres = sub.answers['Nombres']?.toString() ?? '';
+        final edad = sub.answers['edadM']?.toString();
+        final servicioId = sub.answers['idServMdh']?.toString();
+
+        String servicioName = 'Desconocido';
+        if (servicioId == '3') servicioName = 'Adulto Mayor';
+        if (servicioId == '4') servicioName = 'Discapacidad';
+
+        final historyItem = SurveyHistoryItem(
+          id: '${sub.surveyId}_${sub.createdAt.millisecondsSinceEpoch}',
+          cedula: cedula,
+          nombres: '$apellidos $nombres'.trim(),
+          edad: edad,
+          servicio: servicioName,
+          sentAt: DateTime.now(),
+          status: 'Enviado',
+        );
+
+        await saveSurveyHistoryUseCase(historyItem);
+      }
+
+      // Recargar historial si estamos en esa vista (opcional, pero buena práctica)
+      add(const SurveyLoadHistoryRequested());
 
       emit(
         state.copyWith(
@@ -704,5 +748,18 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
 
   Future<dynamic> consultDinardapNow(String cedula) {
     return consultDinardapUseCase(cedula: cedula);
+  }
+
+  Future<void> _onLoadHistory(
+    SurveyLoadHistoryRequested event,
+    Emitter<SurveyState> emit,
+  ) async {
+    emit(state.copyWith(isHistoryLoading: true));
+    try {
+      final history = await getSurveyHistoryUseCase();
+      emit(state.copyWith(history: history, isHistoryLoading: false));
+    } catch (e) {
+      emit(state.copyWith(isHistoryLoading: false));
+    }
   }
 }

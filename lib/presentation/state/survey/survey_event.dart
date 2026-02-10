@@ -11,6 +11,10 @@ class SurveyLoadRequested extends SurveyEvent {
   const SurveyLoadRequested();
 }
 
+class SurveyLoadHistoryRequested extends SurveyEvent {
+  const SurveyLoadHistoryRequested();
+}
+
 class SurveyAnswerChanged extends SurveyEvent {
   final String questionId;
   final dynamic value;

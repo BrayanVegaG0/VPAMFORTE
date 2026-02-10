@@ -45,6 +45,9 @@ import 'data/datasources/remote/soap/ficha_soap_serializer.dart';
 import 'data/datasources/remote/dinardap_soap_remote_datasource.dart';
 import 'data/repositories_impl/dinardap_repository_impl.dart';
 import 'domain/usecases/consult_dinardap_usecase.dart';
+import 'domain/usecases/save_survey_history_usecase.dart';
+import 'domain/usecases/get_survey_history_usecase.dart';
+import 'presentation/pages/survey_history_page.dart';
 
 class App extends StatefulWidget {
   final Future<SharedPreferences> prefsFuture;
@@ -124,6 +127,9 @@ class _AppState extends State<App> {
     final dinardapRepo = DinardapRepositoryImpl(remote: dinardapRemote);
     final consultDinardapUseCase = ConsultDinardapUseCase(dinardapRepo);
 
+    final saveSurveyHistoryUseCase = SaveSurveyHistoryUseCase(surveyRepo);
+    final getSurveyHistoryUseCase = GetSurveyHistoryUseCase(surveyRepo);
+
     return MultiBlocProvider(
       providers: [
         BlocProvider<AuthBloc>(
@@ -145,6 +151,8 @@ class _AppState extends State<App> {
             deletePendingSubmissionUseCase: deletePendingSubmissionUseCase,
             clearSurveyDraftUseCase: clearSurveyDraftUseCase,
             consultDinardapUseCase: consultDinardapUseCase,
+            saveSurveyHistoryUseCase: saveSurveyHistoryUseCase,
+            getSurveyHistoryUseCase: getSurveyHistoryUseCase,
           )..add(const SurveyLoadRequested()),
         ),
       ],
@@ -267,6 +275,7 @@ class _AppState extends State<App> {
           '/registered_surveys': (_) => const RegisteredSurveysPage(),
           '/about_of': (_) => const AboutOfPage(),
           '/usuario_consentimiento': (_) => const UsuarioConsentimientoPage(),
+          '/survey_history': (_) => const SurveyHistoryPage(),
         },
       ),
     );

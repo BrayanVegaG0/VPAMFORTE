@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import '../../../domain/entities/survey.dart';
+import '../../../domain/entities/survey_history_item.dart';
 
 enum SurveyStatus {
   initial,
@@ -37,6 +38,10 @@ class SurveyState extends Equatable {
   // Campos poblados por DINARDAP (para hacerlos read-only)
   final Set<String> dinardapPopulatedFields;
 
+  // HISTORIAL
+  final List<SurveyHistoryItem> history;
+  final bool isHistoryLoading;
+
   // GUARDADO AUTOMÁTICO
   final DateTime? lastSavedAt;
 
@@ -57,6 +62,8 @@ class SurveyState extends Equatable {
     this.dinardapError,
     this.lastSavedAt,
     this.dinardapPopulatedFields = const {},
+    this.history = const [],
+    this.isHistoryLoading = false,
   });
 
   factory SurveyState.initial() => const SurveyState(
@@ -76,6 +83,8 @@ class SurveyState extends Equatable {
     dinardapError: null,
     lastSavedAt: null,
     dinardapPopulatedFields: const {},
+    history: const [],
+    isHistoryLoading: false,
   );
 
   SurveyState copyWith({
@@ -95,6 +104,8 @@ class SurveyState extends Equatable {
     String? dinardapError,
     DateTime? lastSavedAt,
     Set<String>? dinardapPopulatedFields,
+    List<SurveyHistoryItem>? history,
+    bool? isHistoryLoading,
   }) {
     return SurveyState(
       status: status ?? this.status,
@@ -114,6 +125,8 @@ class SurveyState extends Equatable {
       lastSavedAt: lastSavedAt ?? this.lastSavedAt,
       dinardapPopulatedFields:
           dinardapPopulatedFields ?? this.dinardapPopulatedFields,
+      history: history ?? this.history,
+      isHistoryLoading: isHistoryLoading ?? this.isHistoryLoading,
     );
   }
 
@@ -135,5 +148,7 @@ class SurveyState extends Equatable {
     dinardapError,
     lastSavedAt,
     dinardapPopulatedFields,
+    history,
+    isHistoryLoading,
   ];
 }

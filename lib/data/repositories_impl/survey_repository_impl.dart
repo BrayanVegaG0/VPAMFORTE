@@ -2,11 +2,13 @@ import 'package:flutter/foundation.dart';
 
 import '../../domain/entities/survey.dart';
 import '../../domain/entities/survey_submission.dart';
+import '../../domain/entities/survey_history_item.dart';
 import '../../domain/repositories/survey_repository.dart';
 import '../datasources/remote/survey_remote_datasource.dart';
 import '../datasources/remote/survey_soap_remote_datasource.dart';
 import '../datasources/local/survey_local_datasource.dart';
 import '../models/survey_submission_model.dart';
+import '../models/survey_history_model.dart';
 import '../datasources/local/auth_local_datasource.dart';
 import '../mappers/survey_answers_to_ficha_db_mapper.dart';
 import '../datasources/remote/soap/ficha_soap_serializer.dart';
@@ -148,6 +150,10 @@ class SurveyRepositoryImpl implements SurveyRepository {
         );
 
         await local.removePending(_toModel(sent));
+
+        // ✅ Guardar en historial resumido
+        // (Esto se hará desde el BLOC usando el UseCase, pero el repositorio debe soportarlo)
+        // Por ahora, el repo solo expone los métodos
       } catch (e) {
         final failed = updatedAttempt.copyWith(
           updatedAt: DateTime.now(),
@@ -178,5 +184,15 @@ class SurveyRepositoryImpl implements SurveyRepository {
     required String createdAtIso,
   }) {
     return local.removePendingById(surveyId, createdAtIso);
+  }
+
+  @override
+  Future<void> saveHistoryItem(SurveyHistoryItem item) {
+    return local.saveHistoryItem(SurveyHistoryModel.fromEntity(item));
+  }
+
+  @override
+  Future<List<SurveyHistoryItem>> getHistory() {
+    return local.getHistory();
   }
 }
