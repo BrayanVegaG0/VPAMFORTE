@@ -11,6 +11,13 @@ class SurveySectionFilterHelper {
     SurveySection.yesavagePam,
   };
 
+  static const Set<SurveySection> _personasconPcd = {
+    SurveySection.fichaPcd,
+    SurveySection.indiceBarthel,
+    SurveySection.baremo,
+    SurveySection.cargaCuidador,
+  };
+
   /// Calcula la edad en años desde una fecha de nacimiento ISO (YYYY-MM-DD)
   static int? calculateAge(String? fechaNacimiento) {
     if (fechaNacimiento == null || fechaNacimiento.trim().isEmpty) {
@@ -40,14 +47,18 @@ class SurveySectionFilterHelper {
     Map<String, dynamic> answers,
   ) {
     final raw = answers['idServMdh'];
-    if (raw == null)
-      return !_elderOnlySections.contains(section) &&
-          section != SurveySection.fichaPcd;
+    if (raw == null) {
+      return !_elderOnlySections.contains(section) && !_personasconPcd.contains(section);
+    }
 
     final serviceId = raw.toString().trim();
 
     // 1. Regla específica para Ficha PCD: solo si serv == '4'
-    if (section == SurveySection.fichaPcd) {
+    //if (section == SurveySection.fichaPcd) {
+    //  return serviceId == '4';
+    //}
+
+    if (_personasconPcd.contains(section)) {
       return serviceId == '4';
     }
 

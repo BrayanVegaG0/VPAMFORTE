@@ -13,6 +13,8 @@ import '../models/db/minimental_pam_db.dart';
 import '../models/db/yesavage_pam_db.dart';
 
 import '../models/db/ficha_pcd_db.dart';
+import '../models/db/baremo_db.dart';
+import '../models/db/carga_cuidador_disc_db.dart';
 
 class SurveyAnswersToFichaDbMapper {
   FichaAdultoMayorDiscDb map(Map<String, dynamic> a) {
@@ -435,6 +437,8 @@ class SurveyAnswersToFichaDbMapper {
       minimentalPam: _mapMiniMental(a),
       yesavagePam: _mapYesavage(a),
       fichaPcd: _mapFichaPcd(a),
+      baremo: _mapBaremo(a),
+      cargaCuidadorDisc: _mapCargaCuidadorDisc(a),
     );
   }
 
@@ -566,6 +570,86 @@ class SurveyAnswersToFichaDbMapper {
       idAccesTerapias: _s(a['idAccesTerapiasD']),
       idExclAct: _s(a['idExclActD']),
       idAyuTecCom: _s(a['idAyuTecComD']),
+    );
+  }
+
+  BaremoDb _mapBaremo(Map<String, dynamic> a) {
+    return BaremoDb(
+      idBaremo: const Uuid().v4(),
+      idConfinadoCama: _s(a['idConfinadoCamaD']),
+      idConfinadoSillaRuedas: _s(a['idConfinadoSillaRuedasD']),
+      idUsuarioSillaRuedas: _s(a['idUsuarioSillaRuedasD']),
+      idAndaNoPonersePie: _s(a['idAndaNoPonersePieD']),
+      idAndaNecesitaGuia: _s(a['idAndaNecesitaGuiaD']),
+      idAcostarse: _s(a['idAcostarseD']),
+      idLevantarse: _s(a['idLevantarseD']),
+      idCambiosPostulares: _s(a['idCambiosPostularesD']),
+      idRopaCama: _s(a['idRopaCamaD']),
+      idPrendasSuperiorCuerpo: _s(a['idPrendasSuperiorCuerpoD']),
+      idPrendasInferiorCuerpo: _s(a['idPrendasInferiorCuerpoD']),
+      idPrendasCalzado: _s(a['idPrendasCalzadoD']),
+      idAbrotarBotonesCremalleras: _s(a['idAbrotarBotonesCremallerasD']),
+      idDucharse: _s(a['idDucharseD']),
+      idUsoRetrete: _s(a['idUsoRetreteD']),
+      idLavarseManosPeinarse: _s(a['idLavarseManosPeinarseD']),
+      idLavarsePiesHigMenstrual: _s(a['idLavarsePiesHigMenstrualD']),
+      idOtrasActHigienePersonal: _s(a['idOtrasActHigienePersonalD']),
+      idSujetarCubiertos: _s(a['idSujetarCubiertosD']),
+      idSujetarJarras: _s(a['idSujetarJarrasD']),
+      idServirseCortarCarne: _s(a['idServirseCortarCarneD']),
+      idAyudaUrg: _s(a['idAyudaUrgD']),
+      idLlamadasPuerta: _s(a['idLlamadasPuertaD']),
+      idUsarTelefono: _s(a['idUsarTelefonoD']),
+      idSeguridadAcceso: _s(a['idSeguridadAccesoD']),
+      idUsoDispositivosDomesticos: _s(a['idUsoDispositivosDomesticosD']),
+      idUsoRadiosLibros: _s(a['idUsoRadiosLibrosD']),
+      idAparatosEspeciales: _s(a['idAparatosEspecialesD']),
+      idPrecaucionesEspeciales: _s(a['idPrecaucionesEspecialesD']),
+      idDependenciaPersona: _s(a['idDependenciaPersonaD']),
+      idIncapacidadTotal: _s(a['idIncapacidadTotalD']),
+      idConductasAgresivas: _s(a['idConductasAgresivasD']),
+      idConductasInadaptadas: _s(a['idConductasInadaptadasD']),
+      idProteccionAbsoluta: _s(a['idProteccionAbsolutaD']),
+      idDisponibilidadContinua: _s(a['idDisponibilidadContinuaD']),
+      idNormasHabitualesConvivencia: _s(a['idNormasHabitualesConvivenciaD']),
+      idConocimientoNormas: _s(a['idConocimientoNormasD']),
+      idNormasEspeciales: _s(a['idNormasEspecialesD']),
+      idRutinaCotidiana: _s(a['idRutinaCotidianaD']),
+      idProblemasHabituales: _s(a['idProblemasHabitualesD']),
+    );
+  }
+
+  CargaCuidadorDiscDb _mapCargaCuidadorDisc(Map<String, dynamic> a) {
+    return CargaCuidadorDiscDb(
+      idCargaCuidadorDiscDisc: const Uuid().v4(),
+      idPersonaCuidadora: _s(a['idPersonaCuidadoraD']),
+      idCuidadoOtrasPersonas: _s(a['idCuidadoOtrasPersonasD']),
+      idCuidadoraDisc: _s(a['idCuidadoraDiscD']),
+      idMiembroHogarSustituto: _s(a['idMiembroHogarSustitutoD']),
+      idSustitutoTrabaja: _s(a['idSustitutoTrabajaD']),
+      idDiscCuidaPersonasHogar: _s(a['idDiscCuidaPersonasHogarD']),
+      idAyudaFamilia: _s(a['idAyudaFamiliaD']),
+      idSuficienteTiempo: _s(a['idSuficienteTiempoD']),
+      idAgobiadoCompatibilizar: _s(a['idAgobiadoCompatibilizarD']),
+      idVerguenzaConductaFam: _s(a['idVerguenzaConductaFamD']),
+      idEnfadadoCercaFam: _s(a['idEnfadadoCercaFamD']),
+      idCuidarFamAfectaNeg: _s(a['idCuidarFamAfectaNegD']),
+      idMiedoFuturoFam: _s(a['idMiedoFuturoFamD']),
+      idFamDependeUsted: _s(a['idFamDependeUstedD']),
+      idTensoCercaFam: _s(a['idTensoCercaFamD']),
+      idSaludEmpeorado: _s(a['idSaludEmpeoradoD']),
+      idMpTieneIntimidad: _s(a['idMpTieneIntimidadD']),
+      idVidaSocialAfectada: _s(a['idVidaSocialAfectadaD']),
+      idIncomodoDistanciarse: _s(a['idIncomodoDistanciarseD']),
+      idFamiliarUnicaPersCuidar: _s(a['idFamiliarUnicaPersCuidarD']),
+      idNoTieneSuficientesIngre: _s(a['idNoTieneSuficientesIngreD']),
+      idNoCapazCuidarFam: _s(a['idNoCapazCuidarFamD']),
+      idPerdidoControl: _s(a['idPerdidoControlD']),
+      idDejarCuidadoFamiliar: _s(a['idDejarCuidadoFamiliarD']),
+      idIndeciso: _s(a['idIndecisoD']),
+      idDeberiaHacerMasFam: _s(a['idDeberiaHacerMasFamD']),
+      idGradoCargaExperimenta: _s(a['idGradoCargaExperimentaD']),
+
     );
   }
 

@@ -1,3 +1,5 @@
+import 'package:ficha_vulnerabilidad/domain/entities/survey.dart';
+
 enum SurveySection {
   datosGenerales,
   situacionSocioEconomica,
@@ -6,11 +8,13 @@ enum SurveySection {
   serviciosAtencionCuidado,
   cuestionarioAMA,
   fichaPam,
+  fichaPcd,
   indiceBarthel,
   lawtonBrody,
   minimentalPam,
   yesavagePam,
-  fichaPcd,
+  baremo,
+  cargaCuidador,
 }
 
 extension SurveySectionX on SurveySection {
@@ -30,6 +34,8 @@ extension SurveySectionX on SurveySection {
         return 'Cuestionario AMA';
       case SurveySection.fichaPam:
         return 'Ficha Adulto Mayor';
+      case SurveySection.fichaPcd:
+        return 'Ficha de Personas con Discapacidad';
       case SurveySection.indiceBarthel:
         return 'Índice Barthel';
       case SurveySection.lawtonBrody:
@@ -38,8 +44,10 @@ extension SurveySectionX on SurveySection {
         return 'Mini Examen Mental';
       case SurveySection.yesavagePam:
         return 'Escala Yesavage';
-      case SurveySection.fichaPcd:
-        return 'Ficha de Personas con Discapacidad';
+      case SurveySection.baremo:
+        return 'Baremo';
+      case SurveySection.cargaCuidador:
+        return 'Carga del Cuidador';
     }
   }
 }
@@ -52,9 +60,11 @@ const List<SurveySection> surveySectionsOrder = [
   SurveySection.serviciosAtencionCuidado,
   SurveySection.cuestionarioAMA,
   SurveySection.fichaPam,
+  SurveySection.fichaPcd,
   SurveySection.indiceBarthel,
   SurveySection.lawtonBrody,
   SurveySection.minimentalPam,
   SurveySection.yesavagePam,
-  SurveySection.fichaPcd,
+  SurveySection.baremo,
+  SurveySection.cargaCuidador,
 ];

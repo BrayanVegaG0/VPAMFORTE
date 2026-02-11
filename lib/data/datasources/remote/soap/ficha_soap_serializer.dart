@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import '../../../models/db/ficha_adulto_mayor_disc_db.dart';
 
 class FichaSoapSerializer {
@@ -15,6 +17,8 @@ class FichaSoapSerializer {
     'idMinimentalPam',
     'idYesavagePam',
     'idFichapcd',
+    'idBaremo',
+    'idCargaCuidadorDiscDisc',
     // agrega aquí cualquier otro id* que sea PK de entidad
   };
 
@@ -31,6 +35,8 @@ class FichaSoapSerializer {
       _minimentalPam(ficha),
       _yesavagePam(ficha),
       _fichaPcd(ficha),
+      _baremo(ficha),
+      _cargaCuidadorDisc(ficha),
     ].where((x) => x.trim().isNotEmpty).join('\n');
 
     return '''
@@ -549,6 +555,92 @@ class FichaSoapSerializer {
       _t('idAyuTecCom', k.idAyuTecCom),
     ].where((e) => e.isNotEmpty).join('\n');
     return _wrapIfHasBusinessFields('fichapcd', inner);
+  }
+
+  String _baremo(FichaAdultoMayorDiscDb f) {
+    final h = f.baremo;
+
+    final inner = [
+      _t('idBaremo', h.idBaremo),
+      _t('idConfinadoCama', h.idConfinadoCama),
+      _t('idConfinadoSillaRuedas', h.idConfinadoSillaRuedas),
+      _t('idUsuarioSillaRuedas', h.idUsuarioSillaRuedas),
+      _t('idAndaNoPonersePie', h.idAndaNoPonersePie),
+      _t('idAndaNecesitaGuia', h.idAndaNecesitaGuia),
+      _t('idAcostarse', h.idAcostarse),
+      _t('idLevantarse', h.idLevantarse),
+      _t('idCambiosPostulares', h.idCambiosPostulares),
+      _t('idRopaCama', h.idRopaCama),
+      _t('idPrendasSuperiorCuerpo', h.idPrendasSuperiorCuerpo),
+      _t('idPrendasInferiorCuerpo', h.idPrendasInferiorCuerpo),
+      _t('idPrendasCalzado', h.idPrendasCalzado),
+      _t('idAbrotarBotonesCremalleras', h.idAbrotarBotonesCremalleras),
+      _t('idDucharse', h.idDucharse),
+      _t('idUsoRetrete', h.idUsoRetrete),
+      _t('idLavarseManosPeinarse', h.idLavarseManosPeinarse),
+      _t('idLavarsePiesHigMenstrual', h.idLavarsePiesHigMenstrual),
+      _t('idOtrasActHigienePersonal', h.idOtrasActHigienePersonal),
+      _t('idSujetarCubiertos', h.idSujetarCubiertos),
+      _t('idSujetarJarras', h.idSujetarJarras),
+      _t('idServirseCortarCarne', h.idServirseCortarCarne),
+      _t('idAyudaUrg', h.idAyudaUrg),
+      _t('idLlamadasPuerta', h.idLlamadasPuerta),
+      _t('idUsarTelefono', h.idUsarTelefono),
+      _t('idSeguridadAcceso', h.idSeguridadAcceso),
+      _t('idUsoDispositivosDomesticos', h.idUsoDispositivosDomesticos),
+      _t('idUsoRadiosLibros', h.idUsoRadiosLibros),
+      _t('idAparatosEspeciales', h.idAparatosEspeciales),
+      _t('idPrecaucionesEspeciales', h.idPrecaucionesEspeciales),
+      _t('idDependenciaPersona', h.idDependenciaPersona),
+      _t('idIncapacidadTotal', h.idIncapacidadTotal),
+      _t('idConductasAgresivas', h.idConductasAgresivas),
+      _t('idConductasInadaptadas', h.idConductasInadaptadas),
+      _t('idProteccionAbsoluta', h.idProteccionAbsoluta),
+      _t('idDisponibilidadContinua', h.idDisponibilidadContinua),
+      _t('idNormasHabitualesConvivencia', h.idNormasHabitualesConvivencia),
+      _t('idConocimientoNormas', h.idConocimientoNormas),
+      _t('idNormasEspeciales', h.idNormasEspeciales),
+      _t('idRutinaCotidiana', h.idRutinaCotidiana),
+      _t('idProblemasHabituales', h.idProblemasHabituales),
+
+    ].where((e) => e.isNotEmpty).join('\n');
+    return _wrapIfHasBusinessFields('baremo', inner);
+  }
+
+  String _cargaCuidadorDisc(FichaAdultoMayorDiscDb f) {
+    final l = f.cargaCuidadorDisc;
+
+    final inner = [
+      _t('idCargaCuidadorDiscDisc', l.idCargaCuidadorDiscDisc),
+      _t('idPersonaCuidadora', l.idPersonaCuidadora),
+      _t('idCuidadoOtrasPersonas', l.idCuidadoOtrasPersonas),
+      _t('idCuidadoraDisc', l.idCuidadoraDisc),
+      _t('idMiembroHogarSustituto', l.idMiembroHogarSustituto),
+      _t('idSustitutoTrabaja', l.idSustitutoTrabaja),
+      _t('idDiscCuidaPersonasHogar', l.idDiscCuidaPersonasHogar),
+      _t('idAyudaFamilia', l.idAyudaFamilia),
+      _t('idSuficienteTiempo', l.idSuficienteTiempo),
+      _t('idAgobiadoCompatibilizar', l.idAgobiadoCompatibilizar),
+      _t('idVerguenzaConductaFam', l.idVerguenzaConductaFam),
+      _t('idEnfadadoCercaFam', l.idEnfadadoCercaFam),
+      _t('idCuidarFamAfectaNeg', l.idCuidarFamAfectaNeg),
+      _t('idMiedoFuturoFam', l.idMiedoFuturoFam),
+      _t('idFamDependeUsted', l.idFamDependeUsted),
+      _t('idTensoCercaFam', l.idTensoCercaFam),
+      _t('idSaludEmpeorado', l.idSaludEmpeorado),
+      _t('idMpTieneIntimidad', l.idMpTieneIntimidad),
+      _t('idVidaSocialAfectada', l.idVidaSocialAfectada),
+      _t('idIncomodoDistanciarse', l.idIncomodoDistanciarse),
+      _t('idFamiliarUnicaPersCuidar', l.idFamiliarUnicaPersCuidar),
+      _t('idNoTieneSuficientesIngre', l.idNoTieneSuficientesIngre),
+      _t('idNoCapazCuidarFam', l.idNoCapazCuidarFam),
+      _t('idPerdidoControl', l.idPerdidoControl),
+      _t('idDejarCuidadoFamiliar', l.idDejarCuidadoFamiliar),
+      _t('idIndeciso', l.idIndeciso),
+      _t('idDeberiaHacerMasFam', l.idDeberiaHacerMasFam),
+      _t('idGradoCargaExperimenta', l.idGradoCargaExperimenta),
+    ].where((e) => e.isNotEmpty).join('\n');
+    return _wrapIfHasBusinessFields('cargaCuidadorDisc', inner);
   }
 
   // ==========================================================

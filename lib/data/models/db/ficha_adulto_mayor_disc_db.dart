@@ -10,6 +10,8 @@ import 'vulnerabilidad_per_discapacidad_db.dart';
 import 'vulnerabilidad_vivienda_disc_db.dart';
 import 'salud_disc_db.dart';
 import 'ficha_pcd_db.dart';
+import 'baremo_db.dart';
+import 'carga_cuidador_disc_db.dart';
 
 class FichaAdultoMayorDiscDb {
   final VulnerabilidadPerDiscapacidadDb vulnerabilidadPerDiscapacidad;
@@ -23,6 +25,8 @@ class FichaAdultoMayorDiscDb {
   final MiniMentalPamDb minimentalPam;
   final YesavagePamDb yesavagePam;
   final FichaPcdDb fichaPcd;
+  final BaremoDb baremo;
+  final CargaCuidadorDiscDb cargaCuidadorDisc;
 
   FichaAdultoMayorDiscDb({
     required this.vulnerabilidadPerDiscapacidad,
@@ -36,6 +40,8 @@ class FichaAdultoMayorDiscDb {
     required this.minimentalPam,
     required this.yesavagePam,
     required this.fichaPcd,
+    required this.baremo,
+    required this.cargaCuidadorDisc,
   });
 
   Map<String, dynamic> toJson() => {
@@ -50,6 +56,8 @@ class FichaAdultoMayorDiscDb {
     'minimentalPam': minimentalPam.toJson(),
     'yesavagePam': yesavagePam.toJson(),
     'fichaPcd': fichaPcd.toJson(),
+    'baremo': baremo.toJson(),
+    'cargaCuidadorDisc': cargaCuidadorDisc.toJson(),
   };
 
   static FichaAdultoMayorDiscDb fromJson(Map<String, dynamic> json) {
@@ -86,6 +94,12 @@ class FichaAdultoMayorDiscDb {
       ),
       fichaPcd: FichaPcdDb.fromJson(
           json['fichaPcd'] as Map <String, dynamic>
+      ),
+      baremo: BaremoDb.fromJson(
+          json['baremo'] as Map<String, dynamic>,
+      ),
+      cargaCuidadorDisc: CargaCuidadorDiscDb.fromJson(
+          json['cargaCuidadorDisc'] as Map <String, dynamic>
       ),
     );
   }
