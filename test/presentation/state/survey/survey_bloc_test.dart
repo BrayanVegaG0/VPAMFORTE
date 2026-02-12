@@ -6,6 +6,7 @@ import 'package:ficha_vulnerabilidad/domain/entities/survey.dart';
 import 'package:ficha_vulnerabilidad/domain/entities/question.dart';
 import 'package:ficha_vulnerabilidad/domain/entities/survey_submission.dart';
 import 'package:ficha_vulnerabilidad/domain/entities/survey_section.dart';
+import 'package:ficha_vulnerabilidad/domain/entities/send_result.dart';
 
 import 'package:ficha_vulnerabilidad/domain/usecases/get_surveys_usecase.dart';
 import 'package:ficha_vulnerabilidad/domain/usecases/save_survey_draft_usecase.dart';
@@ -124,7 +125,9 @@ void main() {
     when(() => mockSaveDraft(any())).thenAnswer((_) async {});
     when(() => mockFinalize(any())).thenAnswer((_) async {});
     when(() => mockLoadPending(any())).thenAnswer((_) async => []);
-    when(() => mockSendPending(any())).thenAnswer((_) async {});
+    when(() => mockSendPending(any())).thenAnswer(
+      (_) async => const SendResult(successCount: 0, failureCount: 0),
+    );
     when(() => mockClearLocal(any())).thenAnswer((_) async {});
     when(
       () => mockDeletePending(

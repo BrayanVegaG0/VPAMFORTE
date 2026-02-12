@@ -413,13 +413,14 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
             event.selectedCreatedAtIso.contains(p.createdAt.toIso8601String()),
       );
 
-      await sendPendingSubmissionsUseCase(
+      final result = await sendPendingSubmissionsUseCase(
         event.surveyId,
         selectedCreatedAtIso: event.selectedCreatedAtIso,
       );
 
-      // 2. Si no hubo excepción, guardamos en historial
-      for (final sub in toSend) {
+      // 2. Solo guardar en historial las que se enviaron exitosamente
+      final successfulOnes = toSend.take(result.successCount);
+      for (final sub in successfulOnes) {
         final cedula = sub.answers['nroDocumentoM']?.toString() ?? '';
         final apellidos = sub.answers['Apellidos']?.toString() ?? '';
         final nombres = sub.answers['Nombres']?.toString() ?? '';
@@ -446,18 +447,28 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
       // Recargar historial si estamos en esa vista (opcional, pero buena práctica)
       add(const SurveyLoadHistoryRequested());
 
-      emit(
-        state.copyWith(
-          isSending: false,
-          message: 'Sincronización completada ✅',
-        ),
-      );
+      // 3. Emitir mensaje según el resultado
+      String message;
+      if (result.allSucceeded) {
+        // Todas se enviaron correctamente
+        message =
+            '${result.successCount} encuesta(s) enviada(s) correctamente ✅';
+      } else if (result.hasSuccesses && result.hasFailures) {
+        // Algunas se enviaron, otras fallaron
+        message =
+            '${result.successCount} enviada(s) ✅, ${result.failureCount} fallaron ❌';
+      } else {
+        // Todas fallaron - esto no debería pasar porque lanzaría excepción
+        message = 'Todas las encuestas fallaron al enviarse';
+      }
+
+      emit(state.copyWith(isSending: false, message: message));
     } catch (e) {
       emit(
         state.copyWith(
           isSending: false,
           sendError: e.toString(),
-          message: 'Error al sincronizar: $e',
+          // NO poner message aquí - solo sendError para evitar duplicados
         ),
       );
     }
@@ -495,7 +506,7 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
         surveyId: event.surveyId,
         createdAtIso: event.createdAtIso,
       );
-      emit(state.copyWith(message: 'Encuesta eliminada.'));
+      emit(state.copyWith(message: 'Encuesta(s) eliminada(s).'));
     } catch (e) {
       emit(state.copyWith(message: 'No se pudo eliminar: $e'));
     }

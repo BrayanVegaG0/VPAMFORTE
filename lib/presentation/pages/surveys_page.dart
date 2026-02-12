@@ -360,6 +360,20 @@ class _SurveysPageState extends State<SurveysPage> {
             return;
           }
 
+          // Mostrar error si falla el envío
+          if (state.status == SurveyStatus.failure && state.message != null) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(
+                  'Error al enviar encuesta: ${state.message}',
+                  style: const TextStyle(color: Colors.white),
+                ),
+                backgroundColor: Colors.red,
+                duration: const Duration(seconds: 5),
+              ),
+            );
+          }
+
           // Si cambió de sección -> ir al inicio
           if (_lastPageIndex != state.pageIndex) {
             _lastPageIndex = state.pageIndex;

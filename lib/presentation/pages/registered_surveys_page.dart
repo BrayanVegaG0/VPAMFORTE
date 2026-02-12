@@ -54,12 +54,42 @@ class _RegisteredSurveysPageState extends State<RegisteredSurveysPage> {
             (p.message != c.message) ||
             (p.sendError != c.sendError),
         listener: (context, state) {
+          // Mostrar mensaje de sincronización con estilo personalizado
           final msg = state.message;
           if (msg != null && msg.trim().isNotEmpty) {
-            ScaffoldMessenger.of(
-              context,
-            ).showSnackBar(SnackBar(content: Text(msg)));
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(
+                  msg,
+                  style: const TextStyle(
+                    color: AppColors.accent, // Amarillo
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                backgroundColor: AppColors.primary, // Azul
+                duration: const Duration(seconds: 3),
+              ),
+            );
           }
+
+          // Mostrar error de envío con fondo azul y texto del color error de la paleta
+          final err = state.sendError;
+          if (err != null && err.trim().isNotEmpty) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(
+                  'Encuesta no enviada: $err',
+                  style: const TextStyle(
+                    color: AppColors.error, // Rojo de la paleta
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                backgroundColor: AppColors.primary, // Fondo azul
+                duration: const Duration(seconds: 5),
+              ),
+            );
+          }
+
           // ✅ al terminar envío o si hubo cambios, recarga lista
           _load();
         },
@@ -317,60 +347,32 @@ class _RegisteredSurveysPageState extends State<RegisteredSurveysPage> {
                                             ],
                                           ),
                                         ),
-                                        PopupMenuButton<String>(
+                                        IconButton(
                                           icon: const Icon(
-                                            Icons.more_vert,
+                                            Icons.delete,
+                                            color: Colors.red,
                                             size: 20,
                                           ),
-                                          onSelected: (value) async {
-                                            if (value == 'answers') {
-                                              await _showAnswersDialog(
-                                                context,
-                                                item,
+                                          onPressed: () async {
+                                            final ok = await _confirmDelete(
+                                              context,
+                                              single: true,
+                                            );
+                                            if (ok == true && context.mounted) {
+                                              context.read<SurveyBloc>().add(
+                                                DeletePendingSubmissionRequested(
+                                                  surveyId: item.surveyId,
+                                                  createdAtIso: item.createdAt
+                                                      .toIso8601String(),
+                                                ),
                                               );
-                                            } else if (value == 'delete') {
-                                              final ok = await _confirmDelete(
-                                                context,
-                                              );
-                                              if (ok == true &&
-                                                  context.mounted) {
-                                                context.read<SurveyBloc>().add(
-                                                  DeletePendingSubmissionRequested(
-                                                    surveyId: item.surveyId,
-                                                    createdAtIso: item.createdAt
-                                                        .toIso8601String(),
-                                                  ),
-                                                );
-                                              }
+                                              // Forzar recarga después de eliminar
+                                              WidgetsBinding.instance
+                                                  .addPostFrameCallback((_) {
+                                                    _load();
+                                                  });
                                             }
                                           },
-                                          itemBuilder: (_) => const [
-                                            PopupMenuItem(
-                                              value: 'answers',
-                                              child: Text(
-                                                'Ver respuestas JSON',
-                                              ),
-                                            ),
-                                            PopupMenuItem(
-                                              value: 'delete',
-                                              child: Row(
-                                                // Using Row for Icon + Text or just Icon if preferred, but user said "icon of trash"
-                                                children: const [
-                                                  Icon(
-                                                    Icons.delete,
-                                                    color: Colors.red,
-                                                  ),
-                                                  SizedBox(width: 8),
-                                                  //Text(
-                                                  //'Eliminar',
-                                                  //style: TextStyle(
-                                                  //  color: Colors.red,
-                                                  //),
-                                                  //),
-                                                ],
-                                              ),
-                                            ),
-                                          ],
                                         ),
                                       ],
                                     ),
@@ -413,7 +415,7 @@ class _RegisteredSurveysPageState extends State<RegisteredSurveysPage> {
         ),
       ),
 
-      // ====== Botón Sincronizar ======
+      // ====== Botones (Sincronizar y Eliminar Seleccionadas) ======
       bottomNavigationBar: SafeArea(
         minimum: const EdgeInsets.fromLTRB(
           16,
@@ -448,42 +450,101 @@ class _RegisteredSurveysPageState extends State<RegisteredSurveysPage> {
                     .toList();
                 final totalSelectable = selectable.length;
 
-                return SizedBox(
-                  height: 56,
-                  child: ElevatedButton.icon(
-                    onPressed: canSend
-                        ? () {
-                            context.read<SurveyBloc>().add(
-                              SendPendingSubmissions(
-                                surveyId!,
-                                selectedCreatedAtIso: _selected.toList(),
+                return Row(
+                  children: [
+                    // Botón Eliminar Seleccionadas
+                    if (_selected.isNotEmpty)
+                      Expanded(
+                        child: SizedBox(
+                          height: 48, // Reducido más para evitar overflow
+                          child: ElevatedButton.icon(
+                            onPressed: () async {
+                              final ok = await _confirmDelete(
+                                context,
+                                single: false,
+                                count: _selected.length,
+                              );
+                              if (ok == true && context.mounted) {
+                                for (final id in _selected) {
+                                  context.read<SurveyBloc>().add(
+                                    DeletePendingSubmissionRequested(
+                                      surveyId: surveyId!,
+                                      createdAtIso: id,
+                                    ),
+                                  );
+                                }
+                                setState(() {
+                                  _selected.clear();
+                                });
+                                _load();
+                              }
+                            },
+                            style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
                               ),
-                            );
-                          }
-                        : null,
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      elevation: 4,
-                    ),
-                    icon: sending
-                        ? const SizedBox(
-                            width: 18,
-                            height: 18,
-                            child: CircularProgressIndicator(
-                              strokeWidth: 2,
-                              color: Colors.white,
+                              backgroundColor: Colors.red,
+                              elevation: 4,
                             ),
-                          )
-                        : const Icon(Icons.sync),
-                    label: Text(
-                      sending
-                          ? 'Sincronizando...'
-                          : 'Sincronizar (${_selected.length} / $totalSelectable)',
-                      style: const TextStyle(fontWeight: FontWeight.bold),
+                            icon: const Icon(Icons.delete),
+                            label: Text(
+                              'Eliminar (${_selected.length})',
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    if (_selected.isNotEmpty) const SizedBox(width: 12),
+                    // Botón Sincronizar
+                    Expanded(
+                      child: SizedBox(
+                        height: 48, // Reducido más para evitar overflow
+                        child: ElevatedButton(
+                          onPressed: canSend
+                              ? () {
+                                  context.read<SurveyBloc>().add(
+                                    SendPendingSubmissions(
+                                      surveyId!,
+                                      selectedCreatedAtIso: _selected.toList(),
+                                    ),
+                                  );
+                                }
+                              : null,
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            elevation: 4,
+                          ),
+                          child: sending
+                              ? const SizedBox(
+                                  width: 18,
+                                  height: 18,
+                                  child: CircularProgressIndicator(
+                                    strokeWidth: 2,
+                                    color: Colors.white,
+                                  ),
+                                )
+                              : Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    const Icon(Icons.sync, size: 16),
+                                    const SizedBox(width: 6),
+                                    Text(
+                                      'Sync (${_selected.length}/${totalSelectable})',
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 );
               },
             );
@@ -521,13 +582,19 @@ class _RegisteredSurveysPageState extends State<RegisteredSurveysPage> {
     );
   }
 
-  Future<bool?> _confirmDelete(BuildContext context) {
+  Future<bool?> _confirmDelete(
+    BuildContext context, {
+    bool single = true,
+    int count = 1,
+  }) {
     return showDialog<bool>(
       context: context,
       builder: (_) => AlertDialog(
-        title: const Text('Eliminar encuesta'),
-        content: const Text(
-          'Esto borrará este registro del almacenamiento local. ¿Continuar?',
+        title: Text(single ? 'Eliminar encuesta' : 'Eliminar encuestas'),
+        content: Text(
+          single
+              ? 'Esto borrará este registro del almacenamiento local. ¿Continuar?'
+              : 'Esto borrará $count encuesta(s) del almacenamiento local. ¿Continuar?',
         ),
         actions: [
           TextButton(
@@ -535,6 +602,7 @@ class _RegisteredSurveysPageState extends State<RegisteredSurveysPage> {
             child: const Text('Cancelar'),
           ),
           ElevatedButton(
+            style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
             onPressed: () => Navigator.pop(context, true),
             child: const Text('Eliminar'),
           ),

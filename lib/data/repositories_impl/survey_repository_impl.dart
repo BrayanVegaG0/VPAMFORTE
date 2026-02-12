@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import '../../domain/entities/survey.dart';
 import '../../domain/entities/survey_submission.dart';
 import '../../domain/entities/survey_history_item.dart';
+import '../../domain/entities/send_result.dart';
 import '../../domain/repositories/survey_repository.dart';
 import '../datasources/remote/survey_remote_datasource.dart';
 import '../datasources/remote/survey_soap_remote_datasource.dart';
@@ -79,12 +80,12 @@ class SurveyRepositoryImpl implements SurveyRepository {
       local.updatePending(_toModel(updated));
 
   @override
-  Future<void> sendPendingOneByOne(
+  Future<SendResult> sendPendingOneByOne(
     String surveyId, {
     List<String>? selectedCreatedAtIso,
   }) async {
     final all = await local.loadPending(surveyId);
-    if (all.isEmpty) return;
+    if (all.isEmpty) return SendResult(successCount: 0, failureCount: 0);
 
     final selected =
         (selectedCreatedAtIso == null || selectedCreatedAtIso.isEmpty)
@@ -102,6 +103,9 @@ class SurveyRepositoryImpl implements SurveyRepository {
       debugPrint('=== SOAP XML (ENVELOPE) ===');
       debugPrint(xml);
     }
+
+    int successCount = 0;
+    int failureCount = 0;
 
     for (final item in selected) {
       final updatedAttempt = item.copyWith(
@@ -151,6 +155,8 @@ class SurveyRepositoryImpl implements SurveyRepository {
 
         await local.removePending(_toModel(sent));
 
+        successCount++;
+
         // ✅ Guardar en historial resumido
         // (Esto se hará desde el BLOC usando el UseCase, pero el repositorio debe soportarlo)
         // Por ahora, el repo solo expone los métodos
@@ -164,9 +170,20 @@ class SurveyRepositoryImpl implements SurveyRepository {
         // ✅ Se queda en local como ERROR para reintento y para mostrarse visible
         await local.updatePending(_toModel(failed));
 
+        failureCount++;
+
         // ✅ NO hacemos break: seguimos intentando con las demás seleccionadas
       }
     }
+
+    // Si todas fallaron, lanzar excepción
+    if (successCount == 0 && failureCount > 0) {
+      throw Exception(
+        'Todas las encuestas ($failureCount) fallaron al enviarse',
+      );
+    }
+
+    return SendResult(successCount: successCount, failureCount: failureCount);
   }
 
   @override

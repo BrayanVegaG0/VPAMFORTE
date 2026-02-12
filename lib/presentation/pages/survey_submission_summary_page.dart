@@ -57,20 +57,8 @@ class SurveySubmissionSummaryPage extends StatelessWidget {
               ? answeredQuestions / totalQuestions
               : 0.0;
 
-          // Advertencia si faltan respuestas OBLIGATORIAS
-          final missingRequiredTotal =
-              QuestionProgressHelper.countRequiredVisibleQuestions(
-                survey.questions,
-                state.answers,
-                rules,
-                visibleSections,
-              ) -
-              QuestionProgressHelper.countAnsweredRequiredVisibleQuestions(
-                survey.questions,
-                state.answers,
-                rules,
-                visibleSections,
-              );
+          // Advertencia si faltan respuestas (TODAS, no solo obligatorias)
+          final missingTotal = totalQuestions - answeredQuestions;
 
           return ListView(
             padding: const EdgeInsets.all(20),
@@ -148,7 +136,38 @@ class SurveySubmissionSummaryPage extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 24),
+              const SizedBox(height: 16),
+
+              // Advertencia si faltan respuestas (ABAJO DEL PRIMER CARD)
+              if (missingTotal > 0)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 16.0),
+                  child: Container(
+                    padding: const EdgeInsets.all(12),
+                    decoration: BoxDecoration(
+                      color: Colors.orange[50],
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(color: Colors.orange[300]!),
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(Icons.warning_amber, color: Colors.orange[700]),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Text(
+                            'Hay $missingTotal pregunta(s) sin responder.',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.orange[900],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+
+              const SizedBox(height: 8),
 
               const Text(
                 'Secciones de la Encuesta',
@@ -211,37 +230,8 @@ class SurveySubmissionSummaryPage extends StatelessWidget {
                 ],
               ),
 
-              const SizedBox(height: 16),
-
-              // Advertencia si faltan respuestas OBLIGATORIAS
-              if (missingRequiredTotal > 0)
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 40.0), // Padding extra
-                  child: Container(
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      color: Colors.orange[50],
-                      borderRadius: BorderRadius.circular(8),
-                      border: Border.all(color: Colors.orange[300]!),
-                    ),
-                    child: Row(
-                      children: [
-                        Icon(Icons.warning_amber, color: Colors.orange[700]),
-                        const SizedBox(width: 12),
-                        Expanded(
-                          child: Text(
-                            'Hay $missingRequiredTotal pregunta(s) obligatoria(s) sin responder. '
-                            'Debes completarlas para enviar.',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.orange[900],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+              // Padding extra para que no se tape el botón con los controles del celular
+              SizedBox(height: MediaQuery.of(context).viewPadding.bottom + 16),
             ],
           );
         },
