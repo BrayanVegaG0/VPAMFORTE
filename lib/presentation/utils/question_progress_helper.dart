@@ -63,6 +63,28 @@ class QuestionProgressHelper {
     return count;
   }
 
+  /// Cuenta cuántas de las preguntas OBLIGATORIAS visibles han sido respondidas
+  static int countAnsweredRequiredVisibleQuestions(
+    List<Question> allQuestions,
+    Map<String, dynamic> answers,
+    SurveyRulesEngine rules,
+    List<SurveySection> visibleSections,
+  ) {
+    final visibleSectionSet = visibleSections.toSet();
+    int count = 0;
+    for (final q in allQuestions) {
+      if (!visibleSectionSet.contains(q.section)) continue;
+      if (!rules.isVisible(q, answers)) continue;
+      if (!rules.isRequired(q, answers)) continue;
+
+      final answer = answers[q.id];
+      if (isAnswered(q, answer)) {
+        count++;
+      }
+    }
+    return count;
+  }
+
   /// Calcula el progreso como un valor entre 0.0 y 1.0
   static double calculateProgress(
     List<Question> allQuestions,

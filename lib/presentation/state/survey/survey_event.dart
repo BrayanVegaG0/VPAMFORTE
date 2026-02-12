@@ -35,10 +35,14 @@ class SurveyPrevPageRequested extends SurveyEvent {
 
 class SurveyJumpToPageRequested extends SurveyEvent {
   final int pageIndex;
-  const SurveyJumpToPageRequested({required this.pageIndex});
+  final bool validate;
+  const SurveyJumpToPageRequested({
+    required this.pageIndex,
+    this.validate = false,
+  });
 
   @override
-  List<Object?> get props => [pageIndex];
+  List<Object?> get props => [pageIndex, validate];
 }
 
 class SurveyFinalizeRequested extends SurveyEvent {

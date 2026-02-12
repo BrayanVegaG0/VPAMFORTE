@@ -223,7 +223,7 @@ class _SurveysPageState extends State<SurveysPage> {
         _isEditingFromSummary = true;
       });
       context.read<SurveyBloc>().add(
-        SurveyJumpToPageRequested(pageIndex: result),
+        SurveyJumpToPageRequested(pageIndex: result, validate: true),
       );
     }
   }
@@ -401,16 +401,25 @@ class _SurveysPageState extends State<SurveysPage> {
             _questionKeys.putIfAbsent(q.id, () => GlobalKey());
           }
 
-          // Marcar errores SOLO si showValidationErrors=true
+          // Marcar errores en tiempo real: recalcular cuáles siguen sin responder
           final missingIds = <String>{};
           if (state.showValidationErrors) {
-            for (final q in pageQuestions) {
-              final requiredNow = _rules.isRequired(q, state.answers);
-              if (!requiredNow) continue;
+            // Recalcular desde los IDs originales del Bloc, pero verificar cuáles SIGUEN vacíos
+            for (final qId in state.invalidQuestionIds) {
+              final question = pageQuestions.cast<Question?>().firstWhere(
+                (q) => q?.id == qId,
+                orElse: () => null,
+              );
 
-              final ans = state.answers[q.id];
-              if (!_isAnswered(q, ans)) {
-                missingIds.add(q.id);
+              if (question != null) {
+                final ans = state.answers[qId];
+                final emptyText = ans is String && ans.trim().isEmpty;
+                final emptyList = ans is List && ans.isEmpty;
+
+                // Solo agregar si SIGUE sin respuesta
+                if (ans == null || emptyText || emptyList) {
+                  missingIds.add(qId);
+                }
               }
             }
           }

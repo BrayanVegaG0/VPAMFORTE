@@ -210,6 +210,47 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
       0,
       surveySectionsOrder.length - 1,
     );
+
+    // Si se solicita validar (ej. al venir del resumen)
+    if (event.validate) {
+      final survey = state.activeSurvey;
+      if (survey != null) {
+        final engine = SurveyRulesEngine();
+        final section = surveySectionsOrder[targetIndex];
+
+        // Encontrar TODAS las preguntas sin responder en esta sección (no solo requeridas)
+        final sectionQuestions = survey.questions
+            .where(
+              (q) => q.section == section && engine.isVisible(q, state.answers),
+            )
+            .toList();
+
+        final unansweredIds = <String>[];
+        for (final q in sectionQuestions) {
+          final ans = state.answers[q.id];
+          final emptyText = ans is String && ans.trim().isEmpty;
+          final emptyList = ans is List && ans.isEmpty;
+
+          if (ans == null || emptyText || emptyList) {
+            unansweredIds.add(q.id);
+          }
+        }
+
+        if (unansweredIds.isNotEmpty) {
+          emit(
+            state.copyWith(
+              pageIndex: targetIndex,
+              message: 'Completa las preguntas faltantes en rojo.',
+              showValidationErrors: true,
+              invalidQuestionIds: unansweredIds,
+              firstInvalidQuestionId: unansweredIds.first,
+            ),
+          );
+          return;
+        }
+      }
+    }
+
     emit(
       state.copyWith(
         pageIndex: targetIndex,

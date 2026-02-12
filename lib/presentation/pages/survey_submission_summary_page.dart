@@ -57,6 +57,21 @@ class SurveySubmissionSummaryPage extends StatelessWidget {
               ? answeredQuestions / totalQuestions
               : 0.0;
 
+          // Advertencia si faltan respuestas OBLIGATORIAS
+          final missingRequiredTotal =
+              QuestionProgressHelper.countRequiredVisibleQuestions(
+                survey.questions,
+                state.answers,
+                rules,
+                visibleSections,
+              ) -
+              QuestionProgressHelper.countAnsweredRequiredVisibleQuestions(
+                survey.questions,
+                state.answers,
+                rules,
+                visibleSections,
+              );
+
           return ListView(
             padding: const EdgeInsets.all(20),
             children: [
@@ -198,8 +213,8 @@ class SurveySubmissionSummaryPage extends StatelessWidget {
 
               const SizedBox(height: 16),
 
-              // Advertencia si faltan respuestas
-              if (answeredQuestions < totalQuestions)
+              // Advertencia si faltan respuestas OBLIGATORIAS
+              if (missingRequiredTotal > 0)
                 Padding(
                   padding: const EdgeInsets.only(bottom: 40.0), // Padding extra
                   child: Container(
@@ -215,8 +230,8 @@ class SurveySubmissionSummaryPage extends StatelessWidget {
                         const SizedBox(width: 12),
                         Expanded(
                           child: Text(
-                            'Hay ${totalQuestions - answeredQuestions} pregunta(s) sin responder. '
-                            'Puedes enviar de todas formas o revisar para completar.',
+                            'Hay $missingRequiredTotal pregunta(s) obligatoria(s) sin responder. '
+                            'Debes completarlas para enviar.',
                             style: TextStyle(
                               fontSize: 12,
                               color: Colors.orange[900],
@@ -243,14 +258,17 @@ class SurveySubmissionSummaryPage extends StatelessWidget {
     final section = surveySectionsOrder[index];
     final rules = const SurveyRulesEngine();
 
-    // ✅ Contar solo preguntas visibles de esta sección
+    // ✅ Contar TODAS las preguntas visibles (para que el usuario vea "X preguntas")
     final sectionQuestions = survey.questions
         .where((q) => q.section == section && rules.isVisible(q, state.answers))
         .toList();
+
     final sectionAnswered = sectionQuestions
         .where((q) => QuestionProgressHelper.isAnswered(q, state.answers[q.id]))
         .length;
     final sectionTotal = sectionQuestions.length;
+
+    // Completado si TODAS las preguntas están respondidas
     final isCompleted = sectionAnswered == sectionTotal && sectionTotal > 0;
 
     return Card(
