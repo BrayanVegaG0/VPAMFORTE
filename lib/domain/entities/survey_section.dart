@@ -1,12 +1,9 @@
-import 'package:ficha_vulnerabilidad/domain/entities/survey.dart';
-
 enum SurveySection {
   datosGenerales,
   situacionSocioEconomica,
   saludNutricion,
   vulnerabilidadVivienda,
   serviciosAtencionCuidado,
-  cuestionarioAMA,
   fichaPam,
   fichaPcd,
   indiceBarthel,
@@ -30,8 +27,6 @@ extension SurveySectionX on SurveySection {
         return 'Vulnerabilidad Vivienda';
       case SurveySection.serviciosAtencionCuidado:
         return 'Servicios Atención y Cuidado';
-      case SurveySection.cuestionarioAMA:
-        return 'Cuestionario AMA';
       case SurveySection.fichaPam:
         return 'Ficha Adulto Mayor';
       case SurveySection.fichaPcd:
@@ -58,7 +53,6 @@ const List<SurveySection> surveySectionsOrder = [
   SurveySection.saludNutricion,
   SurveySection.vulnerabilidadVivienda,
   SurveySection.serviciosAtencionCuidado,
-  SurveySection.cuestionarioAMA,
   SurveySection.fichaPam,
   SurveySection.fichaPcd,
   SurveySection.indiceBarthel,

@@ -765,7 +765,7 @@ class _QuestionCard extends StatelessWidget {
     );
 
     return Card(
-      color: Colors.white, // ✅ Fondo blanco
+      color: AppColors.secondary, // ✅ Fondo beige claro para cards
       shape: RoundedRectangleBorder(
         side: borderSide,
         borderRadius: BorderRadius.circular(12),

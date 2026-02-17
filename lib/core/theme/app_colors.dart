@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-/// Paleta de colores
+/// Paleta de colores - Prototipo Tesis
+/// Diseño basado en tonos azul verdoso y beige
 class AppColors {
   AppColors._(); // Constructor privado para evitar instanciación
 
@@ -8,67 +9,89 @@ class AppColors {
   // COLORES PRINCIPALES
   // ========================================
 
-  /// Azul principal - Usado para encabezados, AppBar, botones primarios
-  static const Color primary = Color(0xFF2D2D96);
+  /// Primary - Azul verdoso oscuro (#0F6E73)
+  /// Usado para headers, AppBar, botones primarios, iconos principales
+  static const Color primary = Color(0xFF0F6E73);
 
-  /// Rojo - Usado para errores, alertas, acciones destructivas
-  /// Rojo - Usado para errores, alertas, acciones destructivas
+  /// Secondary - Beige claro (#F3E3C7)
+  /// Usado para fondos de cards, contenedores secundarios
+  static const Color secondary = Color(0xFFF3E3C7);
+
+  /// Accent - Beige/dorado (#E6C99A)
+  /// Usado para botones circulares, acentos decorativos, highlights
+  static const Color accent = Color(0xFFE6C99A);
+
+  /// Background - Beige muy claro (#FAF7F2)
+  /// Usado para fondo general de la aplicación
+  static const Color background = Color(0xFFFAF7F2);
+
+  /// Error - Rojo para errores y alertas
   static const Color error = Color(0xFFD32F2F);
 
-  /// Amarillo - Usado para acentos, highlights, elementos decorativos
-  static const Color accent = Color(0xFFFFC003);
-
-  /// Gris claro - Usado para fondos de la aplicación
-  static const Color background = Color(0xFFEEEEEE);
-
-  /// Blanco - Usado para cards, contenedores, superficies
+  /// Surface - Blanco para superficies elevadas
   static const Color surface = Colors.white;
 
   // ========================================
   // VARIACIONES DE COLORES
   // ========================================
 
-  /// Azul claro - Para botones secundarios o estados hover
-  static const Color primaryLight = Color(0xFF4A4AB8);
+  /// Primary Light - Azul verdoso más claro
+  static const Color primaryLight = Color(0xFF1A9BA3);
 
-  /// Azul oscuro - Para estados pressed o sombras
-  static const Color primaryDark = Color(0xFF1F1F6B);
+  /// Primary Dark - Azul verdoso más oscuro
+  static const Color primaryDark = Color(0xFF0A4E52);
 
-  /// Rojo claro - Para fondos de error
+  /// Secondary Light - Beige aún más claro
+  static const Color secondaryLight = Color(0xFFF8EFE0);
+
+  /// Accent Light - Dorado muy claro
+  static const Color accentLight = Color(0xFFF2E5D5);
+
+  /// Error Light - Fondo de error
   static const Color errorLight = Color(0xFFFFEBEE);
-
-  /// Amarillo claro - Para fondos de advertencia
-  static const Color accentLight = Color(0xFFFFF9E6);
 
   // ========================================
   // COLORES DE TEXTO
   // ========================================
 
-  /// Texto principal - Negro o gris muy oscuro
-  static const Color textPrimary = Color(0xFF212121);
+  /// Text Main - Texto principal (#3A3A3A) - Gris oscuro
+  static const Color textMain = Color(0xFF3A3A3A);
 
-  /// Texto secundario - Gris medio
-  static const Color textSecondary = Color(0xFF757575);
+  /// Text Soft - Texto secundario/ayuda (#6F6F6F) - Gris medio
+  static const Color textSoft = Color(0xFF6F6F6F);
 
-  /// Texto sobre color primario (azul)
+  /// Texto sobre color primario (azul verdoso)
   static const Color textOnPrimary = Colors.white;
+
+  /// Texto sobre color secondary (beige)
+  static const Color textOnSecondary = Color(0xFF3A3A3A);
+
+  /// Texto sobre color de acento (dorado)
+  static const Color textOnAccent = Color(0xFF3A3A3A);
 
   /// Texto sobre color de error (rojo)
   static const Color textOnError = Colors.white;
 
-  /// Texto sobre color de acento (amarillo)
-  static const Color textOnAccent = Color(0xFF212121);
+  // ========================================
+  // COMPATIBILIDAD CON NOMBRES ANTERIORES
+  // ========================================
+
+  /// Alias para textMain (compatibilidad)
+  static const Color textPrimary = textMain;
+
+  /// Alias para textSoft (compatibilidad)
+  static const Color textSecondary = textSoft;
 
   // ========================================
   // COLORES ADICIONALES
   // ========================================
 
-  /// Divisores y bordes
+  /// Divisores y bordes - Gris muy claro
   static const Color divider = Color(0xFFE0E0E0);
 
   /// Gris para elementos deshabilitados
   static const Color disabled = Color(0xFFBDBDBD);
 
-  /// Sombras
+  /// Sombras sutiles
   static const Color shadow = Color(0x1A000000);
 }

@@ -76,7 +76,7 @@ class AboutOfPage extends StatelessWidget {
                         children: [
                           // Título App
                           const Text(
-                            'Ficha Vulnerabilidad',
+                            'VPAMFORTE',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 24,
@@ -99,7 +99,7 @@ class AboutOfPage extends StatelessWidget {
 
                           // Logo
                           Image.asset(
-                            'assets/images/ic_launcher.png',
+                            'assets/images/icono.png',
                             width: 120,
                             height: 120,
                             fit: BoxFit.contain,
@@ -129,7 +129,7 @@ class AboutOfPage extends StatelessWidget {
 
                           // Descripción
                           const Text(
-                            'Esta aplicación fue desarrollada para agilizar la recolección '
+                            'Prototipo para tesis desarrollado para agilizar la recolección '
                             'de información de personas con la finalidad de identificar '
                             'si son vulnerables.',
                             textAlign: TextAlign.center,

@@ -36,7 +36,7 @@ class _SplashContent extends StatelessWidget {
       children: [
         // Si el asset falla, muestra ícono
         Image(
-          image: AssetImage('assets/images/ic_banner_mdh.png'),
+          image: AssetImage('assets/images/icono.png'),
           width: 180,
           errorBuilder: (_, __, ___) => Icon(Icons.account_balance, size: 120),
         ),

@@ -176,8 +176,8 @@ class _AppState extends State<App> {
 
           // Configuración de las tarjetas
           cardTheme: CardThemeData(
-            color: AppColors.surface,
-            elevation: 2,
+            color: AppColors.secondary, // Beige claro para cards
+            elevation: 1,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
             ),
@@ -228,19 +228,17 @@ class _AppState extends State<App> {
           // Configuración de campos de texto
           inputDecorationTheme: InputDecorationTheme(
             filled: true,
-            fillColor: AppColors.background,
-            // Texto negro en los inputs
-            labelStyle: const TextStyle(color: AppColors.textPrimary),
-            hintStyle: TextStyle(
-              color: AppColors.textSecondary.withOpacity(0.6),
-            ),
+            fillColor: Colors.white, // Inputs blancos sobre fondo beige
+            // Texto oscuro en los inputs
+            labelStyle: const TextStyle(color: AppColors.textMain),
+            hintStyle: TextStyle(color: AppColors.textSoft.withOpacity(0.6)),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
-              borderSide: BorderSide(color: AppColors.divider),
+              borderSide: BorderSide(color: AppColors.primary.withOpacity(0.3)),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
-              borderSide: BorderSide(color: AppColors.divider),
+              borderSide: BorderSide(color: AppColors.primary.withOpacity(0.3)),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),

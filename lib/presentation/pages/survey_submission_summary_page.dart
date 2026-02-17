@@ -11,11 +11,57 @@ import '../state/survey/survey_event.dart';
 import '../state/survey/survey_state.dart';
 import '../utils/survey_section_filter_helper.dart';
 import '../utils/question_progress_helper.dart';
+import 'package:ficha_vulnerabilidad/data/mappers/vpam_mapper.dart';
+import 'package:ficha_vulnerabilidad/data/repositories_impl/vpam_repository_impl.dart';
+import 'package:ficha_vulnerabilidad/domain/usecases/evaluate_vpam_usecase.dart';
+import 'package:ficha_vulnerabilidad/presentation/widgets/vpam_result_dialog.dart';
 
 /// Pantalla de resumen pre-envío
 /// Muestra al usuario qué secciones completó antes de enviar la encuesta
-class SurveySubmissionSummaryPage extends StatelessWidget {
+class SurveySubmissionSummaryPage extends StatefulWidget {
   const SurveySubmissionSummaryPage({super.key});
+
+  @override
+  State<SurveySubmissionSummaryPage> createState() =>
+      _SurveySubmissionSummaryPageState();
+}
+
+class _SurveySubmissionSummaryPageState
+    extends State<SurveySubmissionSummaryPage> {
+  bool _isEvaluating = false;
+
+  void _performVpamEvaluation(
+    BuildContext context,
+    Map<String, dynamic> answers,
+  ) async {
+    setState(() => _isEvaluating = true);
+
+    try {
+      final repository = VpamRepositoryImpl(); // Idealmente inyectado
+      final useCase = EvaluateVpamUseCase(repository);
+
+      final ficha = VpamMapper.fromAnswers(answers);
+      final result = await useCase.execute(ficha);
+
+      if (context.mounted) {
+        showDialog(
+          context: context,
+          builder: (context) => VpamResultDialog(result: result),
+        );
+      }
+    } catch (e) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Error en la evaluación: $e'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    } finally {
+      if (mounted) setState(() => _isEvaluating = false);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -183,7 +229,32 @@ class SurveySubmissionSummaryPage extends StatelessWidget {
                 ))
                   _buildSectionCard(context, state, survey, i),
 
-              const SizedBox(height: 32),
+              const SizedBox(height: 24),
+
+              // BOTÓN DE EVALUACIÓN VPAM
+              SizedBox(
+                width: double.infinity,
+                child: OutlinedButton.icon(
+                  onPressed: _isEvaluating
+                      ? null
+                      : () => _performVpamEvaluation(context, state.answers),
+                  icon: _isEvaluating
+                      ? const SizedBox(
+                          width: 20,
+                          height: 20,
+                          child: CircularProgressIndicator(strokeWidth: 2),
+                        )
+                      : const Icon(Icons.analytics_outlined),
+                  label: const Text('Realizar Evaluación VPAM'),
+                  style: OutlinedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    side: const BorderSide(color: Color(0xFF2C2FA3)),
+                    foregroundColor: const Color(0xFF2C2FA3),
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 16),
 
               // BOTONES DE ACCIÓN
               Row(

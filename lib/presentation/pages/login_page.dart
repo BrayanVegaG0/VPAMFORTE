@@ -90,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
                           text: const TextSpan(
                             children: [
                               TextSpan(
-                                text: 'Ficha Vulnerabilidad',
+                                text: 'VPAMFORTE',
                                 style: TextStyle(
                                   fontSize: 28, // Reducido de 36
                                   fontWeight: FontWeight.bold,
@@ -115,7 +115,7 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             const SizedBox(width: 8),
                             const Text(
-                              'El Nuevo Ecuador',
+                              'Prototipo para tesis',
                               style: TextStyle(
                                 fontSize: 26, // Reducido de 32
                                 fontWeight: FontWeight.bold,

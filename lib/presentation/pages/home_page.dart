@@ -91,90 +91,113 @@ class _HomePageState extends State<HomePage> {
                       ),
                   ],
                 ),
-                body: Container(
-                  width: double.infinity,
-                  height: double.infinity,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/fondo_mdh.png'),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  child: SafeArea(
-                    child: Column(
-                      children: [
-                        const SizedBox(height: 35),
-                        Image.asset(
-                          'assets/images/ic_banner_mdh.png',
-                          width: 220,
-                          fit: BoxFit.contain,
-                        ),
-                        const SizedBox(height: 50),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            _HomeImageButton(
-                              imagePath: 'assets/images/ic_new_survey_mdh.png',
-                              onTap: () {
-                                Navigator.pushNamed(
-                                  context,
-                                  '/usuario_consentimiento',
-                                );
-                              },
+                body: SafeArea(
+                  child: LayoutBuilder(
+                    builder: (context, c) {
+                      final w = c.maxWidth;
+
+                      final double headerW = (w * 0.78).clamp(220, 320);
+                      final double topBtnW = (w * 0.40).clamp(145, 175);
+                      final double aboutW = (w * 0.86).clamp(260, 420);
+
+                      return CustomScrollView(
+                        physics: const BouncingScrollPhysics(),
+                        slivers: [
+                          SliverPadding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 18,
+                              vertical: 14,
                             ),
-                            _HomeImageButton(
-                              imagePath: 'assets/images/ic_survey_list_mdh.png',
-                              onTap: () {
-                                Navigator.pushNamed(
-                                  context,
-                                  '/registered_surveys',
-                                );
-                              },
+                            sliver: SliverList(
+                              delegate: SliverChildListDelegate([
+                                // HEADER
+                                Center(
+                                  child: Image.asset(
+                                    'assets/images/prototipotesis.png',
+                                    width: headerW,
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                                const SizedBox(height: 18),
+
+                                // 2 BOTONES (SOLO IMAGEN COMO BOTÓN)
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    _ImageOnlyButton(
+                                      imagePath:
+                                          'assets/images/NuevaEncuesta.png',
+                                      width: topBtnW,
+                                      onTap: () => Navigator.pushNamed(
+                                        context,
+                                        '/usuario_consentimiento',
+                                      ),
+                                    ),
+                                    _ImageOnlyButton(
+                                      imagePath:
+                                          'assets/images/EncuestasRegistradas.png',
+                                      width: topBtnW,
+                                      onTap: () => Navigator.pushNamed(
+                                        context,
+                                        '/registered_surveys',
+                                      ),
+                                    ),
+                                  ],
+                                ),
+
+                                const SizedBox(height: 14),
+
+                                // ABOUT (SOLO IMAGEN COMO BOTÓN, MÁS GRANDE)
+                                _ImageOnlyButton(
+                                  imagePath: 'assets/images/AcercaDe.png',
+                                  width: aboutW,
+                                  onTap: () =>
+                                      Navigator.pushNamed(context, '/about_of'),
+                                ),
+                                const SizedBox(height: 12),
+                              ]),
                             ),
-                          ],
-                        ),
-                        const SizedBox(height: 28),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.pushNamed(context, '/about_of');
-                          },
-                          child: Image.asset(
-                            'assets/images/ic_about_mdh.png',
-                            width: 280,
-                            fit: BoxFit.contain,
                           ),
-                        ),
-                        const Spacer(),
-                        // FOOTER MODERNO
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 24),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: const [
-                              Text(
-                                'Infancia EC v1.3.4',
-                                style: TextStyle(
-                                  color: AppColors.primary,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16,
+
+                          // FOOTER ABAJO
+                          SliverFillRemaining(
+                            hasScrollBody: false,
+                            child: Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Padding(
+                                padding: const EdgeInsets.only(bottom: 16),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: const [
+                                    Text(
+                                      'Infancia EC v1.3.4',
+                                      style: TextStyle(
+                                        color: AppColors.primary,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                    SizedBox(height: 4),
+                                    Text(
+                                      '© 2026 Ministerio de Desarrollo Humano',
+                                      style: TextStyle(
+                                        color: Colors.grey,
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
-                              SizedBox(height: 4),
-                              Text(
-                                '© 2026 Ministerio de Desarrollo Humano',
-                                style: TextStyle(
-                                  color: Colors.grey,
-                                  fontSize: 12,
-                                ),
-                              ),
-                            ],
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
+                        ],
+                      );
+                    },
                   ),
                 ),
               ),
+
               if (isLoading)
                 const Positioned.fill(
                   child: IgnorePointer(
@@ -193,34 +216,24 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-void _showMustLogin(BuildContext context) {
-  ScaffoldMessenger.of(context).showSnackBar(
-    const SnackBar(
-      backgroundColor: AppColors.primary,
-      content: Text(
-        'Debes iniciar sesión para ver encuestas registradas.',
-        style: TextStyle(color: AppColors.accent, fontWeight: FontWeight.bold),
-      ),
-    ),
-  );
-}
-
-class _HomeImageButton extends StatelessWidget {
+class _ImageOnlyButton extends StatelessWidget {
   final String imagePath;
-  final VoidCallback onTap;
   final double width;
+  final VoidCallback onTap;
 
-  const _HomeImageButton({
+  const _ImageOnlyButton({
     required this.imagePath,
+    required this.width,
     required this.onTap,
-    this.width = 140,
   });
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Image.asset(imagePath, width: width, fit: BoxFit.contain),
+    return Center(
+      child: InkWell(
+        onTap: onTap,
+        child: Image.asset(imagePath, width: width, fit: BoxFit.contain),
+      ),
     );
   }
 }
