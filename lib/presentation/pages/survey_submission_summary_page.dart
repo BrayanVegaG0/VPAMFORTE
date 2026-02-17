@@ -273,7 +273,7 @@ class _SurveySubmissionSummaryPageState
                                 content: Text(
                                   'La ubicación es obligatoria para enviar la encuesta. Por favor actívela.',
                                   style: TextStyle(
-                                    color: AppColors.accent,
+                                    color: Colors.white,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),

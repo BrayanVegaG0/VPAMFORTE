@@ -370,7 +370,7 @@ class _EcuadorLocationDropdownState extends State<EcuadorLocationDropdown> {
       );
 
       return DropdownButtonFormField<String>(
-        value: current,
+        initialValue: current,
         isExpanded: true,
         items: items
             .map(
@@ -398,7 +398,7 @@ class _EcuadorLocationDropdownState extends State<EcuadorLocationDropdown> {
     if (isCanton) {
       final enabled = provCode != null;
       final items = enabled
-          ? EcuadorGeoStore.I.getCantonsByProvinceCode(provCode!)
+          ? EcuadorGeoStore.I.getCantonsByProvinceCode(provCode)
           : const <GeoOption>[];
       final current = _safeValue(
         _asStr(widget.answers[widget.cantonQuestionId]),
@@ -406,7 +406,7 @@ class _EcuadorLocationDropdownState extends State<EcuadorLocationDropdown> {
       );
 
       return DropdownButtonFormField<String>(
-        value: current,
+        initialValue: current,
         isExpanded: true,
         items: items
             .map(
@@ -438,15 +438,15 @@ class _EcuadorLocationDropdownState extends State<EcuadorLocationDropdown> {
       final enabled = provCode != null && cantonCode != null;
       final items = enabled
           ? EcuadorGeoStore.I.getParishesByCodes(
-              provinceCode: provCode!,
-              cantonCode: cantonCode!,
+              provinceCode: provCode,
+              cantonCode: cantonCode,
             )
           : const <GeoOption>[];
 
       final current = _safeValue(parishCode, items);
 
       return DropdownButtonFormField<String>(
-        value: current,
+        initialValue: current,
         isExpanded: true,
         items: items
             .map(

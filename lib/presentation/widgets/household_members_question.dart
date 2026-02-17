@@ -608,8 +608,9 @@ class _MemberDialogState extends State<_MemberDialog> {
                           if (ced.isEmpty) return 'Requerido';
                           if (ced.length != 10) return 'Debe tener 10 dígitos';
                           if (!_isValidCedulaEc(ced)) return 'Cédula inválida';
-                          if (_cedulaRepetida(ced))
+                          if (_cedulaRepetida(ced)) {
                             return 'Cédula repetida en el hogar';
+                          }
                           return null;
                         },
                         onChanged: (v) {
@@ -722,7 +723,7 @@ class _MemberDialogState extends State<_MemberDialog> {
                 // Identidad de género
                 DropdownButtonFormField<String>(
                   isExpanded: true, // ✅ Texto largo permitido
-                  value: identidadGenero,
+                  initialValue: identidadGenero,
                   items: _generos.entries
                       .map(
                         (e) => DropdownMenuItem(
@@ -753,7 +754,7 @@ class _MemberDialogState extends State<_MemberDialog> {
                 if (_isMujer) ...[
                   DropdownButtonFormField<String>(
                     isExpanded: true, // ✅ Texto largo permitido
-                    value: etapaGestacional,
+                    initialValue: etapaGestacional,
                     decoration: SurveyInputStyles.decoration().copyWith(
                       label: const Text(
                         '¿Mujer en etapa gestacional?',
@@ -784,7 +785,7 @@ class _MemberDialogState extends State<_MemberDialog> {
                 if (_isMenor) ...[
                   DropdownButtonFormField<String>(
                     isExpanded: true, // ✅ Texto largo permitido
-                    value: menorTrabaja,
+                    initialValue: menorTrabaja,
                     decoration: SurveyInputStyles.decoration(
                       labelText: '¿Menor de edad trabajando?',
                     ),
@@ -810,7 +811,7 @@ class _MemberDialogState extends State<_MemberDialog> {
                 // Tiene discapacidad
                 DropdownButtonFormField<String>(
                   isExpanded: true, // ✅ Texto largo permitido
-                  value: tieneDiscapacidad,
+                  initialValue: tieneDiscapacidad,
                   decoration: SurveyInputStyles.decoration(
                     labelText: '¿Tiene discapacidad?',
                   ),
@@ -836,7 +837,7 @@ class _MemberDialogState extends State<_MemberDialog> {
                 if (_tieneDiscapacidadSi) ...[
                   DropdownButtonFormField<String>(
                     isExpanded: true, // ✅ Texto largo permitido
-                    value: tipoDiscapacidad,
+                    initialValue: tipoDiscapacidad,
                     decoration: SurveyInputStyles.decoration(
                       labelText: 'Tipo de discapacidad',
                     ),
@@ -882,7 +883,7 @@ class _MemberDialogState extends State<_MemberDialog> {
                 // Enfermedad catastrófica
                 DropdownButtonFormField<String>(
                   isExpanded: true, // ✅ Texto largo permitido
-                  value: enfermedadCatastrofica,
+                  initialValue: enfermedadCatastrofica,
                   decoration: SurveyInputStyles.decoration().copyWith(
                     label: const Text(
                       '¿Enfermedad catastrófica?',
@@ -908,7 +909,7 @@ class _MemberDialogState extends State<_MemberDialog> {
                 // Parentesco
                 DropdownButtonFormField<String>(
                   isExpanded: true, // ✅ Texto largo permitido
-                  value: parentesco,
+                  initialValue: parentesco,
                   decoration: SurveyInputStyles.decoration(
                     labelText: 'Parentesco',
                   ),
@@ -928,7 +929,7 @@ class _MemberDialogState extends State<_MemberDialog> {
                 // Genera ingresos?
                 DropdownButtonFormField<String>(
                   isExpanded: true, // ✅ Texto largo permitido
-                  value: generaIngresos,
+                  initialValue: generaIngresos,
                   decoration: SurveyInputStyles.decoration(
                     labelText: '¿Genera ingresos?',
                   ),

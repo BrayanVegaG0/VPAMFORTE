@@ -93,11 +93,12 @@ class SurveyRulesEngine {
 
   String? _validateConstraints(Question q, Map<String, dynamic> answers) {
     final c = q.constraints;
-    if (c == null)
+    if (c == null) {
       return _validateCustomRules(
         q,
         answers,
       ); // Check custom rules even if no constraints
+    }
 
     final raw = answers[q.id];
     if (raw == null) return null; // required lo valida arriba

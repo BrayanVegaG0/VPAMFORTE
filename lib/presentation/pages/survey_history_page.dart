@@ -79,7 +79,7 @@ class _SurveyHistoryPageState extends State<SurveyHistoryPage> {
       appBar: AppBar(
         title: const Text('Historial de Envíos'),
         backgroundColor: AppColors.primary,
-        foregroundColor: AppColors.accent,
+        foregroundColor: Colors.white,
         elevation: 1,
       ),
       body: _hasAttemptedLoad
@@ -157,7 +157,7 @@ class _SurveyHistoryPageState extends State<SurveyHistoryPage> {
                   children: [
                     const Text(
                       'Fecha seleccionada:',
-                      style: TextStyle(fontSize: 12, color: Colors.black54),
+                      style: TextStyle(fontSize: 12, color: Colors.black87),
                     ),
                     Text(
                       _formatDateHeader(_selectedDate),
@@ -307,7 +307,7 @@ class _SurveyHistoryPageState extends State<SurveyHistoryPage> {
                               child: Text(
                                 'Enviado: ${_formatDate(item.sentAt)}',
                                 style: TextStyle(
-                                  color: Colors.grey[500],
+                                  color: Colors.grey[700],
                                   fontSize: 12,
                                 ),
                               ),

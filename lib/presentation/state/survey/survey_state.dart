@@ -82,8 +82,8 @@ class SurveyState extends Equatable {
     isDinardapLoading: false,
     dinardapError: null,
     lastSavedAt: null,
-    dinardapPopulatedFields: const {},
-    history: const [],
+    dinardapPopulatedFields: {},
+    history: [],
     isHistoryLoading: false,
   );
 

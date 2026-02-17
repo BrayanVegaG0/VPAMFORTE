@@ -62,7 +62,7 @@ class _RegisteredSurveysPageState extends State<RegisteredSurveysPage> {
                 content: Text(
                   msg,
                   style: const TextStyle(
-                    color: AppColors.accent, // Amarillo
+                    color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -271,7 +271,7 @@ class _RegisteredSurveysPageState extends State<RegisteredSurveysPage> {
                       child: ListView.separated(
                         padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
                         itemCount: list.length,
-                        separatorBuilder: (_, __) => const SizedBox(height: 12),
+                        separatorBuilder: (_, _) => const SizedBox(height: 12),
                         itemBuilder: (context, i) {
                           final item = list[i];
                           final summary = _buildSummary(item);
@@ -391,7 +391,7 @@ class _RegisteredSurveysPageState extends State<RegisteredSurveysPage> {
                                         Text(
                                           'Registrado el: ${_fmtDateTime(item.createdAt)}',
                                           style: TextStyle(
-                                            fontSize: 11,
+                                            fontSize: 12,
                                             color: Colors.grey[600],
                                           ),
                                         ),
@@ -506,7 +506,7 @@ class _RegisteredSurveysPageState extends State<RegisteredSurveysPage> {
                               ? () {
                                   context.read<SurveyBloc>().add(
                                     SendPendingSubmissions(
-                                      surveyId!,
+                                      surveyId,
                                       selectedCreatedAtIso: _selected.toList(),
                                     ),
                                   );
@@ -534,7 +534,7 @@ class _RegisteredSurveysPageState extends State<RegisteredSurveysPage> {
                                     const Icon(Icons.sync, size: 16),
                                     const SizedBox(width: 6),
                                     Text(
-                                      'Sync (${_selected.length}/${totalSelectable})',
+                                      'Sync (${_selected.length}/$totalSelectable)',
                                       style: const TextStyle(
                                         fontWeight: FontWeight.bold,
                                       ),
@@ -713,7 +713,7 @@ class _RegisteredSurveysPageState extends State<RegisteredSurveysPage> {
             text,
             style: TextStyle(
               color: color,
-              fontSize: 10,
+              fontSize: 12,
               fontWeight: FontWeight.bold,
             ),
           ),

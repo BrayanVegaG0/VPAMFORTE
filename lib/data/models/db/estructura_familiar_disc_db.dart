@@ -62,8 +62,10 @@ class EstructuraFamiliarDiscDb {
       identidadGenero: identidadGenero ?? this.identidadGenero,
       idTieneDiscapacidad: idTieneDiscapacidad ?? this.idTieneDiscapacidad,
       idTipoDiscapacidad: idTipoDiscapacidad ?? this.idTipoDiscapacidad,
-      porcentajeDiscapacidad: porcentajeDiscapacidad ?? this.porcentajeDiscapacidad,
-      enfermedadCatastrofica: enfermedadCatastrofica ?? this.enfermedadCatastrofica,
+      porcentajeDiscapacidad:
+          porcentajeDiscapacidad ?? this.porcentajeDiscapacidad,
+      enfermedadCatastrofica:
+          enfermedadCatastrofica ?? this.enfermedadCatastrofica,
       idEtapaGestacional: idEtapaGestacional ?? this.idEtapaGestacional,
       idMenorTrabaja: idMenorTrabaja ?? this.idMenorTrabaja,
       idParentesco: idParentesco ?? this.idParentesco,
@@ -92,25 +94,27 @@ class EstructuraFamiliarDiscDb {
 
   /// Para leer desde DB
   factory EstructuraFamiliarDiscDb.fromMap(Map<String, dynamic> map) {
-    int? _asInt(dynamic v) => (v is num) ? v.toInt() : int.tryParse('${v ?? ''}');
-    double? _asDouble(dynamic v) => (v is num) ? v.toDouble() : double.tryParse('${v ?? ''}');
-    String? _asString(dynamic v) => (v == null) ? null : v.toString();
+    int? asInt(dynamic v) =>
+        (v is num) ? v.toInt() : int.tryParse('${v ?? ''}');
+    double? asDouble(dynamic v) =>
+        (v is num) ? v.toDouble() : double.tryParse('${v ?? ''}');
+    String? asString(dynamic v) => (v == null) ? null : v.toString();
 
     return EstructuraFamiliarDiscDb(
-      idEstFamiliarDisc: _asInt(map['id_est_familiar_disc']),
+      idEstFamiliarDisc: asInt(map['id_est_familiar_disc']),
       cedula: (map['cedula'] ?? '').toString(),
       nombresApellidos: (map['nombres_apellidos'] ?? '').toString(),
-      edad: _asInt(map['edad']) ?? 0,
-      identidadGenero: _asString(map['identidad_genero']),
-      idTieneDiscapacidad: _asString(map['id_tiene_discapacidad']),
-      idTipoDiscapacidad: _asString(map['id_tipo_discapacidad']),
-      porcentajeDiscapacidad: _asInt(map['porcentaje_discapacidad']),
-      enfermedadCatastrofica: _asString(map['enfermedad_catastrofica']),
-      idEtapaGestacional: _asString(map['id_etapa_gestacional']),
-      idMenorTrabaja: _asString(map['id_menor_trabaja']),
-      idParentesco: _asString(map['idParentesco']),
-      idGeneraIngresos: _asString(map['id_genera_ingresos']),
-      generaIngresosCuanto: _asDouble(map['genera_ingresos_cuanto']),
+      edad: asInt(map['edad']) ?? 0,
+      identidadGenero: asString(map['identidad_genero']),
+      idTieneDiscapacidad: asString(map['id_tiene_discapacidad']),
+      idTipoDiscapacidad: asString(map['id_tipo_discapacidad']),
+      porcentajeDiscapacidad: asInt(map['porcentaje_discapacidad']),
+      enfermedadCatastrofica: asString(map['enfermedad_catastrofica']),
+      idEtapaGestacional: asString(map['id_etapa_gestacional']),
+      idMenorTrabaja: asString(map['id_menor_trabaja']),
+      idParentesco: asString(map['idParentesco']),
+      idGeneraIngresos: asString(map['id_genera_ingresos']),
+      generaIngresosCuanto: asDouble(map['genera_ingresos_cuanto']),
     );
   }
 }

@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import '../../../models/db/ficha_adulto_mayor_disc_db.dart';
 
 class FichaSoapSerializer {
@@ -602,7 +600,6 @@ class FichaSoapSerializer {
       _t('idNormasEspeciales', h.idNormasEspeciales),
       _t('idRutinaCotidiana', h.idRutinaCotidiana),
       _t('idProblemasHabituales', h.idProblemasHabituales),
-
     ].where((e) => e.isNotEmpty).join('\n');
     return _wrapIfHasBusinessFields('baremo', inner);
   }

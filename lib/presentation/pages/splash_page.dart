@@ -38,10 +38,14 @@ class _SplashContent extends StatelessWidget {
         Image(
           image: AssetImage('assets/images/icono.png'),
           width: 180,
-          errorBuilder: (_, __, ___) => Icon(Icons.account_balance, size: 120),
+          semanticLabel: 'Logo de la aplicación VPAMFORTE',
+          errorBuilder: (_, _, _) => Icon(Icons.account_balance, size: 120),
         ),
         SizedBox(height: 32),
-        CircularProgressIndicator(),
+        Semantics(
+          label: 'Cargando aplicación',
+          child: CircularProgressIndicator(),
+        ),
       ],
     );
   }

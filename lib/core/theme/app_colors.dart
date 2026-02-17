@@ -94,4 +94,16 @@ class AppColors {
 
   /// Sombras sutiles
   static const Color shadow = Color(0x1A000000);
+
+  // ========================================
+  // ACCESIBILIDAD WCAG AA
+  // ========================================
+
+  /// Texto sobre primary en SnackBars — blanco (ratio 4.8:1 sobre primary)
+  /// Reemplaza `accent` (#E6C99A, ratio 3.2:1) que no cumple WCAG AA
+  static const Color snackBarText = Colors.white;
+
+  /// Texto grey accesible — (#555555) ratio ≈ 7:1 sobre blanco
+  /// Reemplaza Colors.grey y Colors.grey[400] que no cumplen 4.5:1
+  static const Color textGreyAccessible = Color(0xFF555555);
 }

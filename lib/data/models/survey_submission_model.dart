@@ -24,20 +24,24 @@ class SurveySubmissionModel extends SurveySubmission {
   factory SurveySubmissionModel.fromJson(Map<String, dynamic> json) {
     final rawStatus = (json['status'] ?? 'pending').toString();
     final parsedStatus = SubmissionStatus.values.firstWhere(
-          (e) => e.name == rawStatus,
+      (e) => e.name == rawStatus,
       orElse: () => SubmissionStatus.pending,
     );
 
     // ✅ answers robusto
     final rawAnswers = json['answers'];
     final answers = (rawAnswers is Map)
-        ? Map<String, dynamic>.from(rawAnswers as Map)
+        ? Map<String, dynamic>.from(rawAnswers)
         : <String, dynamic>{};
 
     return SurveySubmissionModel(
       surveyId: (json['surveyId'] ?? '').toString(),
-      createdAt: DateTime.tryParse((json['createdAt'] ?? '').toString()) ?? DateTime.now(),
-      updatedAt: DateTime.tryParse((json['updatedAt'] ?? '').toString()) ?? DateTime.now(),
+      createdAt:
+          DateTime.tryParse((json['createdAt'] ?? '').toString()) ??
+          DateTime.now(),
+      updatedAt:
+          DateTime.tryParse((json['updatedAt'] ?? '').toString()) ??
+          DateTime.now(),
       answers: answers,
       status: parsedStatus,
       attempts: (json['attempts'] as num?)?.toInt() ?? 0,

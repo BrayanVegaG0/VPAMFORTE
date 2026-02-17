@@ -111,7 +111,7 @@ class AppDrawer extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: Text(
                 'v1.3.4',
-                style: TextStyle(color: Colors.grey[400], fontSize: 12),
+                style: TextStyle(color: Colors.grey[700], fontSize: 12),
               ),
             ),
           ],
@@ -206,7 +206,7 @@ class _DrawerItem extends StatelessWidget {
       ),
       subtitle: Text(
         subtitle,
-        style: const TextStyle(fontSize: 12, color: Colors.grey),
+        style: const TextStyle(fontSize: 12, color: AppColors.textGreyAccessible),
       ),
       onTap: onTap,
     );

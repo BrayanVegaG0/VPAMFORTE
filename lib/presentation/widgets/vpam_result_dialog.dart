@@ -4,7 +4,7 @@ import 'package:ficha_vulnerabilidad/domain/entities/response_vpam.dart';
 class VpamResultDialog extends StatelessWidget {
   final ResponseVPAM result;
 
-  const VpamResultDialog({Key? key, required this.result}) : super(key: key);
+  const VpamResultDialog({super.key, required this.result});
 
   @override
   Widget build(BuildContext context) {

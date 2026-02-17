@@ -267,7 +267,7 @@ class _UsuarioConsentimientoPageState extends State<UsuarioConsentimientoPage>
                       content: Text(
                         'Debe aceptar el tratamiento de datos personales para continuar con la encuesta.',
                         style: TextStyle(
-                          color: AppColors.accent,
+                          color: Colors.white,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

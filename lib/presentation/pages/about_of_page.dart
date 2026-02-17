@@ -48,7 +48,7 @@ class AboutOfPage extends StatelessWidget {
                               'En esta parte se conoce sobre la versión de la aplicación.',
                               style: TextStyle(
                                 fontSize: 14,
-                                color: AppColors.textPrimary.withOpacity(0.8),
+                                color: AppColors.textPrimary,
                                 height: 1.4,
                               ),
                             ),
@@ -164,7 +164,7 @@ class AboutOfPage extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 12,
-                          color: AppColors.textSecondary.withOpacity(0.7),
+                          color: AppColors.textSecondary,
                         ),
                       ),
                     ],

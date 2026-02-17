@@ -98,7 +98,7 @@ class SurveyRepositoryImpl implements SurveyRepository {
               )
               .toList();
 
-    void _logXml(String xml) {
+    void logXml(String xml) {
       if (kReleaseMode) return;
       debugPrint('=== SOAP XML (ENVELOPE) ===');
       debugPrint(xml);
@@ -127,7 +127,7 @@ class SurveyRepositoryImpl implements SurveyRepository {
 
         final fichaDb = fichaMapper.map(updatedAttempt.answers);
         final xml = soapSerializer.buildEnvelope(fichaDb);
-        _logXml(xml);
+        logXml(xml);
 
         final result = await soap.insertFichaAdultoMayorDiscXml(
           credentials: SoapCredentials(

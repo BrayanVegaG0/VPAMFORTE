@@ -231,7 +231,7 @@ class _AppState extends State<App> {
             fillColor: Colors.white, // Inputs blancos sobre fondo beige
             // Texto oscuro en los inputs
             labelStyle: const TextStyle(color: AppColors.textMain),
-            hintStyle: TextStyle(color: AppColors.textSoft.withOpacity(0.6)),
+            hintStyle: const TextStyle(color: AppColors.textSoft),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
               borderSide: BorderSide(color: AppColors.primary.withOpacity(0.3)),

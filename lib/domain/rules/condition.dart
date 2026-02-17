@@ -62,8 +62,9 @@ class ContainsCondition extends Condition {
   bool evaluate(Map<String, dynamic> answers) {
     final answer = answers[questionId];
     if (answer is List) {
-      if (value is String)
+      if (value is String) {
         return answer.map((e) => e.toString()).contains(value);
+      }
       return answer.contains(value);
     }
     // Si la respuesta es un string separado por comas (por si acaso)

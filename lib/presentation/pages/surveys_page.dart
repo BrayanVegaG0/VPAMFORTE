@@ -149,7 +149,7 @@ class _SurveysPageState extends State<SurveysPage> {
 
       final labels = ids.map((id) {
         final opt = q.options.where((o) => o.id == id).toList();
-        return opt.isNotEmpty ? '${id}:${opt.first.label}' : id;
+        return opt.isNotEmpty ? '$id:${opt.first.label}' : id;
       }).toList();
 
       return '[${labels.join(', ')}]';
@@ -171,8 +171,9 @@ class _SurveysPageState extends State<SurveysPage> {
 
   String _formatRawAnswer(dynamic answer) {
     if (answer == null) return 'null';
-    if (answer is List)
+    if (answer is List) {
       return jsonEncode(answer.map((e) => e.toString()).toList());
+    }
     return answer.toString();
   }
 
@@ -267,7 +268,7 @@ class _SurveysPageState extends State<SurveysPage> {
                     child: Text(
                       timeText,
                       style: TextStyle(
-                        fontSize: 11,
+                        fontSize: 12,
                         color: Colors.green[300],
                         fontWeight: FontWeight.normal,
                       ),
@@ -333,10 +334,12 @@ class _SurveysPageState extends State<SurveysPage> {
           if (prev.message != curr.message) return true;
           if (prev.status != curr.status) return true;
           if (prev.pageIndex != curr.pageIndex) return true;
-          if (prev.firstInvalidQuestionId != curr.firstInvalidQuestionId)
+          if (prev.firstInvalidQuestionId != curr.firstInvalidQuestionId) {
             return true;
-          if (prev.showValidationErrors != curr.showValidationErrors)
+          }
+          if (prev.showValidationErrors != curr.showValidationErrors) {
             return true;
+          }
           return false;
         },
         listener: (context, state) {
@@ -346,7 +349,7 @@ class _SurveysPageState extends State<SurveysPage> {
                 content: Text(
                   state.message!,
                   style: const TextStyle(
-                    color: AppColors.accent,
+                    color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -380,6 +383,8 @@ class _SurveysPageState extends State<SurveysPage> {
             _questionKeys.clear();
             WidgetsBinding.instance.addPostFrameCallback((_) {
               if (_scroll.hasClients) _scroll.jumpTo(0);
+              // WCAG 2.4.3: Resetear foco al cambiar de sección
+              FocusScope.of(context).unfocus();
             });
           }
 
@@ -467,12 +472,15 @@ class _SurveysPageState extends State<SurveysPage> {
                                 ? currentIndexInVisible + 1
                                 : state.pageIndex + 1;
 
-                            return Text(
-                              '${section.title} ($displayIndex de ${visibleSections.length})',
-                              style: const TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: AppColors.primary,
+                            return Semantics(
+                              header: true,
+                              child: Text(
+                                '${section.title} ($displayIndex de ${visibleSections.length})',
+                                style: const TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: AppColors.primary,
+                                ),
                               ),
                             );
                           },
@@ -513,11 +521,11 @@ class _SurveysPageState extends State<SurveysPage> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    const Text(
+                                    Text(
                                       'Progreso general',
                                       style: TextStyle(
                                         fontSize: 14,
-                                        color: Colors.grey,
+                                        color: Colors.grey[700],
                                       ),
                                     ),
                                     Text(
@@ -548,7 +556,7 @@ class _SurveysPageState extends State<SurveysPage> {
                                   '$percentage% completado',
                                   style: TextStyle(
                                     fontSize: 12,
-                                    color: Colors.grey[600],
+                                    color: Colors.grey[700],
                                   ),
                                 ),
                               ],
@@ -975,7 +983,7 @@ class _QuestionInput extends StatelessWidget {
             }
 
             return DropdownButtonFormField<String>(
-              value: _asDropdownValue(answer),
+              initialValue: _asDropdownValue(answer),
               isExpanded: true,
               items: question.options
                   .map(
@@ -1094,7 +1102,7 @@ class _QuestionInput extends StatelessWidget {
                 child: Text(
                   value ?? 'Seleccione una fecha',
                   style: TextStyle(
-                    color: value == null ? Colors.grey : Colors.black,
+                    color: value == null ? Colors.grey[700] : Colors.black,
                   ),
                 ),
               ),
@@ -1439,7 +1447,7 @@ class _SurveyDebugSheetState extends State<_SurveyDebugSheet> {
           if (_source == _DebugSource.pending && _pending.isNotEmpty) ...[
             const SizedBox(height: 8),
             DropdownButtonFormField<int>(
-              value: _pendingIndex.clamp(0, _pending.length - 1),
+              initialValue: _pendingIndex.clamp(0, _pending.length - 1),
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'Registro pending (createdAt)',
@@ -1496,7 +1504,7 @@ class _SurveyDebugSheetState extends State<_SurveyDebugSheet> {
           Expanded(
             child: ListView.separated(
               itemCount: filtered.length,
-              separatorBuilder: (_, __) => const Divider(height: 10),
+              separatorBuilder: (_, _) => const Divider(height: 10),
               itemBuilder: (ctx, i) {
                 final qu = filtered[i];
                 final ans = _activeAnswers[qu.id];

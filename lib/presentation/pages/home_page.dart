@@ -129,6 +129,7 @@ class _HomePageState extends State<HomePage> {
                                       imagePath:
                                           'assets/images/NuevaEncuesta.png',
                                       width: topBtnW,
+                                      semanticLabel: 'Nueva Encuesta',
                                       onTap: () => Navigator.pushNamed(
                                         context,
                                         '/usuario_consentimiento',
@@ -138,6 +139,7 @@ class _HomePageState extends State<HomePage> {
                                       imagePath:
                                           'assets/images/EncuestasRegistradas.png',
                                       width: topBtnW,
+                                      semanticLabel: 'Encuestas Registradas',
                                       onTap: () => Navigator.pushNamed(
                                         context,
                                         '/registered_surveys',
@@ -152,6 +154,7 @@ class _HomePageState extends State<HomePage> {
                                 _ImageOnlyButton(
                                   imagePath: 'assets/images/AcercaDe.png',
                                   width: aboutW,
+                                  semanticLabel: 'Acerca de la aplicación',
                                   onTap: () =>
                                       Navigator.pushNamed(context, '/about_of'),
                                 ),
@@ -182,7 +185,7 @@ class _HomePageState extends State<HomePage> {
                                     Text(
                                       '© 2026 Ministerio de Desarrollo Humano',
                                       style: TextStyle(
-                                        color: Colors.grey,
+                                        color: Color(0xFF616161),
                                         fontSize: 12,
                                       ),
                                     ),
@@ -220,19 +223,30 @@ class _ImageOnlyButton extends StatelessWidget {
   final String imagePath;
   final double width;
   final VoidCallback onTap;
+  final String semanticLabel;
 
   const _ImageOnlyButton({
     required this.imagePath,
     required this.width,
     required this.onTap,
+    required this.semanticLabel,
   });
 
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: InkWell(
-        onTap: onTap,
-        child: Image.asset(imagePath, width: width, fit: BoxFit.contain),
+      child: Semantics(
+        button: true,
+        label: semanticLabel,
+        child: InkWell(
+          onTap: onTap,
+          child: Image.asset(
+            imagePath,
+            width: width,
+            fit: BoxFit.contain,
+            semanticLabel: semanticLabel,
+          ),
+        ),
       ),
     );
   }

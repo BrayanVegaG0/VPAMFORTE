@@ -53,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
                   'Bienvenido: ${state.user.nombre}',
                   // Letras amarillas
                   style: const TextStyle(
-                    color: AppColors.accent,
+                    color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -109,7 +109,7 @@ class _LoginPageState extends State<LoginPage> {
                               height: 4,
                               width: 40,
                               decoration: BoxDecoration(
-                                color: AppColors.accent,
+                                color: Colors.white,
                                 borderRadius: BorderRadius.circular(2),
                               ),
                             ),
@@ -119,7 +119,7 @@ class _LoginPageState extends State<LoginPage> {
                               style: TextStyle(
                                 fontSize: 26, // Reducido de 32
                                 fontWeight: FontWeight.bold,
-                                color: AppColors.accent,
+                                color: Colors.white,
                                 fontStyle: FontStyle.italic,
                               ),
                             ),
@@ -176,8 +176,9 @@ class _LoginPageState extends State<LoginPage> {
                                 validator: (v) {
                                   final value = (v ?? '').trim();
                                   if (value.isEmpty) return 'Ingresa tu cédula';
-                                  if (value.length < 8)
-                                    return 'Cédula inválida';
+                                  if (value.length < 8) {
+                                    return 'Ingrese su cédula (mín. 8 dígitos)';
+                                  }
                                   return null;
                                 },
                               ),
@@ -210,8 +211,9 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                                 validator: (v) {
                                   final value = v ?? '';
-                                  if (value.isEmpty)
+                                  if (value.isEmpty) {
                                     return 'Ingresa tu contraseña';
+                                  }
                                   return null;
                                 },
                               ),
@@ -249,7 +251,7 @@ class _LoginPageState extends State<LoginPage> {
                               const Text(
                                 'Ingrese para enviar la encuesta',
                                 style: TextStyle(
-                                  fontSize: 10, // Reducido de 12
+                                  fontSize: 12,
                                   color: AppColors.textSecondary,
                                 ),
                                 textAlign: TextAlign.center,
